@@ -202,6 +202,65 @@ only calls Salda "highly alkaline", had briefly dropped it to third: the
 score is sensitive to how a single judged value is set, which is a reason to
 confirm each one against its source.
 
+### Sixth run: a narrower list and lakes from other countries, 2026-11-14
+
+The list of places changed, at the team's request. The earlier runs above
+describe the list as it was then.
+
+- **Removed:** 111 lakes in Türkiye that had no evidence entered and lie more
+  than 150 km from Lake Salda. The 23 Turkish lakes with evidence stay, and
+  so do 15 unresearched lakes around Salda. They remain in the git history of
+  `config.json`.
+- **Added:** 24 lakes from other countries, with coordinates from Wikidata:
+  carbonate and microbialite lakes (Alchichica, Bacalar, Pavilion, Mono,
+  Great Salt Lake, Clifton, Thetis), impact-crater lakes (Lonar, Bosumtwi,
+  Pingualuit, Manicouagan, El'gygytgyn, Tswaing, Karakul), soda lakes
+  (Magadi, Natron, Bogoria, Nakuru, Abert) and five large lakes expected to
+  be poor analogs (Baikal, Titicaca, Tahoe, Victoria, Superior).
+- **Evidence for the new lakes** was entered for 17 of them from search
+  summaries. Every entry is marked "full text not opened" and still needs a
+  person to read the source. Seven have nothing entered.
+
+That makes 70 places: 38 in Türkiye, 24 elsewhere, 8 known analogs. Evidence
+is entered for 40 of the 62 lakes.
+
+| Rank | Place | Score | Variables |
+|------|-------|-------|-----------|
+| 1 | Lake Salda | 0.741 | 7 of 8 |
+| 2 | Lake Van | 0.693 | 7 of 8 |
+| 3 | Lake Alchichica, Mexico | 0.689 | 7 of 8 |
+| 4 | Lake Erçek | 0.687 | 5 of 8 |
+| 5 | Mono Lake, USA | 0.657 | 6 of 8 |
+| 6 | Lake Burdur | 0.655 | 5 of 8 |
+
+Lake Alchichica is a closed-basin crater lake whose microbialites are mainly
+hydromagnesite, the mineral of Salda's shore, so its place near the top is
+what the method should produce.
+
+The tests, re-run on the new list:
+
+- **Random weights.** Salda is first in 69% of 5,000 draws and in the top
+  five in 99%. Top five: Erçek 92%, Van 83%, Alchichica 65%, Mono Lake and
+  Burdur 48% each.
+- **Leave one variable out.** Salda, Van and Erçek are in the top five in all
+  eight cases; Alchichica in six.
+- **Equal evidence** (19 places with at least five variables): Salda, Van,
+  Alchichica, Erçek, Mono Lake, Burdur, Magadi, Natron.
+- **Second elevation model.** EU-DEM covers Europe and Türkiye only, so the
+  check now runs on the 38 Turkish lakes: correlation 0.988, rank
+  correlation 0.996, mean difference 0.13°, median 0.02°, largest 2.66°. The
+  lakes from other countries have no second slope measurement.
+
+Two things to keep in mind when comparing with the earlier runs. Every score
+moved slightly, because each measured variable is scaled by its spread across
+all places and the new list is wider in climate (it now includes Arctic and
+tropical lakes). And several new lakes rank high on climate alone: Lake
+Karakul is 11th on three variables because it is cold and high, not because
+anything is known about its water or minerals.
+
+`site_cards.py` now looks up the nearest airport and large town around a site
+when it is outside Türkiye. Before, it searched Turkish airports only.
+
 Limits to state wherever these results are shown:
 
 - Lake Van is not on NASA's Planetary Analog Explorer list, but it is not

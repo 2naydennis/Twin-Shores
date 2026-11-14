@@ -205,6 +205,10 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Project renamed Twin Shores (name chosen by the team from suggestions by Claude); form answers in `SUBMISSION.md` and the slide text rewritten by Claude at the team's request |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code), in Kranimo's session | Additions to the 3D page: evidence points read from `data/analogs.json` (`web/rover/game.js`); the ancient-Jezero view, a simulated lake filled to -2,430 m on the MOLA terrain with invented microbial mounds, labelled as a simulation; a minimap (`web/rover/minimap.js`); and a falling-lake scenario for Lake Salda, labelled as a scenario and not a forecast, on an assumed lake bed. The ideas for these views were the team's; the water levels, the assumed lake bed and the wording of the notices came from the AI and need the team's review |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code), in Kranimo's session | Candidate list narrowed to 70 places at the team's request: 111 lakes in Türkiye with no evidence entered and more than 150 km from Lake Salda removed, 24 lakes from other countries added with coordinates from Wikidata. The removal rule and the four groups of lakes were the team's choice from options the AI proposed; the individual lakes were picked by the AI. Evidence for 17 of the new lakes was proposed by the AI from search summaries, each marked `proposed_by` AI and "full text not opened". `pipeline/site_cards.py` changed to look up airports and towns near sites outside Türkiye; scoring, sensitivity tests, site cards and slope cross-check re-run |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

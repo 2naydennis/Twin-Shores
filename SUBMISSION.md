@@ -393,7 +393,7 @@ Partner agencies worth checking for this project:
 
 | Resource | Type (data / code / image / text) | Source | Licence or permission |
 |----------|-----------------------------------|--------|-----------------------|
-| **EU-DEM v1.1, Copernicus Land Monitoring Service (European Union and ESA)** | data: second elevation model, used to re-measure terrain slope at all 149 Türkiye lakes and check the NASA/METI values. **Space agency partner data (ESA).** Read through the OpenTopoData API. Output: `data/slope_crosscheck.json` | https://land.copernicus.eu/en/products/products-that-are-no-longer-disseminated-on-the-clms-website | Free and open, attribution to Copernicus |
+| **EU-DEM v1.1, Copernicus Land Monitoring Service (European Union and ESA)** | data: second elevation model, used to re-measure terrain slope at the 38 lakes in Türkiye and check the NASA/METI values. **Space agency partner data (ESA).** Read through the OpenTopoData API. Output: `data/slope_crosscheck.json` | https://land.copernicus.eu/en/products/products-that-are-no-longer-disseminated-on-the-clms-website | Free and open, attribution to Copernicus |
 | ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: default satellite background of the website map. **Space agency partner data (ESA)** | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
 | NASA GIBS Blue Marble | image: optional base map on the website (also NASA data) | https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api | Free |
 | OpenStreetMap | image: default base map tiles on the website | https://www.openstreetmap.org/copyright | ODbL, attribution required |
