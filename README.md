@@ -3,6 +3,10 @@
 NASA Space Apps Challenge project: find places on Earth that resemble a Mars
 landing site, and show why they match.
 
+**Live site:** https://2naydennis.github.io/analog-finder/ ·
+**Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
+**Slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
+
 ## Scope: Mars, not the Moon
 
 The challenge covers both Moon base locations and Mars. This project covers

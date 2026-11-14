@@ -107,7 +107,10 @@ site; it must be hosted elsewhere.
 - [ ] Opened the link in a private browser window: no login, no permission
       request
 
-Link: once the repo is public,
+Link (public since 2026-11-14, opened without login and returned the PDF):
+https://2naydennis.github.io/analog-finder/demo/slides.pdf
+
+Same file on GitHub:
 https://github.com/2naydennis/analog-finder/blob/main/demo/slides.pdf
 
 A 7-slide AI draft exists: `demo/slides.pdf`, built by
@@ -146,7 +149,15 @@ could become (0:20 to 0:30).
       FortiGuard Web Filter Classification request, so judges' networks do
       not block it (see the guide)
 
-Link: https://github.com/2naydennis/analog-finder (private until switched)
+Links (public since 2026-11-14, each opened without login on that day):
+
+- Live website: https://2naydennis.github.io/analog-finder/
+- Rover drive: https://2naydennis.github.io/analog-finder/web/rover.html
+- Code and data: https://github.com/2naydennis/analog-finder
+
+The website is served by GitHub Pages from the `main` branch, so every push
+updates it within a minute or two. Use the live website as the "Link to Final
+Project"; the README links to the code.
 
 Images (JPG, PNG, GIF up to 10 MB) can be uploaded straight onto the project
 page. Videos and documents cannot; link to them.
