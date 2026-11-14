@@ -370,7 +370,11 @@ Partner agencies worth checking for this project:
 
 | Resource | Type (data / code / image / text) | Source | Licence or permission |
 |----------|-----------------------------------|--------|-----------------------|
-| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: Earth map imagery on the website. **Space agency partner data (ESA).** Kranimo to confirm the site uses it | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
+| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: Earth map imagery. **Space agency partner data (ESA).** Not used by the website in `web/` as of 2026-11-14; list it only if it is added | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
+| NASA GIBS Blue Marble | image: optional base map on the website (also NASA data) | https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api | Free |
+| OpenStreetMap | image: default base map tiles on the website | https://www.openstreetmap.org/copyright | ODbL, attribution required |
+| Leaflet 1.9.4 | code: map library | https://leafletjs.com/ | BSD 2-Clause |
+| three.js 0.160.0 | code: 3D library for the rover drive | https://threejs.org/ | MIT |
 | Japan's METI, with NASA: ASTER GDEM | data: Earth terrain slope (also listed under NASA data) | https://www.earthdata.nasa.gov/data/instruments/aster | Free |
 | Wikidata | data: list of natural lakes in Türkiye with coordinates | https://www.wikidata.org/ | CC0 |
 | Published papers and reports on each lake | text: evidence for pH, minerals, water body, sediments. Every link is in `pipeline/config.json` | see config | Cited, not copied |

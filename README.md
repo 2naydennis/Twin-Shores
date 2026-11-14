@@ -130,6 +130,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Web research and proposed matches for eight more lakes (salty and alkaline lakes outside the top 15); the "Scope" and "Results so far" text above; draft answers in `SUBMISSION.md`; the slide deck in `demo/` and the script that builds it. All drafts are for the team to rewrite in their own words |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code), in Kranimo's session | The website in `web/`: the map page (`index.html`, `map/app.js`, `map/style.css`), the rover drive (`rover.html`, the files in `rover/`) and `web/tools/build_terrain.py`. The terrain heightmaps are NASA data fetched by that script. Details in `web/README.md` |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources
@@ -155,3 +157,13 @@ In use (fetched by `pipeline/fetch_nasa.py`, stored in `data/nasa/`):
 - NASA SRTM 1 arc second, tile N37E029, downloaded from AWS Terrain Tiles:
   Lake Salda terrain profile
 - NASA Planetary Analog Explorer: starting list of sites and targets
+- NASA/METI ASTER GDEM, through the OpenTopoData API: slope at each Earth
+  candidate
+- NSSDCA Mars Fact Sheet: Mars temperature and pressure
+
+In use by the website (`web/`):
+
+- NASA SRTM tile N37E029 and MGS MOLA MEGDR MEGT44N000HB: rover-drive terrain
+- NASA GIBS Blue Marble: optional base map
+- OpenStreetMap: default base map tiles
+- Leaflet 1.9.4 and three.js 0.160.0: map and 3D libraries
