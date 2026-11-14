@@ -8,6 +8,33 @@ landing site, and show why they match.
 **Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
 **Demo slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
 
+## Run it yourself
+
+Everything runs with Python 3 and a web browser; no installs are needed for
+the data pipeline or the website.
+
+Open the website locally (from the repo root), then visit
+http://localhost:8000/web/ :
+
+```bash
+python3 -m http.server 8000
+```
+
+Re-run the analysis, in this order:
+
+```bash
+python3 pipeline/fetch_nasa.py        # NASA POWER, MOLA, LOLA and SRTM samples into data/nasa/
+python3 pipeline/score.py             # scores every candidate against Jezero into data/analogs.json
+python3 pipeline/sensitivity.py       # random-weights, leave-one-out and equal-evidence tests
+python3 pipeline/crosscheck_slope.py  # slope re-measured with Copernicus EU-DEM
+python3 pipeline/site_cards.py        # field-test cards and the Salda vs Jezero profiles
+```
+
+`pipeline/find_lakes.py` re-imports the lake list from Wikidata. The 3D
+terrain is rebuilt with `web/tools/build_terrain.py`, which needs numpy and
+Pillow. The slides are rebuilt with `demo/build_slides.py` and exported to
+PDF from a browser.
+
 ## Scope: Mars, not the Moon
 
 The challenge covers both Moon base locations and Mars. This project covers

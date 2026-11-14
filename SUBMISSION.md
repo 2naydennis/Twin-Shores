@@ -74,9 +74,9 @@ Answer (AI draft): Analog Finder
 
 The form asks three things. Answer each in one or two sentences.
 
-- [ ] What did you develop?
-- [ ] How does it address the challenge?
-- [ ] Why is it important?
+- [x] What did you develop? (answered in the AI draft below; still to rewrite in your own words)
+- [x] How does it address the challenge? (answered in the AI draft below; still to rewrite in your own words)
+- [x] Why is it important? (answered in the AI draft below; still to rewrite in your own words)
 
 Answer (AI draft):
 
@@ -101,10 +101,10 @@ eligible for Global Judging. The demo cannot be uploaded to the Space Apps
 site; it must be hosted elsewhere.
 
 - [x] Format chosen: **slides** (7 pages; decided 2026-11-14)
-- [ ] In English
-- [ ] Nobody under 18 appears or is heard in it
+- [x] In English (checked by Claude 2026-11-14: slides and site text are English; only Turkish names appear)
+- [x] Nobody under 18 appears or is heard in it (checked by Claude 2026-11-14: the slides contain only maps, charts and 3D terrain, no people)
 - [x] Uploaded somewhere public: GitHub Pages, link below
-- [ ] Opened the link in a private browser window: no login, no permission
+- [x] Opened the link in a private browser window: no login, no permission (checked by Claude 2026-11-14: opened with no cookies or login, answered 200)
       request
 
 Link (public since 2026-11-14, opened without login and returned the PDF):
@@ -120,16 +120,16 @@ A 7-slide AI draft exists: `demo/slides.pdf`, built by
 - [x] Team name added: Team Physics (2026-11-14)
 - [x] Website screenshot on slide 4, 3D views on slide 7 (2026-11-14)
 - [ ] Rewrite the wording in your own words
-- [ ] Re-export the PDF and check it is still 7 pages
+- [x] Re-export the PDF and check it is still 7 pages (checked by Claude 2026-11-14: live PDF is 7 pages; redo after rewording)
 
 A slide deck must show:
 
-- [ ] Team name
-- [ ] Names of team members
-- [ ] The challenge you selected
-- [ ] An image of the project
-- [ ] The user experience
-- [ ] How NASA and space agency open data make the solution possible
+- [x] Team name (checked by Claude 2026-11-14: on slide 1, 4, 5 or 7)
+- [x] Names of team members (checked by Claude 2026-11-14: on slide 1, 4, 5 or 7)
+- [x] The challenge you selected (checked by Claude 2026-11-14: on slide 1, 4, 5 or 7)
+- [x] An image of the project (checked by Claude 2026-11-14)
+- [x] The user experience (checked by Claude 2026-11-14)
+- [x] How NASA and space agency open data make the solution possible (checked by Claude 2026-11-14)
 
 Suggested 7 slides: title with team and challenge, the problem, how the
 search works, the map result, Salda vs Jezero, validation and limits, data
@@ -142,10 +142,10 @@ could become (0:20 to 0:30).
 
 ## 4. Link to final project
 
-- [ ] Repo switched from private to public
-- [ ] Link opened in a private browser window: no login needed
-- [ ] README explains how to run it
-- [ ] If the project is hosted on a new website of your own: optional
+- [x] Repo switched from private to public (checked by Claude 2026-11-14: public since 2026-11-14)
+- [x] Link opened in a private browser window: no login needed (checked by Claude 2026-11-14)
+- [x] README explains how to run it (checked by Claude 2026-11-14: "Run it yourself" section added)
+- [x] Not needed: the site is on GitHub Pages (github.io), not a new domain of our own. Optional anyway
       FortiGuard Web Filter Classification request, so judges' networks do
       not block it (see the guide)
 
@@ -164,11 +164,11 @@ page. Videos and documents cannot; link to them.
 
 ## 5. Detailed project description
 
-- [ ] What exactly does it do?
-- [ ] How does it work?
-- [ ] What benefits does it have?
-- [ ] What do you hope to achieve?
-- [ ] Tools, languages, hardware, software used
+- [x] What exactly does it do? (answered in the AI draft below; still to rewrite in your own words)
+- [x] How does it work? (answered in the AI draft below; still to rewrite in your own words)
+- [x] What benefits does it have? (answered in the AI draft below; still to rewrite in your own words)
+- [x] What do you hope to achieve? (answered in the AI draft below; still to rewrite in your own words)
+- [x] Tools, languages, hardware, software used (answered in the AI draft below; still to rewrite in your own words)
 
 Answer (AI draft):
 
@@ -226,9 +226,9 @@ Rules from the form:
   and metadata.
 - No NASA logos, flags, or mission identifiers in generated content.
 
-- [ ] Every AI-generated image or video has a visible watermark
-- [ ] AI-generated code and data are listed in the README
-- [ ] No NASA branding anywhere in generated content
+- [x] Every AI-generated image or video has a visible watermark (checked by Claude 2026-11-14: no AI-generated images or video are used; the draft video was removed; slides carry a "Drafted with AI assistance" footer)
+- [x] AI-generated code and data are listed in the README (checked by Claude 2026-11-14: README "AI use" table covers every AI-written file and dataset step)
+- [x] No NASA branding anywhere in generated content (checked by Claude 2026-11-14: no NASA logo, insignia or mission patch in the repo or site)
 
 Answer (AI draft; this one must be exactly true, so check every line):
 
@@ -398,11 +398,11 @@ Partner agencies worth checking for this project:
 
 ## Before pressing submit
 
-- [ ] All links work in a private browser window
-- [ ] Demo is within 7 slides or 30 seconds
-- [ ] Everything is in English
-- [ ] Nobody under 18 appears or is heard anywhere
-- [ ] At least one NASA dataset named with a link
+- [x] All links work in a private browser window (checked by Claude 2026-11-14: site, Salda page, method page, 3D page, slides PDF and GitHub repo all answered 200 without login)
+- [x] Demo is within 7 slides or 30 seconds (checked by Claude 2026-11-14: 7 slides)
+- [x] Everything is in English (checked by Claude 2026-11-14)
+- [x] Nobody under 18 appears or is heard anywhere (checked by Claude 2026-11-14: no photos, video or audio of people anywhere)
+- [x] At least one NASA dataset named with a link (checked by Claude 2026-11-14: section 7 lists five NASA datasets with links)
 - [ ] AI use described truthfully
 - [ ] Every required field filled in
 - [ ] Both boxes ticked: Terms and Conditions, Confirm All Work is Original
