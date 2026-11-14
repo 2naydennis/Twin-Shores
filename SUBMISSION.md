@@ -117,8 +117,7 @@ A 7-slide AI draft exists: `demo/slides.pdf`, built by
 `demo/build_slides.py` from the scored data. Before using it:
 
 - [x] Member names added (2026-11-14)
-- [ ] Put the team name into `TEAM` at the top of `demo/build_slides.py`,
-      then rebuild (commands in that file)
+- [x] Team name added: Team Physics (2026-11-14)
 - [x] Website screenshot on slide 4, 3D views on slide 7 (2026-11-14)
 - [ ] Rewrite the wording in your own words
 - [ ] Re-export the PDF and check it is still 7 pages

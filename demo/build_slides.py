@@ -16,7 +16,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TEAM = "[TEAM NAME]"
+TEAM = "Team Physics"
 MEMBERS = "Tunay Dennis Diederich, Karan Kaya, Adrina Shakeri Bahador; teacher: Ayşegül Çağlayan"
 COUNTRY = "Türkiye"
 PROJECT = "Analog Finder"
