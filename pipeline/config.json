@@ -211,7 +211,9 @@
       "lon": 43.9244,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q21695023",
-      "wikipedia_articles": 5
+      "wikipedia_articles": 5,
+      "research_note": "No source found for this lake. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Akgöl",
@@ -412,7 +414,9 @@
       "lon": 42.7817,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q55703467",
-      "wikipedia_articles": 1
+      "wikipedia_articles": 1,
+      "research_note": "Unnamed Wikidata entry; not researched.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Gölbaşı Gölü",
@@ -513,7 +517,22 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q421825",
       "wikipedia_articles": 26,
-      "area_km2": 26.3
+      "area_km2": 26.3,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as a soda lake; no pH measurement found. Only source is Wikipedia",
+          "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 0.5,
+          "note": "Excess water drains to the Kura River in the rainy season, so not a strictly closed basin",
+          "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Kaz Gölü",
@@ -568,7 +587,9 @@
       "lon": 37.5598,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q124654403",
-      "wikipedia_articles": 1
+      "wikipedia_articles": 1,
+      "research_note": "Lies in the Hafik-Zara gypsum karst of Sivas, where lakes form in collapsed gypsum; no data found for this lake itself. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Ladik Lake",
@@ -653,7 +674,16 @@
       "lon": 42.9892,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q20470564",
-      "wikipedia_articles": 8
+      "wikipedia_articles": 8,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
+          "source": "https://en.wikipedia.org/wiki/Lake_Arin",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Atar",
@@ -726,7 +756,9 @@
       "lon": 42.6479,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q97217841",
-      "wikipedia_articles": 3
+      "wikipedia_articles": 3,
+      "research_note": "Described as freshwater; no chemistry found. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Beyşehir",
@@ -774,7 +806,9 @@
       "lon": 37.3783,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q49300135",
-      "wikipedia_articles": 1
+      "wikipedia_articles": 1,
+      "research_note": "Lies in the Hafik-Zara gypsum karst of Sivas; no data found for this lake itself. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Büyükçekmece",
@@ -877,7 +911,22 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1366366",
       "wikipedia_articles": 17,
-      "area_km2": 106.2
+      "area_km2": 106.2,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "pH 9.7, salinity 15 ppt, reported in a conference abstract (not a full paper)",
+          "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin east of Lake Van, soda-type water",
+          "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Eymir",
@@ -989,7 +1038,9 @@
       "lon": 42.3001,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6030769",
-      "wikipedia_articles": 7
+      "wikipedia_articles": 7,
+      "research_note": "Described as a freshwater landslide-dam lake; no chemistry found. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Hıdırmenteş",
@@ -1081,7 +1132,9 @@
       "lon": 43.4543,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q17515431",
-      "wikipedia_articles": 5
+      "wikipedia_articles": 5,
+      "research_note": "Sources conflict: the Ramsar sheet calls it freshwater, a Wikipedia-derived page calls it acidic. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Kuş",
@@ -1129,7 +1182,9 @@
       "lon": 43.2611,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q21695305",
-      "wikipedia_articles": 2
+      "wikipedia_articles": 2,
+      "research_note": "Not researched beyond its link to Lake Çıldır by tunnel. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Limni",
@@ -1165,7 +1220,16 @@
       "lon": 42.2934,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q2478029",
-      "wikipedia_articles": 15
+      "wikipedia_articles": 15,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Freshwater, but a water-quality study reports alkaline character with high pH; the value itself was not seen",
+          "source": "https://dergipark.org.tr/en/pub/jaefr/issue/29943/341061",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Palas Tuzla",
@@ -1239,7 +1303,9 @@
       "lon": 32.005,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6111551",
-      "wikipedia_articles": 10
+      "wikipedia_articles": 10,
+      "research_note": "No chemistry found; sources describe a sub-basin of the closed Konya Basin that has largely dried. Nothing entered.",
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Sülüklü",
@@ -1376,7 +1442,34 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q126307",
       "wikipedia_articles": 90,
-      "area_km2": 3755.0
+      "area_km2": 3755.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda lake, pH about 9.7 to 9.8",
+          "source": "https://link.springer.com/article/10.1007/s10498-008-9049-9",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Carbonate microbialites of aragonite and calcite: calcium carbonates, not the magnesium carbonate found at Salda",
+          "source": "https://www.nature.com/articles/349605a0.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 1,
+          "note": "Terminal lake with no outlet; its salinity records past lake-level changes",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5428207",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Tower-like microbialites up to about 40 m high on the lake floor",
+          "source": "https://www.nature.com/articles/349605a0.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Yanyanlı",
@@ -1450,7 +1543,16 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q272986",
       "wikipedia_articles": 25,
-      "area_km2": 120.0
+      "area_km2": 120.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Freshwater lake formed where a lava flow blocked a valley",
+          "source": "https://dergipark.org.tr/en/pub/ase/article/1353730",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
       "name": "Lake Örmeli",
@@ -1535,5 +1637,11 @@
       "wikipedia_articles": 1,
       "area_km2": 3300.0
     }
-  ]
+  ],
+  "_judged_rubric": {
+    "ph": "1 = measured pH of 9 or more (alkaline water of the kind that deposits carbonates). 0.5 = described as a soda or alkaline lake but no measurement found. Left out when unknown. Jezero's ancient lake has no measured pH, so this compares with the conditions inferred from its carbonates, not with a Mars measurement.",
+    "minerals": "1 = magnesium carbonate deposits like those NASA compares with Jezero. 0.5 = other carbonate deposits. Left out when unknown.",
+    "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow or through-flow. Left out when unknown.",
+    "sediments": "1 = microbialites, delta or layered lake deposits documented. Left out when unknown."
+  }
 }

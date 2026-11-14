@@ -93,6 +93,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Wrote `pipeline/find_lakes.py` and ran it and the scoring over 157 places. Searching Türkiye's lakes was the team's choice; taking the full Wikidata list was the AI's suggestion |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Web research on the 15 top-ranked lakes and the judged matches entered in `pipeline/config.json` for six of them, each marked `proposed_by` AI with its source. The rubric for judged variables was written by the AI. The team must check the sources and confirm or change every match |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

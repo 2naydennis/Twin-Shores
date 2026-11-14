@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T10:10:55Z",
+  "generated_at": "2026-11-14T10:13:51Z",
   "produced_by": "pipeline/score.py from pipeline/config.json",
   "features": [
     "temperature",
@@ -146,16 +146,105 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Van",
+      "country": "Türkiye",
+      "lat": 38.6333,
+      "lon": 42.8167,
+      "score": 0.688,
+      "coverage": "7 of 8 variables",
+      "feature_match": {
+        "temperature": 0.142,
+        "pressure": 0.203,
+        "slope": 0.971,
+        "ph": 1,
+        "minerals": 0.5,
+        "water": 1,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 9.92,
+        "pressure": 81.1,
+        "evaporation": 1.12,
+        "slope": 0.0
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda lake, pH about 9.7 to 9.8",
+          "source": "https://link.springer.com/article/10.1007/s10498-008-9049-9",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Carbonate microbialites of aragonite and calcite: calcium carbonates, not the magnesium carbonate found at Salda",
+          "source": "https://www.nature.com/articles/349605a0.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 1,
+          "note": "Terminal lake with no outlet; its salinity records past lake-level changes",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5428207",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Tower-like microbialites up to about 40 m high on the lake floor",
+          "source": "https://www.nature.com/articles/349605a0.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Erçek",
+      "country": "Türkiye",
+      "lat": 38.6717,
+      "lon": 43.5783,
+      "score": 0.679,
+      "coverage": "5 of 8 variables",
+      "feature_match": {
+        "temperature": 0.184,
+        "pressure": 0.237,
+        "slope": 0.975,
+        "ph": 1,
+        "water": 1
+      },
+      "values": {
+        "temperature": 6.52,
+        "pressure": 77.64,
+        "evaporation": 0.92,
+        "slope": 0.08
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "pH 9.7, salinity 15 ppt, reported in a conference abstract (not a full paper)",
+          "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin east of Lake Van, soda-type water",
+          "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Çıldır",
       "country": "Türkiye",
       "lat": 41.0446,
       "lon": 43.2556,
-      "score": 0.479,
-      "coverage": "3 of 8 variables",
+      "score": 0.484,
+      "coverage": "4 of 8 variables",
       "feature_match": {
         "temperature": 0.221,
         "pressure": 0.228,
-        "slope": 0.987
+        "slope": 0.987,
+        "water": 0.5
       },
       "values": {
         "temperature": 3.57,
@@ -163,7 +252,14 @@
         "evaporation": 1.56,
         "slope": 0.29
       },
-      "judged": {},
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Freshwater lake formed where a lava flow blocked a valley",
+          "source": "https://dergipark.org.tr/en/pub/ase/article/1353730",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
       "known_analog": false
     },
     {
@@ -190,24 +286,69 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Erçek",
+      "name": "Kartsakhi Lake",
       "country": "Türkiye",
-      "lat": 38.6717,
-      "lon": 43.5783,
-      "score": 0.465,
-      "coverage": "3 of 8 variables",
+      "lat": 41.2147,
+      "lon": 43.2147,
+      "score": 0.461,
+      "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.184,
-        "pressure": 0.237,
-        "slope": 0.975
+        "temperature": 0.221,
+        "pressure": 0.228,
+        "slope": 0.858,
+        "ph": 0.5,
+        "water": 0.5
       },
       "values": {
-        "temperature": 6.52,
-        "pressure": 77.64,
-        "evaporation": 0.92,
-        "slope": 0.08
+        "temperature": 3.57,
+        "pressure": 78.5,
+        "evaporation": 1.56,
+        "slope": 2.97
       },
-      "judged": {},
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as a soda lake; no pH measurement found. Only source is Wikipedia",
+          "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        },
+        "water": {
+          "match": 0.5,
+          "note": "Excess water drains to the Kura River in the rainy season, so not a strictly closed basin",
+          "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Arin",
+      "country": "Türkiye",
+      "lat": 38.812,
+      "lon": 42.9892,
+      "score": 0.459,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.15,
+        "pressure": 0.197,
+        "slope": 0.989,
+        "ph": 0.5
+      },
+      "values": {
+        "temperature": 9.26,
+        "pressure": 81.68,
+        "evaporation": 1.12,
+        "slope": 0.7
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
+          "source": "https://en.wikipedia.org/wiki/Lake_Arin",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
       "known_analog": false
     },
     {
@@ -256,6 +397,36 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Nazik",
+      "country": "Türkiye",
+      "lat": 38.8611,
+      "lon": 42.2934,
+      "score": 0.452,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.166,
+        "pressure": 0.198,
+        "slope": 0.942,
+        "ph": 0.5
+      },
+      "values": {
+        "temperature": 8.01,
+        "pressure": 81.54,
+        "evaporation": 1.34,
+        "slope": 1.51
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Freshwater, but a water-quality study reports alkaline character with high pH; the value itself was not seen",
+          "source": "https://dergipark.org.tr/en/pub/jaefr/issue/29943/341061",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Kuyucuk",
       "country": "Türkiye",
       "lat": 40.7389,
@@ -272,28 +443,6 @@
         "pressure": 82.57,
         "evaporation": 1.29,
         "slope": 0.83
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Arin",
-      "country": "Türkiye",
-      "lat": 38.812,
-      "lon": 42.9892,
-      "score": 0.445,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.15,
-        "pressure": 0.197,
-        "slope": 0.989
-      },
-      "values": {
-        "temperature": 9.26,
-        "pressure": 81.68,
-        "evaporation": 1.12,
-        "slope": 0.7
       },
       "judged": {},
       "known_analog": false
@@ -344,50 +493,6 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Van",
-      "country": "Türkiye",
-      "lat": 38.6333,
-      "lon": 42.8167,
-      "score": 0.439,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.142,
-        "pressure": 0.203,
-        "slope": 0.971
-      },
-      "values": {
-        "temperature": 9.92,
-        "pressure": 81.1,
-        "evaporation": 1.12,
-        "slope": 0.0
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Kartsakhi Lake",
-      "country": "Türkiye",
-      "lat": 41.2147,
-      "lon": 43.2147,
-      "score": 0.436,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.221,
-        "pressure": 0.228,
-        "slope": 0.858
-      },
-      "values": {
-        "temperature": 3.57,
-        "pressure": 78.5,
-        "evaporation": 1.56,
-        "slope": 2.97
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Batmış",
       "country": "Türkiye",
       "lat": 38.8946,
@@ -404,28 +509,6 @@
         "pressure": 81.54,
         "evaporation": 1.34,
         "slope": 1.49
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Nazik",
-      "country": "Türkiye",
-      "lat": 38.8611,
-      "lon": 42.2934,
-      "score": 0.435,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.166,
-        "pressure": 0.198,
-        "slope": 0.942
-      },
-      "values": {
-        "temperature": 8.01,
-        "pressure": 81.54,
-        "evaporation": 1.34,
-        "slope": 1.51
       },
       "judged": {},
       "known_analog": false

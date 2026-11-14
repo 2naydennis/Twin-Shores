@@ -78,6 +78,50 @@ not really lakes (the Golden Horn is an estuary) and many lakes share a name
 So the judged variables carry the result. The next step is to fill them in,
 with sources, for a shortlist of lakes.
 
+### Second run: judged variables for the top 15, 2026-11-14
+
+The 15 lakes that ranked highest on measured variables were researched on the
+web. Matches were entered in `config.json` only where a source was found, each
+with a note, a link, and `proposed_by` marking it as an AI proposal for the
+team to confirm. The rubric is in `_judged_rubric` in the same file.
+
+| Rank | Place | Score | Variables | Status |
+|------|-------|-------|-----------|--------|
+| 1 | Lake Salda | 0.695 | 6 of 8 | known analog |
+| 2 | Lake Van | 0.688 | 7 of 8 | new candidate |
+| 3 | Lake Erçek | 0.679 | 5 of 8 | new candidate |
+| 4 | Lake Çıldır | 0.484 | 4 of 8 | new candidate |
+| 5 | Haughton Crater | 0.474 | 3 of 8 | known analog |
+
+What the sources say:
+
+- **Lake Van:** the largest soda lake on Earth, pH about 9.7 to 9.8, a
+  terminal basin with no outlet, with carbonate microbialite towers up to
+  about 40 m high. Its carbonates are aragonite and calcite, not Salda's
+  magnesium carbonate, so minerals is entered as a partial match.
+- **Lake Erçek:** a closed-basin soda lake east of Van with a reported pH of
+  9.7. The only source found is a conference abstract. Nothing was found on
+  its minerals or sediments, so those are empty, not zero.
+- **Arin, Kartsakhi, Nazik, Çıldır:** one or two variables each, mostly from
+  thin sources. See the notes in `config.json`.
+- **Nine of the fifteen** have nothing entered: no usable source was found.
+
+Limits to state wherever these results are shown:
+
+- Lake Van is not on NASA's Planetary Analog Explorer list, but it is not
+  unknown: a 2026 news report describes researchers comparing its
+  microbialites with Lake Salda and Jezero material. Call it "not yet a
+  listed analog", not "a discovery".
+- Lake Erçek rests on one conference abstract. It is a lead to check, not a
+  result.
+- Only the top 15 by measured variables were researched. Lakes further down
+  (other alkaline or salty lakes) may match better on the judged variables
+  and were not looked at.
+- Coverage still differs between places, so scores are not strictly
+  comparable.
+- The pH variable cannot be checked against Mars: Jezero's ancient lake has
+  no measured pH.
+
 ## fetch_nasa.py
 
 Pulls real NASA data and saves it under `data/nasa/`. Standard library only,
