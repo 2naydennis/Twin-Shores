@@ -91,10 +91,20 @@
   /* "Terraform" view: a simulated ancient Jezero. Marked as a simulation wherever it shows. */
   #era { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ink); }
   #era[hidden], #sim[hidden], #sim-badge[hidden] { display: none; }
-  #terraform { width: 100%; padding: 8px 12px; border-radius: 2px; border: 1px solid var(--ink); cursor: pointer;
-    background: #fff; color: var(--ink); font: 500 13px var(--sans); }
-  #terraform:hover { border-color: var(--accent); color: var(--accent); }
-  #terraform[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  /* The ancient-Jezero view is a headline feature: a full-width call to action
+     with a title and a one-line explanation, pulsing gently three times on load. */
+  #terraform { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; text-align: left;
+    padding: 12px 14px; border-radius: 2px; border: 1px solid var(--accent); cursor: pointer;
+    background: var(--accent); color: #fff; font: 600 15px/1.25 var(--sans); box-shadow: 0 0 0 0 rgba(163, 56, 13, .5);
+    animation: era-pulse 2.2s ease-out 1s 3; }
+  #terraform .t-sub { grid-column: 1; font: 400 12px/1.35 var(--sans); color: rgba(255, 255, 255, .88); }
+  #terraform .t-arrow { grid-column: 2; grid-row: 1 / span 2; font: 500 20px var(--mono); }
+  #terraform .t-tag { display: inline-block; margin-left: 6px; font: 500 9.5px var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, .7); padding: 1px 4px; vertical-align: 2px; }
+  #terraform:hover { background: #8a2f0b; border-color: #8a2f0b; }
+  #terraform[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); animation: none; }
+  @keyframes era-pulse { 0% { box-shadow: 0 0 0 0 rgba(163, 56, 13, .55); } 100% { box-shadow: 0 0 0 14px rgba(163, 56, 13, 0); } }
+  @media (prefers-reduced-motion: reduce) { #terraform { animation: none; } }
   #terraform:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   #sim { margin-top: 10px; font-size: 12.5px; }
   #sim .eyebrow { color: var(--accent); }
@@ -155,7 +165,7 @@
     </ul>
     <p class="caveat" id="site-caveat">Lake Salda matches Jezero's ancient lake and carbonate setting, not Mars as a whole.</p>
     <div id="era" hidden>
-      <button id="terraform" type="button" aria-pressed="false">Terraform: show ancient Jezero</button>
+      <button id="terraform" type="button" aria-pressed="false"><span class="t-title">See Jezero 3.5 billion years ago</span><span class="t-sub">Fill the crater with its ancient lake</span><span class="t-arrow">→</span></button>
       <div id="sim" hidden>
         <div class="eyebrow">Simulation · a guess, not data</div>
         <p>What Jezero may have looked like about 3.5 billion years ago, when it held a lake. Nobody knows what it really looked like.</p>

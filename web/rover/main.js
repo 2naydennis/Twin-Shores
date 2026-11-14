@@ -175,10 +175,20 @@ function applyLook() {
 function showEra() {
   const old = active.ancient;
   const on = !!old && eraTarget === 1;
-  eraUi.box.hidden = !old;
+  // The button shows on every map: elsewhere it jumps to Jezero and fills the lake.
+  eraUi.box.hidden = false;
   eraUi.note.hidden = eraUi.badge.hidden = !on;
   eraUi.button.setAttribute('aria-pressed', String(on));
-  eraUi.button.textContent = on ? 'Back to Mars today' : 'Terraform: show ancient Jezero';
+  const [title, sub, arrow] = on
+    ? ['Back to Mars today', 'Drain the lake and return to the dry crater', '↺']
+    : old ? ['See Jezero 3.5 billion years ago', 'Fill the crater with its ancient lake', '→']
+      : ['Jump to ancient Jezero', 'See the Mars crater as a lake, 3.5 billion years ago', '→'];
+  const tag = Object.assign(document.createElement('span'), { className: 't-tag', textContent: 'Simulation' });
+  eraUi.button.replaceChildren(
+    Object.assign(document.createElement('span'), { className: 't-title', textContent: title }),
+    Object.assign(document.createElement('span'), { className: 't-sub', textContent: sub }),
+    Object.assign(document.createElement('span'), { className: 't-arrow', textContent: arrow }));
+  if (!on) eraUi.button.firstChild.append(tag);
   if (old) {
     eraUi.level.textContent = `${old.level_m.toLocaleString('en')} m`;
     eraUi.area.textContent = `${old.area_km2.toLocaleString('en')} km²`;
@@ -361,7 +371,16 @@ canvas.addEventListener('wheel', (event) => {
 
 $('detail')?.addEventListener('click', (event) => { setDetail(detail.level === 'high' ? 'low' : 'high'); event.currentTarget.blur(); });
 ui.toggle.addEventListener('change', () => { show(ui.toggle.value); ui.toggle.blur(); });
-eraUi.button.addEventListener('click', () => { eraTarget = eraTarget ? 0 : 1; showEra(); eraUi.button.blur(); });
+eraUi.button.addEventListener('click', () => {
+  if (!active.ancient) {                               // on Earth: go to Jezero and fill the lake there
+    eraTarget = 1;
+    show('jezero');
+  } else {
+    eraTarget = eraTarget ? 0 : 1;
+    showEra();
+  }
+  eraUi.button.blur();
+});
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
 ui.speed.addEventListener('input', showSpeed);
 showSpeed();
