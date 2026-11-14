@@ -7,6 +7,28 @@ words.
 Source: the official Project Submission Guide, read on 2026-11-14.
 https://www.spaceappschallenge.org/resources/project-submission-guide/
 
+## The challenge
+
+"Identify Earth Locations that Analog the Permanent Moon Base Locations and
+Mars" (difficulty: Beginner/Youth, Intermediate, Advanced).
+https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/
+
+What it asks for, in our words (read the original before writing the form):
+
+- Use open Earth, Moon, and Mars data from NASA **and other space agencies**.
+- **Identify and characterize new** terrestrial analogs. The statement says
+  the known ones (it names the Atacama Desert, Haughton Crater, Death Valley)
+  are not fully characterized either.
+- The analogs are for **future bases or landing sites**, so mission teams can
+  test equipment and methods before flying.
+- Site selection factors it lists: topography, geology, environment,
+  available resources.
+- Environments it suggests: deserts, polar regions, volcanic and arid
+  terrains, caves.
+- Deliver the findings as **a map, visualization, or other tool**.
+
+Every part of the project should trace back to one of these lines.
+
 ## Deadline and eligibility
 
 - **We are registered for the Universal Event**, not a Local Event.
