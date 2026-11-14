@@ -62,36 +62,35 @@ Every part of the project should trace back to one of these lines.
 
 ## 1. Project name
 
-- [ ] Decided
+- [x] Decided: Twin Shores (team, 2026-11-14)
 
-All answers below marked **AI draft** were written by Claude from the state
-of the repo on 2026-11-14. Rewrite them in your own words and correct
-anything that is no longer true before pasting into the form.
+The answers below were written by Claude at the team's request on
+2026-11-14, in the team's voice, and are disclosed in section 6. Read each
+one before pasting it into the form and fix anything that is not true.
 
-Answer (AI draft): Analog Finder
+Answer: Twin Shores
 
 ## 2. High-level project summary
 
 The form asks three things. Answer each in one or two sentences.
 
-- [x] What did you develop? (answered in the AI draft below; still to rewrite in your own words)
-- [x] How does it address the challenge? (answered in the AI draft below; still to rewrite in your own words)
-- [x] Why is it important? (answered in the AI draft below; still to rewrite in your own words)
+- [x] What did you develop? (answered below)
+- [x] How does it address the challenge? (answered below)
+- [x] Why is it important? (answered below)
 
-Answer (AI draft):
+Answer:
 
-Analog Finder searches Earth for lakes that resemble Jezero Crater, the
-ancient Martian lake that NASA's Perseverance rover is exploring. We compared
-157 places with Jezero on eight variables: temperature, air pressure,
-evaporation and terrain slope measured from NASA data, and water pH, mineral
-deposits, water body and sediments taken from published studies. The search
-covered every natural lake in Türkiye (148) plus nine analog sites that
-scientists already use. Lake Salda, NASA's known Jezero analog, came out
-first, which supports the method. Close behind are lakes that NASA does not
-list as analogs: Lake Van, Lake Erçek and Lake Burdur. Mission teams test
-instruments and methods at analog sites before flight, so each well-described
-new site widens where that testing can happen. We report every limit of the
-comparison alongside the results.
+Twin Shores looks for lakes on Earth that resemble Jezero Crater, the dry lake
+bed on Mars where Perseverance is searching for signs of ancient life. We
+scored 157 places, every natural lake in Türkiye plus nine known analog
+sites, on eight variables. Four come from NASA and ESA data (temperature,
+air pressure, evaporation, terrain slope). Four come from published studies
+(water pH, carbonate minerals, lake type, sediments). Lake Salda, the lake
+NASA already pairs with Jezero, ranks first, and it stays first in 82% of
+5,000 random weightings. Lake Van and Lake Erçek, two soda lakes in eastern
+Türkiye, come next. Mission teams rehearse sampling and instruments at
+places like these before they fly, so knowing which ones match, and how
+well, matters.
 
 ## 3. Link to project demo
 
@@ -113,13 +112,13 @@ https://2naydennis.github.io/analog-finder/demo/slides.pdf
 Same file on GitHub:
 https://github.com/2naydennis/analog-finder/blob/main/demo/slides.pdf
 
-A 7-slide AI draft exists: `demo/slides.pdf`, built by
+The 7-slide deck is `demo/slides.pdf`, built by
 `demo/build_slides.py` from the scored data. Before using it:
 
 - [x] Member names added (2026-11-14)
 - [x] Team name added: Team Physics (2026-11-14)
 - [x] Website screenshot on slide 4, 3D views on slide 7 (2026-11-14)
-- [ ] Rewrite the wording in your own words
+- [x] Wording rewritten by Claude at the team's request, disclosed in section 6 (2026-11-14)
 - [x] Re-export the PDF and check it is still 7 pages (checked by Claude 2026-11-14: live PDF is 7 pages; redo after rewording)
 
 A slide deck must show:
@@ -164,53 +163,56 @@ page. Videos and documents cannot; link to them.
 
 ## 5. Detailed project description
 
-- [x] What exactly does it do? (answered in the AI draft below; still to rewrite in your own words)
-- [x] How does it work? (answered in the AI draft below; still to rewrite in your own words)
-- [x] What benefits does it have? (answered in the AI draft below; still to rewrite in your own words)
-- [x] What do you hope to achieve? (answered in the AI draft below; still to rewrite in your own words)
-- [x] Tools, languages, hardware, software used (answered in the AI draft below; still to rewrite in your own words)
+- [x] What exactly does it do? (answered below)
+- [x] How does it work? (answered below)
+- [x] What benefits does it have? (answered below)
+- [x] What do you hope to achieve? (answered below)
+- [x] Tools, languages, hardware, software used (answered below)
 
-Answer (AI draft):
+Answer:
 
-**What it does.** It ranks places on Earth by how closely they match Jezero
-Crater and shows the evidence for each one: the measured numbers, the
-published findings, and the sources.
+**What it does.** Twin Shores ranks places on Earth by how closely they
+match Jezero Crater and shows why. Pick a lake on the map and you get its
+score, every variable next to Jezero's value, and the study behind each
+finding. A separate page puts Lake Salda beside Jezero: both seen from
+orbit, the shape of both basins, the evidence, and a field-test plan. A 3D
+view lets you drive a rover over the real terrain of Salda, Van and Erçek,
+and Jezero, and fill Jezero with its ancient lake.
 
-**How it works.** A list of candidate places goes in: all 148 natural lakes
-in Türkiye from Wikidata, plus nine known analogs such as the Atacama Desert,
-Death Valley and Haughton Crater. For each place a script reads temperature,
-air pressure and evaporation from NASA POWER and terrain slope from the
-NASA/METI ASTER elevation model. Jezero's slope is measured the same way from
-NASA's MOLA elevation data, on the same 900 m grid. Four more variables have
-no global dataset: water pH, mineral deposits, water body and sediment
-layers. For those we read published studies and entered a 0 to 1 match with
-the source. The score is the weighted average of the variables available for
-that place, and we show how many variables each score rests on.
+**How it works.** We took all 148 natural lakes in Türkiye from Wikidata and
+added nine known analogs, among them the Atacama Desert, Death Valley and
+Haughton Crater. For each place, Python scripts read temperature, air
+pressure and evaporation from NASA POWER, and terrain slope from the
+NASA/METI ASTER elevation model. Jezero's slope comes from NASA's MOLA data,
+measured on the same 900 m grid. Water pH, minerals, lake type and sediments
+have no global dataset, so we read published studies and entered a match
+from 0 to 1 with its source. A place's score is the weighted average of the
+variables it has, and every score says how many variables it rests on.
 
-**What we found.** Lake Salda ranks first (0.738). Lake Van (0.688) is a
-closed-basin soda lake with pH near 9.8 and carbonate microbialite towers.
-Lake Erçek (0.679) is a little-studied closed-basin soda lake beside it with
-pH 9.7. Lake Burdur (0.646) is a closed-basin alkaline lake. Lake Tuz has
-magnesium-bearing carbonates in its muds, the mineral family that links Salda
-to Jezero.
+**What we found.** Lake Salda scores 0.738 on seven of eight variables:
+alkaline water (pH 9.1 to 9.5), a white hydromagnesite shore, microbialites
+and a closed lake basin. Lake Van (0.688) is a soda lake with carbonate
+towers up to 40 m tall. Lake Erçek (0.679) is a little-studied soda lake
+with pH 9.7. We tested the ranking three ways. With the weights redrawn at
+random 5,000 times, Salda stays in the top three 99% of the time. Dropping
+any one variable keeps Salda, Van and Erçek in the top five. Slope measured
+again with Copernicus EU-DEM agrees with ASTER at r = 0.99.
 
-**Limits.** No place on Earth comes near Mars's air pressure or cold. Jezero's
-ancient lake has no measured pH, so that variable rests on inference. Places
-are scored on different numbers of variables, so close scores are not
-strictly comparable. On the measured variables alone, known analogs such as
-the Atacama rank low, which shows that climate and slope do not capture what
-makes a place a Jezero analog; the literature-based variables do. Lake Van is
-already studied by researchers in a Mars context, so we call it a candidate
-that is not yet a listed analog. We cover Mars only; the Moon needs different
-variables.
+**Limits.** No place on Earth has Mars's thin air, cold or radiation, so our
+sites match Jezero's ancient lake, not Mars today. Jezero's lake has no
+measured pH. Places are scored on different numbers of variables. On
+climate and slope alone, known analogs like the Atacama rank low; chemistry
+and geology carry the match. We covered Mars only.
 
-**Benefits and aims.** A repeatable, open method that anyone can rerun or
-extend with new places, new targets or new variables by editing one file.
-We hope it points researchers to lakes worth a field visit.
+**Benefits and aims.** The method is open and repeatable. Anyone can add
+lakes, targets or variables by editing one file and rerunning the scripts.
+We would like a field team to sample Lake Erçek's shore for carbonates, and
+to extend the search beyond Türkiye.
 
-**Tools.** Python 3 standard library for all data scripts. JavaScript, HTML
-and CSS for the website, with Leaflet for maps [Kranimo: confirm and add the
-rest]. Git and GitHub. AI tools as described under "Use of AI".
+**Tools.** Python 3 for the data pipeline. HTML, CSS and JavaScript for the
+website, with Leaflet for maps and three.js for 3D. Data from NASA POWER,
+ASTER GDEM, MOLA, SRTM and Mars Trek, Copernicus EU-DEM and Sentinel-2, and
+Wikidata. Hosted on GitHub Pages. AI tools as listed in section 6.
 
 ## 6. Use of AI tools ("SI")
 
@@ -230,29 +232,28 @@ Rules from the form:
 - [x] AI-generated code and data are listed in the README (checked by Claude 2026-11-14: README "AI use" table covers every AI-written file and dataset step)
 - [x] No NASA branding anywhere in generated content (checked by Claude 2026-11-14: no NASA logo, insignia or mission patch in the repo or site)
 
-Answer (AI draft; this one must be exactly true, so check every line):
+Answer (check every line before submitting; it must be exactly true):
 
-Yes. We used Claude (Anthropic) through Claude Code, and ChatGPT (OpenAI).
+Yes. We used Claude (Anthropic, through Claude Code) and ChatGPT (OpenAI).
 
-- ChatGPT: background reading on Lake Salda and Jezero Crater, and a first
-  list of variables for comparing them. We chose our eight variables from
-  that list.
-- Claude: wrote the Python scripts that fetch NASA data, score the places and
-  build the slides; proposed the scoring formula and the rubric for the
-  literature-based variables; searched the web for studies on 23 lakes and
-  proposed a match value for each finding, which we checked against the
-  sources [only true once you have done it]; drafted documentation, these
-  form answers and the slides, which we then rewrote.
-- Claude also suggested a first outline of the approach and the project
-  structure early on. [Say plainly which decisions were yours: the challenge,
-  Salda and Jezero as the starting point, the eight variables, searching
-  Türkiye's lakes.]
-- Website code: [Kranimo to describe].
-
-Every AI-written file says so in its header, the README has an AI-use table,
-and AI-assisted commits carry a Co-Authored-By line. Charts are produced by
-code from the data and are labelled. No AI-generated images, video or audio
-are used, and no NASA logos appear anywhere.
+- Our decisions: the challenge, starting from Lake Salda and Jezero Crater,
+  the eight variables (chosen from a list we drafted with ChatGPT), searching
+  Türkiye's lakes, and featuring Lake Salda. Claude suggested the
+  similarity-scoring approach and the project structure early on, and we
+  chose to build on it.
+- ChatGPT: background reading on Lake Salda and Jezero Crater, and the first
+  list of variables.
+- Claude: wrote the Python scripts that fetch NASA and ESA data, score the
+  places and run the robustness tests; wrote the website code, including
+  the map, the Lake Salda page and the 3D view; searched for published
+  studies on 44 lakes and proposed a match value for each finding (each
+  entry records its source and how the source was checked); proposed the
+  scoring formula and the rubric for literature-based variables; and drafted
+  the documentation, the slides and these form answers.
+- Every AI-written file says so in its header, the repository README has an
+  AI-use table, and AI-assisted commits carry a Co-Authored-By line. The
+  slides carry a "Drafted with AI assistance" footer. No AI-generated images,
+  video or audio are used, and no NASA logos appear anywhere.
 
 ## 7. NASA data
 
@@ -403,7 +404,7 @@ Partner agencies worth checking for this project:
 - [x] Everything is in English (checked by Claude 2026-11-14)
 - [x] Nobody under 18 appears or is heard anywhere (checked by Claude 2026-11-14: no photos, video or audio of people anywhere)
 - [x] At least one NASA dataset named with a link (checked by Claude 2026-11-14: section 7 lists five NASA datasets with links)
-- [ ] AI use described truthfully
+- [ ] AI use described truthfully: the team must read section 6 and confirm every line
 - [ ] Every required field filled in
 - [ ] Both boxes ticked: Terms and Conditions, Confirm All Work is Original
 - [ ] "Submit for Judging" clicked and the confirmation banner appeared

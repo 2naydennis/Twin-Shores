@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TEAM = "Team Physics"
 MEMBERS = "Tunay Dennis Diederich, Karan Kaya, Adrina Shakeri Bahador; teacher: Ayşegül Çağlayan"
 COUNTRY = "Türkiye"
-PROJECT = "Analog Finder"
+PROJECT = "Twin Shores"
 CHALLENGE = "Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars"
 
 data = json.loads((ROOT / "data" / "analogs.json").read_text(encoding="utf-8"))
@@ -120,64 +120,65 @@ FOOT = "Drafted with AI assistance (Claude). Charts are drawn by code from the p
 
 slides = [
     f"""<h1>{esc(PROJECT)}</h1>
-<p class="lead">Lake Salda and the search for Earth twins of Jezero Crater, Mars</p>
+<p class="lead">Where on Earth does Mars's Jezero Crater have a twin? Lake Salda, and the lakes like it.</p>
 <p class="meta"><b>Team:</b> {esc(TEAM)}<br><b>Members:</b> {esc(MEMBERS)}<br><b>Country:</b> {esc(COUNTRY)}<br>
 <b>Challenge:</b> {esc(CHALLENGE)}<br>NASA Space Apps Challenge 2026, Universal Event</p>""",
 
     """<h2>The problem</h2>
 <ul>
-<li>Mission teams rehearse on Earth, at analog sites, before they fly.</li>
-<li>Jezero Crater was a lake about 3.5 billion years ago. Perseverance is searching it for signs of ancient life.</li>
-<li>NASA's Planetary Analog Explorer pairs Jezero with one Earth lake: Lake Salda in Türkiye.</li>
-<li>The challenge asks for <b>new</b> analogs, identified and characterized with open data.</li>
+<li>Jezero Crater held a lake 3.5 billion years ago. Perseverance is drilling its rocks for signs of ancient life.</li>
+<li>Before a mission flies, teams rehearse on Earth, at places that look and behave like the target.</li>
+<li>NASA pairs Jezero with one lake here: Lake Salda, in Burdur, Türkiye.</li>
+<li>The challenge asks us to find and describe more of these places with open data.</li>
 </ul>
-<p class="ask">Are there more lakes like Salda, and can open data find them?</p>""",
+<p class="ask">How good a twin is Salda, and is it the only one?</p>""",
 
-    """<h2>How it works</h2>
+    """<h2>How we compared them</h2>
 <div class="cols"><div>
-<h3>Measured from space-agency data</h3>
+<h3>Measured from NASA and ESA data</h3>
 <ul><li>Temperature, air pressure, evaporation: NASA POWER</li>
 <li>Terrain slope: ASTER (NASA and METI) on Earth, MOLA on Mars, same 900 m grid</li></ul>
 </div><div>
 <h3>Read from published studies</h3>
-<ul><li>Water pH</li><li>Mineral deposits</li><li>Water body</li><li>Sediment layers</li></ul>
-<p class="small">Each entered as a 0 to 1 match, with its source.</p>
+<ul><li>Water pH</li><li>Carbonate minerals</li><li>Lake type</li><li>Sediment layers</li></ul>
+<p class="small">Each one scored 0 to 1 against Jezero, with the study it came from.</p>
 </div></div>
-<p class="ask">Score = weighted average of the variables available. Every score shows how many variables it rests on.</p>""",
+<p class="ask">A place's score is the average of the variables it has. We always show how many that is.</p>""",
 
-    f"""<h2>The search: every natural lake in Türkiye, on a live map</h2>
-<img class="shot" src="img/map.jpg" alt="The Analog Finder map page with Lake Erçek selected">
-<p class="small">{len(lakes)} lakes from Wikidata, each scored against Jezero, on ESA Sentinel-2 imagery. Pick a lake to see every
-variable next to Jezero's value and the published evidence with its source. 2naydennis.github.io/analog-finder</p>""",
+    f"""<h2>We scored every natural lake in Türkiye</h2>
+<img class="shot" src="img/map.jpg" alt="The Twin Shores map page with Lake Salda selected">
+<p class="small">{len(lakes)} lakes plus nine known analogs, on ESA Sentinel-2 imagery. Click a lake and you see each variable
+next to Jezero's value, with the source behind it. Try it: 2naydennis.github.io/analog-finder</p>""",
 
     f"""<h2>What we found</h2>
 {bar_chart()}
-<p class="small">Grey: analog already listed by NASA. Orange: candidates, with the number of variables behind each score.
-<b>Lake Salda</b>, NASA's own Jezero analog, ranks first: alkaline water (pH about 9.1 to 9.5), a carbonate shore,
-microbialites and a lake basin. Lake Van and Lake Erçek, closed-basin soda lakes, come next.</p>""",
+<p class="small">Grey: listed by NASA as an analog. Orange: candidates, with how many variables each score uses.
+<b>Lake Salda</b> comes first: pH 9.1 to 9.5, a white carbonate shore, microbial mounds and a closed basin, close to what
+Jezero's carbonates suggest. Lake Van and Lake Erçek, two soda lakes in eastern Türkiye, follow.</p>""",
 
-    f"""<h2>Does it work, and where does it stop?</h2>
+    f"""<h2>Can we trust the ranking?</h2>
 <div class="cols"><div>
-<h3>Check</h3>
+<h3>Checks</h3>
 <ul><li>Lake Salda, NASA's own Jezero analog, ranks <b>{rank_of("Lake Salda")} of {len(rows)}</b>.</li>
-<li>On climate and slope alone, Salda falls to 45th: chemistry and geology carry the match.</li></ul>
+<li>Use only climate and slope and Salda drops to 45th. The match comes from its chemistry and rocks.</li></ul>
 {robustness_chart()}
 </div><div>
 <h3>Limits</h3>
-<ul><li>Earth has over 100 times Mars's air pressure everywhere.</li>
-<li>Jezero's ancient lake has no measured pH.</li>
-<li>Lakes are scored on 3 to 7 variables, so close scores are not strictly comparable.</li>
-<li>Lake Van is already studied in a Mars context. We cover Mars only, not the Moon.</li></ul>
+<ul><li>Every place on Earth has over 100 times Mars's air pressure. These are twins of Jezero's old lake, not of Mars today.</li>
+<li>Nobody has measured the pH of Jezero's lake.</li>
+<li>Some lakes are scored on 3 variables, some on 7.</li>
+<li>We looked at Mars only, not the Moon.</li></ul>
 </div></div>""",
 
-    """<h2>Explore the sites in 3D</h2>
+    """<h2>Drive the twins in 3D</h2>
 <div class="strip"><figure><img src="img/3d-boat-crop.jpg" alt="Rover on a survey boat on Lake Salda"><figcaption>Lake Salda, by boat</figcaption></figure>
 <figure><img src="img/3d-ercek-crop.jpg" alt="Rover on the shore of Lake Erçek"><figcaption>Lake Erçek, a candidate</figcaption></figure>
 <figure><img src="img/3d-jezero-crop.jpg" alt="Rover in Jezero Crater"><figcaption>Jezero Crater, Mars</figcaption></figure></div>
-<p class="small">Terrain from NASA SRTM and MOLA elevation data. Drive between published-evidence points and compare each lake with Jezero. A dedicated Lake Salda page shows it next to Jezero from orbit, with a field-test plan: 27 km from Denizli Çardak airport, best from May to September.
-The boat, rocks and trees are illustrative. Open data: NASA POWER, MOLA, ASTER, SRTM, Planetary Analog Explorer; Copernicus EU-DEM and
-Sentinel-2 (ESA). Next: a field check of Lake Erçek, lakes beyond Türkiye, a Moon version. AI tools wrote much of the code and drafted
-text; every use is listed in the repository.</p>""",
+<p class="small">Real terrain from NASA SRTM and MOLA. Drive to the evidence points, or fill Jezero with its ancient lake.
+The boat, rocks and trees are added for scale. Our Lake Salda page puts it beside Jezero from orbit, with a field plan:
+27 km from Denizli Çardak airport, best from May to September. Next: sample Lake Erçek's shore and search beyond Türkiye.
+Data: NASA POWER, MOLA, ASTER, SRTM, Planetary Analog Explorer; ESA Copernicus EU-DEM and Sentinel-2.
+Code and text drafted with AI assistance; every use is listed in the repository.</p>""",
 ]
 _unused = [
     """<h2>Data, tools and what comes next</h2>

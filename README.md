@@ -1,4 +1,4 @@
-# Analog Finder
+# Twin Shores
 
 NASA Space Apps Challenge project: find places on Earth that resemble a Mars
 landing site, and show why they match.
@@ -191,6 +191,8 @@ in the project.
 | 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/site_cards.py` and its outputs (`data/site_cards.json`, `data/twin_salda.json`); the featured-site page, first for Lake Erçek and then, at the team's request, for Lake Salda (`web/salda.html`, `web/map/twin.js`); weight sliders on the method page; the not-yet-checked list, how-to line and share images; slides reworded to feature Lake Salda. Test suggestions are fixed rules written by the AI |
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Lake Salda pH evidence (measured pH 9.08 to 9.52, two studies) entered and scores re-run; featured page switched from Lake Erçek to Lake Salda at the team's request |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Project renamed Twin Shores (name chosen by the team from suggestions by Claude); form answers in `SUBMISSION.md` and the slide text rewritten by Claude at the team's request |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
