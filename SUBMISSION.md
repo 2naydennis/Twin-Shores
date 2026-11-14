@@ -48,6 +48,14 @@ Every part of the project should trace back to one of these lines.
   of persons under 18 in the demo or the final project. If either of you is
   under 18, that means no faces, no voices, and no team photos. Use slides,
   screen recordings, and captions.
+- **No work on the challenge before the hackathon.** The Participant FAQ says
+  teams may not begin working on the challenges before the event (14 and 15
+  November). Only work done inside the event window belongs in the
+  submission. https://www.spaceappschallenge.org/resources/participant-faqs/
+- A Universal Event team needs at least 2 members to be eligible for global
+  judging, and is judged only against other Universal Event submissions.
+- Participants under 18 must be registered by a parent or legal guardian and
+  must not use a photo of themselves as their avatar or on the team page.
 - At submission you tick two boxes: the Terms and Conditions, and "Confirm
   All Work is Original".
 - Judging criteria: Impact, Creativity, Validity, Relevance, Presentation.
