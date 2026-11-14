@@ -1,0 +1,52 @@
+{
+  "produced_by": "web/tools/build_terrain.py",
+  "fetched_at": "2026-11-14T10:05:05Z",
+  "note": "Elevation values are NASA data resampled to a 257 x 257 grid. North row first, west column first, uint16 little-endian; metres = min_m + value / 65535 * (max_m - min_m). SRTM records the lake surface, not the lake bed.",
+  "sites": [
+    {
+      "id": "salda",
+      "name": "Lake Salda",
+      "place": "Burdur, Türkiye",
+      "body": "earth",
+      "lat": 37.55,
+      "lon": 29.68,
+      "width_km": 20.0,
+      "dataset": "NASA SRTM 1 arc second, tile N37E029 (served by AWS Terrain Tiles)",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/N37/N37E029.hgt.gz",
+      "datum": "metres above the EGM96 geoid (about sea level)",
+      "file": "salda.bin",
+      "grid": 257,
+      "min_m": 1019.4,
+      "max_m": 2064.0,
+      "source_cells": [
+        649,
+        817
+      ],
+      "source_cell_m": 30.9,
+      "grid_cell_m": 78.1,
+      "lake_level_m": 1140.0
+    },
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "place": "Syrtis Major quadrangle, Mars",
+      "body": "mars",
+      "lat": 18.38,
+      "lon": 77.58,
+      "width_km": 64.0,
+      "dataset": "MGS MOLA MEGDR, MEGT44N000HB, 128 pixels per degree (NASA PDS Geosciences Node)",
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+      "datum": "metres above the MOLA areoid",
+      "file": "jezero.bin",
+      "grid": 257,
+      "min_m": -2993.1,
+      "max_m": -905.4,
+      "source_cells": [
+        139,
+        147
+      ],
+      "source_cell_m": 463.8,
+      "grid_cell_m": 250.0
+    }
+  ]
+}

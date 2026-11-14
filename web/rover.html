@@ -1,0 +1,104 @@
+<!doctype html>
+<!--
+  Rover drive: Lake Salda (Earth) and Jezero Crater (Mars).
+  AI-generated: this page and the files in web/rover/ were written by Claude
+  (Anthropic, Claude Code) on 2026-11-14. Terrain heights are NASA data
+  (SRTM and MOLA); see web/rover/terrain/sites.json.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rover drive: Lake Salda and Jezero Crater</title>
+<style>
+  :root { --panel: rgba(14, 18, 24, 0.72); --line: rgba(255, 255, 255, 0.14); --text: #f2f4f7; --muted: #b6bec9; --accent: #37c2cf; }
+  body[data-site="jezero"] { --accent: #f0a05c; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0e12; color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  canvas { display: block; position: fixed; inset: 0; touch-action: none; cursor: grab; }
+  canvas:active { cursor: grabbing; }
+  .panel { position: fixed; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  #info { top: 16px; left: 16px; width: min(330px, calc(100vw - 32px)); padding: 14px 16px; }
+  #info .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  #info h1 { margin: 2px 0 0; font-size: 22px; line-height: 1.2; }
+  #site-place { color: var(--muted); margin-bottom: 10px; }
+  #info ul { margin: 0 0 10px; padding: 0; list-style: none; color: var(--muted); font-size: 13px; }
+  #info li { padding: 3px 0; border-top: 1px solid var(--line); }
+  #info a { color: var(--text); }
+  #info .caveat { margin: 0; font-size: 12.5px; color: var(--muted); }
+  #switch { position: fixed; top: 16px; right: 16px; padding: 11px 18px; border-radius: 999px; border: 0; cursor: pointer;
+    background: var(--accent); color: #08131a; font: 600 14px system-ui, sans-serif; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35); }
+  #switch:hover { filter: brightness(1.1); }
+  #switch:focus-visible, #speed:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  #readout { top: 68px; right: 16px; padding: 10px 14px; display: grid; grid-template-columns: auto auto; gap: 2px 14px;
+    font-variant-numeric: tabular-nums; font-size: 13px; }
+  #readout span:nth-child(odd) { color: var(--muted); }
+  #readout span:nth-child(even) { text-align: right; }
+  #controls { left: 50%; bottom: 16px; transform: translateX(-50%); width: min(520px, calc(100vw - 32px)); padding: 12px 16px; }
+  #controls label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 6px; }
+  #speed { width: 100%; accent-color: var(--accent); margin: 0; }
+  #controls .hint { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; }
+  #controls .note { margin: 6px 0 0; color: var(--muted); font-size: 11.5px; }
+  #pad { position: fixed; right: 16px; bottom: 150px; display: none; grid-template-columns: repeat(3, 54px); grid-template-rows: repeat(2, 54px); gap: 6px; }
+  #pad button { border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-size: 20px; touch-action: none; }
+  #pad [data-drive="up"] { grid-column: 2; }
+  #pad [data-drive="left"] { grid-column: 1; grid-row: 2; }
+  #pad [data-drive="down"] { grid-column: 2; grid-row: 2; }
+  #pad [data-drive="right"] { grid-column: 3; grid-row: 2; }
+  @media (pointer: coarse) { #pad { display: grid; } .keys-only { display: none; } }
+  @media (max-width: 640px) { #readout { top: auto; bottom: 150px; right: auto; left: 16px; } #info ul { display: none; } }
+  #status { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; background: #0b0e12; font-size: 16px; }
+  #status[hidden] { display: none; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <section id="info" class="panel">
+    <div class="eyebrow">Analog Finder · rover drive</div>
+    <h1 id="site-name">Loading</h1>
+    <div id="site-place">&nbsp;</div>
+    <ul>
+      <li id="fact-width"></li>
+      <li id="fact-relief"></li>
+      <li id="fact-cell"></li>
+      <li>Elevation: <a id="fact-data" target="_blank" rel="noopener"></a></li>
+    </ul>
+    <p class="caveat">Lake Salda matches Jezero's ancient lake and carbonate setting, not Mars as a whole.</p>
+  </section>
+
+  <button id="switch" type="button">Switch site</button>
+
+  <section id="readout" class="panel" aria-label="Rover position">
+    <span>Latitude</span><span id="lat">–</span>
+    <span>Longitude</span><span id="lon">–</span>
+    <span>Elevation</span><span id="elevation">–</span>
+    <span>Frame rate</span><span id="fps">–</span>
+  </section>
+
+  <section id="controls" class="panel">
+    <label for="speed"><span>Rover speed</span><span id="speed-value">4×</span></label>
+    <input id="speed" type="range" min="1" max="10" step="1" value="4">
+    <p class="hint"><span class="keys-only">W A S D or arrow keys to drive · R returns to the start · </span>drag to look around · scroll to zoom · drive into the lake to launch the boat</p>
+    <p class="note">Heights are NASA data; ground colours are painted for readability. The rover is drawn about <span id="rover-scale">–</span>× larger than life so it stays visible. Built with AI assistance (Claude, Anthropic).</p>
+  </section>
+
+  <div id="pad" aria-label="Drive buttons">
+    <button type="button" data-drive="up" aria-label="Forward">▲</button>
+    <button type="button" data-drive="left" aria-label="Turn left">◀</button>
+    <button type="button" data-drive="down" aria-label="Reverse">▼</button>
+    <button type="button" data-drive="right" aria-label="Turn right">▶</button>
+  </div>
+
+  <div id="status">Loading terrain…</div>
+  <script type="module" src="rover/main.js"></script>
+</body>
+</html>
