@@ -85,6 +85,7 @@ in the project.
 | 2026-11-14 | Claude (Anthropic, Claude Code) | `data/analogs.json` mock data (placeholder values, not real scores) |
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Suggested project structure, work split, and a first outline of the approach |
 | 2026-11-14 | ChatGPT (OpenAI)             | Background reading on Lake Salda and Jezero Crater         |
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Found and link-checked the candidate NASA datasets in `SUBMISSION.md`; tested the NASA POWER request in `pipeline/README.md` |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
@@ -93,12 +94,13 @@ Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 List every dataset here as you add it, with a link. Judges look for this.
 Open each source and confirm it says what you claim before citing it.
 
-Planned:
+Planned (links and details in [SUBMISSION.md](SUBMISSION.md), section 7):
 
 - NASA POWER: Earth temperature, solar radiation, precipitation
-- SRTM or Copernicus DEM: Earth terrain, Salda profile
+- NASA SRTM or Copernicus DEM: Earth terrain, Salda profile
 - MOLA: Mars terrain, Jezero profile
 - LRO (LOLA, Diviner): Moon terrain and surface temperature
+- NASA Planetary Analog Explorer: known analogs to validate against
 - NASA Earth Observatory and NASA Science articles on Lake Salda and Jezero
 
 In use:
