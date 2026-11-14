@@ -4,6 +4,29 @@ One section per field on the Space Apps submission form. Fill these in as you
 build, then copy them into the form. Write the answers yourselves, in your own
 words.
 
+Source: the official Project Submission Guide, read on 2026-11-14.
+https://www.spaceappschallenge.org/resources/project-submission-guide/
+
+## Deadline and eligibility
+
+- **Submission window:** Saturday 14 November 2026, 9:00 a.m. to Sunday
+  15 November 2026, 11:59 p.m., in the time zone of your Local Event.
+  Anything saved or submitted after that is not judged.
+- You can submit early and resubmit as often as you like. Only the last saved
+  submission is judged. Submit a first version well before the deadline.
+- All team members must be confirmed participants at the same Local Event.
+- Every required field must be filled in, or the form will not submit.
+- **Everything must be in English:** the project page and all linked material,
+  including this repo and the slides. A video may be spoken in another
+  language only with English subtitles.
+- **No one under 18 may appear:** no images, video, audio, or other likeness
+  of persons under 18 in the demo or the final project. If either of you is
+  under 18, that means no faces, no voices, and no team photos. Use slides,
+  screen recordings, and captions.
+- At submission you tick two boxes: the Terms and Conditions, and "Confirm
+  All Work is Original".
+- Judging criteria: Impact, Creativity, Validity, Relevance, Presentation.
+
 ## 1. Project name
 
 - [ ] Decided
@@ -22,27 +45,51 @@ Answer:
 
 ## 3. Link to project demo
 
-Either a 7-slide presentation (title and intro slides count toward the 7) or a
-video of 30 seconds or less. Not both lengths: 8 slides or 31 seconds breaks
-the rule.
+Either a slide deck of up to 7 slides (title and intro slides count toward
+the 7) or a video of 30 seconds or less. A demo over either limit is not
+eligible for Global Judging. The demo cannot be uploaded to the Space Apps
+site; it must be hosted elsewhere.
 
 - [ ] Format chosen: slides / video
+- [ ] In English (video: English subtitles if spoken in another language)
+- [ ] Nobody under 18 appears or is heard in it
 - [ ] Uploaded somewhere public (YouTube, Google Drive, GitHub)
 - [ ] Opened the link in a private browser window: no login, no permission
       request
 
 Link:
 
-Suggested 7 slides: title, the problem, how the search works, the map result,
-Salda vs Jezero, validation and limits, data and team.
+A slide deck must show:
+
+- [ ] Team name
+- [ ] Names of team members
+- [ ] The challenge you selected
+- [ ] An image of the project
+- [ ] The user experience
+- [ ] How NASA and space agency open data make the solution possible
+
+Suggested 7 slides: title with team and challenge, the problem, how the
+search works, the map result, Salda vs Jezero, validation and limits, data
+sources.
+
+The guide's outline for a 30-second video: who you are and your team (0:00),
+the challenge and why you chose it (0:02), project title and tagline (0:05),
+how it works and how NASA and partner data made it possible (0:10), what it
+could become (0:20 to 0:30).
 
 ## 4. Link to final project
 
 - [ ] Repo switched from private to public
 - [ ] Link opened in a private browser window: no login needed
 - [ ] README explains how to run it
+- [ ] If the project is hosted on a new website of your own: optional
+      FortiGuard Web Filter Classification request, so judges' networks do
+      not block it (see the guide)
 
 Link: https://github.com/2naydennis/analog-finder (private until switched)
+
+Images (JPG, PNG, GIF up to 10 MB) can be uploaded straight onto the project
+page. Videos and documents cannot; link to them.
 
 ## 5. Detailed project description
 
@@ -201,6 +248,12 @@ Partner agencies worth checking for this project:
 
 - [ ] All links work in a private browser window
 - [ ] Demo is within 7 slides or 30 seconds
+- [ ] Everything is in English
+- [ ] Nobody under 18 appears or is heard anywhere
 - [ ] At least one NASA dataset named with a link
 - [ ] AI use described truthfully
-- [ ] Submitted with time to spare
+- [ ] Every required field filled in
+- [ ] Both boxes ticked: Terms and Conditions, Confirm All Work is Original
+- [ ] "Submit for Judging" clicked and the confirmation banner appeared
+- [ ] Submitted before Sunday 15 November, 11:59 p.m. local time, with time
+      to spare
