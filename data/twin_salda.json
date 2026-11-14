@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T11:50:35Z",
+  "generated_at": "2026-11-14T12:14:05Z",
   "produced_by": "pipeline/site_cards.py",
   "note": "West-east elevation profiles, 0 km at the site centre. Salda: SRTM, one reading every 39 m in the 3D heightmap. Jezero: MOLA, one reading every 250 m.",
   "salda": {

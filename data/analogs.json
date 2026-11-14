@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T11:50:00Z",
+  "generated_at": "2026-11-14T12:11:16Z",
   "produced_by": "pipeline/score.py from pipeline/config.json",
   "features": [
     "temperature",
@@ -109,12 +109,12 @@
       "country": "Türkiye",
       "lat": 37.55,
       "lon": 29.68,
-      "score": 0.738,
+      "score": 0.741,
       "coverage": "7 of 8 variables",
       "feature_match": {
-        "temperature": 0.114,
-        "pressure": 0.133,
-        "slope": 0.92,
+        "temperature": 0.167,
+        "pressure": 0.132,
+        "slope": 0.89,
         "ph": 1,
         "minerals": 1,
         "water": 1,
@@ -168,12 +168,12 @@
       "country": "Türkiye",
       "lat": 38.6333,
       "lon": 42.8167,
-      "score": 0.688,
+      "score": 0.693,
       "coverage": "7 of 8 variables",
       "feature_match": {
-        "temperature": 0.142,
-        "pressure": 0.203,
-        "slope": 0.971,
+        "temperature": 0.193,
+        "pressure": 0.202,
+        "slope": 0.959,
         "ph": 1,
         "minerals": 0.5,
         "water": 1,
@@ -219,16 +219,71 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Alchichica",
+      "country": "Mexico",
+      "lat": 19.4161,
+      "lon": -97.403,
+      "score": 0.689,
+      "coverage": "7 of 8 variables",
+      "feature_match": {
+        "temperature": 0.145,
+        "pressure": 0.233,
+        "slope": 0.946,
+        "ph": 0.5,
+        "minerals": 1,
+        "water": 1,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 14.05,
+        "pressure": 77.95,
+        "evaporation": 2.53,
+        "slope": 1.19
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Peer-reviewed measurements of about pH 8.8 to 8.9, just under 9",
+          "source": "https://www.nature.com/articles/ismej201381",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 1,
+          "note": "Microbialites made mainly of hydromagnesite, the magnesium carbonate found at Salda; water is magnesium-rich (Mg/Ca about 40)",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Deep alkaline crater lake in an endorheic (closed) basin with an arid climate",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Living microbialites from just below the surface down to 14 m depth",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237500",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Erçek",
       "country": "Türkiye",
       "lat": 38.6717,
       "lon": 43.5783,
-      "score": 0.679,
+      "score": 0.687,
       "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.184,
-        "pressure": 0.237,
-        "slope": 0.975,
+        "temperature": 0.233,
+        "pressure": 0.236,
+        "slope": 0.966,
         "ph": 1,
         "water": 1
       },
@@ -258,16 +313,63 @@
     },
     {
       "target_id": "jezero",
+      "name": "Mono Lake",
+      "country": "USA",
+      "lat": 38.0166,
+      "lon": -119.0093,
+      "score": 0.657,
+      "coverage": "6 of 8 variables",
+      "feature_match": {
+        "temperature": 0.217,
+        "pressure": 0.235,
+        "slope": 0.991,
+        "ph": 1,
+        "minerals": 0.5,
+        "water": 1
+      },
+      "values": {
+        "temperature": 7.86,
+        "pressure": 77.71,
+        "evaporation": 0.97,
+        "slope": 0.4
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Water of about pH 10",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Tufa towers of calcium carbonate, not magnesium carbonate",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin: water leaves only by evaporation or to groundwater, so salts build up",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Burdur",
       "country": "Türkiye",
       "lat": 37.7337,
       "lon": 30.1781,
-      "score": 0.646,
+      "score": 0.655,
       "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.116,
-        "pressure": 0.137,
-        "slope": 0.979,
+        "temperature": 0.169,
+        "pressure": 0.136,
+        "slope": 0.971,
         "ph": 1,
         "water": 1
       },
@@ -297,16 +399,94 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Magadi",
+      "country": "Kenya",
+      "lat": -1.8667,
+      "lon": 36.2667,
+      "score": 0.627,
+      "coverage": "5 of 8 variables",
+      "feature_match": {
+        "temperature": 0.02,
+        "pressure": 0.127,
+        "slope": 0.986,
+        "ph": 1,
+        "water": 1
+      },
+      "values": {
+        "temperature": 24.7,
+        "pressure": 88.67,
+        "evaporation": 1.49,
+        "slope": 0.69
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda-lake brines reaching about pH 12",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Endorheic basin with no outlet",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Natron",
+      "country": "Tanzania",
+      "lat": -2.4167,
+      "lon": 36,
+      "score": 0.626,
+      "coverage": "5 of 8 variables",
+      "feature_match": {
+        "temperature": 0.028,
+        "pressure": 0.13,
+        "slope": 0.97,
+        "ph": 1,
+        "water": 1
+      },
+      "values": {
+        "temperature": 24.03,
+        "pressure": 88.29,
+        "evaporation": 1.55,
+        "slope": 0.13
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda-lake brines reaching about pH 12",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "No water outlet",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Hazar",
       "country": "Türkiye",
       "lat": 38.4845,
       "lon": 39.4047,
-      "score": 0.61,
+      "score": 0.607,
       "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.103,
-        "pressure": 0.13,
-        "slope": 0.817,
+        "temperature": 0.157,
+        "pressure": 0.129,
+        "slope": 0.747,
         "ph": 1,
         "water": 1
       },
@@ -340,12 +520,12 @@
       "country": "Türkiye",
       "lat": 40.4436,
       "lon": 29.5083,
-      "score": 0.6,
+      "score": 0.606,
       "coverage": "6 of 8 variables",
       "feature_match": {
-        "temperature": 0.091,
-        "pressure": 0.035,
-        "slope": 0.971,
+        "temperature": 0.145,
+        "pressure": 0.034,
+        "slope": 0.959,
         "ph": 1,
         "minerals": 0.5,
         "sediments": 1
@@ -383,16 +563,69 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Karakul",
+      "country": "Tajikistan",
+      "lat": 39.04,
+      "lon": 73.42,
+      "score": 0.588,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.405,
+        "pressure": 0.43,
+        "slope": 0.928
+      },
+      "values": {
+        "temperature": -8.2,
+        "pressure": 58.05,
+        "evaporation": 0.37,
+        "slope": 1.41
+      },
+      "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Nakuru",
+      "country": "Kenya",
+      "lat": -0.3667,
+      "lon": 36.0833,
+      "score": 0.584,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.126,
+        "pressure": 0.241,
+        "slope": 0.97,
+        "ph": 1
+      },
+      "values": {
+        "temperature": 15.64,
+        "pressure": 77.12,
+        "evaporation": 2.99,
+        "slope": 0.89
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH of about 10",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Bafa",
       "country": "Türkiye",
       "lat": 37.5013,
       "lon": 27.437,
-      "score": 0.575,
+      "score": 0.578,
       "coverage": "6 of 8 variables",
       "feature_match": {
-        "temperature": 0.042,
-        "pressure": 0.026,
-        "slope": 0.884,
+        "temperature": 0.1,
+        "pressure": 0.025,
+        "slope": 0.84,
         "minerals": 0.5,
         "water": 1,
         "sediments": 1
@@ -430,16 +663,55 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Abert",
+      "country": "USA",
+      "lat": 42.6417,
+      "lon": -120.225,
+      "score": 0.572,
+      "coverage": "5 of 8 variables",
+      "feature_match": {
+        "temperature": 0.214,
+        "pressure": 0.173,
+        "slope": 0.974,
+        "ph": 0.5,
+        "water": 1
+      },
+      "values": {
+        "temperature": 8.15,
+        "pressure": 84.04,
+        "evaporation": 0.88,
+        "slope": 0.83
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as an alkaline terminal salt lake; no measured pH found",
+          "source": "https://mdsoar.org/handle/11603/4187",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Endorheic (closed-basin) terminal lake",
+          "source": "https://mdsoar.org/handle/11603/4187",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Akşehir",
       "country": "Türkiye",
       "lat": 38.5112,
       "lon": 31.4178,
-      "score": 0.559,
+      "score": 0.569,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.129,
-        "pressure": 0.138,
-        "slope": 0.971,
+        "temperature": 0.181,
+        "pressure": 0.137,
+        "slope": 0.959,
         "water": 1
       },
       "values": {
@@ -465,12 +737,12 @@
       "country": "Türkiye",
       "lat": 38.8333,
       "lon": 33.3333,
-      "score": 0.55,
+      "score": 0.56,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.115,
-        "pressure": 0.114,
-        "slope": 0.971,
+        "temperature": 0.168,
+        "pressure": 0.113,
+        "slope": 0.959,
         "minerals": 1
       },
       "values": {
@@ -496,12 +768,12 @@
       "country": "Türkiye",
       "lat": 38.6432,
       "lon": 31.1696,
-      "score": 0.549,
+      "score": 0.558,
       "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.129,
-        "pressure": 0.138,
-        "slope": 0.98,
+        "temperature": 0.181,
+        "pressure": 0.137,
+        "slope": 0.972,
         "ph": 0.5,
         "water": 1
       },
@@ -535,12 +807,12 @@
       "country": "Türkiye",
       "lat": 39.2152,
       "lon": 34.39,
-      "score": 0.539,
+      "score": 0.546,
       "coverage": "6 of 8 variables",
       "feature_match": {
-        "temperature": 0.125,
-        "pressure": 0.128,
-        "slope": 0.98,
+        "temperature": 0.178,
+        "pressure": 0.127,
+        "slope": 0.973,
         "ph": 0.5,
         "minerals": 0.5,
         "water": 1
@@ -585,9 +857,9 @@
       "score": 0.528,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.117,
-        "pressure": 0.138,
-        "slope": 0.858,
+        "temperature": 0.17,
+        "pressure": 0.137,
+        "slope": 0.804,
         "water": 1
       },
       "values": {
@@ -613,12 +885,12 @@
       "country": "Türkiye",
       "lat": 37.8268,
       "lon": 29.8878,
-      "score": 0.517,
+      "score": 0.518,
       "coverage": "7 of 8 variables",
       "feature_match": {
-        "temperature": 0.107,
-        "pressure": 0.118,
-        "slope": 0.893,
+        "temperature": 0.16,
+        "pressure": 0.117,
+        "slope": 0.852,
         "ph": 0.5,
         "minerals": 0.5,
         "water": 1,
@@ -664,16 +936,109 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Titicaca",
+      "country": "Peru and Bolivia",
+      "lat": -15.825,
+      "lon": -69.325,
+      "score": 0.509,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.204,
+        "pressure": 0.373,
+        "slope": 0.959,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": 9.03,
+        "pressure": 63.8,
+        "evaporation": 1.34,
+        "slope": 0.0
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Semi-open lake with a limited outflow through the Desaguadero River",
+          "source": "https://www.worldatlas.com/lakes/the-world-s-largest-endorheic-lakes-explained.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lonar Lake",
+      "country": "India",
+      "lat": 19.975,
+      "lon": 76.5075,
+      "score": 0.507,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.005,
+        "pressure": 0.065,
+        "slope": 0.958,
+        "ph": 1
+      },
+      "values": {
+        "temperature": 25.96,
+        "pressure": 94.92,
+        "evaporation": 1.9,
+        "slope": 1.03
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda lake in a basalt impact crater; measured pH 9.5 to 10.0",
+          "source": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2015.01553/full",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Bosumtwi",
+      "country": "Ghana",
+      "lat": 6.5055,
+      "lon": -1.4089,
+      "score": 0.495,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.007,
+        "pressure": 0.029,
+        "slope": 0.944,
+        "water": 1
+      },
+      "values": {
+        "temperature": 25.81,
+        "pressure": 98.52,
+        "evaporation": 3.31,
+        "slope": 1.21
+      },
+      "judged": {
+        "water": {
+          "match": 1,
+          "note": "Hydrologically closed impact-crater basin",
+          "source": "https://katalog.lib.cas.cz/KNAV/EdsRecord/edsair,edsair.doi...........78bc8bad1168fa0b8d48073c257ff3df",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Çıldır",
       "country": "Türkiye",
       "lat": 41.0446,
       "lon": 43.2556,
-      "score": 0.484,
+      "score": 0.494,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.221,
-        "pressure": 0.228,
-        "slope": 0.987,
+        "temperature": 0.268,
+        "pressure": 0.227,
+        "slope": 0.982,
         "water": 0.5
       },
       "values": {
@@ -695,16 +1060,38 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake El'gygytgyn",
+      "country": "Russia",
+      "lat": 67.4894,
+      "lon": 172.0898,
+      "score": 0.486,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.435,
+        "pressure": 0.064,
+        "slope": 0.959
+      },
+      "values": {
+        "temperature": -10.74,
+        "pressure": 95.02,
+        "evaporation": 0.71,
+        "slope": 0.0
+      },
+      "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Haughton Crater",
       "country": "Canada",
       "lat": 75.38,
       "lon": -89.67,
-      "score": 0.474,
+      "score": 0.479,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.445,
-        "pressure": 0.025,
-        "slope": 0.953
+        "temperature": 0.478,
+        "pressure": 0.024,
+        "slope": 0.934
       },
       "values": {
         "temperature": -14.42,
@@ -717,16 +1104,156 @@
     },
     {
       "target_id": "jezero",
+      "name": "Pingualuit Crater Lake",
+      "country": "Canada",
+      "lat": 61.2775,
+      "lon": -73.6636,
+      "score": 0.473,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.423,
+        "pressure": 0.06,
+        "slope": 0.908,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": -9.69,
+        "pressure": 95.37,
+        "evaporation": 0.76,
+        "slope": 1.66
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Closed sedimentary basin with no inflowing stream, but very dilute water and possible underground drainage, so it does not concentrate by evaporation",
+          "source": "https://paleo.ulaval.ca/wp-content/uploads/2015/08/Desiage-et-al-2015.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Arin",
+      "country": "Türkiye",
+      "lat": 38.812,
+      "lon": 42.9892,
+      "score": 0.471,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.201,
+        "pressure": 0.196,
+        "slope": 0.985,
+        "ph": 0.5
+      },
+      "values": {
+        "temperature": 9.26,
+        "pressure": 81.68,
+        "evaporation": 1.12,
+        "slope": 0.7
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
+          "source": "https://en.wikipedia.org/wiki/Lake_Arin",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Bogoria",
+      "country": "Kenya",
+      "lat": 0.25,
+      "lon": 36.1,
+      "score": 0.466,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.052,
+        "pressure": 0.169,
+        "slope": 0.643,
+        "ph": 1
+      },
+      "values": {
+        "temperature": 22.0,
+        "pressure": 84.41,
+        "evaporation": 2.37,
+        "slope": 4.97
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH of about 10",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Great Salt Lake",
+      "country": "USA",
+      "lat": 41.1667,
+      "lon": -112.5833,
+      "score": 0.463,
+      "coverage": "6 of 8 variables",
+      "feature_match": {
+        "temperature": 0.168,
+        "pressure": 0.149,
+        "slope": 0.959,
+        "ph": 0,
+        "minerals": 0.5,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 12.04,
+        "pressure": 86.44,
+        "evaporation": 1.07,
+        "slope": 0.0
+      },
+      "judged": {
+        "ph": {
+          "match": 0,
+          "note": "Lake water of about pH 8.3, below the 8.5 threshold",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985759",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Microbialites mainly of aragonite, a calcium carbonate, partly replaced by dolomite",
+          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Microbialites with clotted (thrombolite) fabric and lamination in their lower parts",
+          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Kartsakhi Lake",
       "country": "Türkiye",
       "lat": 41.2147,
       "lon": 43.2147,
-      "score": 0.461,
+      "score": 0.46,
       "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.221,
-        "pressure": 0.228,
-        "slope": 0.858,
+        "temperature": 0.268,
+        "pressure": 0.227,
+        "slope": 0.803,
         "ph": 0.5,
         "water": 0.5
       },
@@ -756,75 +1283,53 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Arin",
-      "country": "Türkiye",
-      "lat": 38.812,
-      "lon": 42.9892,
+      "name": "Lake Baikal",
+      "country": "Russia",
+      "lat": 53.3028,
+      "lon": 108.0047,
       "score": 0.459,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.15,
-        "pressure": 0.197,
-        "slope": 0.989,
-        "ph": 0.5
+        "temperature": 0.315,
+        "pressure": 0.061,
+        "slope": 0.959,
+        "water": 0.5
       },
       "values": {
-        "temperature": 9.26,
-        "pressure": 81.68,
-        "evaporation": 1.12,
-        "slope": 0.7
+        "temperature": -0.5,
+        "pressure": 95.28,
+        "evaporation": 0.76,
+        "slope": 0.0
       },
       "judged": {
-        "ph": {
+        "water": {
           "match": 0.5,
-          "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
-          "source": "https://en.wikipedia.org/wiki/Lake_Arin",
+          "note": "Open lake: its only outflow is the Angara River",
+          "source": "https://www.britannica.com/place/Lake-Baikal",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
+          "checked": "search-result summary of the source; full text not opened"
         }
       },
       "known_analog": false
     },
     {
       "target_id": "jezero",
-      "name": "Göl",
-      "country": "Türkiye",
-      "lat": 40.9018,
-      "lon": 42.7817,
-      "score": 0.458,
+      "name": "Lake Tahoe",
+      "country": "USA",
+      "lat": 39.0833,
+      "lon": -120.0333,
+      "score": 0.459,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.218,
-        "pressure": 0.22,
-        "slope": 0.936
+        "temperature": 0.214,
+        "pressure": 0.204,
+        "slope": 0.959
       },
       "values": {
-        "temperature": 3.78,
-        "pressure": 79.36,
-        "evaporation": 1.76,
-        "slope": 1.62
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Lavaş",
-      "country": "Türkiye",
-      "lat": 40.9361,
-      "lon": 43.2611,
-      "score": 0.452,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.221,
-        "pressure": 0.228,
-        "slope": 0.907
-      },
-      "values": {
-        "temperature": 3.57,
-        "pressure": 78.5,
-        "evaporation": 1.56,
-        "slope": 2.12
+        "temperature": 8.14,
+        "pressure": 80.88,
+        "evaporation": 1.35,
+        "slope": 0.0
       },
       "judged": {},
       "known_analog": false
@@ -835,12 +1340,12 @@
       "country": "Türkiye",
       "lat": 38.8611,
       "lon": 42.2934,
-      "score": 0.452,
+      "score": 0.458,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.166,
-        "pressure": 0.198,
-        "slope": 0.942,
+        "temperature": 0.216,
+        "pressure": 0.197,
+        "slope": 0.92,
         "ph": 0.5
       },
       "values": {
@@ -862,88 +1367,22 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Kuyucuk",
-      "country": "Türkiye",
-      "lat": 40.7389,
-      "lon": 43.4543,
-      "score": 0.446,
+      "name": "Manicouagan Reservoir",
+      "country": "Canada",
+      "lat": 51.1272,
+      "lon": -68.7472,
+      "score": 0.447,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.168,
-        "pressure": 0.188,
-        "slope": 0.981
+        "temperature": 0.331,
+        "pressure": 0.063,
+        "slope": 0.946
       },
       "values": {
-        "temperature": 7.83,
-        "pressure": 82.57,
-        "evaporation": 1.29,
-        "slope": 0.83
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Kızılçan Lake",
-      "country": "Türkiye",
-      "lat": 39.8475,
-      "lon": 37.5598,
-      "score": 0.441,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.175,
-        "pressure": 0.175,
-        "slope": 0.973
-      },
-      "values": {
-        "temperature": 7.24,
-        "pressure": 83.87,
-        "evaporation": 1.32,
-        "slope": 0.98
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Haçlı",
-      "country": "Türkiye",
-      "lat": 39.0198,
-      "lon": 42.3001,
-      "score": 0.441,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.166,
-        "pressure": 0.198,
-        "slope": 0.96
-      },
-      "values": {
-        "temperature": 8.01,
-        "pressure": 81.54,
-        "evaporation": 1.34,
-        "slope": 1.2
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Batmış",
-      "country": "Türkiye",
-      "lat": 38.8946,
-      "lon": 42.6479,
-      "score": 0.436,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.166,
-        "pressure": 0.198,
-        "slope": 0.943
-      },
-      "values": {
-        "temperature": 8.01,
-        "pressure": 81.54,
-        "evaporation": 1.34,
-        "slope": 1.49
+        "temperature": -1.85,
+        "pressure": 95.04,
+        "evaporation": 1.84,
+        "slope": 1.19
       },
       "judged": {},
       "known_analog": false
@@ -954,12 +1393,12 @@
       "country": "Türkiye",
       "lat": 37.9936,
       "lon": 30.8884,
-      "score": 0.433,
+      "score": 0.443,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.122,
-        "pressure": 0.139,
-        "slope": 0.971,
+        "temperature": 0.175,
+        "pressure": 0.138,
+        "slope": 0.959,
         "ph": 0.5
       },
       "values": {
@@ -981,60 +1420,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Akgöl",
-      "country": "Türkiye",
-      "lat": 38.49,
-      "lon": 43.9244,
-      "score": 0.429,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.184,
-        "pressure": 0.237,
-        "slope": 0.866
-      },
-      "values": {
-        "temperature": 6.52,
-        "pressure": 77.64,
-        "evaporation": 0.92,
-        "slope": 2.83
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Suğla",
-      "country": "Türkiye",
-      "lat": 37.33,
-      "lon": 32.005,
-      "score": 0.428,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.139,
-        "pressure": 0.158,
-        "slope": 0.986
-      },
-      "values": {
-        "temperature": 10.15,
-        "pressure": 85.6,
-        "evaporation": 1.52,
-        "slope": 0.27
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Bolluk",
       "country": "Türkiye",
       "lat": 38.5217,
       "lon": 32.9269,
-      "score": 0.427,
+      "score": 0.44,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.108,
-        "pressure": 0.11,
-        "slope": 0.991,
+        "temperature": 0.161,
+        "pressure": 0.109,
+        "slope": 0.988,
         "minerals": 0.5
       },
       "values": {
@@ -1056,112 +1451,33 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Büyük",
-      "country": "Türkiye",
-      "lat": 39.87,
-      "lon": 37.3783,
-      "score": 0.426,
-      "coverage": "3 of 8 variables",
+      "name": "Lake Superior",
+      "country": "Canada and USA",
+      "lat": 47.5288,
+      "lon": -87.76,
+      "score": 0.433,
+      "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.175,
-        "pressure": 0.175,
-        "slope": 0.928
+        "temperature": 0.253,
+        "pressure": 0.021,
+        "slope": 0.959,
+        "water": 0.5
       },
       "values": {
-        "temperature": 7.24,
-        "pressure": 83.87,
-        "evaporation": 1.32,
-        "slope": 1.76
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Beyşehir",
-      "country": "Türkiye",
-      "lat": 37.782,
-      "lon": 31.5076,
-      "score": 0.419,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.133,
-        "pressure": 0.153,
-        "slope": 0.971
-      },
-      "values": {
-        "temperature": 10.59,
-        "pressure": 86.15,
-        "evaporation": 1.26,
+        "temperature": 4.78,
+        "pressure": 99.31,
+        "evaporation": 1.56,
         "slope": 0.0
       },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Yay",
-      "country": "Türkiye",
-      "lat": 38.3308,
-      "lon": 35.2808,
-      "score": 0.419,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.132,
-        "pressure": 0.15,
-        "slope": 0.975
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Open lake: drains through the St. Marys River to Lake Huron",
+          "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
       },
-      "values": {
-        "temperature": 10.67,
-        "pressure": 86.39,
-        "evaporation": 0.93,
-        "slope": 0.08
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Hıdırmenteş",
-      "country": "Türkiye",
-      "lat": 39.179,
-      "lon": 43.7733,
-      "score": 0.413,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.182,
-        "pressure": 0.229,
-        "slope": 0.827
-      },
-      "values": {
-        "temperature": 6.65,
-        "pressure": 78.39,
-        "evaporation": 0.88,
-        "slope": 3.5
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Engir Gölü",
-      "country": "Türkiye",
-      "lat": 38.8028,
-      "lon": 35.5911,
-      "score": 0.412,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.136,
-        "pressure": 0.147,
-        "slope": 0.952
-      },
-      "values": {
-        "temperature": 10.36,
-        "pressure": 86.66,
-        "evaporation": 1.01,
-        "slope": 1.34
-      },
-      "judged": {},
       "known_analog": false
     },
     {
@@ -1170,12 +1486,12 @@
       "country": "Türkiye",
       "lat": 40.1726,
       "lon": 28.5908,
-      "score": 0.412,
+      "score": 0.424,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.099,
-        "pressure": 0.058,
-        "slope": 0.991,
+        "temperature": 0.153,
+        "pressure": 0.057,
+        "slope": 0.987,
         "water": 0.5
       },
       "values": {
@@ -1197,157 +1513,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Kızören Sinkhole",
-      "country": "Türkiye",
-      "lat": 38.1749,
-      "lon": 33.186,
-      "score": 0.41,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.115,
-        "pressure": 0.121,
-        "slope": 0.995
-      },
-      "values": {
-        "temperature": 12.07,
-        "pressure": 89.36,
-        "evaporation": 0.86,
-        "slope": 0.43
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Akgöl",
-      "country": "Türkiye",
-      "lat": 37.5142,
-      "lon": 33.7172,
-      "score": 0.41,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.117,
-        "pressure": 0.138,
-        "slope": 0.974
-      },
-      "values": {
-        "temperature": 11.87,
-        "pressure": 87.62,
-        "evaporation": 0.98,
-        "slope": 0.96
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Aygır Gölü",
-      "country": "Türkiye",
-      "lat": 40.7631,
-      "lon": 43.0031,
-      "score": 0.409,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.221,
-        "pressure": 0.228,
-        "slope": 0.777
-      },
-      "values": {
-        "temperature": 3.57,
-        "pressure": 78.5,
-        "evaporation": 1.56,
-        "slope": 4.37
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Köpek Gölü",
-      "country": "Türkiye",
-      "lat": 38.7914,
-      "lon": 33.0203,
-      "score": 0.409,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.115,
-        "pressure": 0.114,
-        "slope": 0.997
-      },
-      "values": {
-        "temperature": 12.06,
-        "pressure": 90.0,
-        "evaporation": 0.91,
-        "slope": 0.56
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Akdoğan",
-      "country": "Türkiye",
-      "lat": 39.1401,
-      "lon": 41.7412,
-      "score": 0.409,
-      "coverage": "4 of 8 variables",
-      "feature_match": {
-        "temperature": 0.162,
-        "pressure": 0.189,
-        "slope": 0.785,
-        "water": 0.5
-      },
-      "values": {
-        "temperature": 8.29,
-        "pressure": 82.46,
-        "evaporation": 1.35,
-        "slope": 4.23
-      },
-      "judged": {
-        "water": {
-          "match": 0.5,
-          "note": "Freshwater crater lake fed by snowmelt; excess water drains to a creek",
-          "source": "https://en.wikipedia.org/wiki/Lake_Akdo%C4%9Fan",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
-        }
-      },
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Palas Tuzla",
-      "country": "Türkiye",
-      "lat": 39.0214,
-      "lon": 35.815,
-      "score": 0.407,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.136,
-        "pressure": 0.147,
-        "slope": 0.938
-      },
-      "values": {
-        "temperature": 10.36,
-        "pressure": 86.66,
-        "evaporation": 1.01,
-        "slope": 1.59
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Işıklı",
       "country": "Türkiye",
       "lat": 38.2316,
       "lon": 29.9003,
-      "score": 0.405,
+      "score": 0.421,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.107,
-        "pressure": 0.118,
-        "slope": 0.989
+        "temperature": 0.16,
+        "pressure": 0.117,
+        "slope": 0.985
       },
       "values": {
         "temperature": 12.72,
@@ -1360,16 +1535,63 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Bacalar",
+      "country": "Mexico",
+      "lat": 18.75,
+      "lon": -88.315,
+      "score": 0.416,
+      "coverage": "6 of 8 variables",
+      "feature_match": {
+        "temperature": 0.0,
+        "pressure": 0.002,
+        "slope": 0.993,
+        "ph": 0,
+        "minerals": 0.5,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 26.42,
+        "pressure": 101.21,
+        "evaporation": 3.07,
+        "slope": 0.42
+      },
+      "judged": {
+        "ph": {
+          "match": 0,
+          "note": "Measured pH 7.6 to 8.3, below the 8.5 threshold",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Carbonate-rich freshwater lagoon with carbonate stromatolites; mineral not confirmed as magnesium carbonate",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Large freshwater stromatolites and microbialites along the shore",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Köyceğiz",
       "country": "Türkiye",
       "lat": 36.9122,
       "lon": 28.6553,
-      "score": 0.402,
+      "score": 0.415,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.055,
-        "pressure": 0.065,
-        "slope": 0.989,
+        "temperature": 0.111,
+        "pressure": 0.063,
+        "slope": 0.985,
         "water": 0.5
       },
       "values": {
@@ -1391,82 +1613,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Düden",
-      "country": "Türkiye",
-      "lat": 39.0866,
-      "lon": 33.146,
-      "score": 0.401,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.115,
-        "pressure": 0.114,
-        "slope": 0.975
-      },
-      "values": {
-        "temperature": 12.06,
-        "pressure": 90.0,
-        "evaporation": 0.91,
-        "slope": 0.95
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Emre",
-      "country": "Türkiye",
-      "lat": 39.1078,
-      "lon": 30.439,
-      "score": 0.401,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.137,
-        "pressure": 0.139,
-        "slope": 0.928
-      },
-      "values": {
-        "temperature": 10.26,
-        "pressure": 87.51,
-        "evaporation": 1.16,
-        "slope": 1.75
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Tersakan",
-      "country": "Türkiye",
-      "lat": 38.5884,
-      "lon": 33.0856,
-      "score": 0.401,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.108,
-        "pressure": 0.11,
-        "slope": 0.984
-      },
-      "values": {
-        "temperature": 12.63,
-        "pressure": 90.4,
-        "evaporation": 0.85,
-        "slope": 0.23
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Karataş",
       "country": "Türkiye",
       "lat": 37.386,
       "lon": 29.9717,
-      "score": 0.4,
+      "score": 0.411,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.116,
-        "pressure": 0.137,
-        "slope": 0.948
+        "temperature": 0.169,
+        "pressure": 0.136,
+        "slope": 0.928
       },
       "values": {
         "temperature": 11.96,
@@ -1479,354 +1635,125 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Samsam",
+      "name": "Lake Akdoğan",
       "country": "Türkiye",
-      "lat": 39.1044,
-      "lon": 32.7378,
-      "score": 0.397,
-      "coverage": "3 of 8 variables",
+      "lat": 39.1401,
+      "lon": 41.7412,
+      "score": 0.401,
+      "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.118,
-        "pressure": 0.116,
-        "slope": 0.957
+        "temperature": 0.212,
+        "pressure": 0.188,
+        "slope": 0.703,
+        "water": 0.5
       },
       "values": {
-        "temperature": 11.85,
-        "pressure": 89.86,
-        "evaporation": 0.92,
-        "slope": 1.25
+        "temperature": 8.29,
+        "pressure": 82.46,
+        "evaporation": 1.35,
+        "slope": 4.23
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Freshwater crater lake fed by snowmelt; excess water drains to a creek",
+          "source": "https://en.wikipedia.org/wiki/Lake_Akdo%C4%9Fan",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Victoria",
+      "country": "Uganda, Kenya and Tanzania",
+      "lat": -1,
+      "lon": 33,
+      "score": 0.401,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.021,
+        "pressure": 0.126,
+        "slope": 0.959,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": 24.59,
+        "pressure": 88.68,
+        "evaporation": null,
+        "slope": 0.0
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Open lake: drains through the Victoria Nile",
+          "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Tswaing Crater Lake",
+      "country": "South Africa",
+      "lat": -25.4089,
+      "lon": 28.0828,
+      "score": 0.396,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.077,
+        "pressure": 0.129,
+        "slope": 0.982
+      },
+      "values": {
+        "temperature": 19.81,
+        "pressure": 88.43,
+        "evaporation": 1.5,
+        "slope": 0.73
       },
       "judged": {},
       "known_analog": false
     },
     {
       "target_id": "jezero",
-      "name": "Lake Simav",
-      "country": "Türkiye",
-      "lat": 39.1556,
-      "lon": 28.909,
-      "score": 0.397,
-      "coverage": "3 of 8 variables",
+      "name": "Pavilion Lake",
+      "country": "Canada",
+      "lat": 50.8668,
+      "lon": -121.742,
+      "score": 0.392,
+      "coverage": "5 of 8 variables",
       "feature_match": {
-        "temperature": 0.111,
-        "pressure": 0.102,
-        "slope": 0.977
+        "temperature": 0.275,
+        "pressure": 0.146,
+        "slope": 0.041,
+        "minerals": 0.5,
+        "sediments": 1
       },
       "values": {
-        "temperature": 12.35,
-        "pressure": 91.28,
-        "evaporation": 1.45,
-        "slope": 0.9
+        "temperature": 2.9,
+        "pressure": 86.73,
+        "evaporation": 1.31,
+        "slope": 12.51
       },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Yanyanlı",
-      "country": "Türkiye",
-      "lat": 38.67,
-      "lon": 35.2864,
-      "score": 0.397,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.132,
-        "pressure": 0.15,
-        "slope": 0.909
+      "judged": {
+        "minerals": {
+          "match": 0.5,
+          "note": "Freshwater calcite microbialites, not magnesium carbonate",
+          "source": "https://gsa.confex.com/gsa/2007AM/webprogram/Paper131473.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Microbialite structures line the lake at 5 to 30 m depth; studied by NASA as an analog",
+          "source": "https://ntrs.nasa.gov/citations/20040112714",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
       },
-      "values": {
-        "temperature": 10.67,
-        "pressure": 86.39,
-        "evaporation": 0.93,
-        "slope": 2.09
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Kaz Gölü",
-      "country": "Türkiye",
-      "lat": 39.3369,
-      "lon": 42.3233,
-      "score": 0.395,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.171,
-        "pressure": 0.2,
-        "slope": 0.814
-      },
-      "values": {
-        "temperature": 7.56,
-        "pressure": 81.39,
-        "evaporation": 1.33,
-        "slope": 3.73
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Bostaniçi Gölü",
-      "country": "Türkiye",
-      "lat": 38.5328,
-      "lon": 43.4183,
-      "score": 0.394,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.142,
-        "pressure": 0.203,
-        "slope": 0.837
-      },
-      "values": {
-        "temperature": 9.92,
-        "pressure": 81.1,
-        "evaporation": 1.12,
-        "slope": 3.32
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Kaz",
-      "country": "Türkiye",
-      "lat": 40.2761,
-      "lon": 36.1508,
-      "score": 0.394,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.125,
-        "pressure": 0.099,
-        "slope": 0.959
-      },
-      "values": {
-        "temperature": 11.3,
-        "pressure": 91.53,
-        "evaporation": 1.22,
-        "slope": 1.22
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gövelek Lake",
-      "country": "Türkiye",
-      "lat": 38.5515,
-      "lon": 43.6202,
-      "score": 0.39,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.184,
-        "pressure": 0.237,
-        "slope": 0.749
-      },
-      "values": {
-        "temperature": 6.52,
-        "pressure": 77.64,
-        "evaporation": 0.92,
-        "slope": 4.85
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Bahri",
-      "country": "Türkiye",
-      "lat": 39.304,
-      "lon": 41.142,
-      "score": 0.388,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.205,
-        "pressure": 0.231,
-        "slope": 0.728
-      },
-      "values": {
-        "temperature": 4.84,
-        "pressure": 78.25,
-        "evaporation": 1.39,
-        "slope": 5.21
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Elekçi Gölü",
-      "country": "Türkiye",
-      "lat": 40.2358,
-      "lon": 34.1525,
-      "score": 0.387,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.128,
-        "pressure": 0.114,
-        "slope": 0.92
-      },
-      "values": {
-        "temperature": 11.04,
-        "pressure": 90.08,
-        "evaporation": 1.18,
-        "slope": 1.9
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Aygır",
-      "country": "Türkiye",
-      "lat": 40.2073,
-      "lon": 41.2358,
-      "score": 0.386,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.211,
-        "pressure": 0.232,
-        "slope": 0.714
-      },
-      "values": {
-        "temperature": 4.33,
-        "pressure": 78.1,
-        "evaporation": 1.42,
-        "slope": 5.45
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Çavuşçu",
-      "country": "Türkiye",
-      "lat": 38.3458,
-      "lon": 31.8768,
-      "score": 0.385,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.119,
-        "pressure": 0.124,
-        "slope": 0.913
-      },
-      "values": {
-        "temperature": 11.76,
-        "pressure": 89.02,
-        "evaporation": 1.01,
-        "slope": 2.02
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Erhacı Gölü",
-      "country": "Türkiye",
-      "lat": 39.9,
-      "lon": 44.1167,
-      "score": 0.384,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.096,
-        "pressure": 0.128,
-        "slope": 0.929
-      },
-      "values": {
-        "temperature": 13.61,
-        "pressure": 88.67,
-        "evaporation": 0.96,
-        "slope": 1.74
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Marmara",
-      "country": "Türkiye",
-      "lat": 38.6166,
-      "lon": 28.0155,
-      "score": 0.381,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.08,
-        "pressure": 0.064,
-        "slope": 0.999
-      },
-      "values": {
-        "temperature": 14.86,
-        "pressure": 95.13,
-        "evaporation": 1.39,
-        "slope": 0.53
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Kömüşini",
-      "country": "Türkiye",
-      "lat": 39.2404,
-      "lon": 32.9248,
-      "score": 0.38,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.115,
-        "pressure": 0.114,
-        "slope": 0.91
-      },
-      "values": {
-        "temperature": 12.06,
-        "pressure": 90.0,
-        "evaporation": 0.91,
-        "slope": 2.06
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Örmeli",
-      "country": "Türkiye",
-      "lat": 37.1358,
-      "lon": 36.7375,
-      "score": 0.379,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.09,
-        "slope": 0.972
-      },
-      "values": {
-        "temperature": 15.16,
-        "pressure": 92.5,
-        "evaporation": 1.22,
-        "slope": 0.99
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Ak Göl",
-      "country": "Türkiye",
-      "lat": 36.3,
-      "lon": 33.95,
-      "score": 0.377,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.067,
-        "pressure": 0.084,
-        "slope": 0.98
-      },
-      "values": {
-        "temperature": 15.88,
-        "pressure": 93.1,
-        "evaporation": 1.19,
-        "slope": 0.17
-      },
-      "judged": {},
       "known_analog": false
     },
     {
@@ -1835,12 +1762,12 @@
       "country": "USA",
       "lat": 34.56,
       "lon": -111.85,
-      "score": 0.376,
+      "score": 0.384,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.066,
-        "pressure": 0.148,
-        "slope": 0.914
+        "temperature": 0.122,
+        "pressure": 0.147,
+        "slope": 0.882
       },
       "values": {
         "temperature": 16.04,
@@ -1857,12 +1784,12 @@
       "country": "Türkiye",
       "lat": 37.567,
       "lon": 29.966,
-      "score": 0.376,
+      "score": 0.377,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.116,
-        "pressure": 0.137,
-        "slope": 0.874
+        "temperature": 0.169,
+        "pressure": 0.136,
+        "slope": 0.827
       },
       "values": {
         "temperature": 11.96,
@@ -1875,104 +1802,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Ahır",
-      "country": "Türkiye",
-      "lat": 39.3965,
-      "lon": 42.0235,
-      "score": 0.373,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.19,
-        "pressure": 0.215,
-        "slope": 0.715
-      },
-      "values": {
-        "temperature": 6.05,
-        "pressure": 79.8,
-        "evaporation": 1.33,
-        "slope": 5.44
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gökpınar lake",
-      "country": "Türkiye",
-      "lat": 38.656,
-      "lon": 37.3044,
-      "score": 0.37,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.147,
-        "pressure": 0.168,
-        "slope": 0.796
-      },
-      "values": {
-        "temperature": 9.52,
-        "pressure": 84.62,
-        "evaporation": 0.93,
-        "slope": 4.04
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gölhisar Lake",
-      "country": "Türkiye",
-      "lat": 37.1147,
-      "lon": 29.5997,
-      "score": 0.368,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.113,
-        "pressure": 0.137,
-        "slope": 0.853
-      },
-      "values": {
-        "temperature": 12.21,
-        "pressure": 87.72,
-        "evaporation": 1.76,
-        "slope": 3.06
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Karamık",
-      "country": "Türkiye",
-      "lat": 38.4295,
-      "lon": 30.844,
-      "score": 0.368,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.132,
-        "pressure": 0.14,
-        "slope": 0.831
-      },
-      "values": {
-        "temperature": 10.73,
-        "pressure": 87.46,
-        "evaporation": 1.24,
-        "slope": 3.44
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Kestel",
       "country": "Türkiye",
       "lat": 37.4056,
       "lon": 30.4743,
-      "score": 0.368,
+      "score": 0.37,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.105,
-        "pressure": 0.121,
-        "slope": 0.879
+        "temperature": 0.159,
+        "pressure": 0.12,
+        "slope": 0.832
       },
       "values": {
         "temperature": 12.85,
@@ -1985,154 +1824,22 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Aygır",
+      "name": "Gölhisar Lake",
       "country": "Türkiye",
-      "lat": 38.8364,
-      "lon": 42.8231,
-      "score": 0.367,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.15,
-        "pressure": 0.197,
-        "slope": 0.754
-      },
-      "values": {
-        "temperature": 9.26,
-        "pressure": 81.68,
-        "evaporation": 1.12,
-        "slope": 4.77
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Süphan",
-      "country": "Türkiye",
-      "lat": 38.9644,
-      "lon": 43.8689,
+      "lat": 37.1147,
+      "lon": 29.5997,
       "score": 0.366,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.182,
-        "pressure": 0.229,
-        "slope": 0.687
+        "temperature": 0.166,
+        "pressure": 0.136,
+        "slope": 0.796
       },
       "values": {
-        "temperature": 6.65,
-        "pressure": 78.39,
-        "evaporation": 0.88,
-        "slope": 5.93
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gölbaşı Gölü",
-      "country": "Türkiye",
-      "lat": 37.7992,
-      "lon": 37.6497,
-      "score": 0.364,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.134,
-        "pressure": 0.162,
-        "slope": 0.795
-      },
-      "values": {
-        "temperature": 10.53,
-        "pressure": 85.22,
-        "evaporation": 1.0,
-        "slope": 4.06
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gernek Gölü",
-      "country": "Türkiye",
-      "lat": 41.65,
-      "lon": 36.0667,
-      "score": 0.363,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.086,
-        "pressure": 0.018,
-        "slope": 0.986
-      },
-      "values": {
-        "temperature": 14.4,
-        "pressure": 99.72,
-        "evaporation": 1.56,
-        "slope": 0.26
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Eymir",
-      "country": "Türkiye",
-      "lat": 39.8239,
-      "lon": 32.8244,
-      "score": 0.363,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.136,
-        "pressure": 0.127,
-        "slope": 0.826
-      },
-      "values": {
-        "temperature": 10.35,
-        "pressure": 88.77,
-        "evaporation": 1.07,
-        "slope": 3.51
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Yeniçağa",
-      "country": "Türkiye",
-      "lat": 40.78,
-      "lon": 32.0256,
-      "score": 0.363,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.132,
-        "pressure": 0.093,
-        "slope": 0.863
-      },
-      "values": {
-        "temperature": 10.74,
-        "pressure": 92.12,
-        "evaporation": 1.91,
-        "slope": 2.88
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Sapanca",
-      "country": "Türkiye",
-      "lat": 40.7167,
-      "lon": 30.25,
-      "score": 0.362,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.111,
-        "pressure": 0.061,
-        "slope": 0.915
-      },
-      "values": {
-        "temperature": 12.37,
-        "pressure": 95.42,
-        "evaporation": 1.68,
-        "slope": 1.98
+        "temperature": 12.21,
+        "pressure": 87.72,
+        "evaporation": 1.76,
+        "slope": 3.06
       },
       "judged": {},
       "known_analog": false
@@ -2143,12 +1850,12 @@
       "country": "Türkiye",
       "lat": 36.7186,
       "lon": 29.8457,
-      "score": 0.361,
+      "score": 0.364,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.085,
-        "pressure": 0.116,
-        "slope": 0.882
+        "temperature": 0.14,
+        "pressure": 0.115,
+        "slope": 0.837
       },
       "values": {
         "temperature": 14.47,
@@ -2161,506 +1868,66 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Kuş",
+      "name": "Lake Karamık",
       "country": "Türkiye",
-      "lat": 40.1953,
-      "lon": 27.9678,
-      "score": 0.361,
+      "lat": 38.4295,
+      "lon": 30.844,
+      "score": 0.363,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.083,
-        "pressure": 0.028,
-        "slope": 0.971
+        "temperature": 0.184,
+        "pressure": 0.139,
+        "slope": 0.766
       },
       "values": {
-        "temperature": 14.67,
-        "pressure": 98.74,
-        "evaporation": 1.61,
-        "slope": 0.0
+        "temperature": 10.73,
+        "pressure": 87.46,
+        "evaporation": 1.24,
+        "slope": 3.44
       },
       "judged": {},
       "known_analog": false
     },
     {
       "target_id": "jezero",
-      "name": "Lake Kamil Abduş",
-      "country": "Türkiye",
-      "lat": 40.8305,
-      "lon": 29.287,
-      "score": 0.36,
+      "name": "Lake Clifton",
+      "country": "Australia",
+      "lat": -32.7906,
+      "lon": 115.6664,
+      "score": 0.359,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.08,
-        "pressure": 0.01,
-        "slope": 0.989
+        "temperature": 0.096,
+        "pressure": 0.0,
+        "slope": 0.982
       },
       "values": {
-        "temperature": 14.86,
-        "pressure": 100.58,
+        "temperature": 18.23,
+        "pressure": 101.43,
         "evaporation": 1.8,
-        "slope": 0.7
+        "slope": 0.73
       },
       "judged": {},
       "known_analog": false
     },
     {
       "target_id": "jezero",
-      "name": "Pilot Valley",
-      "country": "USA",
-      "lat": 41.0,
-      "lon": -114.0,
-      "score": 0.358,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.13,
-        "pressure": 0.154,
-        "slope": 0.791
-      },
-      "values": {
-        "temperature": 10.89,
-        "pressure": 86.02,
-        "evaporation": 0.55,
-        "slope": 4.12
-      },
-      "judged": {},
-      "known_analog": true
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Amik",
-      "country": "Türkiye",
-      "lat": 36.3,
-      "lon": 36.3,
-      "score": 0.358,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.04,
-        "pressure": 0.039,
-        "slope": 0.995
-      },
-      "values": {
-        "temperature": 18.06,
-        "pressure": 97.62,
-        "evaporation": 1.37,
-        "slope": 0.42
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Sığırcı",
-      "country": "Türkiye",
-      "lat": 40.8167,
-      "lon": 26.3167,
-      "score": 0.358,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.079,
-        "pressure": 0.011,
-        "slope": 0.984
-      },
-      "values": {
-        "temperature": 14.99,
-        "pressure": 100.42,
-        "evaporation": 1.37,
-        "slope": 0.23
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 37.3048,
-      "lon": 37.2549,
-      "score": 0.356,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.1,
-        "slope": 0.892
-      },
-      "values": {
-        "temperature": 15.17,
-        "pressure": 91.5,
-        "evaporation": 1.07,
-        "slope": 2.38
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Eğri",
-      "country": "Türkiye",
-      "lat": 36.931,
-      "lon": 32.204,
-      "score": 0.355,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.146,
-        "pressure": 0.174,
-        "slope": 0.744
-      },
-      "values": {
-        "temperature": 9.56,
-        "pressure": 83.95,
-        "evaporation": 1.31,
-        "slope": 4.93
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Tuzla (Edirne)",
-      "country": "Türkiye",
-      "lat": 40.6027,
-      "lon": 26.2639,
+      "name": "Lake Thetis",
+      "country": "Australia",
+      "lat": -30.5059,
+      "lon": 115.079,
       "score": 0.353,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.062,
-        "pressure": 0.004,
-        "slope": 0.993
-      },
-      "values": {
-        "temperature": 16.3,
-        "pressure": 101.14,
-        "evaporation": 1.39,
-        "slope": 0.39
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Ak Göl",
-      "country": "Türkiye",
-      "lat": 40.8778,
-      "lon": 30.4319,
-      "score": 0.352,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.086,
-        "pressure": 0.017,
-        "slope": 0.954
-      },
-      "values": {
-        "temperature": 14.39,
-        "pressure": 99.87,
-        "evaporation": 1.85,
-        "slope": 1.31
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Akgöl",
-      "country": "Türkiye",
-      "lat": 41.0472,
-      "lon": 30.5653,
-      "score": 0.352,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.086,
-        "pressure": 0.017,
-        "slope": 0.954
-      },
-      "values": {
-        "temperature": 14.39,
-        "pressure": 99.87,
-        "evaporation": 1.85,
-        "slope": 1.31
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Medicine Lake Volcano",
-      "country": "USA",
-      "lat": 41.61,
-      "lon": -121.55,
-      "score": 0.351,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.155,
-        "pressure": 0.158,
-        "slope": 0.741
-      },
-      "values": {
-        "temperature": 8.83,
-        "pressure": 85.56,
-        "evaporation": 1.42,
-        "slope": 4.98
-      },
-      "judged": {},
-      "known_analog": true
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Simenit",
-      "country": "Türkiye",
-      "lat": 41.3025,
-      "lon": 36.9249,
-      "score": 0.351,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.072,
-        "pressure": 0.0,
-        "slope": 0.981
-      },
-      "values": {
-        "temperature": 15.52,
-        "pressure": 101.54,
-        "evaporation": 1.56,
-        "slope": 0.18
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Tuz Gölü",
-      "country": "Türkiye",
-      "lat": 40.2959,
-      "lon": 26.2579,
-      "score": 0.351,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.062,
-        "pressure": 0.004,
-        "slope": 0.986
-      },
-      "values": {
-        "temperature": 16.3,
-        "pressure": 101.14,
-        "evaporation": 1.39,
-        "slope": 0.76
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Dil",
-      "country": "Türkiye",
-      "lat": 37.5876,
-      "lon": 27.1878,
-      "score": 0.35,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.042,
-        "pressure": 0.026,
-        "slope": 0.982
-      },
-      "values": {
-        "temperature": 17.91,
-        "pressure": 98.95,
-        "evaporation": 1.52,
-        "slope": 0.2
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Dumanlı",
-      "country": "Türkiye",
-      "lat": 41.3333,
-      "lon": 36.7833,
-      "score": 0.35,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.072,
-        "pressure": 0.0,
+        "temperature": 0.077,
+        "pressure": 0.003,
         "slope": 0.979
       },
       "values": {
-        "temperature": 15.52,
-        "pressure": 101.54,
-        "evaporation": 1.56,
-        "slope": 0.14
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Dalyan Lake",
-      "country": "Türkiye",
-      "lat": 40.7167,
-      "lon": 26.0698,
-      "score": 0.349,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.062,
-        "pressure": 0.004,
-        "slope": 0.982
-      },
-      "values": {
-        "temperature": 16.3,
-        "pressure": 101.14,
-        "evaporation": 1.39,
-        "slope": 0.2
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Tuzla",
-      "country": "Türkiye",
-      "lat": 38.9178,
-      "lon": 26.9931,
-      "score": 0.349,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.055,
-        "pressure": 0.016,
-        "slope": 0.977
-      },
-      "values": {
-        "temperature": 16.87,
-        "pressure": 99.89,
-        "evaporation": 1.6,
-        "slope": 0.11
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Çamaltı Salt Pan",
-      "country": "Türkiye",
-      "lat": 38.5,
-      "lon": 26.9167,
-      "score": 0.348,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.05,
-        "pressure": 0.016,
-        "slope": 0.977
-      },
-      "values": {
-        "temperature": 17.28,
-        "pressure": 99.9,
-        "evaporation": 1.52,
-        "slope": 0.11
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Sarıkum Lake",
-      "country": "Türkiye",
-      "lat": 42.0156,
-      "lon": 34.9204,
-      "score": 0.347,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.09,
-        "pressure": 0.021,
-        "slope": 0.929
-      },
-      "values": {
-        "temperature": 14.05,
-        "pressure": 99.43,
-        "evaporation": 1.71,
-        "slope": 1.73
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Büyükçekmece",
-      "country": "Türkiye",
-      "lat": 41.0667,
-      "lon": 28.5531,
-      "score": 0.346,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.007,
-        "slope": 0.954
-      },
-      "values": {
-        "temperature": 15.23,
-        "pressure": 100.85,
-        "evaporation": 1.55,
-        "slope": 1.3
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Durusu",
-      "country": "Türkiye",
-      "lat": 41.3399,
-      "lon": 28.5711,
-      "score": 0.344,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.0,
-        "slope": 0.955
-      },
-      "values": {
-        "temperature": 15.18,
-        "pressure": 101.5,
-        "evaporation": 1.5,
-        "slope": 1.28
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Reisler Okçular Lake",
-      "country": "Türkiye",
-      "lat": 40.9965,
-      "lon": 30.3311,
-      "score": 0.344,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.086,
-        "pressure": 0.017,
-        "slope": 0.93
-      },
-      "values": {
-        "temperature": 14.39,
-        "pressure": 99.87,
-        "evaporation": 1.85,
-        "slope": 1.72
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gökçeada Lagoon",
-      "country": "Türkiye",
-      "lat": 40.1328,
-      "lon": 25.9544,
-      "score": 0.343,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.064,
-        "pressure": 0.012,
-        "slope": 0.953
-      },
-      "values": {
-        "temperature": 16.18,
-        "pressure": 100.35,
-        "evaporation": 1.56,
-        "slope": 1.33
+        "temperature": 19.83,
+        "pressure": 101.15,
+        "evaporation": 1.11,
+        "slope": 0.25
       },
       "judged": {},
       "known_analog": false
@@ -2671,12 +1938,12 @@
       "country": "USA",
       "lat": 36.46,
       "lon": -116.87,
-      "score": 0.342,
+      "score": 0.349,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.027,
-        "pressure": 0.097,
-        "slope": 0.902
+        "temperature": 0.086,
+        "pressure": 0.096,
+        "slope": 0.865
       },
       "values": {
         "temperature": 19.1,
@@ -2689,465 +1956,47 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Nar",
-      "country": "Türkiye",
-      "lat": 38.3405,
-      "lon": 34.4567,
-      "score": 0.342,
+      "name": "Pilot Valley",
+      "country": "USA",
+      "lat": 41.0,
+      "lon": -114.0,
+      "score": 0.349,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.126,
-        "pressure": 0.14,
-        "slope": 0.759
+        "temperature": 0.182,
+        "pressure": 0.153,
+        "slope": 0.711
       },
       "values": {
-        "temperature": 11.17,
-        "pressure": 87.37,
-        "evaporation": 0.89,
-        "slope": 4.68
+        "temperature": 10.89,
+        "pressure": 86.02,
+        "evaporation": 0.55,
+        "slope": 4.12
       },
       "judged": {},
-      "known_analog": false
+      "known_analog": true
     },
     {
       "target_id": "jezero",
-      "name": "Dalyan Lake",
-      "country": "Türkiye",
-      "lat": 40.3854,
-      "lon": 28.4831,
-      "score": 0.341,
+      "name": "Medicine Lake Volcano",
+      "country": "USA",
+      "lat": 41.61,
+      "lon": -121.55,
+      "score": 0.335,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.075,
-        "pressure": 0.014,
-        "slope": 0.935
+        "temperature": 0.206,
+        "pressure": 0.157,
+        "slope": 0.643
       },
       "values": {
-        "temperature": 15.25,
-        "pressure": 100.1,
-        "evaporation": 1.69,
-        "slope": 1.63
+        "temperature": 8.83,
+        "pressure": 85.56,
+        "evaporation": 1.42,
+        "slope": 4.98
       },
       "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Dipsiz (Göztepe)",
-      "country": "Türkiye",
-      "lat": 40.3732,
-      "lon": 40.7276,
-      "score": 0.34,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.211,
-        "pressure": 0.216,
-        "slope": 0.593
-      },
-      "values": {
-        "temperature": 4.33,
-        "pressure": 79.77,
-        "evaporation": 1.74,
-        "slope": 7.54
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gala",
-      "country": "Türkiye",
-      "lat": 40.7673,
-      "lon": 26.185,
-      "score": 0.34,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.079,
-        "pressure": 0.011,
-        "slope": 0.929
-      },
-      "values": {
-        "temperature": 14.99,
-        "pressure": 100.42,
-        "evaporation": 1.37,
-        "slope": 1.74
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Golden Horn",
-      "country": "Türkiye",
-      "lat": 41.0292,
-      "lon": 28.9611,
-      "score": 0.339,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.007,
-        "slope": 0.935
-      },
-      "values": {
-        "temperature": 15.23,
-        "pressure": 100.85,
-        "evaporation": 1.55,
-        "slope": 1.64
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Küçükçekmece",
-      "country": "Türkiye",
-      "lat": 41.0056,
-      "lon": 28.7469,
-      "score": 0.339,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.076,
-        "pressure": 0.007,
-        "slope": 0.935
-      },
-      "values": {
-        "temperature": 15.23,
-        "pressure": 100.85,
-        "evaporation": 1.55,
-        "slope": 1.64
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Tuzla (Edirne)",
-      "country": "Türkiye",
-      "lat": 40.6267,
-      "lon": 26.4867,
-      "score": 0.338,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.062,
-        "pressure": 0.004,
-        "slope": 0.949
-      },
-      "values": {
-        "temperature": 16.3,
-        "pressure": 101.14,
-        "evaporation": 1.39,
-        "slope": 1.39
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Balıklıgöl",
-      "country": "Türkiye",
-      "lat": 37.1478,
-      "lon": 38.7844,
-      "score": 0.337,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.044,
-        "pressure": 0.064,
-        "slope": 0.903
-      },
-      "values": {
-        "temperature": 17.74,
-        "pressure": 95.04,
-        "evaporation": 0.92,
-        "slope": 2.19
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Koca Gölü",
-      "country": "Türkiye",
-      "lat": 40.8431,
-      "lon": 32.4447,
-      "score": 0.336,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.141,
-        "pressure": 0.115,
-        "slope": 0.752
-      },
-      "values": {
-        "temperature": 9.94,
-        "pressure": 89.9,
-        "evaporation": 1.77,
-        "slope": 4.8
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Ladik Lake",
-      "country": "Türkiye",
-      "lat": 40.9068,
-      "lon": 36.0133,
-      "score": 0.334,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.122,
-        "pressure": 0.078,
-        "slope": 0.803
-      },
-      "values": {
-        "temperature": 11.47,
-        "pressure": 93.65,
-        "evaporation": 1.4,
-        "slope": 3.92
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Akyayan",
-      "country": "Türkiye",
-      "lat": 36.6833,
-      "lon": 35.5667,
-      "score": 0.332,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.005,
-        "pressure": 0.008,
-        "slope": 0.983
-      },
-      "values": {
-        "temperature": 20.9,
-        "pressure": 100.73,
-        "evaporation": 1.47,
-        "slope": 0.21
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gebekirse",
-      "country": "Türkiye",
-      "lat": 37.9858,
-      "lon": 27.3036,
-      "score": 0.332,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.052,
-        "pressure": 0.031,
-        "slope": 0.914
-      },
-      "values": {
-        "temperature": 17.09,
-        "pressure": 98.37,
-        "evaporation": 1.45,
-        "slope": 1.99
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Çakalburnu Lagoon",
-      "country": "Türkiye",
-      "lat": 38.41,
-      "lon": 27.0522,
-      "score": 0.331,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.05,
-        "pressure": 0.016,
-        "slope": 0.926
-      },
-      "values": {
-        "temperature": 17.28,
-        "pressure": 99.9,
-        "evaporation": 1.52,
-        "slope": 1.79
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Akyatan Lagoon",
-      "country": "Türkiye",
-      "lat": 36.6366,
-      "lon": 35.2551,
-      "score": 0.329,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.002,
-        "pressure": 0.003,
-        "slope": 0.981
-      },
-      "values": {
-        "temperature": 21.13,
-        "pressure": 101.25,
-        "evaporation": 1.41,
-        "slope": 0.18
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Akgöl",
-      "country": "Türkiye",
-      "lat": 37.6783,
-      "lon": 29.7703,
-      "score": 0.328,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.116,
-        "pressure": 0.137,
-        "slope": 0.73
-      },
-      "values": {
-        "temperature": 11.96,
-        "pressure": 87.76,
-        "evaporation": 1.65,
-        "slope": 5.18
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Demirci",
-      "country": "Türkiye",
-      "lat": 40.6325,
-      "lon": 26.93,
-      "score": 0.328,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.067,
-        "pressure": 0.007,
-        "slope": 0.91
-      },
-      "values": {
-        "temperature": 15.88,
-        "pressure": 100.87,
-        "evaporation": 1.44,
-        "slope": 2.06
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Tuzla",
-      "country": "Türkiye",
-      "lat": 36.7031,
-      "lon": 35.0459,
-      "score": 0.328,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.002,
-        "pressure": 0.003,
-        "slope": 0.979
-      },
-      "values": {
-        "temperature": 21.13,
-        "pressure": 101.25,
-        "evaporation": 1.41,
-        "slope": 0.14
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Dipsiz Göl",
-      "country": "Türkiye",
-      "lat": 36.7386,
-      "lon": 34.9119,
-      "score": 0.327,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.002,
-        "pressure": 0.003,
-        "slope": 0.977
-      },
-      "values": {
-        "temperature": 21.13,
-        "pressure": 101.25,
-        "evaporation": 1.41,
-        "slope": 0.11
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 38.8972,
-      "lon": 29.8961,
-      "score": 0.321,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.136,
-        "pressure": 0.137,
-        "slope": 0.689
-      },
-      "values": {
-        "temperature": 10.41,
-        "pressure": 87.75,
-        "evaporation": 1.28,
-        "slope": 5.88
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gölcük",
-      "country": "Türkiye",
-      "lat": 37.731,
-      "lon": 30.4942,
-      "score": 0.32,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.105,
-        "pressure": 0.121,
-        "slope": 0.735
-      },
-      "values": {
-        "temperature": 12.85,
-        "pressure": 89.38,
-        "evaporation": 1.69,
-        "slope": 5.09
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Ili lake",
-      "country": "Türkiye",
-      "lat": 38.6428,
-      "lon": 42.2467,
-      "score": 0.319,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.151,
-        "pressure": 0.203,
-        "slope": 0.604
-      },
-      "values": {
-        "temperature": 9.16,
-        "pressure": 81.07,
-        "evaporation": 1.28,
-        "slope": 7.36
-      },
-      "judged": {},
-      "known_analog": false
+      "known_analog": true
     },
     {
       "target_id": "jezero",
@@ -3155,12 +2004,12 @@
       "country": "USA",
       "lat": 19.41,
       "lon": -155.28,
-      "score": 0.318,
+      "score": 0.325,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.0,
-        "pressure": 0.051,
-        "slope": 0.903
+        "temperature": 0.06,
+        "pressure": 0.05,
+        "slope": 0.866
       },
       "values": {
         "temperature": 21.3,
@@ -3173,16 +2022,60 @@
     },
     {
       "target_id": "jezero",
+      "name": "Akgöl",
+      "country": "Türkiye",
+      "lat": 37.6783,
+      "lon": 29.7703,
+      "score": 0.311,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.169,
+        "pressure": 0.136,
+        "slope": 0.627
+      },
+      "values": {
+        "temperature": 11.96,
+        "pressure": 87.76,
+        "evaporation": 1.65,
+        "slope": 5.18
+      },
+      "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Gölcük",
+      "country": "Türkiye",
+      "lat": 37.731,
+      "lon": 30.4942,
+      "score": 0.304,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.159,
+        "pressure": 0.12,
+        "slope": 0.634
+      },
+      "values": {
+        "temperature": 12.85,
+        "pressure": 89.38,
+        "evaporation": 1.69,
+        "slope": 5.09
+      },
+      "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Atacama Desert",
       "country": "Chile",
       "lat": -24.5,
       "lon": -69.25,
-      "score": 0.315,
+      "score": 0.284,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.085,
+        "temperature": 0.139,
         "pressure": 0.244,
-        "slope": 0.615
+        "slope": 0.468
       },
       "values": {
         "temperature": 14.51,
@@ -3195,88 +2088,22 @@
     },
     {
       "target_id": "jezero",
-      "name": "Dipsiz Göl",
+      "name": "Lake Eşen",
       "country": "Türkiye",
-      "lat": 40.0921,
-      "lon": 37.5667,
-      "score": 0.308,
+      "lat": 37.2022,
+      "lon": 29.0175,
+      "score": 0.268,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.175,
-        "pressure": 0.175,
-        "slope": 0.573
+        "temperature": 0.111,
+        "pressure": 0.063,
+        "slope": 0.629
       },
       "values": {
-        "temperature": 7.24,
-        "pressure": 83.87,
-        "evaporation": 1.32,
-        "slope": 7.89
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Atar",
-      "country": "Türkiye",
-      "lat": 39.4045,
-      "lon": 43.3852,
-      "score": 0.306,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.193,
-        "pressure": 0.229,
-        "slope": 0.495
-      },
-      "values": {
-        "temperature": 5.84,
-        "pressure": 78.44,
-        "evaporation": 1.03,
-        "slope": 9.25
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Zinav",
-      "country": "Türkiye",
-      "lat": 40.4483,
-      "lon": 37.2728,
-      "score": 0.301,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.168,
-        "pressure": 0.15,
-        "slope": 0.586
-      },
-      "values": {
-        "temperature": 7.8,
-        "pressure": 86.4,
-        "evaporation": 1.65,
-        "slope": 7.66
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Abbasgöl",
-      "country": "Türkiye",
-      "lat": 39.8351,
-      "lon": 43.622,
-      "score": 0.299,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.125,
-        "pressure": 0.154,
-        "slope": 0.617
-      },
-      "values": {
-        "temperature": 11.27,
-        "pressure": 85.96,
-        "evaporation": 1.08,
-        "slope": 7.13
+        "temperature": 16.9,
+        "pressure": 95.03,
+        "evaporation": 1.68,
+        "slope": 5.15
       },
       "judged": {},
       "known_analog": false
@@ -3287,12 +2114,12 @@
       "country": "Türkiye",
       "lat": 40.8039,
       "lon": 36.1537,
-      "score": 0.299,
+      "score": 0.264,
       "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.122,
-        "pressure": 0.078,
-        "slope": 0.495,
+        "temperature": 0.175,
+        "pressure": 0.077,
+        "slope": 0.302,
         "water": 0.5
       },
       "values": {
@@ -3314,236 +2141,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Sünnet",
-      "country": "Türkiye",
-      "lat": 40.4209,
-      "lon": 30.9559,
-      "score": 0.298,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.145,
-        "pressure": 0.12,
-        "slope": 0.63
-      },
-      "values": {
-        "temperature": 9.66,
-        "pressure": 89.48,
-        "evaporation": 1.52,
-        "slope": 6.9
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Efteni",
-      "country": "Türkiye",
-      "lat": 40.7659,
-      "lon": 31.0411,
-      "score": 0.297,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.105,
-        "pressure": 0.05,
-        "slope": 0.736
-      },
-      "values": {
-        "temperature": 12.85,
-        "pressure": 96.5,
-        "evaporation": 1.92,
-        "slope": 5.07
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Yenişehir",
-      "country": "Türkiye",
-      "lat": 36.2372,
-      "lon": 36.5692,
-      "score": 0.293,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.042,
-        "pressure": 0.041,
-        "slope": 0.796
-      },
-      "values": {
-        "temperature": 17.94,
-        "pressure": 97.38,
-        "evaporation": 1.02,
-        "slope": 4.04
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.3082,
-      "lon": 42.4839,
-      "score": 0.29,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.198,
-        "pressure": 0.19,
-        "slope": 0.483
-      },
-      "values": {
-        "temperature": 5.39,
-        "pressure": 82.37,
-        "evaporation": 1.91,
-        "slope": 9.45
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gaga",
-      "country": "Türkiye",
-      "lat": 40.9728,
-      "lon": 37.5037,
-      "score": 0.288,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.097,
-        "pressure": 0.041,
-        "slope": 0.725
-      },
-      "values": {
-        "temperature": 13.5,
-        "pressure": 97.45,
-        "evaporation": 2.01,
-        "slope": 5.26
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Abant",
-      "country": "Türkiye",
-      "lat": 40.6054,
-      "lon": 31.2803,
-      "score": 0.286,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.145,
-        "pressure": 0.12,
-        "slope": 0.593
-      },
-      "values": {
-        "temperature": 9.66,
-        "pressure": 89.48,
-        "evaporation": 1.52,
-        "slope": 7.54
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Eşen",
-      "country": "Türkiye",
-      "lat": 37.2022,
-      "lon": 29.0175,
-      "score": 0.284,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.055,
-        "pressure": 0.065,
-        "slope": 0.732
-      },
-      "values": {
-        "temperature": 16.9,
-        "pressure": 95.03,
-        "evaporation": 1.68,
-        "slope": 5.15
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Beymelek Lagoon",
-      "country": "Türkiye",
-      "lat": 36.2659,
-      "lon": 30.0532,
-      "score": 0.279,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.085,
-        "pressure": 0.116,
-        "slope": 0.637
-      },
-      "values": {
-        "temperature": 14.47,
-        "pressure": 89.87,
-        "evaporation": 1.56,
-        "slope": 6.78
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Askja",
-      "country": "Iceland",
-      "lat": 65.03,
-      "lon": -16.75,
-      "score": 0.277,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.301,
-        "pressure": 0.103,
-        "slope": 0.426
-      },
-      "values": {
-        "temperature": -2.84,
-        "pressure": 91.1,
-        "evaporation": 0.76,
-        "slope": 10.44
-      },
-      "judged": {},
-      "known_analog": true
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gölcük",
-      "country": "Türkiye",
-      "lat": 40.6561,
-      "lon": 31.63,
-      "score": 0.276,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.158,
-        "pressure": 0.142,
-        "slope": 0.528
-      },
-      "values": {
-        "temperature": 8.64,
-        "pressure": 87.2,
-        "evaporation": 1.49,
-        "slope": 8.67
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Sülüngür",
       "country": "Türkiye",
       "lat": 36.7883,
       "lon": 28.6447,
-      "score": 0.276,
+      "score": 0.257,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.055,
-        "pressure": 0.065,
-        "slope": 0.709
+        "temperature": 0.111,
+        "pressure": 0.063,
+        "slope": 0.598
       },
       "values": {
         "temperature": 16.9,
@@ -3556,16 +2163,38 @@
     },
     {
       "target_id": "jezero",
+      "name": "Beymelek Lagoon",
+      "country": "Türkiye",
+      "lat": 36.2659,
+      "lon": 30.0532,
+      "score": 0.251,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.14,
+        "pressure": 0.115,
+        "slope": 0.499
+      },
+      "values": {
+        "temperature": 14.47,
+        "pressure": 89.87,
+        "evaporation": 1.56,
+        "slope": 6.78
+      },
+      "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Kovada",
       "country": "Türkiye",
       "lat": 37.6297,
       "lon": 30.8839,
-      "score": 0.273,
+      "score": 0.239,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.105,
-        "pressure": 0.121,
-        "slope": 0.593
+        "temperature": 0.159,
+        "pressure": 0.12,
+        "slope": 0.438
       },
       "values": {
         "temperature": 12.85,
@@ -3578,148 +2207,16 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Sera",
-      "country": "Türkiye",
-      "lat": 40.9853,
-      "lon": 39.6148,
-      "score": 0.272,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.101,
-        "pressure": 0.059,
-        "slope": 0.656
-      },
-      "values": {
-        "temperature": 13.15,
-        "pressure": 95.55,
-        "evaporation": 1.87,
-        "slope": 6.46
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Gerendal Lake",
-      "country": "Türkiye",
-      "lat": 38.8299,
-      "lon": 40.3345,
-      "score": 0.27,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.16,
-        "pressure": 0.186,
-        "slope": 0.464
-      },
-      "values": {
-        "temperature": 8.49,
-        "pressure": 82.8,
-        "evaporation": 1.53,
-        "slope": 9.77
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Karagöl, Giresun",
-      "country": "Türkiye",
-      "lat": 40.525,
-      "lon": 38.1528,
-      "score": 0.268,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.188,
-        "pressure": 0.173,
-        "slope": 0.444
-      },
-      "values": {
-        "temperature": 6.22,
-        "pressure": 84.12,
-        "evaporation": 1.87,
-        "slope": 10.13
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake İris",
-      "country": "Türkiye",
-      "lat": 38.4892,
-      "lon": 26.4464,
-      "score": 0.257,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.041,
-        "pressure": 0.009,
-        "slope": 0.721
-      },
-      "values": {
-        "temperature": 18.03,
-        "pressure": 100.62,
-        "evaporation": 1.36,
-        "slope": 5.34
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Limni",
-      "country": "Türkiye",
-      "lat": 40.6108,
-      "lon": 39.4131,
-      "score": 0.245,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.196,
-        "pressure": 0.196,
-        "slope": 0.342
-      },
-      "values": {
-        "temperature": 5.54,
-        "pressure": 81.79,
-        "evaporation": 1.6,
-        "slope": 11.89
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Karagöl",
-      "country": "Türkiye",
-      "lat": 39.4243,
-      "lon": 39.1124,
-      "score": 0.242,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.202,
-        "pressure": 0.227,
-        "slope": 0.298
-      },
-      "values": {
-        "temperature": 5.06,
-        "pressure": 78.66,
-        "evaporation": 1.26,
-        "slope": 12.64
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Koca Gölü",
       "country": "Türkiye",
       "lat": 36.6814,
       "lon": 28.8247,
-      "score": 0.241,
+      "score": 0.224,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.002,
-        "pressure": 0.004,
-        "slope": 0.716
+        "temperature": 0.062,
+        "pressure": 0.003,
+        "slope": 0.608
       },
       "values": {
         "temperature": 21.11,
@@ -3732,198 +2229,44 @@
     },
     {
       "target_id": "jezero",
+      "name": "Askja",
+      "country": "Iceland",
+      "lat": 65.03,
+      "lon": -16.75,
+      "score": 0.217,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.343,
+        "pressure": 0.102,
+        "slope": 0.206
+      },
+      "values": {
+        "temperature": -2.84,
+        "pressure": 91.1,
+        "evaporation": 0.76,
+        "slope": 10.44
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Avlan",
       "country": "Türkiye",
       "lat": 36.5799,
       "lon": 29.943,
-      "score": 0.237,
+      "score": 0.192,
       "coverage": "3 of 8 variables",
       "feature_match": {
-        "temperature": 0.085,
-        "pressure": 0.116,
-        "slope": 0.51
+        "temperature": 0.14,
+        "pressure": 0.115,
+        "slope": 0.322
       },
       "values": {
         "temperature": 14.47,
         "pressure": 89.87,
         "evaporation": 1.56,
         "slope": 8.99
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 40.5221,
-      "lon": 30.8745,
-      "score": 0.234,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.126,
-        "pressure": 0.087,
-        "slope": 0.488
-      },
-      "values": {
-        "temperature": 11.15,
-        "pressure": 92.72,
-        "evaporation": 1.6,
-        "slope": 9.37
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Aygır",
-      "country": "Türkiye",
-      "lat": 40.5265,
-      "lon": 40.3905,
-      "score": 0.227,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.211,
-        "pressure": 0.216,
-        "slope": 0.255
-      },
-      "values": {
-        "temperature": 4.33,
-        "pressure": 79.77,
-        "evaporation": 1.74,
-        "slope": 13.39
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Gölcük",
-      "country": "Türkiye",
-      "lat": 38.3151,
-      "lon": 28.0277,
-      "score": 0.225,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.08,
-        "pressure": 0.064,
-        "slope": 0.53
-      },
-      "values": {
-        "temperature": 14.86,
-        "pressure": 95.13,
-        "evaporation": 1.39,
-        "slope": 8.64
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 38.5575,
-      "lon": 27.2172,
-      "score": 0.213,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.06,
-        "pressure": 0.031,
-        "slope": 0.548
-      },
-      "values": {
-        "temperature": 16.5,
-        "pressure": 98.44,
-        "evaporation": 1.43,
-        "slope": 8.33
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Deniz Gölü",
-      "country": "Türkiye",
-      "lat": 40.8178,
-      "lon": 41.1606,
-      "score": 0.198,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.193,
-        "pressure": 0.177,
-        "slope": 0.224
-      },
-      "values": {
-        "temperature": 5.78,
-        "pressure": 83.7,
-        "evaporation": 2.18,
-        "slope": 13.92
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Tortum Gölü",
-      "country": "Türkiye",
-      "lat": 40.6248,
-      "lon": 41.6356,
-      "score": 0.193,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.201,
-        "pressure": 0.207,
-        "slope": 0.171
-      },
-      "values": {
-        "temperature": 5.17,
-        "pressure": 80.63,
-        "evaporation": 1.86,
-        "slope": 14.84
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.3856,
-      "lon": 41.8539,
-      "score": 0.157,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.137,
-        "pressure": 0.109,
-        "slope": 0.225
-      },
-      "values": {
-        "temperature": 10.3,
-        "pressure": 90.56,
-        "evaporation": 2.27,
-        "slope": 13.91
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.2248,
-      "lon": 41.6088,
-      "score": 0.133,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.191,
-        "pressure": 0.18,
-        "slope": 0.029
-      },
-      "values": {
-        "temperature": 5.99,
-        "pressure": 83.41,
-        "evaporation": 2.19,
-        "slope": 17.29
       },
       "judged": {},
       "known_analog": false

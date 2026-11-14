@@ -52,6 +52,27 @@ SELECT ?item ?itemLabel ?coord (MAX(?pop) AS ?population) WHERE {
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
 } GROUP BY ?item ?itemLabel ?coord"""
 
+# For sites outside Türkiye: airports and large towns within a radius of the site itself.
+# Added 2026-11-14 (AI-generated, Claude) when lakes from other countries joined the candidates.
+AROUND = """
+SELECT ?item ?itemLabel ?iata ?coord WHERE {{
+  SERVICE wikibase:around {{ ?item wdt:P625 ?coord . bd:serviceParam wikibase:center "Point({lon} {lat})"^^geo:wktLiteral ; wikibase:radius "{radius}" . }}
+  {what}
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en" }}
+}}"""
+AIRPORT_NEAR = "?item wdt:P31/wdt:P279* wd:Q1248784 ; wdt:P238 ?iata ."
+TOWN_NEAR = ("VALUES ?type { wd:Q515 wd:Q1549591 wd:Q1637706 wd:Q200250 } "
+             "?item wdt:P31 ?type ; wdt:P1082 ?pop . FILTER(?pop >= 100000)")
+
+
+def nearby(site, what):
+    """Places of one kind near a site, widening the search until something is found."""
+    for radius in (250, 600, 1500):
+        places = sparql(AROUND.format(lat=site["lat"], lon=site["lon"], radius=radius, what=what))
+        if places:
+            return places
+    raise SystemExit(f"nothing found within 1500 km of {site['name']}")
+
 
 def sparql(query):
     url = f"{WIKIDATA}?{urllib.parse.urlencode({'query': query, 'format': 'json'})}"
@@ -109,6 +130,8 @@ NOT_ANALOG = ("Not analog for: Mars's air pressure (under 1% of Earth's), cold, 
 
 
 def card(site, rank, airports, capitals, cache, variables):
+    if site.get("country") != "Türkiye":      # the lists passed in cover Türkiye only
+        airports, capitals = nearby(site, AIRPORT_NEAR), nearby(site, TOWN_NEAR)
     judged = site.get("judged", {})
     tests = []
     for key, (title, text) in TESTS.items():

@@ -186,15 +186,6 @@
       "known_analog": true
     },
     {
-      "name": "Abbasgöl",
-      "country": "Türkiye",
-      "lat": 39.8351,
-      "lon": 43.622,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20514762",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Acı Göl",
       "country": "Türkiye",
       "lat": 37.7128,
@@ -214,35 +205,6 @@
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
-      "name": "Ak Göl",
-      "country": "Türkiye",
-      "lat": 36.3,
-      "lon": 33.95,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q34797604",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Ak Göl",
-      "country": "Türkiye",
-      "lat": 40.8778,
-      "lon": 30.4319,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q34797610",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Akgöl",
-      "country": "Türkiye",
-      "lat": 38.49,
-      "lon": 43.9244,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21695023",
-      "wikipedia_articles": 5,
-      "research_note": "No source found for this lake. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
       "name": "Akgöl",
       "country": "Türkiye",
       "lat": 37.6783,
@@ -250,53 +212,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q31193276",
       "wikipedia_articles": 2
-    },
-    {
-      "name": "Akgöl",
-      "country": "Türkiye",
-      "lat": 41.0472,
-      "lon": 30.5653,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q61071758",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Akyatan Lagoon",
-      "country": "Türkiye",
-      "lat": 36.6366,
-      "lon": 35.2551,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q4702037",
-      "wikipedia_articles": 11,
-      "area_km2": 147.0
-    },
-    {
-      "name": "Akyayan",
-      "country": "Türkiye",
-      "lat": 36.6833,
-      "lon": 35.5667,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q135121406",
-      "wikipedia_articles": 0
-    },
-    {
-      "name": "Aygır Gölü",
-      "country": "Türkiye",
-      "lat": 40.7631,
-      "lon": 43.0031,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20471086",
-      "wikipedia_articles": 6,
-      "area_km2": 1.5
-    },
-    {
-      "name": "Balıklıgöl",
-      "country": "Türkiye",
-      "lat": 37.1478,
-      "lon": 38.7844,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q805908",
-      "wikipedia_articles": 9
     },
     {
       "name": "Beymelek Lagoon",
@@ -309,152 +224,6 @@
       "area_km2": 2.2
     },
     {
-      "name": "Bostaniçi Gölü",
-      "country": "Türkiye",
-      "lat": 38.5328,
-      "lon": 43.4183,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q34801507",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Dalyan Lake",
-      "country": "Türkiye",
-      "lat": 40.3854,
-      "lon": 28.4831,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6006575",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Dalyan Lake",
-      "country": "Türkiye",
-      "lat": 40.7167,
-      "lon": 26.0698,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49301350",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Deniz Gölü",
-      "country": "Türkiye",
-      "lat": 40.8178,
-      "lon": 41.1606,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q61076554",
-      "wikipedia_articles": 6
-    },
-    {
-      "name": "Dipsiz Göl",
-      "country": "Türkiye",
-      "lat": 40.0921,
-      "lon": 37.5667,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6023590",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Dipsiz Göl",
-      "country": "Türkiye",
-      "lat": 36.7386,
-      "lon": 34.9119,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49301695",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Elekçi Gölü",
-      "country": "Türkiye",
-      "lat": 40.2358,
-      "lon": 34.1525,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35695576",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Engir Gölü",
-      "country": "Türkiye",
-      "lat": 38.8028,
-      "lon": 35.5911,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35695908",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Erhacı Gölü",
-      "country": "Türkiye",
-      "lat": 39.9,
-      "lon": 44.1167,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21199042",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Gerendal Lake",
-      "country": "Türkiye",
-      "lat": 38.8299,
-      "lon": 40.3345,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q108936763",
-      "wikipedia_articles": 4
-    },
-    {
-      "name": "Gernek Gölü",
-      "country": "Türkiye",
-      "lat": 41.65,
-      "lon": 36.0667,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35700408",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Golden Horn",
-      "country": "Türkiye",
-      "lat": 41.0292,
-      "lon": 28.9611,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q179839",
-      "wikipedia_articles": 63
-    },
-    {
-      "name": "Gökpınar lake",
-      "country": "Türkiye",
-      "lat": 38.656,
-      "lon": 37.3044,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q117204028",
-      "wikipedia_articles": 0
-    },
-    {
-      "name": "Gökçeada Lagoon",
-      "country": "Türkiye",
-      "lat": 40.1328,
-      "lon": 25.9544,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49314090",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Göl",
-      "country": "Türkiye",
-      "lat": 40.9018,
-      "lon": 42.7817,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q55703467",
-      "wikipedia_articles": 1,
-      "research_note": "Unnamed Wikidata entry; not researched.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Gölbaşı Gölü",
-      "country": "Türkiye",
-      "lat": 37.7992,
-      "lon": 37.6497,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35704565",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Gölhisar Lake",
       "country": "Türkiye",
       "lat": 37.1147,
@@ -464,61 +233,6 @@
       "wikipedia_articles": 3
     },
     {
-      "name": "Gövelek Lake",
-      "country": "Türkiye",
-      "lat": 38.5515,
-      "lon": 43.6202,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q1529378",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Ili lake",
-      "country": "Türkiye",
-      "lat": 38.6428,
-      "lon": 42.2467,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q4529389",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.3856,
-      "lon": 41.8539,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6100677",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 38.5575,
-      "lon": 27.2172,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q1422549",
-      "wikipedia_articles": 3,
-      "area_km2": 3.5
-    },
-    {
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.3082,
-      "lon": 42.4839,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q31188243",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Karagöl",
-      "country": "Türkiye",
-      "lat": 41.2248,
-      "lon": 41.6088,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q116266062",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Karagöl",
       "country": "Türkiye",
       "lat": 36.7186,
@@ -526,15 +240,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q31190146",
       "wikipedia_articles": 1
-    },
-    {
-      "name": "Karagöl, Giresun",
-      "country": "Türkiye",
-      "lat": 40.525,
-      "lon": 38.1528,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6367919",
-      "wikipedia_articles": 3
     },
     {
       "name": "Kartsakhi Lake",
@@ -564,24 +269,6 @@
       "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
-      "name": "Kaz Gölü",
-      "country": "Türkiye",
-      "lat": 39.3369,
-      "lon": 42.3233,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35717973",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Koca Gölü",
-      "country": "Türkiye",
-      "lat": 40.8431,
-      "lon": 32.4447,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35719112",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Koca Gölü",
       "country": "Türkiye",
       "lat": 36.6814,
@@ -589,58 +276,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q35719119",
       "wikipedia_articles": 1
-    },
-    {
-      "name": "Köpek Gölü",
-      "country": "Türkiye",
-      "lat": 38.7914,
-      "lon": 33.0203,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35720717",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Kızören Sinkhole",
-      "country": "Türkiye",
-      "lat": 38.1749,
-      "lon": 33.186,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20473015",
-      "wikipedia_articles": 4,
-      "area_km2": 127.0
-    },
-    {
-      "name": "Kızılçan Lake",
-      "country": "Türkiye",
-      "lat": 39.8475,
-      "lon": 37.5598,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q124654403",
-      "wikipedia_articles": 1,
-      "research_note": "Lies in the Hafik-Zara gypsum karst of Sivas, where lakes form in collapsed gypsum; no data found for this lake itself. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Ladik Lake",
-      "country": "Türkiye",
-      "lat": 40.9068,
-      "lon": 36.0133,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6587092",
-      "wikipedia_articles": 12,
-      "area_km2": 8.7,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Abant",
-      "country": "Türkiye",
-      "lat": 40.6054,
-      "lon": 31.2803,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q305501",
-      "wikipedia_articles": 20,
-      "area_km2": 1.2,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Acıgöl",
@@ -683,15 +318,6 @@
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
-      "name": "Lake Ahır",
-      "country": "Türkiye",
-      "lat": 39.3965,
-      "lon": 42.0235,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123310255",
-      "wikipedia_articles": 2
-    },
-    {
       "name": "Lake Akdoğan",
       "country": "Türkiye",
       "lat": 39.1401,
@@ -710,15 +336,6 @@
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
-    },
-    {
-      "name": "Lake Akgöl",
-      "country": "Türkiye",
-      "lat": 37.5142,
-      "lon": 33.7172,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49318667",
-      "wikipedia_articles": 1
     },
     {
       "name": "Lake Akşehir",
@@ -741,15 +358,6 @@
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
-      "name": "Lake Amik",
-      "country": "Türkiye",
-      "lat": 36.3,
-      "lon": 36.3,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q3656281",
-      "wikipedia_articles": 11
-    },
-    {
       "name": "Lake Arin",
       "country": "Türkiye",
       "lat": 38.812,
@@ -769,15 +377,6 @@
       "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
-      "name": "Lake Atar",
-      "country": "Türkiye",
-      "lat": 39.4045,
-      "lon": 43.3852,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123166081",
-      "wikipedia_articles": 5
-    },
-    {
       "name": "Lake Avlan",
       "country": "Türkiye",
       "lat": 36.5799,
@@ -785,33 +384,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q20470881",
       "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Aygır",
-      "country": "Türkiye",
-      "lat": 38.8364,
-      "lon": 42.8231,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21695302",
-      "wikipedia_articles": 5
-    },
-    {
-      "name": "Lake Aygır",
-      "country": "Türkiye",
-      "lat": 40.2073,
-      "lon": 41.2358,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123243592",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Aygır",
-      "country": "Türkiye",
-      "lat": 40.5265,
-      "lon": 40.3905,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q125618501",
-      "wikipedia_articles": 4
     },
     {
       "name": "Lake Bafa",
@@ -846,37 +418,6 @@
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
-    },
-    {
-      "name": "Lake Bahri",
-      "country": "Türkiye",
-      "lat": 39.304,
-      "lon": 41.142,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123310246",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Batmış",
-      "country": "Türkiye",
-      "lat": 38.8946,
-      "lon": 42.6479,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q97217841",
-      "wikipedia_articles": 3,
-      "research_note": "Described as freshwater; no chemistry found. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Beyşehir",
-      "country": "Türkiye",
-      "lat": 37.782,
-      "lon": 31.5076,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q369923",
-      "wikipedia_articles": 35,
-      "area_km2": 650.0,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Bolluk",
@@ -945,83 +486,6 @@
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
-      "name": "Lake Büyük",
-      "country": "Türkiye",
-      "lat": 39.87,
-      "lon": 37.3783,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49300135",
-      "wikipedia_articles": 1,
-      "research_note": "Lies in the Hafik-Zara gypsum karst of Sivas; no data found for this lake itself. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Büyükçekmece",
-      "country": "Türkiye",
-      "lat": 41.0667,
-      "lon": 28.5531,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q1021881",
-      "wikipedia_articles": 13
-    },
-    {
-      "name": "Lake Demirci",
-      "country": "Türkiye",
-      "lat": 40.6325,
-      "lon": 26.93,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49301573",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Dil",
-      "country": "Türkiye",
-      "lat": 37.5876,
-      "lon": 27.1878,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6044485",
-      "wikipedia_articles": 5,
-      "area_km2": 21.0
-    },
-    {
-      "name": "Lake Dipsiz (Göztepe)",
-      "country": "Türkiye",
-      "lat": 40.3732,
-      "lon": 40.7276,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q115111041",
-      "wikipedia_articles": 0
-    },
-    {
-      "name": "Lake Dumanlı",
-      "country": "Türkiye",
-      "lat": 41.3333,
-      "lon": 36.7833,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49302014",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Durusu",
-      "country": "Türkiye",
-      "lat": 41.3399,
-      "lon": 28.5711,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q4171154",
-      "wikipedia_articles": 10
-    },
-    {
-      "name": "Lake Düden",
-      "country": "Türkiye",
-      "lat": 39.0866,
-      "lon": 33.146,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20470414",
-      "wikipedia_articles": 8,
-      "area_km2": 8.0,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
       "name": "Lake Eber",
       "country": "Türkiye",
       "lat": 38.6432,
@@ -1047,24 +511,6 @@
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
-    },
-    {
-      "name": "Lake Efteni",
-      "country": "Türkiye",
-      "lat": 40.7659,
-      "lon": 31.0411,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q19611082",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Lake Emre",
-      "country": "Türkiye",
-      "lat": 39.1078,
-      "lon": 30.439,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q130297167",
-      "wikipedia_articles": 1
     },
     {
       "name": "Lake Erçek",
@@ -1094,15 +540,6 @@
       "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
-      "name": "Lake Eymir",
-      "country": "Türkiye",
-      "lat": 39.8239,
-      "lon": 32.8244,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q4810695",
-      "wikipedia_articles": 9
-    },
-    {
       "name": "Lake Eğirdir",
       "country": "Türkiye",
       "lat": 37.9936,
@@ -1123,49 +560,12 @@
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
-      "name": "Lake Eğri",
-      "country": "Türkiye",
-      "lat": 36.931,
-      "lon": 32.204,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q120761952",
-      "wikipedia_articles": 2
-    },
-    {
       "name": "Lake Eşen",
       "country": "Türkiye",
       "lat": 37.2022,
       "lon": 29.0175,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q48791507",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Gaga",
-      "country": "Türkiye",
-      "lat": 40.9728,
-      "lon": 37.5037,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6043333",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Gala",
-      "country": "Türkiye",
-      "lat": 40.7673,
-      "lon": 26.185,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6028091",
-      "wikipedia_articles": 4,
-      "area_km2": 23.6
-    },
-    {
-      "name": "Lake Gebekirse",
-      "country": "Türkiye",
-      "lat": 37.9858,
-      "lon": 27.3036,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q35700181",
       "wikipedia_articles": 2
     },
     {
@@ -1177,24 +577,6 @@
       "source": "https://www.wikidata.org/wiki/Q14395861",
       "wikipedia_articles": 7,
       "area_km2": 1.1
-    },
-    {
-      "name": "Lake Gölcük",
-      "country": "Türkiye",
-      "lat": 38.3151,
-      "lon": 28.0277,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21523662",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Lake Gölcük",
-      "country": "Türkiye",
-      "lat": 40.6561,
-      "lon": 31.63,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q65220312",
-      "wikipedia_articles": 3
     },
     {
       "name": "Lake Hazar",
@@ -1224,26 +606,6 @@
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
-      "name": "Lake Haçlı",
-      "country": "Türkiye",
-      "lat": 39.0198,
-      "lon": 42.3001,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6030769",
-      "wikipedia_articles": 7,
-      "research_note": "Described as a freshwater landslide-dam lake; no chemistry found. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Hıdırmenteş",
-      "country": "Türkiye",
-      "lat": 39.179,
-      "lon": 43.7733,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123026909",
-      "wikipedia_articles": 2
-    },
-    {
       "name": "Lake Işıklı",
       "country": "Türkiye",
       "lat": 38.2316,
@@ -1252,24 +614,6 @@
       "source": "https://www.wikidata.org/wiki/Q1676200",
       "wikipedia_articles": 13,
       "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Kamil Abduş",
-      "country": "Türkiye",
-      "lat": 40.8305,
-      "lon": 29.287,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6067162",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Karagöl",
-      "country": "Türkiye",
-      "lat": 39.4243,
-      "lon": 39.1124,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q123694567",
-      "wikipedia_articles": 3
     },
     {
       "name": "Lake Karamık",
@@ -1292,15 +636,6 @@
       "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
-      "name": "Lake Kaz",
-      "country": "Türkiye",
-      "lat": 40.2761,
-      "lon": 36.1508,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q97321105",
-      "wikipedia_articles": 2
-    },
-    {
       "name": "Lake Kestel",
       "country": "Türkiye",
       "lat": 37.4056,
@@ -1318,37 +653,6 @@
       "source": "https://www.wikidata.org/wiki/Q1785613",
       "wikipedia_articles": 5,
       "area_km2": 11.0
-    },
-    {
-      "name": "Lake Kuyucuk",
-      "country": "Türkiye",
-      "lat": 40.7389,
-      "lon": 43.4543,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q17515431",
-      "wikipedia_articles": 5,
-      "research_note": "Sources conflict: the Ramsar sheet calls it freshwater, a Wikipedia-derived page calls it acidic. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Kuş",
-      "country": "Türkiye",
-      "lat": 40.1953,
-      "lon": 27.9678,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q1891954",
-      "wikipedia_articles": 19,
-      "area_km2": 160.0,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Kömüşini",
-      "country": "Türkiye",
-      "lat": 39.2404,
-      "lon": 32.9248,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q31190767",
-      "wikipedia_articles": 6
     },
     {
       "name": "Lake Köyceğiz",
@@ -1371,55 +675,6 @@
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
-      "name": "Lake Küçükçekmece",
-      "country": "Türkiye",
-      "lat": 41.0056,
-      "lon": 28.7469,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q1797436",
-      "wikipedia_articles": 14,
-      "area_km2": 16.0
-    },
-    {
-      "name": "Lake Lavaş",
-      "country": "Türkiye",
-      "lat": 40.9361,
-      "lon": 43.2611,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21695305",
-      "wikipedia_articles": 2,
-      "research_note": "Not researched beyond its link to Lake Çıldır by tunnel. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Limni",
-      "country": "Türkiye",
-      "lat": 40.6108,
-      "lon": 39.4131,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q96023275",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Marmara",
-      "country": "Türkiye",
-      "lat": 38.6166,
-      "lon": 28.0155,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q601695",
-      "wikipedia_articles": 14,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Nar",
-      "country": "Türkiye",
-      "lat": 38.3405,
-      "lon": 34.4567,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20988477",
-      "wikipedia_articles": 8
-    },
-    {
       "name": "Lake Nazik",
       "country": "Türkiye",
       "lat": 38.8611,
@@ -1437,46 +692,6 @@
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Palas Tuzla",
-      "country": "Türkiye",
-      "lat": 39.0214,
-      "lon": 35.815,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6090377",
-      "wikipedia_articles": 7,
-      "area_km2": 25.0,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Samsam",
-      "country": "Türkiye",
-      "lat": 39.1044,
-      "lon": 32.7378,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q31190791",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Sapanca",
-      "country": "Türkiye",
-      "lat": 40.7167,
-      "lon": 30.25,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q868012",
-      "wikipedia_articles": 16,
-      "area_km2": 14264.8,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
-    },
-    {
-      "name": "Lake Sera",
-      "country": "Türkiye",
-      "lat": 40.9853,
-      "lon": 39.6148,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6078473",
-      "wikipedia_articles": 3
     },
     {
       "name": "Lake Seyfe",
@@ -1512,62 +727,6 @@
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
-      "name": "Lake Simav",
-      "country": "Türkiye",
-      "lat": 39.1556,
-      "lon": 28.909,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6035403",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Simenit",
-      "country": "Türkiye",
-      "lat": 41.3025,
-      "lon": 36.9249,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20470550",
-      "wikipedia_articles": 5
-    },
-    {
-      "name": "Lake Suğla",
-      "country": "Türkiye",
-      "lat": 37.33,
-      "lon": 32.005,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6111551",
-      "wikipedia_articles": 10,
-      "research_note": "No chemistry found; sources describe a sub-basin of the closed Konya Basin that has largely dried. Nothing entered.",
-      "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 40.5221,
-      "lon": 30.8745,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q19612605",
-      "wikipedia_articles": 4
-    },
-    {
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 38.8972,
-      "lon": 29.8961,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q104855148",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Sülüklü",
-      "country": "Türkiye",
-      "lat": 37.3048,
-      "lon": 37.2549,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q104850893",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Lake Sülüngür",
       "country": "Türkiye",
       "lat": 36.7883,
@@ -1575,43 +734,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q49312865",
       "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Sünnet",
-      "country": "Türkiye",
-      "lat": 40.4209,
-      "lon": 30.9559,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q29644082",
-      "wikipedia_articles": 4
-    },
-    {
-      "name": "Lake Süphan",
-      "country": "Türkiye",
-      "lat": 38.9644,
-      "lon": 43.8689,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49312867",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Lake Sığırcı",
-      "country": "Türkiye",
-      "lat": 40.8167,
-      "lon": 26.3167,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49310647",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Tersakan",
-      "country": "Türkiye",
-      "lat": 38.5884,
-      "lon": 33.0856,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49313166",
-      "wikipedia_articles": 2,
-      "research_note": "A low-authority page gives pH 8.2 and soda water; a geology paper says it is fed by sulfate-bearing fault water. Not reliable enough to enter."
     },
     {
       "name": "Lake Tuz",
@@ -1632,42 +754,6 @@
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
-    },
-    {
-      "name": "Lake Tuzla",
-      "country": "Türkiye",
-      "lat": 38.9178,
-      "lon": 26.9931,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49314104",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Tuzla",
-      "country": "Türkiye",
-      "lat": 36.7031,
-      "lon": 35.0459,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q30680477",
-      "wikipedia_articles": 6
-    },
-    {
-      "name": "Lake Tuzla (Edirne)",
-      "country": "Türkiye",
-      "lat": 40.6027,
-      "lon": 26.2639,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49314098",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Tuzla (Edirne)",
-      "country": "Türkiye",
-      "lat": 40.6267,
-      "lon": 26.4867,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49314099",
-      "wikipedia_articles": 1
     },
     {
       "name": "Lake Uluabat",
@@ -1730,15 +816,6 @@
       "shortlist": "top 15 on measured variables, 2026-11-14"
     },
     {
-      "name": "Lake Yanyanlı",
-      "country": "Türkiye",
-      "lat": 38.67,
-      "lon": 35.2864,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49318654",
-      "wikipedia_articles": 1
-    },
-    {
       "name": "Lake Yaraşlı",
       "country": "Türkiye",
       "lat": 37.567,
@@ -1746,53 +823,6 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q30680540",
       "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake Yay",
-      "country": "Türkiye",
-      "lat": 38.3308,
-      "lon": 35.2808,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20476882",
-      "wikipedia_articles": 5
-    },
-    {
-      "name": "Lake Yeniçağa",
-      "country": "Türkiye",
-      "lat": 40.78,
-      "lon": 32.0256,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q20476974",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Lake Yenişehir",
-      "country": "Türkiye",
-      "lat": 36.2372,
-      "lon": 36.5692,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q48791929",
-      "wikipedia_articles": 3
-    },
-    {
-      "name": "Lake Zinav",
-      "country": "Türkiye",
-      "lat": 40.4483,
-      "lon": 37.2728,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6000752",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Lake Çavuşçu",
-      "country": "Türkiye",
-      "lat": 38.3458,
-      "lon": 31.8768,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q272701",
-      "wikipedia_articles": 8,
-      "area_km2": 27.0,
-      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Çıldır",
@@ -1813,24 +843,6 @@
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
-    },
-    {
-      "name": "Lake Örmeli",
-      "country": "Türkiye",
-      "lat": 37.1358,
-      "lon": 36.7375,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49316755",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Lake İris",
-      "country": "Türkiye",
-      "lat": 38.4892,
-      "lon": 26.4464,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49318661",
-      "wikipedia_articles": 1
     },
     {
       "name": "Lake İznik",
@@ -1867,59 +879,510 @@
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
-      "name": "Reisler Okçular Lake",
-      "country": "Türkiye",
-      "lat": 40.9965,
-      "lon": 30.3311,
+      "name": "Pavilion Lake",
+      "country": "Canada",
+      "lat": 50.8668,
+      "lon": -121.742,
       "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q110779563",
-      "wikipedia_articles": 1
+      "source": "https://www.wikidata.org/wiki/Q7155869",
+      "wikipedia_articles": 6,
+      "judged": {
+        "minerals": {
+          "match": 0.5,
+          "note": "Freshwater calcite microbialites, not magnesium carbonate",
+          "source": "https://gsa.confex.com/gsa/2007AM/webprogram/Paper131473.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Microbialite structures line the lake at 5 to 30 m depth; studied by NASA as an analog",
+          "source": "https://ntrs.nasa.gov/citations/20040112714",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
     },
     {
-      "name": "Sarıkum Lake",
-      "country": "Türkiye",
-      "lat": 42.0156,
-      "lon": 34.9204,
+      "name": "Mono Lake",
+      "country": "USA",
+      "lat": 38.0166,
+      "lon": -119.0093,
       "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q21526912",
-      "wikipedia_articles": 2
+      "source": "https://www.wikidata.org/wiki/Q335585",
+      "wikipedia_articles": 46,
+      "area_km2": 180.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Water of about pH 10",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Tufa towers of calcium carbonate, not magnesium carbonate",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin: water leaves only by evaporation or to groundwater, so salts build up",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
     },
     {
-      "name": "Tortum Gölü",
-      "country": "Türkiye",
-      "lat": 40.6248,
-      "lon": 41.6356,
+      "name": "Great Salt Lake",
+      "country": "USA",
+      "lat": 41.1667,
+      "lon": -112.5833,
       "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49313576",
-      "wikipedia_articles": 8
+      "source": "https://www.wikidata.org/wiki/Q178741",
+      "wikipedia_articles": 69,
+      "area_km2": 4400.0,
+      "judged": {
+        "ph": {
+          "match": 0,
+          "note": "Lake water of about pH 8.3, below the 8.5 threshold",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985759",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Microbialites mainly of aragonite, a calcium carbonate, partly replaced by dolomite",
+          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Microbialites with clotted (thrombolite) fabric and lamination in their lower parts",
+          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
     },
     {
-      "name": "Tuz Gölü",
-      "country": "Türkiye",
-      "lat": 40.2959,
-      "lon": 26.2579,
+      "name": "Lake Clifton",
+      "country": "Australia",
+      "lat": -32.7906,
+      "lon": 115.6664,
       "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q49309759",
-      "wikipedia_articles": 1
-    },
-    {
-      "name": "Çakalburnu Lagoon",
-      "country": "Türkiye",
-      "lat": 38.41,
-      "lon": 27.0522,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6038772",
-      "wikipedia_articles": 2
-    },
-    {
-      "name": "Çamaltı Salt Pan",
-      "country": "Türkiye",
-      "lat": 38.5,
-      "lon": 26.9167,
-      "known_analog": false,
-      "source": "https://www.wikidata.org/wiki/Q6017790",
+      "source": "https://www.wikidata.org/wiki/Q21891992",
       "wikipedia_articles": 1,
-      "area_km2": 3300.0
+      "research_note": "Known for thrombolites, but the search returned no usable source. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
+    },
+    {
+      "name": "Lake Bacalar",
+      "country": "Mexico",
+      "lat": 18.75,
+      "lon": -88.315,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q2881167",
+      "wikipedia_articles": 6,
+      "judged": {
+        "ph": {
+          "match": 0,
+          "note": "Measured pH 7.6 to 8.3, below the 8.5 threshold",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Carbonate-rich freshwater lagoon with carbonate stromatolites; mineral not confirmed as magnesium carbonate",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Large freshwater stromatolites and microbialites along the shore",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
+    },
+    {
+      "name": "Lake Thetis",
+      "country": "Australia",
+      "lat": -30.5059,
+      "lon": 115.079,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q6478020",
+      "wikipedia_articles": 8,
+      "research_note": "Known for stromatolites, but the search returned no usable source. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
+    },
+    {
+      "name": "Lake Alchichica",
+      "country": "Mexico",
+      "lat": 19.4161,
+      "lon": -97.403,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q28663179",
+      "wikipedia_articles": 1,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Peer-reviewed measurements of about pH 8.8 to 8.9, just under 9",
+          "source": "https://www.nature.com/articles/ismej201381",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 1,
+          "note": "Microbialites made mainly of hydromagnesite, the magnesium carbonate found at Salda; water is magnesium-rich (Mg/Ca about 40)",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Deep alkaline crater lake in an endorheic (closed) basin with an arid climate",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Living microbialites from just below the surface down to 14 m depth",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237500",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
+    },
+    {
+      "name": "Lonar Lake",
+      "country": "India",
+      "lat": 19.975,
+      "lon": 76.5075,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q2572189",
+      "wikipedia_articles": 23,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda lake in a basalt impact crater; measured pH 9.5 to 10.0",
+          "source": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2015.01553/full",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Lake Bosumtwi",
+      "country": "Ghana",
+      "lat": 6.5055,
+      "lon": -1.4089,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q894613",
+      "wikipedia_articles": 37,
+      "area_km2": 49.0,
+      "judged": {
+        "water": {
+          "match": 1,
+          "note": "Hydrologically closed impact-crater basin",
+          "source": "https://katalog.lib.cas.cz/KNAV/EdsRecord/edsair,edsair.doi...........78bc8bad1168fa0b8d48073c257ff3df",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Pingualuit Crater Lake",
+      "country": "Canada",
+      "lat": 61.2775,
+      "lon": -73.6636,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q1862522",
+      "wikipedia_articles": 15,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Closed sedimentary basin with no inflowing stream, but very dilute water and possible underground drainage, so it does not concentrate by evaporation",
+          "source": "https://paleo.ulaval.ca/wp-content/uploads/2015/08/Desiage-et-al-2015.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Lake El'gygytgyn",
+      "country": "Russia",
+      "lat": 67.4894,
+      "lon": 172.0898,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q934857",
+      "wikipedia_articles": 33,
+      "area_km2": 119.0,
+      "research_note": "Search found only that it is a crater lake studied for climate records. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Tswaing Crater Lake",
+      "country": "South Africa",
+      "lat": -25.4089,
+      "lon": 28.0828,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q1513620",
+      "wikipedia_articles": 7,
+      "research_note": "Search found only that it is salt-rich; no pH or basin data. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Manicouagan Reservoir",
+      "country": "Canada",
+      "lat": 51.1272,
+      "lon": -68.7472,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q756106",
+      "wikipedia_articles": 27,
+      "area_km2": 1942.0,
+      "research_note": "A reservoir in an impact structure. Not researched. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Lake Karakul",
+      "country": "Tajikistan",
+      "lat": 39.04,
+      "lon": 73.42,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q720015",
+      "wikipedia_articles": 40,
+      "area_km2": 380.0,
+      "research_note": "An impact origin has been proposed for its basin; not confirmed here. Not researched. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
+    },
+    {
+      "name": "Lake Magadi",
+      "country": "Kenya",
+      "lat": -1.8667,
+      "lon": 36.2667,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q1135655",
+      "wikipedia_articles": 30,
+      "area_km2": 200.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda-lake brines reaching about pH 12",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Endorheic basin with no outlet",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: soda lakes"
+    },
+    {
+      "name": "Lake Natron",
+      "country": "Tanzania",
+      "lat": -2.4167,
+      "lon": 36,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q838080",
+      "wikipedia_articles": 56,
+      "area_km2": 600.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Soda-lake brines reaching about pH 12",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "No water outlet",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: soda lakes"
+    },
+    {
+      "name": "Lake Bogoria",
+      "country": "Kenya",
+      "lat": 0.25,
+      "lon": 36.1,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q890651",
+      "wikipedia_articles": 38,
+      "area_km2": 34.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH of about 10",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: soda lakes"
+    },
+    {
+      "name": "Lake Abert",
+      "country": "USA",
+      "lat": 42.6417,
+      "lon": -120.225,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q6474657",
+      "wikipedia_articles": 3,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as an alkaline terminal salt lake; no measured pH found",
+          "source": "https://mdsoar.org/handle/11603/4187",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Endorheic (closed-basin) terminal lake",
+          "source": "https://mdsoar.org/handle/11603/4187",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: soda lakes"
+    },
+    {
+      "name": "Lake Nakuru",
+      "country": "Kenya",
+      "lat": -0.3667,
+      "lon": 36.0833,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q849508",
+      "wikipedia_articles": 43,
+      "area_km2": 188.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH of about 10",
+          "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: soda lakes"
+    },
+    {
+      "name": "Lake Baikal",
+      "country": "Russia",
+      "lat": 53.3028,
+      "lon": 108.0047,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q5513",
+      "wikipedia_articles": 169,
+      "area_km2": 31722.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Open lake: its only outflow is the Angara River",
+          "source": "https://www.britannica.com/place/Lake-Baikal",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
+    },
+    {
+      "name": "Lake Titicaca",
+      "country": "Peru and Bolivia",
+      "lat": -15.825,
+      "lon": -69.325,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q35342",
+      "wikipedia_articles": 122,
+      "area_km2": 8562.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Semi-open lake with a limited outflow through the Desaguadero River",
+          "source": "https://www.worldatlas.com/lakes/the-world-s-largest-endorheic-lakes-explained.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
+    },
+    {
+      "name": "Lake Tahoe",
+      "country": "USA",
+      "lat": 39.0833,
+      "lon": -120.0333,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q169962",
+      "wikipedia_articles": 57,
+      "area_km2": 502.0,
+      "research_note": "Search returned nothing on its outflow or chemistry. Nothing entered.",
+      "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
+    },
+    {
+      "name": "Lake Victoria",
+      "country": "Uganda, Kenya and Tanzania",
+      "lat": -1,
+      "lon": 33,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q5505",
+      "wikipedia_articles": 156,
+      "area_km2": 68100.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Open lake: drains through the Victoria Nile",
+          "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
+    },
+    {
+      "name": "Lake Superior",
+      "country": "Canada and USA",
+      "lat": 47.5288,
+      "lon": -87.76,
+      "known_analog": false,
+      "source": "https://www.wikidata.org/wiki/Q1066",
+      "wikipedia_articles": 110,
+      "area_km2": 82350.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Open lake: drains through the St. Marys River to Lake Huron",
+          "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
     }
   ],
   "_judged_rubric": {
@@ -1928,5 +1391,6 @@
     "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow, through-flow or a link to the sea. Left out when unknown.",
     "sediments": "1 = microbialites, delta or layered lake deposits documented. 0.5 = microbial mats or carbonate muds without documented microbialite structures. Left out when unknown."
   },
-  "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was read. Anything else still needs a human to open the source."
+  "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was read. Anything else still needs a human to open the source.",
+  "_candidate_changes": "2026-11-14: at the team's request, 111 lakes in Türkiye with no published evidence entered and more than 150 km from Lake Salda were removed, and 24 lakes from other countries were added (carbonate and microbialite lakes, impact-crater lakes, soda lakes, and well-known large lakes as expected poor analogs). Removing and adding places changes the spread of each measured variable, so every score shifts a little."
 }

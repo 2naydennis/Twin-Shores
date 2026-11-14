@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T11:50:35Z",
+  "generated_at": "2026-11-14T12:14:05Z",
   "produced_by": "pipeline/site_cards.py",
   "sources": {
     "access": "Wikidata (CC0)",
@@ -12,7 +12,7 @@
       "name": "Lake Salda",
       "lat": 37.55,
       "lon": 29.68,
-      "score": 0.738,
+      "score": 0.741,
       "coverage": "7 of 8 variables",
       "known_analog": true,
       "access": {
@@ -112,7 +112,7 @@
       "name": "Lake Van",
       "lat": 38.6333,
       "lon": 42.8167,
-      "score": 0.688,
+      "score": 0.693,
       "coverage": "7 of 8 variables",
       "known_analog": false,
       "access": {
@@ -208,10 +208,107 @@
     },
     {
       "rank": 3,
+      "name": "Lake Alchichica",
+      "lat": 19.4161,
+      "lon": -97.403,
+      "score": 0.689,
+      "coverage": "7 of 8 variables",
+      "known_analog": false,
+      "access": {
+        "airport": {
+          "name": "El Lencero Airport",
+          "lat": 19.475,
+          "lon": -96.7975,
+          "iata": "JAL",
+          "source": "https://www.wikidata.org/entity/Q3498883",
+          "distance_km": 64
+        },
+        "city": {
+          "name": "Xalapa",
+          "lat": 19.53124,
+          "lon": -96.91589,
+          "iata": null,
+          "source": "https://www.wikidata.org/entity/Q221051",
+          "distance_km": 53
+        },
+        "note": "Straight-line distances from Wikidata coordinates; road distances are longer."
+      },
+      "season": {
+        "field_season": [
+          "April",
+          "May"
+        ],
+        "rule": "Months with a mean temperature of 10 °C or more, minimum above 0 °C, and precipitation at or below the yearly mean (NASA POWER climatology).",
+        "monthly_mean_temp_c": {
+          "January": 10.27,
+          "February": 12.08,
+          "March": 14.08,
+          "April": 16.59,
+          "May": 17.11,
+          "June": 16.24,
+          "July": 15.32,
+          "August": 15.27,
+          "September": 15.08,
+          "October": 13.76,
+          "November": 11.74,
+          "December": 10.97
+        },
+        "monthly_precip_mm_day": {
+          "January": 0.79,
+          "February": 0.75,
+          "March": 1.0,
+          "April": 1.5,
+          "May": 2.42,
+          "June": 5.74,
+          "July": 5.34,
+          "August": 5.86,
+          "September": 7.21,
+          "October": 4.09,
+          "November": 1.67,
+          "December": 0.73
+        }
+      },
+      "tests": [
+        {
+          "evidence": "Carbonate deposits",
+          "test": "Rehearse coring and sample caching in carbonate rock, as Perseverance does at Jezero's margin.",
+          "based_on": "Microbialites made mainly of hydromagnesite, the magnesium carbonate found at Salda; water is magnesium-rich (Mg/Ca about 40)",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8"
+        },
+        {
+          "evidence": "Layered sediments or microbialites",
+          "test": "Test close-range instruments (X-ray and Raman spectrometers, microscopic imagers) on layered structures that could hold biosignatures.",
+          "based_on": "Living microbialites from just below the surface down to 14 m depth",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237500"
+        },
+        {
+          "evidence": "Alkaline water",
+          "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
+          "based_on": "Peer-reviewed measurements of about pH 8.8 to 8.9, just under 9",
+          "source": "https://www.nature.com/articles/ismej201381"
+        },
+        {
+          "evidence": "Closed-basin lake and shoreline",
+          "test": "Practise rover driving and terrain mapping on soft shoreline deposits and old lake terraces, then compare with Jezero's delta and margin.",
+          "based_on": "Deep alkaline crater lake in an endorheic (closed) basin with an arid climate",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8"
+        }
+      ],
+      "tests_note": "Suggested by AI from the site's published evidence using fixed rules; for the team to review.",
+      "not_analog_for": "Not analog for: Mars's air pressure (under 1% of Earth's), cold, dryness or radiation. Equipment tests here cover geology, chemistry and handling, not the Martian environment.",
+      "gaps": [
+        {
+          "variable": "Evaporation",
+          "why": "no value at Jezero to compare with"
+        }
+      ]
+    },
+    {
+      "rank": 4,
       "name": "Lake Erçek",
       "lat": 38.6717,
       "lon": 43.5783,
-      "score": 0.679,
+      "score": 0.687,
       "coverage": "5 of 8 variables",
       "known_analog": false,
       "access": {
@@ -300,11 +397,106 @@
       ]
     },
     {
-      "rank": 4,
+      "rank": 5,
+      "name": "Mono Lake",
+      "lat": 38.0166,
+      "lon": -119.0093,
+      "score": 0.657,
+      "coverage": "6 of 8 variables",
+      "known_analog": false,
+      "access": {
+        "airport": {
+          "name": "Mammoth Yosemite Airport",
+          "lat": 37.624166666,
+          "lon": -118.838888888,
+          "iata": "MMH",
+          "source": "https://www.wikidata.org/entity/Q6745883",
+          "distance_km": 46
+        },
+        "city": {
+          "name": "Fresno",
+          "lat": 36.781666666,
+          "lon": -119.792222222,
+          "iata": null,
+          "source": "https://www.wikidata.org/entity/Q43301",
+          "distance_km": 154
+        },
+        "note": "Straight-line distances from Wikidata coordinates; road distances are longer."
+      },
+      "season": {
+        "field_season": [
+          "July",
+          "August"
+        ],
+        "rule": "Months with a mean temperature of 10 °C or more, minimum above 0 °C, and precipitation at or below the yearly mean (NASA POWER climatology).",
+        "monthly_mean_temp_c": {
+          "January": -2.24,
+          "February": -1.63,
+          "March": 1.32,
+          "April": 4.77,
+          "May": 10.18,
+          "June": 16.21,
+          "July": 20.87,
+          "August": 19.84,
+          "September": 15.46,
+          "October": 8.82,
+          "November": 2.57,
+          "December": -2.39
+        },
+        "monthly_precip_mm_day": {
+          "January": 2.24,
+          "February": 2.16,
+          "March": 1.65,
+          "April": 1.11,
+          "May": 0.86,
+          "June": 0.29,
+          "July": 0.42,
+          "August": 0.3,
+          "September": 0.2,
+          "October": 0.81,
+          "November": 1.24,
+          "December": 2.33
+        }
+      },
+      "tests": [
+        {
+          "evidence": "Carbonate deposits",
+          "test": "Rehearse coring and sample caching in carbonate rock, as Perseverance does at Jezero's margin.",
+          "based_on": "Tufa towers of calcium carbonate, not magnesium carbonate",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf"
+        },
+        {
+          "evidence": "Alkaline water",
+          "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
+          "based_on": "Water of about pH 10",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf"
+        },
+        {
+          "evidence": "Closed-basin lake and shoreline",
+          "test": "Practise rover driving and terrain mapping on soft shoreline deposits and old lake terraces, then compare with Jezero's delta and margin.",
+          "based_on": "Closed basin: water leaves only by evaporation or to groundwater, so salts build up",
+          "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf"
+        }
+      ],
+      "tests_note": "Suggested by AI from the site's published evidence using fixed rules; for the team to review.",
+      "not_analog_for": "Not analog for: Mars's air pressure (under 1% of Earth's), cold, dryness or radiation. Equipment tests here cover geology, chemistry and handling, not the Martian environment.",
+      "gaps": [
+        {
+          "variable": "Sediment layers",
+          "why": "no published study entered yet"
+        },
+        {
+          "variable": "Evaporation",
+          "why": "no value at Jezero to compare with"
+        }
+      ]
+    },
+    {
+      "rank": 6,
       "name": "Lake Burdur",
       "lat": 37.7337,
       "lon": 30.1781,
-      "score": 0.646,
+      "score": 0.655,
       "coverage": "5 of 8 variables",
       "known_analog": false,
       "access": {
@@ -387,199 +579,6 @@
         },
         {
           "variable": "Sediment layers",
-          "why": "no published study entered yet"
-        },
-        {
-          "variable": "Evaporation",
-          "why": "no value at Jezero to compare with"
-        }
-      ]
-    },
-    {
-      "rank": 5,
-      "name": "Lake Hazar",
-      "lat": 38.4845,
-      "lon": 39.4047,
-      "score": 0.61,
-      "coverage": "5 of 8 variables",
-      "known_analog": false,
-      "access": {
-        "airport": {
-          "name": "Elazığ Airport",
-          "lat": 38.605,
-          "lon": 39.293888,
-          "iata": "EZS",
-          "source": "https://www.wikidata.org/entity/Q1431244",
-          "distance_km": 17
-        },
-        "city": {
-          "name": "Elazığ",
-          "lat": 38.666666666,
-          "lon": 39.216666666,
-          "iata": null,
-          "source": "https://www.wikidata.org/entity/Q174060",
-          "distance_km": 26
-        },
-        "note": "Straight-line distances from Wikidata coordinates; road distances are longer."
-      },
-      "season": {
-        "field_season": [
-          "June",
-          "July",
-          "August",
-          "September"
-        ],
-        "rule": "Months with a mean temperature of 10 °C or more, minimum above 0 °C, and precipitation at or below the yearly mean (NASA POWER climatology).",
-        "monthly_mean_temp_c": {
-          "January": -1.59,
-          "February": 0.82,
-          "March": 5.85,
-          "April": 10.82,
-          "May": 16.44,
-          "June": 22.83,
-          "July": 27.4,
-          "August": 27.65,
-          "September": 22.37,
-          "October": 15.37,
-          "November": 6.86,
-          "December": 0.83
-        },
-        "monthly_precip_mm_day": {
-          "January": 1.84,
-          "February": 2.03,
-          "March": 1.88,
-          "April": 2.08,
-          "May": 1.59,
-          "June": 0.44,
-          "July": 0.1,
-          "August": 0.04,
-          "September": 0.3,
-          "October": 1.21,
-          "November": 1.57,
-          "December": 1.89
-        }
-      },
-      "tests": [
-        {
-          "evidence": "Alkaline water",
-          "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
-          "based_on": "Described as an alkaline soda lake; surface pH 9.1 to 9.6 in 2009 (8.3 to 9.6 in 1996)",
-          "source": "https://dergipark.org.tr/en/download/article-file/764658"
-        },
-        {
-          "evidence": "Closed-basin lake and shoreline",
-          "test": "Practise rover driving and terrain mapping on soft shoreline deposits and old lake terraces, then compare with Jezero's delta and margin.",
-          "based_on": "Closed basin on the East Anatolian Fault, up to about 220 m deep, with a long-term fall in level",
-          "source": "https://aj.tubitak.gov.tr/botany/issues/bot-12-36-6/bot-36-6-14-1106-9.pdf"
-        }
-      ],
-      "tests_note": "Suggested by AI from the site's published evidence using fixed rules; for the team to review.",
-      "not_analog_for": "Not analog for: Mars's air pressure (under 1% of Earth's), cold, dryness or radiation. Equipment tests here cover geology, chemistry and handling, not the Martian environment.",
-      "gaps": [
-        {
-          "variable": "Mineral deposits",
-          "why": "no published study entered yet"
-        },
-        {
-          "variable": "Sediment layers",
-          "why": "no published study entered yet"
-        },
-        {
-          "variable": "Evaporation",
-          "why": "no value at Jezero to compare with"
-        }
-      ]
-    },
-    {
-      "rank": 6,
-      "name": "Lake İznik",
-      "lat": 40.4436,
-      "lon": 29.5083,
-      "score": 0.6,
-      "coverage": "6 of 8 variables",
-      "known_analog": false,
-      "access": {
-        "airport": {
-          "name": "Yenisehir Airport",
-          "lat": 40.255,
-          "lon": 29.5625,
-          "iata": "YEI",
-          "source": "https://www.wikidata.org/entity/Q250026",
-          "distance_km": 21
-        },
-        "city": {
-          "name": "Gemlik",
-          "lat": 40.430833333,
-          "lon": 29.159722222,
-          "iata": null,
-          "source": "https://www.wikidata.org/entity/Q753752",
-          "distance_km": 30
-        },
-        "note": "Straight-line distances from Wikidata coordinates; road distances are longer."
-      },
-      "season": {
-        "field_season": [
-          "May",
-          "June",
-          "July",
-          "August",
-          "September"
-        ],
-        "rule": "Months with a mean temperature of 10 °C or more, minimum above 0 °C, and precipitation at or below the yearly mean (NASA POWER climatology).",
-        "monthly_mean_temp_c": {
-          "January": 4.17,
-          "February": 5.53,
-          "March": 8.13,
-          "April": 11.97,
-          "May": 16.97,
-          "June": 21.18,
-          "July": 23.85,
-          "August": 24.04,
-          "September": 20.25,
-          "October": 15.34,
-          "November": 10.46,
-          "December": 5.88
-        },
-        "monthly_precip_mm_day": {
-          "January": 2.6,
-          "February": 2.38,
-          "March": 1.88,
-          "April": 1.59,
-          "May": 1.36,
-          "June": 1.48,
-          "July": 0.6,
-          "August": 0.7,
-          "September": 1.65,
-          "October": 2.2,
-          "November": 1.96,
-          "December": 2.78
-        }
-      },
-      "tests": [
-        {
-          "evidence": "Carbonate deposits",
-          "test": "Rehearse coring and sample caching in carbonate rock, as Perseverance does at Jezero's margin.",
-          "based_on": "Aragonite and calcite precipitate from the alkaline water in summer and are preserved in the sediment",
-          "source": "https://zendy.io/title/10.1111/sed.12306"
-        },
-        {
-          "evidence": "Layered sediments or microbialites",
-          "test": "Test close-range instruments (X-ray and Raman spectrometers, microscopic imagers) on layered structures that could hold biosignatures.",
-          "based_on": "A 31,000-year layered sediment record with carbonate layers that track climate",
-          "source": "https://zendy.io/title/10.1111/sed.12306"
-        },
-        {
-          "evidence": "Alkaline water",
-          "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
-          "based_on": "Average pH about 9.2; bicarbonate, carbonate and sodium are the main dissolved components",
-          "source": "https://mdpi.com/2073-4441/14/24/4097"
-        }
-      ],
-      "tests_note": "Suggested by AI from the site's published evidence using fixed rules; for the team to review.",
-      "not_analog_for": "Not analog for: Mars's air pressure (under 1% of Earth's), cold, dryness or radiation. Equipment tests here cover geology, chemistry and handling, not the Martian environment.",
-      "gaps": [
-        {
-          "variable": "Water body",
           "why": "no published study entered yet"
         },
         {

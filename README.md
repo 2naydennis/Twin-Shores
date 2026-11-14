@@ -51,26 +51,37 @@ available and do not claim to.
 
 ## Results so far
 
-157 places scored against Jezero: 148 natural lakes in Türkiye and 9 known
-analogs. Top of the ranking on 2026-11-14:
+70 places scored against Jezero: 38 lakes in Türkiye, 24 lakes in other
+countries, and 8 known analog sites. Top of the ranking on 2026-11-14:
 
 | Rank | Place | Score | Variables used | Status |
 |------|-------|-------|----------------|--------|
-| 1 | Lake Salda | 0.738 | 7 of 8 | known analog (NASA) |
-| 2 | Lake Van | 0.688 | 7 of 8 | candidate |
-| 3 | Lake Erçek | 0.679 | 5 of 8 | candidate |
-| 4 | Lake Burdur | 0.646 | 5 of 8 | candidate |
-| 5 | Lake Hazar | 0.610 | 5 of 8 | candidate |
-| 6 | Lake İznik | 0.600 | 6 of 8 | candidate |
+| 1 | Lake Salda, Türkiye | 0.741 | 7 of 8 | known analog (NASA) |
+| 2 | Lake Van, Türkiye | 0.693 | 7 of 8 | candidate |
+| 3 | Lake Alchichica, Mexico | 0.689 | 7 of 8 | candidate |
+| 4 | Lake Erçek, Türkiye | 0.687 | 5 of 8 | candidate |
+| 5 | Mono Lake, USA | 0.657 | 6 of 8 | candidate |
+| 6 | Lake Burdur, Türkiye | 0.655 | 5 of 8 | candidate |
+
+**How the list of places was chosen.** The search first covered all 148
+natural lakes in Türkiye that Wikidata lists. On 2026-11-14 the team narrowed
+it: 111 Turkish lakes with no published evidence entered and more than 150 km
+from Lake Salda were removed, and 24 lakes from other countries were added
+(carbonate and microbialite lakes, impact-crater lakes, soda lakes, and five
+well-known large lakes expected to be poor analogs). Each measured variable is
+scaled by its spread across all places, so changing the list shifts every
+score a little. The evidence for the added lakes was proposed by an AI tool
+from search summaries and still needs the team's check. The removed lakes are
+in the git history of `pipeline/config.json`.
 
 Three checks on this ranking (details in
 [pipeline/README.md](pipeline/README.md)):
 
 - **Weights.** With the eight weights redrawn at random 5,000 times, Lake
-  Salda, Lake Van and Lake Erçek each stay in the top five in at least 95% of
-  draws, and Lake Burdur in 86%.
+  Salda stays in the top five in 99% of draws, Lake Erçek in 92%, Lake Van in
+  83%, Lake Alchichica in 65%, and Mono Lake and Lake Burdur in 48% each.
 - **Single variables.** Removing any one variable leaves Salda, Van and Erçek
-  in the top five every time.
+  in the top five every time, and Alchichica in six of the eight cases.
 - **Second elevation model.** Slope was measured again with the Copernicus
   EU-DEM (European Union and ESA) and compared with the NASA/METI ASTER
   values used in the scores.

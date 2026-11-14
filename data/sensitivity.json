@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-14T11:50:00Z",
+  "generated_at": "2026-11-14T12:11:29Z",
   "produced_by": "pipeline/sensitivity.py",
-  "places_ranked": 157,
+  "places_ranked": 70,
   "random_weights": {
     "draws": 5000,
     "seed": 2026,
@@ -10,98 +10,98 @@
       {
         "baseline_rank": 1,
         "name": "Lake Salda",
-        "first_pct": 81.8,
-        "top3_pct": 99.0,
-        "top5_pct": 99.9,
-        "top10_pct": 100.0
+        "first_pct": 68.5,
+        "top3_pct": 94.2,
+        "top5_pct": 98.7,
+        "top10_pct": 99.9
       },
       {
         "baseline_rank": 2,
         "name": "Lake Van",
-        "first_pct": 12.0,
-        "top3_pct": 78.1,
-        "top5_pct": 95.0,
-        "top10_pct": 99.4
+        "first_pct": 11.4,
+        "top3_pct": 62.4,
+        "top5_pct": 82.8,
+        "top10_pct": 96.6
       },
       {
         "baseline_rank": 3,
-        "name": "Lake Erçek",
-        "first_pct": 6.0,
-        "top3_pct": 85.9,
-        "top5_pct": 98.4,
-        "top10_pct": 100.0
+        "name": "Lake Alchichica",
+        "first_pct": 11.7,
+        "top3_pct": 50.8,
+        "top5_pct": 64.8,
+        "top10_pct": 90.0
       },
       {
         "baseline_rank": 4,
-        "name": "Lake Burdur",
-        "first_pct": 0.0,
-        "top3_pct": 18.2,
-        "top5_pct": 85.4,
-        "top10_pct": 98.8
+        "name": "Lake Erçek",
+        "first_pct": 6.4,
+        "top3_pct": 61.3,
+        "top5_pct": 92.3,
+        "top10_pct": 99.0
       },
       {
         "baseline_rank": 5,
-        "name": "Lake Hazar",
-        "first_pct": 0.0,
-        "top3_pct": 0.0,
-        "top5_pct": 37.3,
-        "top10_pct": 87.1
+        "name": "Mono Lake",
+        "first_pct": 0.6,
+        "top3_pct": 8.2,
+        "top5_pct": 48.3,
+        "top10_pct": 89.6
       },
       {
         "baseline_rank": 6,
-        "name": "Lake İznik",
+        "name": "Lake Burdur",
         "first_pct": 0.0,
-        "top3_pct": 7.2,
-        "top5_pct": 31.7,
-        "top10_pct": 78.0
+        "top3_pct": 11.8,
+        "top5_pct": 48.3,
+        "top10_pct": 93.3
       },
       {
         "baseline_rank": 7,
-        "name": "Lake Bafa",
-        "first_pct": 0.0,
-        "top3_pct": 3.1,
-        "top5_pct": 15.8,
-        "top10_pct": 73.1
+        "name": "Lake Magadi",
+        "first_pct": 0.3,
+        "top3_pct": 1.1,
+        "top5_pct": 11.7,
+        "top10_pct": 68.0
       },
       {
         "baseline_rank": 8,
-        "name": "Lake Akşehir",
+        "name": "Lake Natron",
         "first_pct": 0.0,
         "top3_pct": 0.0,
-        "top5_pct": 8.7,
-        "top10_pct": 71.8
+        "top5_pct": 6.1,
+        "top10_pct": 66.8
       },
       {
         "baseline_rank": 9,
-        "name": "Lake Tuz",
+        "name": "Lake Hazar",
         "first_pct": 0.0,
-        "top3_pct": 7.3,
-        "top5_pct": 20.5,
-        "top10_pct": 56.0
+        "top3_pct": 0.0,
+        "top5_pct": 1.5,
+        "top10_pct": 44.5
       },
       {
         "baseline_rank": 10,
-        "name": "Lake Eber",
+        "name": "Lake İznik",
         "first_pct": 0.0,
-        "top3_pct": 0.1,
-        "top5_pct": 2.3,
-        "top10_pct": 70.1
+        "top3_pct": 2.2,
+        "top5_pct": 11.9,
+        "top10_pct": 46.4
       },
       {
         "baseline_rank": 11,
-        "name": "Lake Seyfe",
-        "first_pct": 0.0,
-        "top3_pct": 0.0,
-        "top5_pct": 0.3,
-        "top10_pct": 50.9
+        "name": "Lake Karakul",
+        "first_pct": 0.9,
+        "top3_pct": 2.7,
+        "top5_pct": 9.8,
+        "top10_pct": 33.9
       },
       {
         "baseline_rank": 12,
-        "name": "Acı Göl",
+        "name": "Lake Nakuru",
         "first_pct": 0.0,
-        "top3_pct": 0.0,
-        "top5_pct": 0.0,
-        "top10_pct": 34.3
+        "top3_pct": 0.8,
+        "top5_pct": 3.9,
+        "top10_pct": 37.3
       }
     ]
   },
@@ -111,63 +111,63 @@
       "temperature": [
         "Lake Salda",
         "Lake Erçek",
-        "Lake Van",
-        "Lake Burdur",
-        "Lake Hazar"
+        "Lake Alchichica",
+        "Lake Magadi",
+        "Lake Van"
       ],
       "pressure": [
         "Lake Salda",
         "Lake Erçek",
         "Lake Burdur",
         "Lake Van",
-        "Lake Hazar"
+        "Lake Alchichica"
       ],
       "evaporation": [
         "Lake Salda",
         "Lake Van",
+        "Lake Alchichica",
         "Lake Erçek",
-        "Lake Burdur",
-        "Lake Hazar"
+        "Mono Lake"
       ],
       "slope": [
         "Lake Salda",
         "Lake Van",
+        "Lake Alchichica",
         "Lake Erçek",
-        "Lake Burdur",
-        "Lake Hazar"
+        "Mono Lake"
       ],
       "ph": [
+        "Lake Alchichica",
         "Lake Salda",
         "Lake Van",
         "Lake Erçek",
-        "Lake Bafa",
-        "Lake Eber"
+        "Lake Abert"
       ],
       "minerals": [
         "Lake Van",
         "Lake Salda",
+        "Mono Lake",
         "Lake Erçek",
-        "Lake Burdur",
-        "Lake İznik"
+        "Lake Burdur"
       ],
       "water": [
         "Lake Salda",
         "Lake Van",
-        "Lake İznik",
+        "Lake Alchichica",
         "Lake Erçek",
-        "Lake Burdur"
+        "Lake İznik"
       ],
       "sediments": [
         "Lake Salda",
         "Lake Erçek",
+        "Mono Lake",
         "Lake Burdur",
-        "Lake Van",
-        "Lake Hazar"
+        "Lake Van"
       ]
     }
   },
   "equal_evidence": {
-    "note": "Ranking of only the 11 places with at least 5 variables.",
+    "note": "Ranking of only the 19 places with at least 5 variables.",
     "top10": [
       {
         "rank": 1,
@@ -179,35 +179,35 @@
       },
       {
         "rank": 3,
-        "name": "Lake Erçek"
+        "name": "Lake Alchichica"
       },
       {
         "rank": 4,
-        "name": "Lake Burdur"
+        "name": "Lake Erçek"
       },
       {
         "rank": 5,
-        "name": "Lake Hazar"
+        "name": "Mono Lake"
       },
       {
         "rank": 6,
-        "name": "Lake İznik"
+        "name": "Lake Burdur"
       },
       {
         "rank": 7,
-        "name": "Lake Bafa"
+        "name": "Lake Magadi"
       },
       {
         "rank": 8,
-        "name": "Lake Eber"
+        "name": "Lake Natron"
       },
       {
         "rank": 9,
-        "name": "Lake Seyfe"
+        "name": "Lake Hazar"
       },
       {
         "rank": 10,
-        "name": "Lake Acıgöl"
+        "name": "Lake İznik"
       }
     ]
   }
