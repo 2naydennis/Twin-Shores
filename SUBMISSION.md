@@ -370,7 +370,8 @@ Partner agencies worth checking for this project:
 
 | Resource | Type (data / code / image / text) | Source | Licence or permission |
 |----------|-----------------------------------|--------|-----------------------|
-| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: Earth map imagery. **Space agency partner data (ESA).** Not used by the website in `web/` as of 2026-11-14; list it only if it is added | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
+| **EU-DEM v1.1, Copernicus Land Monitoring Service (European Union and ESA)** | data: second elevation model, used to re-measure terrain slope at all 149 Türkiye lakes and check the NASA/METI values. **Space agency partner data (ESA).** Read through the OpenTopoData API. Output: `data/slope_crosscheck.json` | https://land.copernicus.eu/en/products/products-that-are-no-longer-disseminated-on-the-clms-website | Free and open, attribution to Copernicus |
+| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: Earth map imagery. Not used by the website in `web/` as of 2026-11-14; list it only if it is added | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
 | NASA GIBS Blue Marble | image: optional base map on the website (also NASA data) | https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api | Free |
 | OpenStreetMap | image: default base map tiles on the website | https://www.openstreetmap.org/copyright | ODbL, attribution required |
 | Leaflet 1.9.4 | code: map library | https://leafletjs.com/ | BSD 2-Clause |

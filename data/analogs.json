@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T10:23:58Z",
+  "generated_at": "2026-11-14T10:32:43Z",
   "produced_by": "pipeline/score.py from pipeline/config.json",
   "features": [
     "temperature",
@@ -277,6 +277,139 @@
           "match": 1,
           "note": "Closed basin; the lake has lost nearly half its surface area",
           "source": "https://doaj.org/article/64e0cd3c676b46b29965288a1de6f01d",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Hazar",
+      "country": "Türkiye",
+      "lat": 38.4845,
+      "lon": 39.4047,
+      "score": 0.61,
+      "coverage": "5 of 8 variables",
+      "feature_match": {
+        "temperature": 0.103,
+        "pressure": 0.13,
+        "slope": 0.817,
+        "ph": 1,
+        "water": 1
+      },
+      "values": {
+        "temperature": 13.03,
+        "pressure": 88.4,
+        "evaporation": 1.06,
+        "slope": 3.68
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Described as an alkaline soda lake; surface pH 9.1 to 9.6 in 2009 (8.3 to 9.6 in 1996)",
+          "source": "https://dergipark.org.tr/en/download/article-file/764658",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin on the East Anatolian Fault, up to about 220 m deep, with a long-term fall in level",
+          "source": "https://aj.tubitak.gov.tr/botany/issues/bot-12-36-6/bot-36-6-14-1106-9.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake İznik",
+      "country": "Türkiye",
+      "lat": 40.4436,
+      "lon": 29.5083,
+      "score": 0.6,
+      "coverage": "6 of 8 variables",
+      "feature_match": {
+        "temperature": 0.091,
+        "pressure": 0.035,
+        "slope": 0.971,
+        "ph": 1,
+        "minerals": 0.5,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 14.02,
+        "pressure": 98.03,
+        "evaporation": 1.74,
+        "slope": 0.0
+      },
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH about 9.2; bicarbonate, carbonate and sodium are the main dissolved components",
+          "source": "https://mdpi.com/2073-4441/14/24/4097",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Aragonite and calcite precipitate from the alkaline water in summer and are preserved in the sediment",
+          "source": "https://zendy.io/title/10.1111/sed.12306",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "A 31,000-year layered sediment record with carbonate layers that track climate",
+          "source": "https://zendy.io/title/10.1111/sed.12306",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Bafa",
+      "country": "Türkiye",
+      "lat": 37.5013,
+      "lon": 27.437,
+      "score": 0.575,
+      "coverage": "6 of 8 variables",
+      "feature_match": {
+        "temperature": 0.042,
+        "pressure": 0.026,
+        "slope": 0.884,
+        "minerals": 0.5,
+        "water": 1,
+        "sediments": 1
+      },
+      "values": {
+        "temperature": 17.91,
+        "pressure": 98.95,
+        "evaporation": 1.52,
+        "slope": 2.51
+      },
+      "judged": {
+        "minerals": {
+          "match": 0.5,
+          "note": "Lake sediments contain 24.5 to 31 percent inorganic carbonate",
+          "source": "https://www.jmo.org.tr/resimler/ekler/6a84474aea30f5c_ek.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "A former sea gulf cut off by river sediment; a closed lake system for about 800 years, brackish today",
+          "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Sediment record of the change from sea to lagoon to lake",
+          "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
           "checked": "search-result summary of the source; full text not opened"
         }
@@ -805,6 +938,37 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Eğirdir",
+      "country": "Türkiye",
+      "lat": 37.9936,
+      "lon": 30.8884,
+      "score": 0.433,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.122,
+        "pressure": 0.139,
+        "slope": 0.971,
+        "ph": 0.5
+      },
+      "values": {
+        "temperature": 11.49,
+        "pressure": 87.56,
+        "evaporation": 1.34,
+        "slope": 0.0
+      },
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Freshwater; average pH about 8.78 in 2013-2014 (7.58 to 8.54 in a 2009 survey)",
+          "source": "https://avesis.sdu.edu.tr/yayin/9e397e99-49ea-428c-9487-a8804d060c4b/evaluation-of-water-quality-from-the-perspective-of-eutrophication-in-lake-egirdir-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Akgöl",
       "country": "Türkiye",
       "lat": 38.49,
@@ -990,24 +1154,33 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Eğirdir",
+      "name": "Lake Uluabat",
       "country": "Türkiye",
-      "lat": 37.9936,
-      "lon": 30.8884,
-      "score": 0.411,
-      "coverage": "3 of 8 variables",
+      "lat": 40.1726,
+      "lon": 28.5908,
+      "score": 0.412,
+      "coverage": "4 of 8 variables",
       "feature_match": {
-        "temperature": 0.122,
-        "pressure": 0.139,
-        "slope": 0.971
+        "temperature": 0.099,
+        "pressure": 0.058,
+        "slope": 0.991,
+        "water": 0.5
       },
       "values": {
-        "temperature": 11.49,
-        "pressure": 87.56,
-        "evaporation": 1.34,
-        "slope": 0.0
+        "temperature": 13.35,
+        "pressure": 95.66,
+        "evaporation": 1.63,
+        "slope": 0.35
       },
-      "judged": {},
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Shallow lake with river inflow and outflow through the Uluabat River",
+          "source": "https://acikerisim.btu.edu.tr/items/010a65cd-803a-403e-a963-cdeff0ddab7e/full",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
       "known_analog": false
     },
     {
@@ -1100,6 +1273,37 @@
     },
     {
       "target_id": "jezero",
+      "name": "Lake Akdoğan",
+      "country": "Türkiye",
+      "lat": 39.1401,
+      "lon": 41.7412,
+      "score": 0.409,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.162,
+        "pressure": 0.189,
+        "slope": 0.785,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": 8.29,
+        "pressure": 82.46,
+        "evaporation": 1.35,
+        "slope": 4.23
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Freshwater crater lake fed by snowmelt; excess water drains to a creek",
+          "source": "https://en.wikipedia.org/wiki/Lake_Akdo%C4%9Fan",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
+        }
+      },
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
       "name": "Lake Palas Tuzla",
       "country": "Türkiye",
       "lat": 39.0214,
@@ -1140,6 +1344,37 @@
         "slope": 0.32
       },
       "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Köyceğiz",
+      "country": "Türkiye",
+      "lat": 36.9122,
+      "lon": 28.6553,
+      "score": 0.402,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.055,
+        "pressure": 0.065,
+        "slope": 0.989,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": 16.9,
+        "pressure": 95.03,
+        "evaporation": 1.68,
+        "slope": 0.7
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Layered (meromictic) lake fed by thermal springs, with brackish water entering on the tide: linked to the sea",
+          "source": "https://avesis.inonu.edu.tr/yayin/3f78ca91-f4b3-4aaf-8e96-dacbf29b5483/determination-of-the-origin-of-the-waters-of-koycegiz-lake-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
       "known_analog": false
     },
     {
@@ -1496,28 +1731,6 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Uluabat",
-      "country": "Türkiye",
-      "lat": 40.1726,
-      "lon": 28.5908,
-      "score": 0.383,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.099,
-        "pressure": 0.058,
-        "slope": 0.991
-      },
-      "values": {
-        "temperature": 13.35,
-        "pressure": 95.66,
-        "evaporation": 1.63,
-        "slope": 0.35
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Lake Marmara",
       "country": "Türkiye",
       "lat": 38.6166,
@@ -1556,28 +1769,6 @@
         "pressure": 90.0,
         "evaporation": 0.91,
         "slope": 2.06
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Akdoğan",
-      "country": "Türkiye",
-      "lat": 39.1401,
-      "lon": 41.7412,
-      "score": 0.379,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.162,
-        "pressure": 0.189,
-        "slope": 0.785
-      },
-      "values": {
-        "temperature": 8.29,
-        "pressure": 82.46,
-        "evaporation": 1.35,
-        "slope": 4.23
       },
       "judged": {},
       "known_analog": false
@@ -1716,28 +1907,6 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Köyceğiz",
-      "country": "Türkiye",
-      "lat": 36.9122,
-      "lon": 28.6553,
-      "score": 0.37,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.055,
-        "pressure": 0.065,
-        "slope": 0.989
-      },
-      "values": {
-        "temperature": 16.9,
-        "pressure": 95.03,
-        "evaporation": 1.68,
-        "slope": 0.7
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Gölhisar Lake",
       "country": "Türkiye",
       "lat": 37.1147,
@@ -1842,28 +2011,6 @@
         "pressure": 78.39,
         "evaporation": 0.88,
         "slope": 5.93
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake İznik",
-      "country": "Türkiye",
-      "lat": 40.4436,
-      "lon": 29.5083,
-      "score": 0.366,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.091,
-        "pressure": 0.035,
-        "slope": 0.971
-      },
-      "values": {
-        "temperature": 14.02,
-        "pressure": 98.03,
-        "evaporation": 1.74,
-        "slope": 0.0
       },
       "judged": {},
       "known_analog": false
@@ -2326,28 +2473,6 @@
         "pressure": 101.54,
         "evaporation": 1.56,
         "slope": 0.14
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Hazar",
-      "country": "Türkiye",
-      "lat": 38.4845,
-      "lon": 39.4047,
-      "score": 0.35,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.103,
-        "pressure": 0.13,
-        "slope": 0.817
-      },
-      "values": {
-        "temperature": 13.03,
-        "pressure": 88.4,
-        "evaporation": 1.06,
-        "slope": 3.68
       },
       "judged": {},
       "known_analog": false
@@ -3036,28 +3161,6 @@
     },
     {
       "target_id": "jezero",
-      "name": "Lake Bafa",
-      "country": "Türkiye",
-      "lat": 37.5013,
-      "lon": 27.437,
-      "score": 0.317,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.042,
-        "pressure": 0.026,
-        "slope": 0.884
-      },
-      "values": {
-        "temperature": 17.91,
-        "pressure": 98.95,
-        "evaporation": 1.52,
-        "slope": 2.51
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
       "name": "Atacama Desert",
       "country": "Chile",
       "lat": -24.5,
@@ -3164,6 +3267,37 @@
         "slope": 7.13
       },
       "judged": {},
+      "known_analog": false
+    },
+    {
+      "target_id": "jezero",
+      "name": "Lake Boraboy",
+      "country": "Türkiye",
+      "lat": 40.8039,
+      "lon": 36.1537,
+      "score": 0.299,
+      "coverage": "4 of 8 variables",
+      "feature_match": {
+        "temperature": 0.122,
+        "pressure": 0.078,
+        "slope": 0.495,
+        "water": 0.5
+      },
+      "values": {
+        "temperature": 11.47,
+        "pressure": 93.65,
+        "evaporation": 1.4,
+        "slope": 9.24
+      },
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Landslide-dammed freshwater lake",
+          "source": "https://dergipark.org.tr/tr/download/article-file/5294678",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
       "known_analog": false
     },
     {
@@ -3624,28 +3758,6 @@
         "pressure": 92.72,
         "evaporation": 1.6,
         "slope": 9.37
-      },
-      "judged": {},
-      "known_analog": false
-    },
-    {
-      "target_id": "jezero",
-      "name": "Lake Boraboy",
-      "country": "Türkiye",
-      "lat": 40.8039,
-      "lon": 36.1537,
-      "score": 0.232,
-      "coverage": "3 of 8 variables",
-      "feature_match": {
-        "temperature": 0.122,
-        "pressure": 0.078,
-        "slope": 0.495
-      },
-      "values": {
-        "temperature": 11.47,
-        "pressure": 93.65,
-        "evaporation": 1.4,
-        "slope": 9.24
       },
       "judged": {},
       "known_analog": false

@@ -1,0 +1,1211 @@
+{
+  "generated_at": "2026-11-14T10:36:59Z",
+  "produced_by": "pipeline/crosscheck_slope.py",
+  "method": "Mean slope on the same 10 x 10 grid of points 900 m apart, from two elevation models.",
+  "sources": {
+    "aster": "ASTER GDEM (NASA and METI), through the OpenTopoData API",
+    "eudem": "EU-DEM v1.1, Copernicus Land Monitoring Service (European Union, ESA), through the OpenTopoData API"
+  },
+  "summary": {
+    "places_compared": 149,
+    "correlation": 0.993,
+    "rank_correlation": 0.987,
+    "mean_absolute_difference_deg": 0.15,
+    "median_absolute_difference_deg": 0.04,
+    "largest_difference_deg": 2.77
+  },
+  "places": [
+    {
+      "name": "Çakalburnu Lagoon",
+      "lat": 38.41,
+      "lon": 27.0522,
+      "slope_aster_deg": 1.79,
+      "slope_eudem_deg": 4.56,
+      "difference_deg": 2.77
+    },
+    {
+      "name": "Beymelek Lagoon",
+      "lat": 36.2659,
+      "lon": 30.0532,
+      "slope_aster_deg": 6.78,
+      "slope_eudem_deg": 9.44,
+      "difference_deg": 2.66
+    },
+    {
+      "name": "Dalyan Lake",
+      "lat": 40.3854,
+      "lon": 28.4831,
+      "slope_aster_deg": 1.63,
+      "slope_eudem_deg": 3.59,
+      "difference_deg": 1.96
+    },
+    {
+      "name": "Gökçeada Lagoon",
+      "lat": 40.1328,
+      "lon": 25.9544,
+      "slope_aster_deg": 1.33,
+      "slope_eudem_deg": 3.05,
+      "difference_deg": 1.72
+    },
+    {
+      "name": "Lake Kamil Abduş",
+      "lat": 40.8305,
+      "lon": 29.287,
+      "slope_aster_deg": 0.7,
+      "slope_eudem_deg": 1.71,
+      "difference_deg": 1.01
+    },
+    {
+      "name": "Lake Büyükçekmece",
+      "lat": 41.0667,
+      "lon": 28.5531,
+      "slope_aster_deg": 1.3,
+      "slope_eudem_deg": 2.19,
+      "difference_deg": 0.89
+    },
+    {
+      "name": "Lake Sera",
+      "lat": 40.9853,
+      "lon": 39.6148,
+      "slope_aster_deg": 6.46,
+      "slope_eudem_deg": 7.31,
+      "difference_deg": 0.85
+    },
+    {
+      "name": "Lake İris",
+      "lat": 38.4892,
+      "lon": 26.4464,
+      "slope_aster_deg": 5.34,
+      "slope_eudem_deg": 6.01,
+      "difference_deg": 0.67
+    },
+    {
+      "name": "Lake Sülüngür",
+      "lat": 36.7883,
+      "lon": 28.6447,
+      "slope_aster_deg": 5.54,
+      "slope_eudem_deg": 6.12,
+      "difference_deg": 0.58
+    },
+    {
+      "name": "Tuz Gölü",
+      "lat": 40.2959,
+      "lon": 26.2579,
+      "slope_aster_deg": 0.76,
+      "slope_eudem_deg": 1.31,
+      "difference_deg": 0.55
+    },
+    {
+      "name": "Lake Tuzla (Edirne)",
+      "lat": 40.6267,
+      "lon": 26.4867,
+      "slope_aster_deg": 1.39,
+      "slope_eudem_deg": 1.93,
+      "difference_deg": 0.54
+    },
+    {
+      "name": "Tortum Gölü",
+      "lat": 40.6248,
+      "lon": 41.6356,
+      "slope_aster_deg": 14.84,
+      "slope_eudem_deg": 15.27,
+      "difference_deg": 0.43
+    },
+    {
+      "name": "Lake Tuzla (Edirne)",
+      "lat": 40.6027,
+      "lon": 26.2639,
+      "slope_aster_deg": 0.39,
+      "slope_eudem_deg": 0.79,
+      "difference_deg": 0.4
+    },
+    {
+      "name": "Lake Kestel",
+      "lat": 37.4056,
+      "lon": 30.4743,
+      "slope_aster_deg": 2.61,
+      "slope_eudem_deg": 2.26,
+      "difference_deg": -0.35
+    },
+    {
+      "name": "Lake Amik",
+      "lat": 36.3,
+      "lon": 36.3,
+      "slope_aster_deg": 0.42,
+      "slope_eudem_deg": 0.1,
+      "difference_deg": -0.32
+    },
+    {
+      "name": "Sarıkum Lake",
+      "lat": 42.0156,
+      "lon": 34.9204,
+      "slope_aster_deg": 1.73,
+      "slope_eudem_deg": 1.99,
+      "difference_deg": 0.26
+    },
+    {
+      "name": "Karagöl",
+      "lat": 36.7186,
+      "lon": 29.8457,
+      "slope_aster_deg": 2.55,
+      "slope_eudem_deg": 2.3,
+      "difference_deg": -0.25
+    },
+    {
+      "name": "Gernek Gölü",
+      "lat": 41.65,
+      "lon": 36.0667,
+      "slope_aster_deg": 0.26,
+      "slope_eudem_deg": 0.09,
+      "difference_deg": -0.17
+    },
+    {
+      "name": "Lake Sünnet",
+      "lat": 40.4209,
+      "lon": 30.9559,
+      "slope_aster_deg": 6.9,
+      "slope_eudem_deg": 6.73,
+      "difference_deg": -0.17
+    },
+    {
+      "name": "Lake Avlan",
+      "lat": 36.5799,
+      "lon": 29.943,
+      "slope_aster_deg": 8.99,
+      "slope_eudem_deg": 8.82,
+      "difference_deg": -0.17
+    },
+    {
+      "name": "Lake Tuzla",
+      "lat": 38.9178,
+      "lon": 26.9931,
+      "slope_aster_deg": 0.11,
+      "slope_eudem_deg": 0.27,
+      "difference_deg": 0.16
+    },
+    {
+      "name": "Deniz Gölü",
+      "lat": 40.8178,
+      "lon": 41.1606,
+      "slope_aster_deg": 13.92,
+      "slope_eudem_deg": 14.08,
+      "difference_deg": 0.16
+    },
+    {
+      "name": "Lake Efteni",
+      "lat": 40.7659,
+      "lon": 31.0411,
+      "slope_aster_deg": 5.07,
+      "slope_eudem_deg": 4.92,
+      "difference_deg": -0.15
+    },
+    {
+      "name": "Lake Akgöl",
+      "lat": 37.5142,
+      "lon": 33.7172,
+      "slope_aster_deg": 0.96,
+      "slope_eudem_deg": 0.82,
+      "difference_deg": -0.14
+    },
+    {
+      "name": "Lake Gebekirse",
+      "lat": 37.9858,
+      "lon": 27.3036,
+      "slope_aster_deg": 1.99,
+      "slope_eudem_deg": 2.13,
+      "difference_deg": 0.14
+    },
+    {
+      "name": "Lake Bafa",
+      "lat": 37.5013,
+      "lon": 27.437,
+      "slope_aster_deg": 2.51,
+      "slope_eudem_deg": 2.65,
+      "difference_deg": 0.14
+    },
+    {
+      "name": "Lake Karamık",
+      "lat": 38.4295,
+      "lon": 30.844,
+      "slope_aster_deg": 3.44,
+      "slope_eudem_deg": 3.31,
+      "difference_deg": -0.13
+    },
+    {
+      "name": "Kartsakhi Lake",
+      "lat": 41.2147,
+      "lon": 43.2147,
+      "slope_aster_deg": 2.97,
+      "slope_eudem_deg": 3.09,
+      "difference_deg": 0.12
+    },
+    {
+      "name": "Lake Limni",
+      "lat": 40.6108,
+      "lon": 39.4131,
+      "slope_aster_deg": 11.89,
+      "slope_eudem_deg": 11.77,
+      "difference_deg": -0.12
+    },
+    {
+      "name": "Dalyan Lake",
+      "lat": 40.7167,
+      "lon": 26.0698,
+      "slope_aster_deg": 0.2,
+      "slope_eudem_deg": 0.31,
+      "difference_deg": 0.11
+    },
+    {
+      "name": "Ak Göl",
+      "lat": 36.3,
+      "lon": 33.95,
+      "slope_aster_deg": 0.17,
+      "slope_eudem_deg": 0.07,
+      "difference_deg": -0.1
+    },
+    {
+      "name": "Gökpınar lake",
+      "lat": 38.656,
+      "lon": 37.3044,
+      "slope_aster_deg": 4.04,
+      "slope_eudem_deg": 3.94,
+      "difference_deg": -0.1
+    },
+    {
+      "name": "Golden Horn",
+      "lat": 41.0292,
+      "lon": 28.9611,
+      "slope_aster_deg": 1.64,
+      "slope_eudem_deg": 1.54,
+      "difference_deg": -0.1
+    },
+    {
+      "name": "Lake Küçükçekmece",
+      "lat": 41.0056,
+      "lon": 28.7469,
+      "slope_aster_deg": 1.64,
+      "slope_eudem_deg": 1.74,
+      "difference_deg": 0.1
+    },
+    {
+      "name": "Lake Suğla",
+      "lat": 37.33,
+      "lon": 32.005,
+      "slope_aster_deg": 0.27,
+      "slope_eudem_deg": 0.18,
+      "difference_deg": -0.09
+    },
+    {
+      "name": "Kızören Sinkhole",
+      "lat": 38.1749,
+      "lon": 33.186,
+      "slope_aster_deg": 0.43,
+      "slope_eudem_deg": 0.34,
+      "difference_deg": -0.09
+    },
+    {
+      "name": "Lake Düden",
+      "lat": 39.0866,
+      "lon": 33.146,
+      "slope_aster_deg": 0.95,
+      "slope_eudem_deg": 0.86,
+      "difference_deg": -0.09
+    },
+    {
+      "name": "Lake Çavuşçu",
+      "lat": 38.3458,
+      "lon": 31.8768,
+      "slope_aster_deg": 2.02,
+      "slope_eudem_deg": 2.11,
+      "difference_deg": 0.09
+    },
+    {
+      "name": "Lake Dil",
+      "lat": 37.5876,
+      "lon": 27.1878,
+      "slope_aster_deg": 0.2,
+      "slope_eudem_deg": 0.29,
+      "difference_deg": 0.09
+    },
+    {
+      "name": "Lake Demirci",
+      "lat": 40.6325,
+      "lon": 26.93,
+      "slope_aster_deg": 2.06,
+      "slope_eudem_deg": 2.15,
+      "difference_deg": 0.09
+    },
+    {
+      "name": "Lake Karagöl",
+      "lat": 39.4243,
+      "lon": 39.1124,
+      "slope_aster_deg": 12.64,
+      "slope_eudem_deg": 12.55,
+      "difference_deg": -0.09
+    },
+    {
+      "name": "Lake Eber",
+      "lat": 38.6432,
+      "lon": 31.1696,
+      "slope_aster_deg": 0.16,
+      "slope_eudem_deg": 0.08,
+      "difference_deg": -0.08
+    },
+    {
+      "name": "Lake Nazik",
+      "lat": 38.8611,
+      "lon": 42.2934,
+      "slope_aster_deg": 1.51,
+      "slope_eudem_deg": 1.59,
+      "difference_deg": 0.08
+    },
+    {
+      "name": "Lake Bolluk",
+      "lat": 38.5217,
+      "lon": 32.9269,
+      "slope_aster_deg": 0.66,
+      "slope_eudem_deg": 0.74,
+      "difference_deg": 0.08
+    },
+    {
+      "name": "Lake Eğri",
+      "lat": 36.931,
+      "lon": 32.204,
+      "slope_aster_deg": 4.93,
+      "slope_eudem_deg": 4.85,
+      "difference_deg": -0.08
+    },
+    {
+      "name": "Lake Batmış",
+      "lat": 38.8946,
+      "lon": 42.6479,
+      "slope_aster_deg": 1.49,
+      "slope_eudem_deg": 1.42,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Palas Tuzla",
+      "lat": 39.0214,
+      "lon": 35.815,
+      "slope_aster_deg": 1.59,
+      "slope_eudem_deg": 1.66,
+      "difference_deg": 0.07
+    },
+    {
+      "name": "Lake Kaz",
+      "lat": 40.2761,
+      "lon": 36.1508,
+      "slope_aster_deg": 1.22,
+      "slope_eudem_deg": 1.15,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Ak Göl",
+      "lat": 40.8778,
+      "lon": 30.4319,
+      "slope_aster_deg": 1.31,
+      "slope_eudem_deg": 1.24,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Gölcük",
+      "lat": 37.731,
+      "lon": 30.4942,
+      "slope_aster_deg": 5.09,
+      "slope_eudem_deg": 5.02,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Atar",
+      "lat": 39.4045,
+      "lon": 43.3852,
+      "slope_aster_deg": 9.25,
+      "slope_eudem_deg": 9.18,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Abant",
+      "lat": 40.6054,
+      "lon": 31.2803,
+      "slope_aster_deg": 7.54,
+      "slope_eudem_deg": 7.47,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Aygır",
+      "lat": 40.5265,
+      "lon": 40.3905,
+      "slope_aster_deg": 13.39,
+      "slope_eudem_deg": 13.32,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Lake Gölcük",
+      "lat": 38.3151,
+      "lon": 28.0277,
+      "slope_aster_deg": 8.64,
+      "slope_eudem_deg": 8.57,
+      "difference_deg": -0.07
+    },
+    {
+      "name": "Engir Gölü",
+      "lat": 38.8028,
+      "lon": 35.5911,
+      "slope_aster_deg": 1.34,
+      "slope_eudem_deg": 1.4,
+      "difference_deg": 0.06
+    },
+    {
+      "name": "Lake Marmara",
+      "lat": 38.6166,
+      "lon": 28.0155,
+      "slope_aster_deg": 0.53,
+      "slope_eudem_deg": 0.59,
+      "difference_deg": 0.06
+    },
+    {
+      "name": "Lake Süphan",
+      "lat": 38.9644,
+      "lon": 43.8689,
+      "slope_aster_deg": 5.93,
+      "slope_eudem_deg": 5.87,
+      "difference_deg": -0.06
+    },
+    {
+      "name": "Lake Simenit",
+      "lat": 41.3025,
+      "lon": 36.9249,
+      "slope_aster_deg": 0.18,
+      "slope_eudem_deg": 0.12,
+      "difference_deg": -0.06
+    },
+    {
+      "name": "Karagöl",
+      "lat": 38.5575,
+      "lon": 27.2172,
+      "slope_aster_deg": 8.33,
+      "slope_eudem_deg": 8.27,
+      "difference_deg": -0.06
+    },
+    {
+      "name": "Karagöl",
+      "lat": 41.3856,
+      "lon": 41.8539,
+      "slope_aster_deg": 13.91,
+      "slope_eudem_deg": 13.85,
+      "difference_deg": -0.06
+    },
+    {
+      "name": "Lake Hıdırmenteş",
+      "lat": 39.179,
+      "lon": 43.7733,
+      "slope_aster_deg": 3.5,
+      "slope_eudem_deg": 3.45,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Köpek Gölü",
+      "lat": 38.7914,
+      "lon": 33.0203,
+      "slope_aster_deg": 0.56,
+      "slope_eudem_deg": 0.51,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Lake Simav",
+      "lat": 39.1556,
+      "lon": 28.909,
+      "slope_aster_deg": 0.9,
+      "slope_eudem_deg": 0.85,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Gölhisar Lake",
+      "lat": 37.1147,
+      "lon": 29.5997,
+      "slope_aster_deg": 3.06,
+      "slope_eudem_deg": 3.01,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Lake Sığırcı",
+      "lat": 40.8167,
+      "lon": 26.3167,
+      "slope_aster_deg": 0.23,
+      "slope_eudem_deg": 0.28,
+      "difference_deg": 0.05
+    },
+    {
+      "name": "Lake Gala",
+      "lat": 40.7673,
+      "lon": 26.185,
+      "slope_aster_deg": 1.74,
+      "slope_eudem_deg": 1.79,
+      "difference_deg": 0.05
+    },
+    {
+      "name": "Balıklıgöl",
+      "lat": 37.1478,
+      "lon": 38.7844,
+      "slope_aster_deg": 2.19,
+      "slope_eudem_deg": 2.14,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Koca Gölü",
+      "lat": 40.8431,
+      "lon": 32.4447,
+      "slope_aster_deg": 4.8,
+      "slope_eudem_deg": 4.85,
+      "difference_deg": 0.05
+    },
+    {
+      "name": "Dipsiz Göl",
+      "lat": 36.7386,
+      "lon": 34.9119,
+      "slope_aster_deg": 0.11,
+      "slope_eudem_deg": 0.06,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Lake Zinav",
+      "lat": 40.4483,
+      "lon": 37.2728,
+      "slope_aster_deg": 7.66,
+      "slope_eudem_deg": 7.61,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Lake Kovada",
+      "lat": 37.6297,
+      "lon": 30.8839,
+      "slope_aster_deg": 7.54,
+      "slope_eudem_deg": 7.59,
+      "difference_deg": 0.05
+    },
+    {
+      "name": "Karagöl, Giresun",
+      "lat": 40.525,
+      "lon": 38.1528,
+      "slope_aster_deg": 10.13,
+      "slope_eudem_deg": 10.08,
+      "difference_deg": -0.05
+    },
+    {
+      "name": "Karagöl",
+      "lat": 41.2248,
+      "lon": 41.6088,
+      "slope_aster_deg": 17.29,
+      "slope_eudem_deg": 17.34,
+      "difference_deg": 0.05
+    },
+    {
+      "name": "Göl",
+      "lat": 40.9018,
+      "lon": 42.7817,
+      "slope_aster_deg": 1.62,
+      "slope_eudem_deg": 1.66,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Lake Haçlı",
+      "lat": 39.0198,
+      "lon": 42.3001,
+      "slope_aster_deg": 1.2,
+      "slope_eudem_deg": 1.24,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Akgöl",
+      "lat": 38.49,
+      "lon": 43.9244,
+      "slope_aster_deg": 2.83,
+      "slope_eudem_deg": 2.87,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Lake Samsam",
+      "lat": 39.1044,
+      "lon": 32.7378,
+      "slope_aster_deg": 1.25,
+      "slope_eudem_deg": 1.21,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Bahri",
+      "lat": 39.304,
+      "lon": 41.142,
+      "slope_aster_deg": 5.21,
+      "slope_eudem_deg": 5.17,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Örmeli",
+      "lat": 37.1358,
+      "lon": 36.7375,
+      "slope_aster_deg": 0.99,
+      "slope_eudem_deg": 0.95,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Köyceğiz",
+      "lat": 36.9122,
+      "lon": 28.6553,
+      "slope_aster_deg": 0.7,
+      "slope_eudem_deg": 0.74,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Lake Aygır",
+      "lat": 38.8364,
+      "lon": 42.8231,
+      "slope_aster_deg": 4.77,
+      "slope_eudem_deg": 4.81,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Gölbaşı Gölü",
+      "lat": 37.7992,
+      "lon": 37.6497,
+      "slope_aster_deg": 4.06,
+      "slope_eudem_deg": 4.1,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Lake Dumanlı",
+      "lat": 41.3333,
+      "lon": 36.7833,
+      "slope_aster_deg": 0.14,
+      "slope_eudem_deg": 0.1,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Durusu",
+      "lat": 41.3399,
+      "lon": 28.5711,
+      "slope_aster_deg": 1.28,
+      "slope_eudem_deg": 1.32,
+      "difference_deg": 0.04
+    },
+    {
+      "name": "Lake Tuzla",
+      "lat": 36.7031,
+      "lon": 35.0459,
+      "slope_aster_deg": 0.14,
+      "slope_eudem_deg": 0.1,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Dipsiz Göl",
+      "lat": 40.0921,
+      "lon": 37.5667,
+      "slope_aster_deg": 7.89,
+      "slope_eudem_deg": 7.85,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Yenişehir",
+      "lat": 36.2372,
+      "lon": 36.5692,
+      "slope_aster_deg": 4.04,
+      "slope_eudem_deg": 4.0,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Karagöl",
+      "lat": 41.3082,
+      "lon": 42.4839,
+      "slope_aster_deg": 9.45,
+      "slope_eudem_deg": 9.41,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Koca Gölü",
+      "lat": 36.6814,
+      "lon": 28.8247,
+      "slope_aster_deg": 5.42,
+      "slope_eudem_deg": 5.38,
+      "difference_deg": -0.04
+    },
+    {
+      "name": "Lake Çıldır",
+      "lat": 41.0446,
+      "lon": 43.2556,
+      "slope_aster_deg": 0.29,
+      "slope_eudem_deg": 0.32,
+      "difference_deg": 0.03
+    },
+    {
+      "name": "Lake Büyük",
+      "lat": 39.87,
+      "lon": 37.3783,
+      "slope_aster_deg": 1.76,
+      "slope_eudem_deg": 1.73,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Lake Tersakan",
+      "lat": 38.5884,
+      "lon": 33.0856,
+      "slope_aster_deg": 0.23,
+      "slope_eudem_deg": 0.2,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Bostaniçi Gölü",
+      "lat": 38.5328,
+      "lon": 43.4183,
+      "slope_aster_deg": 3.32,
+      "slope_eudem_deg": 3.29,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Elekçi Gölü",
+      "lat": 40.2358,
+      "lon": 34.1525,
+      "slope_aster_deg": 1.9,
+      "slope_eudem_deg": 1.87,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Lake Aygır",
+      "lat": 40.2073,
+      "lon": 41.2358,
+      "slope_aster_deg": 5.45,
+      "slope_eudem_deg": 5.42,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Lake Eymir",
+      "lat": 39.8239,
+      "lon": 32.8244,
+      "slope_aster_deg": 3.51,
+      "slope_eudem_deg": 3.48,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Akgöl",
+      "lat": 41.0472,
+      "lon": 30.5653,
+      "slope_aster_deg": 1.31,
+      "slope_eudem_deg": 1.28,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Çamaltı Salt Pan",
+      "lat": 38.5,
+      "lon": 26.9167,
+      "slope_aster_deg": 0.11,
+      "slope_eudem_deg": 0.08,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Lake Nar",
+      "lat": 38.3405,
+      "lon": 34.4567,
+      "slope_aster_deg": 4.68,
+      "slope_eudem_deg": 4.65,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Ladik Lake",
+      "lat": 40.9068,
+      "lon": 36.0133,
+      "slope_aster_deg": 3.92,
+      "slope_eudem_deg": 3.89,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Abbasgöl",
+      "lat": 39.8351,
+      "lon": 43.622,
+      "slope_aster_deg": 7.13,
+      "slope_eudem_deg": 7.1,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Gerendal Lake",
+      "lat": 38.8299,
+      "lon": 40.3345,
+      "slope_aster_deg": 9.77,
+      "slope_eudem_deg": 9.74,
+      "difference_deg": -0.03
+    },
+    {
+      "name": "Lake Burdur",
+      "lat": 37.7337,
+      "lon": 30.1781,
+      "slope_aster_deg": 0.15,
+      "slope_eudem_deg": 0.17,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Lake Yay",
+      "lat": 38.3308,
+      "lon": 35.2808,
+      "slope_aster_deg": 0.08,
+      "slope_eudem_deg": 0.06,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Aygır Gölü",
+      "lat": 40.7631,
+      "lon": 43.0031,
+      "slope_aster_deg": 4.37,
+      "slope_eudem_deg": 4.35,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Lake Yanyanlı",
+      "lat": 38.67,
+      "lon": 35.2864,
+      "slope_aster_deg": 2.09,
+      "slope_eudem_deg": 2.07,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Gövelek Lake",
+      "lat": 38.5515,
+      "lon": 43.6202,
+      "slope_aster_deg": 4.85,
+      "slope_eudem_deg": 4.87,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Erhacı Gölü",
+      "lat": 39.9,
+      "lon": 44.1167,
+      "slope_aster_deg": 1.74,
+      "slope_eudem_deg": 1.72,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Lake Kömüşini",
+      "lat": 39.2404,
+      "lon": 32.9248,
+      "slope_aster_deg": 2.06,
+      "slope_eudem_deg": 2.04,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Lake Yaraşlı",
+      "lat": 37.567,
+      "lon": 29.966,
+      "slope_aster_deg": 2.68,
+      "slope_eudem_deg": 2.66,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Lake Yeniçağa",
+      "lat": 40.78,
+      "lon": 32.0256,
+      "slope_aster_deg": 2.88,
+      "slope_eudem_deg": 2.9,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Lake Sülüklü",
+      "lat": 37.3048,
+      "lon": 37.2549,
+      "slope_aster_deg": 2.38,
+      "slope_eudem_deg": 2.36,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Reisler Okçular Lake",
+      "lat": 40.9965,
+      "lon": 30.3311,
+      "slope_aster_deg": 1.72,
+      "slope_eudem_deg": 1.7,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Lake Dipsiz (Göztepe)",
+      "lat": 40.3732,
+      "lon": 40.7276,
+      "slope_aster_deg": 7.54,
+      "slope_eudem_deg": 7.52,
+      "difference_deg": -0.02
+    },
+    {
+      "name": "Akgöl",
+      "lat": 37.6783,
+      "lon": 29.7703,
+      "slope_aster_deg": 5.18,
+      "slope_eudem_deg": 5.2,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Lake Sülüklü",
+      "lat": 38.8972,
+      "lon": 29.8961,
+      "slope_aster_deg": 5.88,
+      "slope_eudem_deg": 5.9,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Ili lake",
+      "lat": 38.6428,
+      "lon": 42.2467,
+      "slope_aster_deg": 7.36,
+      "slope_eudem_deg": 7.38,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Lake Sülüklü",
+      "lat": 40.5221,
+      "lon": 30.8745,
+      "slope_aster_deg": 9.37,
+      "slope_eudem_deg": 9.39,
+      "difference_deg": 0.02
+    },
+    {
+      "name": "Lake Salda",
+      "lat": 37.55,
+      "lon": 29.68,
+      "slope_aster_deg": 1.89,
+      "slope_eudem_deg": 1.9,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Lake Erçek",
+      "lat": 38.6717,
+      "lon": 43.5783,
+      "slope_aster_deg": 0.08,
+      "slope_eudem_deg": 0.07,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Seyfe",
+      "lat": 39.2152,
+      "lon": 34.39,
+      "slope_aster_deg": 0.17,
+      "slope_eudem_deg": 0.18,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Acı Göl",
+      "lat": 37.7128,
+      "lon": 33.6661,
+      "slope_aster_deg": 2.96,
+      "slope_eudem_deg": 2.95,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Acıgöl",
+      "lat": 37.8268,
+      "lon": 29.8878,
+      "slope_aster_deg": 2.36,
+      "slope_eudem_deg": 2.35,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Arin",
+      "lat": 38.812,
+      "lon": 42.9892,
+      "slope_aster_deg": 0.7,
+      "slope_eudem_deg": 0.71,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Lake Lavaş",
+      "lat": 40.9361,
+      "lon": 43.2611,
+      "slope_aster_deg": 2.12,
+      "slope_eudem_deg": 2.11,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Kuyucuk",
+      "lat": 40.7389,
+      "lon": 43.4543,
+      "slope_aster_deg": 0.83,
+      "slope_eudem_deg": 0.84,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Lake Karataş",
+      "lat": 37.386,
+      "lon": 29.9717,
+      "slope_aster_deg": 1.41,
+      "slope_eudem_deg": 1.4,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Uluabat",
+      "lat": 40.1726,
+      "lon": 28.5908,
+      "slope_aster_deg": 0.35,
+      "slope_eudem_deg": 0.34,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Sapanca",
+      "lat": 40.7167,
+      "lon": 30.25,
+      "slope_aster_deg": 1.98,
+      "slope_eudem_deg": 1.99,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Akyayan",
+      "lat": 36.6833,
+      "lon": 35.5667,
+      "slope_aster_deg": 0.21,
+      "slope_eudem_deg": 0.22,
+      "difference_deg": 0.01
+    },
+    {
+      "name": "Akyatan Lagoon",
+      "lat": 36.6366,
+      "lon": 35.2551,
+      "slope_aster_deg": 0.18,
+      "slope_eudem_deg": 0.17,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Gaga",
+      "lat": 40.9728,
+      "lon": 37.5037,
+      "slope_aster_deg": 5.26,
+      "slope_eudem_deg": 5.25,
+      "difference_deg": -0.01
+    },
+    {
+      "name": "Lake Van",
+      "lat": 38.6333,
+      "lon": 42.8167,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Akşehir",
+      "lat": 38.5112,
+      "lon": 31.4178,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Tuz",
+      "lat": 38.8333,
+      "lon": 33.3333,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Kızılçan Lake",
+      "lat": 39.8475,
+      "lon": 37.5598,
+      "slope_aster_deg": 0.98,
+      "slope_eudem_deg": 0.98,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Beyşehir",
+      "lat": 37.782,
+      "lon": 31.5076,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Eğirdir",
+      "lat": 37.9936,
+      "lon": 30.8884,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Işıklı",
+      "lat": 38.2316,
+      "lon": 29.9003,
+      "slope_aster_deg": 0.32,
+      "slope_eudem_deg": 0.32,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Emre",
+      "lat": 39.1078,
+      "lon": 30.439,
+      "slope_aster_deg": 1.75,
+      "slope_eudem_deg": 1.75,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Kaz Gölü",
+      "lat": 39.3369,
+      "lon": 42.3233,
+      "slope_aster_deg": 3.73,
+      "slope_eudem_deg": 3.73,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Akdoğan",
+      "lat": 39.1401,
+      "lon": 41.7412,
+      "slope_aster_deg": 4.23,
+      "slope_eudem_deg": 4.23,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Ahır",
+      "lat": 39.3965,
+      "lon": 42.0235,
+      "slope_aster_deg": 5.44,
+      "slope_eudem_deg": 5.44,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake İznik",
+      "lat": 40.4436,
+      "lon": 29.5083,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Kuş",
+      "lat": 40.1953,
+      "lon": 27.9678,
+      "slope_aster_deg": 0.0,
+      "slope_eudem_deg": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Hazar",
+      "lat": 38.4845,
+      "lon": 39.4047,
+      "slope_aster_deg": 3.68,
+      "slope_eudem_deg": 3.68,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Eşen",
+      "lat": 37.2022,
+      "lon": 29.0175,
+      "slope_aster_deg": 5.15,
+      "slope_eudem_deg": 5.15,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Gölcük",
+      "lat": 40.6561,
+      "lon": 31.63,
+      "slope_aster_deg": 8.67,
+      "slope_eudem_deg": 8.67,
+      "difference_deg": 0.0
+    },
+    {
+      "name": "Lake Boraboy",
+      "lat": 40.8039,
+      "lon": 36.1537,
+      "slope_aster_deg": 9.24,
+      "slope_eudem_deg": 9.24,
+      "difference_deg": 0.0
+    }
+  ]
+}

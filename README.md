@@ -28,8 +28,20 @@ analogs. Top of the ranking on 2026-11-14:
 | 2 | Lake Van | 0.688 | 7 of 8 | candidate |
 | 3 | Lake Erçek | 0.679 | 5 of 8 | candidate |
 | 4 | Lake Burdur | 0.646 | 5 of 8 | candidate |
-| 5 | Lake Akşehir | 0.559 | 4 of 8 | candidate |
-| 6 | Lake Tuz | 0.550 | 4 of 8 | candidate |
+| 5 | Lake Hazar | 0.610 | 5 of 8 | candidate |
+| 6 | Lake İznik | 0.600 | 6 of 8 | candidate |
+
+Three checks on this ranking (details in
+[pipeline/README.md](pipeline/README.md)):
+
+- **Weights.** With the eight weights redrawn at random 5,000 times, Lake
+  Salda, Lake Van and Lake Erçek each stay in the top five in at least 95% of
+  draws, and Lake Burdur in 86%.
+- **Single variables.** Removing any one variable leaves Salda, Van and Erçek
+  in the top five every time.
+- **Second elevation model.** Slope was measured again with the Copernicus
+  EU-DEM (European Union and ESA) and compared with the NASA/METI ASTER
+  values used in the scores.
 
 How to read it, and what it does not show, is in
 [pipeline/README.md](pipeline/README.md). In short: places are scored on
@@ -131,6 +143,8 @@ in the project.
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Web research and proposed matches for eight more lakes (salty and alkaline lakes outside the top 15); the "Scope" and "Results so far" text above; draft answers in `SUBMISSION.md`; the slide deck in `demo/` and the script that builds it. All drafts are for the team to rewrite in their own words |
 
 | 2026-11-14 | Claude (Anthropic, Claude Code), in Kranimo's session | The website in `web/`: the map page (`index.html`, `map/app.js`, `map/style.css`), the rover drive (`rover.html`, the files in `rover/`) and `web/tools/build_terrain.py`. The terrain heightmaps are NASA data fetched by that script. Details in `web/README.md` |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/sensitivity.py` and `pipeline/crosscheck_slope.py` and their output files; web research and proposed matches for a third round of 20 lakes (evidence found for 8) |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

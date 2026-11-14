@@ -617,7 +617,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6587092",
       "wikipedia_articles": 12,
-      "area_km2": 8.7
+      "area_km2": 8.7,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Abant",
@@ -627,7 +628,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q305501",
       "wikipedia_articles": 20,
-      "area_km2": 1.2
+      "area_km2": 1.2,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Acıgöl",
@@ -686,7 +688,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q30681483",
       "wikipedia_articles": 22,
-      "area_km2": 10.9
+      "area_km2": 10.9,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Freshwater crater lake fed by snowmelt; excess water drains to a creek",
+          "source": "https://en.wikipedia.org/wiki/Lake_Akdo%C4%9Fan",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Akgöl",
@@ -798,7 +810,31 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q799781",
       "wikipedia_articles": 21,
-      "area_km2": 176.5
+      "area_km2": 176.5,
+      "judged": {
+        "minerals": {
+          "match": 0.5,
+          "note": "Lake sediments contain 24.5 to 31 percent inorganic carbonate",
+          "source": "https://www.jmo.org.tr/resimler/ekler/6a84474aea30f5c_ek.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "A former sea gulf cut off by river sediment; a closed lake system for about 800 years, brackish today",
+          "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Sediment record of the change from sea to lagoon to lake",
+          "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Bahri",
@@ -828,7 +864,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q369923",
       "wikipedia_articles": 35,
-      "area_km2": 650.0
+      "area_km2": 650.0,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Bolluk",
@@ -857,7 +894,17 @@
       "lon": 36.1537,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q893292",
-      "wikipedia_articles": 12
+      "wikipedia_articles": 12,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Landslide-dammed freshwater lake",
+          "source": "https://dergipark.org.tr/tr/download/article-file/5294678",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Burdur",
@@ -960,7 +1007,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q20470414",
       "wikipedia_articles": 8,
-      "area_km2": 8.0
+      "area_km2": 8.0,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Eber",
@@ -1051,7 +1099,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1334148",
       "wikipedia_articles": 35,
-      "area_km2": 482.0
+      "area_km2": 482.0,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Freshwater; average pH about 8.78 in 2013-2014 (7.58 to 8.54 in a 2009 survey)",
+          "source": "https://avesis.sdu.edu.tr/yayin/9e397e99-49ea-428c-9487-a8804d060c4b/evaluation-of-water-quality-from-the-perspective-of-eutrophication-in-lake-egirdir-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Eğri",
@@ -1135,7 +1193,24 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q2380189",
       "wikipedia_articles": 20,
-      "area_km2": 81.0
+      "area_km2": 81.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Described as an alkaline soda lake; surface pH 9.1 to 9.6 in 2009 (8.3 to 9.6 in 1996)",
+          "source": "https://dergipark.org.tr/en/download/article-file/764658",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin on the East Anatolian Fault, up to about 220 m deep, with a long-term fall in level",
+          "source": "https://aj.tubitak.gov.tr/botany/issues/bot-12-36-6/bot-36-6-14-1106-9.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Haçlı",
@@ -1164,7 +1239,8 @@
       "lon": 29.9003,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1676200",
-      "wikipedia_articles": 13
+      "wikipedia_articles": 13,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Kamil Abduş",
@@ -1201,7 +1277,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6004690",
       "wikipedia_articles": 7,
-      "area_km2": 11.9
+      "area_km2": 11.9,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Kaz",
@@ -1250,7 +1327,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1891954",
       "wikipedia_articles": 19,
-      "area_km2": 160.0
+      "area_km2": 160.0,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Kömüşini",
@@ -1269,7 +1347,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q2661366",
       "wikipedia_articles": 21,
-      "area_km2": 52.0
+      "area_km2": 52.0,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Layered (meromictic) lake fed by thermal springs, with brackish water entering on the tide: linked to the sea",
+          "source": "https://avesis.inonu.edu.tr/yayin/3f78ca91-f4b3-4aaf-8e96-dacbf29b5483/determination-of-the-origin-of-the-waters-of-koycegiz-lake-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Küçükçekmece",
@@ -1308,7 +1396,8 @@
       "lon": 28.0155,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q601695",
-      "wikipedia_articles": 14
+      "wikipedia_articles": 14,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Nar",
@@ -1346,7 +1435,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6090377",
       "wikipedia_articles": 7,
-      "area_km2": 25.0
+      "area_km2": 25.0,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Samsam",
@@ -1365,7 +1455,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q868012",
       "wikipedia_articles": 16,
-      "area_km2": 14264.8
+      "area_km2": 14264.8,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Sera",
@@ -1508,7 +1599,8 @@
       "lon": 33.0856,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q49313166",
-      "wikipedia_articles": 2
+      "wikipedia_articles": 2,
+      "research_note": "A low-authority page gives pH 8.2 and soda water; a geology paper says it is fed by sulfate-bearing fault water. Not reliable enough to enter."
     },
     {
       "name": "Lake Tuz",
@@ -1573,7 +1665,17 @@
       "lon": 28.5908,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q4809067",
-      "wikipedia_articles": 14
+      "wikipedia_articles": 14,
+      "judged": {
+        "water": {
+          "match": 0.5,
+          "note": "Shallow lake with river inflow and outflow through the Uluabat River",
+          "source": "https://acikerisim.btu.edu.tr/items/010a65cd-803a-403e-a963-cdeff0ddab7e/full",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Lake Van",
@@ -1678,7 +1780,8 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q272701",
       "wikipedia_articles": 8,
-      "area_km2": 27.0
+      "area_km2": 27.0,
+      "research_note": "Searched on 2026-11-14; no usable chemistry or geology source found. Nothing entered."
     },
     {
       "name": "Lake Çıldır",
@@ -1726,7 +1829,31 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q192369",
       "wikipedia_articles": 29,
-      "area_km2": 290.0
+      "area_km2": 290.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Average pH about 9.2; bicarbonate, carbonate and sodium are the main dissolved components",
+          "source": "https://mdpi.com/2073-4441/14/24/4097",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Aragonite and calcite precipitate from the alkaline water in summer and are preserved in the sediment",
+          "source": "https://zendy.io/title/10.1111/sed.12306",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "A 31,000-year layered sediment record with carbonate layers that track climate",
+          "source": "https://zendy.io/title/10.1111/sed.12306",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "well-documented lakes, third research round, 2026-11-14"
     },
     {
       "name": "Reisler Okçular Lake",
@@ -1785,9 +1912,9 @@
     }
   ],
   "_judged_rubric": {
-    "ph": "1 = measured lake pH of 9 or more (alkaline water of the kind that deposits carbonates). 0.5 = described as soda or alkaline without a measurement, or measurements that straddle 9 or conflict. Left out when unknown. Jezero's ancient lake has no measured pH, so this compares with the conditions inferred from its carbonates, not with a Mars measurement.",
+    "ph": "1 = measured lake pH of 9 or more (alkaline water of the kind that deposits carbonates). 0.5 = measured between 8.5 and 9, or described as soda or alkaline without a measurement, or measurements that straddle 9 or conflict. Left out when unknown. Jezero's ancient lake has no measured pH, so this compares with the conditions inferred from its carbonates, not with a Mars measurement.",
     "minerals": "1 = magnesium-bearing carbonate deposits (hydromagnesite, magnesite, huntite) like those NASA compares with Jezero. 0.5 = other carbonate deposits (calcite, aragonite, dolomite, travertine). Left out when unknown.",
-    "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow or through-flow. Left out when unknown.",
+    "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow, through-flow or a link to the sea. Left out when unknown.",
     "sediments": "1 = microbialites, delta or layered lake deposits documented. 0.5 = microbial mats or carbonate muds without documented microbialite structures. Left out when unknown."
   },
   "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was read. Anything else still needs a human to open the source."

@@ -88,6 +88,19 @@ def rank_of(name):
     return next(i for i, a in enumerate(rows, 1) if a["name"] == name)
 
 
+def robustness_line():
+    """One bullet from the sensitivity test, or nothing if it has not been run."""
+    path = ROOT / "data" / "sensitivity.json"
+    if not path.exists():
+        return ""
+    test = json.loads(path.read_text(encoding="utf-8"))["random_weights"]
+    leaders = test["places"][:3]
+    names = ", ".join(p["name"].replace("Lake ", "") for p in leaders)
+    floor = min(p["top5_pct"] for p in leaders)
+    return (f"<li>With the weights redrawn at random {test['draws']:,} times, {esc(names)} "
+            f"stay in the top five in at least {floor:.0f}% of cases.</li>")
+
+
 FOOT = "Drafted with AI assistance (Claude). Charts are drawn by code from the project data."
 
 slides = [
@@ -131,6 +144,7 @@ Lake Van and Lake Erçek are closed-basin soda lakes with pH near 9.7; Van has c
 <div class="cols"><div>
 <h3>Check</h3>
 <ul><li>Lake Salda, NASA's own Jezero analog, ranks <b>{rank_of("Lake Salda")} of {len(rows)}</b>.</li>
+{robustness_line()}
 <li>On climate and slope alone, Salda falls to 45th and the Atacama to 124th: chemistry and geology carry the match.</li></ul>
 </div><div>
 <h3>Limits</h3>
@@ -144,7 +158,7 @@ Lake Van and Lake Erçek are closed-basin soda lakes with pH near 9.7; Van has c
 <div class="cols"><div>
 <h3>Open data</h3>
 <ul><li>NASA: POWER, MOLA, ASTER GDEM, SRTM, Planetary Analog Explorer, Mars Fact Sheet</li>
-<li>ESA Copernicus: Sentinel-2 imagery on the website</li>
+<li>Copernicus EU-DEM (European Union and ESA): second elevation model, agrees with ASTER on slope (correlation 0.99 over 149 lakes)</li>
 <li>Wikidata lake list; published studies for each lake</li></ul>
 </div><div>
 <h3>Next</h3>

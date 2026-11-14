@@ -136,6 +136,61 @@ How each source was checked is recorded per entry in `config.json` under
 The rest come from search-result summaries of the cited papers, because the
 publishers' pages did not open. A human still has to open them.
 
+### Fourth run: 20 more lakes and three robustness tests, 2026-11-14
+
+**More research.** The 20 best-documented lakes not yet covered were
+searched. Evidence was found for eight: Hazar, İznik, Bafa, Eğirdir,
+Köyceğiz, Uluabat, Boraboy, Akdoğan. Twelve had nothing usable. In total 44
+of the 149 Türkiye lakes have now been researched and 23 have evidence
+entered.
+
+| Rank | Place | Score | Variables | Main evidence |
+|------|-------|-------|-----------|---------------|
+| 1 | Lake Salda | 0.695 | 6 of 8 | known analog |
+| 2 | Lake Van | 0.688 | 7 of 8 | pH 9.7 to 9.8, closed basin, microbialite towers |
+| 3 | Lake Erçek | 0.679 | 5 of 8 | pH 9.7, closed basin |
+| 4 | Lake Burdur | 0.646 | 5 of 8 | pH about 9.1, closed basin |
+| 5 | Lake Hazar | 0.610 | 5 of 8 | soda lake, pH 9.1 to 9.6, closed basin |
+| 6 | Lake İznik | 0.600 | 6 of 8 | pH about 9.2, carbonates precipitating, layered sediment record |
+| 7 | Lake Bafa | 0.575 | 6 of 8 | closed lake system, carbonate-rich sediments |
+
+**Test 1: random weights** (`sensitivity.py`). The eight weights were redrawn
+at random 5,000 times. Share of draws in which each place finished in the
+top 3 and top 5:
+
+| Place | Top 3 | Top 5 |
+|-------|-------|-------|
+| Lake Salda | 77% | 96% |
+| Lake Van | 81% | 95% |
+| Lake Erçek | 87% | 98% |
+| Lake Burdur | 34% | 86% |
+| Lake Hazar | 0.4% | 39% |
+| Lake İznik | 9% | 34% |
+
+Salda, Van and Erçek hold the top of the list under almost any weighting.
+Burdur is usually fourth or fifth. Below that the order depends on the
+weights, so do not present ranks 5 and lower as settled.
+
+**Test 2: leave one variable out.** Salda, Van and Erçek stay in the top five
+whichever single variable is removed. Without minerals or sediments Salda
+drops from first to fourth, which shows how much of Salda's lead rests on
+those two entries.
+
+**Test 3: equal evidence.** Ranking only the 11 places with at least five
+variables gives the same order at the top: Salda, Van, Erçek, Burdur, Hazar,
+İznik, Bafa.
+
+**Second elevation model** (`crosscheck_slope.py`). Slope was measured again
+for all 149 Türkiye lakes with EU-DEM, the Copernicus elevation model
+(European Union and ESA), on the same 900 m grid. Against the ASTER values
+used in the scores: correlation 0.993, rank correlation 0.987, mean
+difference 0.15°, median 0.04°. The largest gaps (up to 2.8°) are at coastal
+lagoons, where the two models treat the shoreline differently. Slope is not
+a weak point of the scores.
+
+What these tests do not cover: they test the arithmetic, not the evidence.
+If a judged match is wrong, every test above inherits the error.
+
 Limits to state wherever these results are shown:
 
 - Lake Van is not on NASA's Planetary Analog Explorer list, but it is not
