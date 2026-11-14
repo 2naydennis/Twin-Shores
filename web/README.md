@@ -243,6 +243,49 @@ lake-level figure, so none is quoted.
 The settings are in `LOOK.jezero.ancient` in `rover/terrain.js`. The view
 adds two draw calls (the lake sheet and one instanced mesh for all mounds).
 
+### Falling-lake scenario (Lake Salda) and minimap
+
+**Minimap.** A north-up map in the bottom-left corner of the 3D page shows the
+active site's terrain, the rover as an arrow and the evidence points. It is
+baked from the same colours and heights as the 3D ground (`rover/minimap.js`).
+
+**Falling-lake scenario.** On the Lake Salda map, "See Lake Salda if its water
+keeps falling" lowers the lake by an amount the viewer picks with a slider
+(1 to 20 m). The newly exposed bed turns white, pale mounds stand for stranded
+microbialites, and the panel shows the lake area left, the area lost and how
+far the shore moves in. It is there to raise awareness, and it is labelled as
+a **scenario, not a forecast** on the 3D view, in the panel and on the minimap.
+
+From published sources (listed with links in the panel):
+
+- Landsat images from 2004, 2014 and 2024 show a steady decrease in the lake.
+- From 1984 to 2018 its water area stayed above 90% of its largest extent, so
+  the loss so far is small.
+- Local officials, quoted in the news, describe the shore drawing back 25 to
+  30 m in ten years and about 20 m in one dry summer. These are statements,
+  not measurements the team checked.
+- Causes named in those reports: drought, falling groundwater and boreholes,
+  irrigation ponds and dams on feeder streams, water-hungry crops, tourism.
+- The microbialites grow in the shallow water along the shore, which a
+  falling level strands first.
+
+Assumed or invented:
+
+- **The lake bed.** SRTM records only the lake surface. The bed is a guess:
+  depth grows evenly from the shore to the published maximum of 196 m at the
+  point farthest from land. One source gives 185 m instead. The area and
+  shoreline figures follow from this guess and are rough; with it, each metre
+  of fall moves the shore in by about 16 m.
+- **How far the level falls.** No source gives a projection, so the viewer
+  chooses. The page does not say when, or whether, any level will be reached.
+- **The stranded mounds.** Their positions and number are invented and they
+  are drawn far larger than life.
+- Not shown: changes to water chemistry, land, rainfall or temperature.
+
+To check before presenting: the sources were found through search summaries
+and their full texts were not opened. The settings are in `LOOK.salda.future`
+in `rover/terrain.js`.
+
 ### AI use in this folder
 
 Everything listed under "Rover drive" was written by Claude (Anthropic, Claude

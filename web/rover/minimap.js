@@ -53,6 +53,12 @@ export function createMinimap(canvas, caption) {
     draw(state, points, ancient) {
       if (!terrain) return;
       const layers = baked.get(terrain);
+      // The alternative view can be repainted (the falling-lake scenario changes with its slider): bake it again when it has.
+      if (terrain.map.ancient && layers.version !== terrain.map.version) {
+        layers.ancient = bake(terrain.map, terrain.map.ancient);
+        layers.today = bake(terrain.map, terrain.map.today);
+        layers.version = terrain.map.version;
+      }
       const simulated = ancient && layers.ancient;
       ctx.imageSmoothingEnabled = true;
       ctx.drawImage(simulated ? layers.ancient : layers.today, 0, 0, size, size);
@@ -93,7 +99,7 @@ export function createMinimap(canvas, caption) {
       ctx.lineWidth = size * 0.012; ctx.strokeStyle = PAPER; ctx.stroke();
       ctx.restore();
 
-      if (caption) caption.textContent = simulated ? 'Map · north up · simulated lake' : 'Map · north up';
+      if (caption) caption.textContent = simulated ? `Map · north up · ${terrain.map.altLabel || 'simulated lake'}` : 'Map · north up';
     },
   };
 }

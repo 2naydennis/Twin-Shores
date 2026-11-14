@@ -18,6 +18,11 @@ export const LOOK = {
     exaggeration: 2,
     sky: 0x9cc6e6, fog: 0xb9d6ea,
     sun: 0xfff4e0, sunStrength: 2.6, skyLight: 0xcfe4ff, groundLight: 0x5a5340, ambient: 1.1,
+    // "Future" view: a what-if scenario of a falling lake, not a forecast. SRTM records only
+    // the lake surface, so the lake bed is ASSUMED: depth grows evenly from the shore to the
+    // published maximum (196 m) at the point farthest from land. How far the level falls is
+    // the viewer's choice; no source gives a projected figure.
+    future: { max_depth_m: 196, default_drop_m: 5, max_drop_m: 20 },
   },
   // Lake Van and Lake Erçek: high steppe, drier and paler than Salda.
   van: {
@@ -132,6 +137,9 @@ const PAINT = {
   jezero: {
     floor: C(0x7a4429), plain: C(0xb46a3c), high: C(0xdba678), steep: C(0x5e3421),
   },
+  // Colours for the falling-lake scenario: exposed white carbonate flats grading to grey mud,
+  // and bleached, stranded microbialite mounds.
+  future: { flat: C(0xf3f0e8), mud: C(0xb4ae9f), moundPale: C(0xebe7dc), moundDark: C(0xa39d90) },
   // Imagined colours for the ancient view.
   ancient: {
     bed: C(0x4f5a50), mat: C(0x66703f), carbonate: C(0xe6dfc8), low: C(0x7d6650), high: C(0xb09a7c), steep: C(0x57483a),
@@ -452,6 +460,103 @@ export async function buildTerrain(site, base) {
       },
     };
   }
+  // ---- a falling lake (only for a site whose look has a `future` block) ----
+  let future = null;
+  let mapVersion = 0, altLabel = 'simulated lake';
+  const fut = look.future || null;
+  if (fut && lakeMesh && site.lake_level_m !== undefined) {
+    const lakeY = toY(site.lake_level_m);
+    const perMetre = look.exaggeration / metresPerUnit;          // scene units per real metre of height
+    const toShore = distanceTo(land, n, 250);                    // cells from each lake cell to the shore
+    let farthest = 1, lakeCells = 0;
+    for (let k = 0; k < n * n; k++) if (water[k]) { lakeCells++; farthest = Math.max(farthest, toShore[k]); }
+    const depth = new Float32Array(n * n);                       // ASSUMED depth below today's surface, metres
+    for (let k = 0; k < n * n; k++) if (water[k]) depth[k] = (fut.max_depth_m * toShore[k]) / farthest;
+    const cellM = (site.width_km * 1000) / (n - 1), cellKm2 = (cellM / 1000) ** 2;
+
+    const today = colors.slice(), target = colors.slice();
+    const colorAttribute = geometry.attributes.color, positionAttribute = geometry.attributes.position;
+    mapToday = today; mapAncient = target; altLabel = 'what-if scenario';
+
+    // Stranded microbialite mounds on the part of the bed the largest drop could expose.
+    const random = seeded(196);
+    const spots = [];
+    for (let k = 0; k < n * n; k++) if (water[k] && depth[k] > 0.3 && depth[k] < fut.max_drop_m) spots.push(k);
+    const count = Math.min(280, spots.length);
+    const mounds = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshLambertMaterial(), count);
+    const matrix = new THREE.Matrix4(), at = new THREE.Vector3(), size = new THREE.Vector3(), turn = new THREE.Quaternion();
+    const up = new THREE.Vector3(0, 1, 0), tint = new THREE.Color();
+    const moundBase = [];
+    for (let c = 0; c < count; c++) {
+      const k = spots[Math.floor(random() * spots.length)];
+      moundBase.push({ k, x: positions[k * 3] + (random() - 0.5) * cell, z: positions[k * 3 + 2] + (random() - 0.5) * cell,
+        r: 1 + random() * 1.8, squash: 0.5 + random() * 0.3, spin: random() * Math.PI });
+      mounds.setColorAt(c, tint.copy(PAINT.future.moundPale).lerp(PAINT.future.moundDark, random()));
+    }
+    mounds.frustumCulled = false;
+    mounds.castShadow = mounds.receiveShadow = true;
+    mounds.visible = false;
+    group.add(mounds);
+
+    let bedShown = false, painted = -1;
+    future = {
+      amount: 0, drop_m: fut.default_drop_m, max_drop_m: fut.max_drop_m, max_depth_m: fut.max_depth_m, surfaceY: lakeY,
+      // What the assumed bed implies for a drop of `d` metres. Model values, not measurements.
+      stats(d) {
+        let left = 0;
+        for (let k = 0; k < n * n; k++) if (water[k] && depth[k] >= d) left++;
+        return { area_today_km2: lakeCells * cellKm2, area_then_km2: left * cellKm2,
+          retreat_m: (d * farthest * cellM) / fut.max_depth_m };
+      },
+      // amount runs from 0 (today) to 1 (the level has fallen by dropM metres).
+      set(amount, dropM = this.drop_m) {
+        this.amount = amount; this.drop_m = dropM;
+        const eased = amount * amount * (3 - 2 * amount);
+        if (painted !== dropM) {                                 // repaint the exposed bed for this drop
+          for (let k = 0; k < n * n; k++) {
+            if (!water[k]) continue;
+            if (depth[k] < dropM) {
+              tint.copy(PAINT.future.flat).lerp(PAINT.future.mud, (depth[k] / dropM) * 0.7)
+                .multiplyScalar(0.9 + hash(k % n, Math.floor(k / n)) * 0.14);
+              target[k * 3] = tint.r; target[k * 3 + 1] = tint.g; target[k * 3 + 2] = tint.b;
+            } else {
+              target[k * 3] = today[k * 3]; target[k * 3 + 1] = today[k * 3 + 1]; target[k * 3 + 2] = today[k * 3 + 2];
+            }
+          }
+          painted = dropM;
+          mapVersion++;
+        }
+        const wantBed = amount > 0;
+        if (wantBed !== bedShown) {                              // swap the flat lake surface for the assumed bed, or back
+          for (let k = 0; k < n * n; k++) {
+            if (!water[k]) continue;
+            y[k] = positions[k * 3 + 1] = wantBed ? lakeY - depth[k] * perMetre : lakeY;
+          }
+          positionAttribute.needsUpdate = true;
+          geometry.computeVertexNormals();
+          bedShown = wantBed;
+        }
+        this.surfaceY = lakeY - dropM * perMetre * eased;
+        lakeMesh.position.y = this.surfaceY - lakeY;
+        lakeMesh.updateMatrix();
+        const data = colorAttribute.array;
+        for (let q = 0; q < data.length; q++) data[q] = today[q] + (target[q] - today[q]) * eased;
+        colorAttribute.needsUpdate = true;
+        mounds.visible = amount > 0.001;
+        const fallen = dropM * eased;
+        for (let c = 0; c < count; c++) {
+          const m = moundBase[c];
+          const grow = depth[m.k] < fallen ? 1 : 0.001;         // only mounds the water has left behind
+          at.set(m.x, lakeY - depth[m.k] * perMetre - m.r * m.squash * 0.2, m.z);
+          size.set(m.r * grow, m.r * m.squash * grow, m.r * grow);
+          turn.setFromAxisAngle(up, m.spin);
+          mounds.setMatrixAt(c, matrix.compose(at, turn, size));
+        }
+        mounds.instanceMatrix.needsUpdate = true;
+      },
+    };
+  }
+
   const cellAt = (x, z) => Math.round(THREE.MathUtils.clamp((z + half) / cell, 0, n - 1)) * n
     + Math.round(THREE.MathUtils.clamp((x + half) / cell, 0, n - 1));
 
@@ -468,19 +573,23 @@ export async function buildTerrain(site, base) {
   return {
     site, group, look, metresPerUnit, water: lakeMesh,
     // What the minimap draws from: grid size, scene heights, and ground colours (linear RGB).
-    map: { n, heights: y, today: mapToday, ancient: mapAncient },
+    // `ancient` is the alternative view (ancient lake, or falling-lake scenario); `version` changes when it is repainted.
+    map: { n, heights: y, today: mapToday, ancient: mapAncient, altLabel, get version() { return mapVersion; } },
+    future,
     heightAt: (x, z) => sample(y, x, z),               // scene units
     elevationAt: (x, z) => sample(metres, x, z),       // real metres
     ancient,
     isWater(x, z) {
       const k = cellAt(x, z);
-      if (water[k] === 1) return true;
+      // In the falling-lake scenario a lake cell stays water only while the lowered surface still covers its bed.
+      if (water[k] === 1) return !future || future.amount === 0 || sample(y, x, z) < future.surfaceY - 0.05;
       // In the ancient view a spot is water once the rising lake has covered it.
       return !!ancient && ancient.amount > 0 && ancient.flooded[k] === 1 && sample(y, x, z) < ancient.waterY - 0.3;
     },
     // Height of whatever is on top here: the ground, or the lake surface over it.
     surfaceAt(x, z) {
       const ground = sample(y, x, z);
+      if (future && future.amount > 0 && water[cellAt(x, z)] === 1) return Math.max(ground, future.surfaceY);
       return ancient && ancient.amount > 0 && ancient.flooded[cellAt(x, z)] === 1 ? Math.max(ground, ancient.waterY) : ground;
     },
     inside: (x, z) => Math.abs(x) < half - cell && Math.abs(z) < half - cell,

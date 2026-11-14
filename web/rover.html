@@ -116,6 +116,32 @@
     white-space: nowrap; pointer-events: none; }
   @media (max-width: 1180px) { #sim-badge { top: auto; bottom: 8px; font-size: 10px; letter-spacing: .04em; white-space: normal; text-align: center; max-width: calc(100vw - 32px); } }
   #info { max-height: calc(100vh - 82px); overflow-y: auto; }
+  /* Falling-lake scenario for Lake Salda. Marked as a scenario wherever it shows. */
+  #future { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--ink); }
+  #future[hidden], #future-note[hidden], #future-badge[hidden] { display: none; }
+  #future-toggle { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; text-align: left;
+    padding: 9px 12px; border-radius: 2px; border: 1px solid var(--ink); cursor: pointer; background: #fff; color: var(--ink); font: 500 13px var(--sans); }
+  #future-toggle .t-sub { grid-column: 1; font: 400 12px/1.35 var(--sans); color: var(--muted); }
+  #future-toggle .t-arrow { grid-column: 2; grid-row: 1 / span 2; font: 500 20px var(--mono); }
+  #future-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  #future-toggle[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  #future-toggle[aria-pressed="true"] .t-sub { color: rgba(255, 255, 255, .85); }
+  #future-toggle:focus-visible, #drop:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  #future-note { margin-top: 10px; font-size: 12.5px; }
+  #future-note .eyebrow { color: var(--accent); }
+  #future-note label { display: flex; justify-content: space-between; font-weight: 500; margin: 8px 0 4px; font-size: 13px; }
+  #drop-value { font-family: var(--mono); }
+  #drop { width: 100%; accent-color: var(--accent); margin: 0; }
+  #future-note dl { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; margin: 8px 0 0; }
+  #future-note dt { color: var(--muted); }
+  #future-note dd { margin: 0; text-align: right; font-family: var(--mono); font-size: 12px; }
+  #future-note p { margin: 6px 0 0; }
+  #future-note summary { cursor: pointer; margin-top: 8px; color: var(--ink); font-weight: 500; }
+  #future-note details p { color: var(--muted); }
+  #future-badge { position: fixed; top: 66px; left: 50%; transform: translateX(-50%); z-index: 2; padding: 7px 12px; border-radius: 2px;
+    background: var(--ink); color: #fff; font: 500 11px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    white-space: nowrap; pointer-events: none; }
+  @media (max-width: 1180px) { #future-badge { top: auto; bottom: 8px; font-size: 10px; letter-spacing: .04em; white-space: normal; text-align: center; max-width: calc(100vw - 32px); } }
   /* Minimap, bottom left. The site panel above it stops short so the two never overlap. */
   #minimap { left: 16px; bottom: 16px; padding: 6px 6px 5px; line-height: 0; }
   #minimap canvas { position: static; display: block; width: 190px; height: 190px; cursor: default; touch-action: auto; border: 1px solid var(--rule); }
@@ -192,8 +218,40 @@
         </details>
       </div>
     </div>
+    <div id="future" hidden>
+      <button id="future-toggle" type="button" aria-pressed="false"><span class="t-title">See Lake Salda if its water keeps falling</span><span class="t-sub">A what-if scenario, not a forecast</span><span class="t-arrow">→</span></button>
+      <div id="future-note" hidden>
+        <div class="eyebrow">Scenario · not a forecast</div>
+        <label for="drop"><span>Lake level falls by</span><span id="drop-value">5 m</span></label>
+        <input id="drop" type="range" min="1" max="20" step="1" value="5">
+        <dl>
+          <dt>Lake area left (model)</dt><dd id="f-area">–</dd>
+          <dt>Area lost (model)</dt><dd id="f-lost">–</dd>
+          <dt>Shore moves in by about (model)</dt><dd id="f-retreat">–</dd>
+        </dl>
+        <p>Lake Salda has no outlet, so its level depends on rain, groundwater and evaporation. Satellite studies and local reports say it has been falling. You choose how far it falls here; nobody has published how far it will.</p>
+        <details>
+          <summary>What is reported, and what this view assumes</summary>
+          <p><b>Reported: the level is falling.</b> A study of Landsat images from 2004, 2014 and 2024 found a steady decrease
+            (<a href="https://dergipark.org.tr/en/pub/ejar/article/1731381" target="_blank" rel="noopener">2025 study</a>), and the shoreline's movement from 1975 to 2019 has been mapped
+            (<a href="https://link.springer.com/10.1007/s12145-020-00460-x" target="_blank" rel="noopener">Dereli and Tercan, 2020</a>).</p>
+          <p><b>Reported: so far the loss is small.</b> From 1984 to 2018 the lake's water area stayed above 90% of its largest extent
+            (<a href="https://open.metu.edu.tr/bitstream/handle/11511/43519/index.pdf" target="_blank" rel="noopener">METU thesis</a>). The lake is deep and steep-sided, so a falling level shows less than on a shallow lake.</p>
+          <p><b>Reported by local officials, in the news:</b> the shore drew back about 25 to 30 m in ten years
+            (<a href="https://cnnturk.com/turkiye/salda-golu-10-yilda-30-metre-cekildi-1599404" target="_blank" rel="noopener">CNN Türk, 2020</a>), and about 20 m with more than half a metre of level in one dry summer
+            (<a href="https://www.haberturk.com/salda-da-kuraklik-alarmi-3-ayda-20-metre-3738340" target="_blank" rel="noopener">Habertürk</a>). These are statements, not measurements we checked.</p>
+          <p><b>Causes named in those reports:</b> drought and low rainfall, falling groundwater and boreholes, irrigation ponds and dams on the streams that feed the lake, water-hungry crops, and tourism pressure
+            (<a href="https://www.sozcu.com.tr/suyu-cekilen-salda-icin-kaybedebiliriz-uyarisi-p248439" target="_blank" rel="noopener">Sözcü</a>).</p>
+          <p><b>Why it matters for Mars research.</b> Salda's microbialites grow in the shallow water along the shore
+            (<a href="https://research.itu.edu.tr/en/publications/biotic-and-abiotic-imprints-on-mg-rich-stromatolites-lessons-from/" target="_blank" rel="noopener">Balci and others, 2020</a>). A falling level strands that zone first. The pale mounds here stand for stranded microbialites; where they are and how many is invented, and they are drawn far larger than life.</p>
+          <p><b>Assumed: the lake bed.</b> NASA's elevation data records only the lake surface. The bed here is a guess: depth grows evenly from the shore to the published maximum of 196 m at the point farthest from land. The area and shoreline figures follow from that guess, so they are rough.</p>
+          <p><b>Not shown:</b> changes to water chemistry, the surrounding land, rainfall or temperature.</p>
+        </details>
+      </div>
+    </div>
   </section>
 
+  <div id="future-badge" hidden>Scenario · Lake Salda if its level fell by <span id="badge-drop">5</span> m · not a forecast</div>
   <div id="sim-badge" hidden>Simulation · ancient Jezero, about 3.5 billion years ago · a guess, not data</div>
 
   <label class="sr-only" for="switch">Site</label>

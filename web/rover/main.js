@@ -37,7 +37,15 @@ const gameUi = {
 };
 let game = null;                    // the fact hunt; stays null if the data cannot be loaded
 const minimap = $('minimap-canvas') ? createMinimap($('minimap-canvas'), $('minimap-caption')) : null;
-const drawMinimap = () => { if (minimap && active) minimap.draw(state, game ? game.points() : [], !!active.ancient && active.ancient.amount > 0.5); };
+const drawMinimap = () => {
+  if (!minimap || !active) return;
+  const alternative = (active.ancient && active.ancient.amount > 0.5) || (active.future && active.future.amount > 0.5);
+  minimap.draw(state, game ? game.points() : [], !!alternative);
+};
+// The falling-lake scenario for Lake Salda: a what-if, driven by a slider, never a forecast.
+const futureUi = { box: $('future'), button: $('future-toggle'), note: $('future-note'), badge: $('future-badge'),
+  drop: $('drop'), dropValue: $('drop-value'), badgeDrop: $('badge-drop'), area: $('f-area'), lost: $('f-lost'), retreat: $('f-retreat') };
+let futureTarget = 0;               // 0 = the lake today, 1 = the level has fallen by the slider's amount
 const eraUi = { box: $('era'), button: $('terraform'), note: $('sim'), badge: $('sim-badge'), level: $('sim-level'), area: $('sim-area') };
 const FLOOD_SECONDS = 3.5;          // how long the ancient lake takes to fill or drain
 let eraTarget = 0;                  // 0 = Mars today, 1 = the "Terraform" view of ancient Jezero
@@ -121,6 +129,7 @@ function show(id) {
   scene.environment = environments[id] || null;
   applyLook();
   showEra();
+  showFuture();
 
   const CAVEAT = {
     salda: "Lake Salda matches Jezero's ancient lake and carbonate setting, not Mars as a whole.",
@@ -210,6 +219,37 @@ function flood(dt) {
   if (game) game.refresh();
 }
 
+// The falling-lake button, slider and figures exist only on a site with a `future` scenario.
+function showFuture() {
+  const scenario = active.future;
+  if (!futureUi.box) return;
+  const on = !!scenario && futureTarget === 1;
+  futureUi.box.hidden = !scenario;
+  futureUi.note.hidden = futureUi.badge.hidden = !on;
+  futureUi.button.setAttribute('aria-pressed', String(on));
+  futureUi.button.querySelector('.t-title').textContent = on ? 'Back to the lake today' : 'See Lake Salda if its water keeps falling';
+  futureUi.button.querySelector('.t-sub').textContent = on ? 'Refill to the level NASA measured' : 'A what-if scenario, not a forecast';
+  if (!scenario) return;
+  const drop = Number(futureUi.drop.value);
+  const s = scenario.stats(drop);
+  futureUi.dropValue.textContent = `${drop} m`;
+  futureUi.badgeDrop.textContent = drop;
+  futureUi.area.textContent = `${s.area_then_km2.toFixed(1)} km²`;
+  futureUi.lost.textContent = `${(s.area_today_km2 - s.area_then_km2).toFixed(1)} km² (${Math.round((1 - s.area_then_km2 / s.area_today_km2) * 100)}%)`;
+  futureUi.retreat.textContent = `${Math.round(s.retreat_m / 10) * 10} m`;
+}
+
+// Lower or refill the lake a little each frame until it reaches the chosen state.
+function recede(dt) {
+  const scenario = active.future;
+  if (!scenario) return;
+  const drop = Number(futureUi.drop.value);
+  if (scenario.amount === futureTarget && (scenario.drop_m === drop || scenario.amount === 0)) return;
+  const step = dt / FLOOD_SECONDS;
+  scenario.set(futureTarget > scenario.amount ? Math.min(1, scenario.amount + step) : Math.max(0, scenario.amount - step), drop);
+  if (game) game.refresh();
+}
+
 function drive(dt) {
   const forward = (keys.has('up') ? 1 : 0) - (keys.has('down') ? 1 : 0);
   const turn = (keys.has('left') ? 1 : 0) - (keys.has('right') ? 1 : 0);
@@ -288,6 +328,7 @@ function frame(now) {
   last = now;
   const dt = Math.min(elapsed / 1000, 0.05);
   flood(dt);
+  recede(dt);
   drive(dt);
   if (game) game.update(dt, state);
   follow(dt);
@@ -386,6 +427,10 @@ eraUi.button.addEventListener('click', () => {
   }
   eraUi.button.blur();
 });
+if (futureUi.button) {
+  futureUi.button.addEventListener('click', () => { futureTarget = futureTarget ? 0 : 1; showFuture(); futureUi.button.blur(); });
+  futureUi.drop.addEventListener('input', showFuture);
+}
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
 ui.speed.addEventListener('input', showSpeed);
 showSpeed();
