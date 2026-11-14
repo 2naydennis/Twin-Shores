@@ -4,6 +4,7 @@
 import * as THREE from 'three';
 import { WORLD, loadSites, buildTerrain } from './terrain.js';
 import { createRover, createBoat } from './rover-model.js';
+import { loadFacts, createGame } from './game.js';
 
 const TERRAIN_URL = new URL('./terrain', import.meta.url).href;
 const ROVER_SCALE = 4;              // scene units per rover metre: a 3 m rover is drawn 12 units long
@@ -25,6 +26,13 @@ const ui = {
   speed: $('speed'), speedValue: $('speed-value'), lat: $('lat'), lon: $('lon'),
   elevation: $('elevation'), fps: $('fps'), roverScale: $('rover-scale'),
 };
+const gameUi = {
+  found: $('found'), nearest: $('nearest'), arrow: $('arrow'), card: $('fact'), kicker: $('fact-kicker'),
+  title: $('fact-title'), text: $('fact-text'), other: $('fact-other'), match: $('fact-match'),
+  matchValue: $('fact-match-value'), matchBar: $('fact-match-bar'), source: $('fact-source'),
+  done: $('fact-done'), close: $('fact-close'),
+};
+let game = null;                    // the fact hunt; stays null if the data cannot be loaded
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 let pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -96,6 +104,7 @@ function show(id) {
   ui.toggle.textContent = `Switch to ${other.name}`;
   ui.toggle.dataset.target = other.id;
   ui.roverScale.textContent = Math.round((ROVER_SCALE * active.metresPerUnit));
+  if (game) game.setSite(id);
   document.body.dataset.site = id;
 }
 
@@ -166,6 +175,7 @@ function frame(now) {
   last = now;
   const dt = Math.min(elapsed / 1000, 0.05);
   drive(dt);
+  if (game) game.update(dt, state);
   follow(dt);
   renderer.render(scene, camera);
 
@@ -244,7 +254,7 @@ window.addEventListener('resize', () => {
 // ---- start -----------------------------------------------------------------
 
 // Add ?debug to the address to reach the renderer from the browser console.
-if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view };
+if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view, terrains };
 
 try {
   const sites = await loadSites(TERRAIN_URL);
@@ -253,6 +263,13 @@ try {
     terrain.group.visible = false;
     scene.add(terrain.group);
     terrains[terrain.site.id] = terrain;
+  }
+  // The fact hunt needs data/analogs.json. Without it the page still works as a plain drive.
+  try {
+    game = createGame(scene, terrains, await loadFacts(), gameUi);
+  } catch (error) {
+    console.warn('Fact hunt switched off:', error);
+    for (const node of document.querySelectorAll('.game-only')) node.hidden = true;
   }
   show('salda');
   ui.status.hidden = true;

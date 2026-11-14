@@ -129,8 +129,41 @@ three.js (version 0.160.0, MIT licence) is loaded from the jsDelivr CDN.
 | `rover/main.js` | Driving, camera, site switch, speed slider |
 | `rover/terrain.js` | Builds the ground from a heightmap and paints it |
 | `rover/rover-model.js` | The rover, built from simple shapes |
+| `rover/game.js` | The fact hunt: info points, fact cards, progress |
 | `rover/terrain/*.bin`, `sites.json` | The two heightmaps and what they cover |
 | `tools/build_terrain.py` | Downloads the NASA data and writes the heightmaps |
+
+### Fact hunt
+
+The rover page is also a small game. Glowing beacons stand around each map;
+drive to one and a card opens with a fact about the site, the matching fact
+for the other site, how closely the two match, and the source. A counter shows
+how many you have found and an arrow points to the nearest one left. Some
+points are on the lake, so you need the boat.
+
+The facts are not written in the web code. `rover/game.js` reads
+`../data/analogs.json` and makes one info point per variable:
+
+- at Lake Salda, from its `judged` notes (minerals, water, sediments) and its
+  measured `values` (temperature, pressure, evaporation, slope)
+- at Jezero, from the target's `judged_reference`, `features` and `notes`
+
+So when the pipeline adds a variable or researches a new fact, a new info
+point appears. For free-form facts, add a `facts` list to Lake Salda's entry
+or to the Jezero target, and each item becomes a point too:
+
+```json
+"facts": [
+  { "title": "Depth", "note": "One of the deepest lakes in Türkiye.", "source": "https://..." }
+]
+```
+
+That is a new field in `analogs.json`, so agree it with the data owner first.
+
+The data has no coordinates for individual facts, so **where each beacon
+stands is made up for the game** (water facts on the lake, mineral and
+sediment facts on the shore, slope on high ground). Every card says so.
+If `analogs.json` cannot be loaded, the page still works as a plain drive.
 
 What is real and what is not:
 
@@ -154,7 +187,7 @@ landing site (18.4447 N, 77.4508 E). The AI entered it from memory.
 ### AI use in this folder
 
 Everything listed under "Rover drive" was written by Claude (Anthropic, Claude
-Code) on 2026-11-14 at the team's direction: `rover.html`, the three files in
+Code) on 2026-11-14 at the team's direction: `rover.html`, the four files in
 `rover/`, and `tools/build_terrain.py`. Each file says so in its first lines.
 The heightmaps in `rover/terrain/` are NASA data fetched by that script, not
 AI-generated values. This still needs a line in the main README's "AI use"
