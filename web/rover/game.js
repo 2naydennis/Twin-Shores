@@ -247,6 +247,10 @@ export function createGame(scene, terrains, facts, ui) {
     },
     // Stand every marker on whatever is on top at its spot: the ground, or the
     // ancient lake's surface while the "Terraform" view is on.
+    // The active site's points, for the minimap.
+    points() {
+      return current ? sites[current].points : [];
+    },
     refresh() {
       const site = sites[current];
       if (!site) return;

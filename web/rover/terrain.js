@@ -357,6 +357,7 @@ export async function buildTerrain(site, base) {
 
   // ---- the ancient lake (only for a site whose look has an `ancient` block) ----
   let ancient = null;
+  let mapToday = colors, mapAncient = null;
   if (old) {
     const levelY = toY(old.level_m), startY = toY(old.level_m - old.rise_m);
     // One flat sheet over the lake cells and their neighbours; the terrain rising
@@ -419,6 +420,12 @@ export async function buildTerrain(site, base) {
 
     const colorAttribute = geometry.attributes.color;
     const today = colors.slice();
+    // For the minimap: today's ground, and the ancient ground with the lake drawn over it.
+    mapToday = today;
+    mapAncient = ancientColors.slice();
+    for (let k = 0; k < n * n; k++) {
+      if (flooded[k]) { mapAncient[k * 3] = sheetCol[k * 3]; mapAncient[k * 3 + 1] = sheetCol[k * 3 + 1]; mapAncient[k * 3 + 2] = sheetCol[k * 3 + 2]; }
+    }
     ancient = {
       level_m: old.level_m, look: old, amount: 0, waterY: startY, flooded,
       area_km2: Math.round(cells * (site.width_km / (n - 1)) ** 2), deepest_m: Math.round(deepest), mounds: count,
@@ -460,6 +467,8 @@ export async function buildTerrain(site, base) {
 
   return {
     site, group, look, metresPerUnit, water: lakeMesh,
+    // What the minimap draws from: grid size, scene heights, and ground colours (linear RGB).
+    map: { n, heights: y, today: mapToday, ancient: mapAncient },
     heightAt: (x, z) => sample(y, x, z),               // scene units
     elevationAt: (x, z) => sample(metres, x, z),       // real metres
     ancient,

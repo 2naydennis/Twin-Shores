@@ -6,6 +6,7 @@ import { WORLD, loadSites, buildTerrain } from './terrain.js';
 import { createRover, createBoat } from './rover-model.js';
 import { loadFacts, createGame } from './game.js';
 import { createSky, createScatter, setScatterDensity } from './scenery.js';
+import { createMinimap } from './minimap.js';
 
 const TERRAIN_URL = new URL('./terrain', import.meta.url).href;
 const ROVER_SCALE = 4;              // scene units per rover metre: a 3 m rover is drawn 12 units long
@@ -35,6 +36,8 @@ const gameUi = {
   done: $('fact-done'), close: $('fact-close'),
 };
 let game = null;                    // the fact hunt; stays null if the data cannot be loaded
+const minimap = $('minimap-canvas') ? createMinimap($('minimap-canvas'), $('minimap-caption')) : null;
+const drawMinimap = () => { if (minimap && active) minimap.draw(state, game ? game.points() : [], !!active.ancient && active.ancient.amount > 0.5); };
 const eraUi = { box: $('era'), button: $('terraform'), note: $('sim'), badge: $('sim-badge'), level: $('sim-level'), area: $('sim-area') };
 const FLOOD_SECONDS = 3.5;          // how long the ancient lake takes to fill or drain
 let eraTarget = 0;                  // 0 = Mars today, 1 = the "Terraform" view of ancient Jezero
@@ -142,6 +145,7 @@ function show(id) {
     if (heading !== null) state.heading = heading;
   }
   document.body.dataset.site = id;
+  if (minimap) { minimap.setTerrain(active); drawMinimap(); }
 }
 
 // Sky, fog and light for the active site. Where a site has an ancient view,
@@ -313,6 +317,7 @@ function frame(now) {
     ui.lon.textContent = `${Math.abs(lon).toFixed(4)}° ${lon >= 0 ? 'E' : 'W'}`;
     ui.elevation.textContent = `${Math.round(active.elevationAt(state.x, state.z)).toLocaleString('en')} m`;
     ui.fps.textContent = `${Math.round(1000 / frameMs)} fps`;
+    drawMinimap();
   }
 }
 
