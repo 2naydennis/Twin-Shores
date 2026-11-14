@@ -155,7 +155,7 @@ export function createGame(scene, terrains, facts, ui) {
       marker.add(gemMesh, beamMesh, ringMesh);
       marker.position.set(x, terrain.heightAt(x, z) + 1, z);
       group.add(marker);
-      return { fact, x, z, gemMesh, beamMesh, ringMesh, found: false, inside: false, phase: index * 1.3 };
+      return { fact, x, z, marker, gemMesh, beamMesh, ringMesh, found: false, inside: false, phase: index * 1.3 };
     });
     scene.add(group);
     sites[id] = { group, points, terrain, celebrated: false };
@@ -223,6 +223,13 @@ export function createGame(scene, terrains, facts, ui) {
         if (!point.found && d < best) { best = d; heading = Math.atan2(point.x - x, point.z - z); }
       }
       return heading;
+    },
+    // Stand every marker on whatever is on top at its spot: the ground, or the
+    // ancient lake's surface while the "Terraform" view is on.
+    refresh() {
+      const site = sites[current];
+      if (!site) return;
+      for (const point of site.points) point.marker.position.y = site.terrain.surfaceAt(point.x, point.z) + 1;
     },
     setSite(id) {
       if (current) sites[current].group.visible = false;

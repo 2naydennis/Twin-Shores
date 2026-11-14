@@ -34,6 +34,9 @@ const gameUi = {
   done: $('fact-done'), close: $('fact-close'),
 };
 let game = null;                    // the fact hunt; stays null if the data cannot be loaded
+const eraUi = { box: $('era'), button: $('terraform'), note: $('sim'), badge: $('sim-badge'), level: $('sim-level'), area: $('sim-area') };
+const FLOOD_SECONDS = 3.5;          // how long the ancient lake takes to fill or drain
+let eraTarget = 0;                  // 0 = Mars today, 1 = the "Terraform" view of ancient Jezero
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 let pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -46,6 +49,7 @@ renderer.toneMappingExposure = 1.05;
 document.body.prepend(renderer.domElement);
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color();
 scene.fog = new THREE.Fog(0xffffff, 700, 2700);
 const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 4500);
 const skyLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
@@ -106,10 +110,8 @@ function show(id) {
   const { look, site } = active;
   for (const [key, dome] of Object.entries(skies)) dome.visible = key === id;
   scene.environment = environments[id] || null;
-  scene.background = new THREE.Color(look.sky);
-  scene.fog.color.set(look.fog);
-  sun.color.set(look.sun); sun.intensity = look.sunStrength;
-  skyLight.color.set(look.skyLight); skyLight.groundColor.set(look.groundLight); skyLight.intensity = look.ambient;
+  applyLook();
+  showEra();
 
   const other = Object.values(terrains).find((t) => t !== active).site;
   ui.site.textContent = site.name;
@@ -124,11 +126,64 @@ function show(id) {
   ui.roverScale.textContent = Math.round((ROVER_SCALE * active.metresPerUnit));
   if (game) {
     game.setSite(id);
+    game.refresh();
     // On a first visit, point the rover at the nearest beacon so the game is obvious.
     const heading = firstVisit ? game.headingToNearest(state.x, state.z) : null;
     if (heading !== null) state.heading = heading;
   }
   document.body.dataset.site = id;
+}
+
+// Sky, fog and light for the active site. Where a site has an ancient view,
+// blend towards it by how far the lake has filled.
+const shade = new THREE.Color(), shadeTo = new THREE.Color();
+function applyLook() {
+  const { look } = active;
+  const old = active.ancient ? look.ancient : null;
+  const t = old ? active.ancient.amount : 0;
+  const blend = (now, then) => shade.set(now).lerp(shadeTo.set(old ? then : now), t);
+  const between = (now, then) => now + ((old ? then : now) - now) * t;
+  scene.background.copy(blend(look.sky, old && old.sky));
+  // The gradient sky dome has its own three colours; keep the originals so the view can be undone.
+  const dome = skies[active.site.id];
+  if (dome && old && old.dome) {
+    const colours = dome.material.uniforms;
+    dome.userData.today ??= { top: colours.top.value.clone(), horizon: colours.horizon.value.clone(), ground: colours.ground.value.clone() };
+    for (const key of ['top', 'horizon', 'ground']) {
+      colours[key].value.copy(dome.userData.today[key]).lerp(shadeTo.set(old.dome[key]), t);
+    }
+  }
+  scene.fog.color.copy(blend(look.fog, old && old.fog));
+  sun.color.copy(blend(look.sun, old && old.sun));
+  skyLight.color.copy(blend(look.skyLight, old && old.skyLight));
+  skyLight.groundColor.copy(blend(look.groundLight, old && old.groundLight));
+  sun.intensity = between(look.sunStrength, old && old.sunStrength);
+  skyLight.intensity = between(look.ambient, old && old.ambient);
+}
+
+// The Terraform button and its notice exist only on a site with an ancient view.
+function showEra() {
+  const old = active.ancient;
+  const on = !!old && eraTarget === 1;
+  eraUi.box.hidden = !old;
+  eraUi.note.hidden = eraUi.badge.hidden = !on;
+  eraUi.button.setAttribute('aria-pressed', String(on));
+  eraUi.button.textContent = on ? 'Back to Mars today' : 'Terraform: show ancient Jezero';
+  if (old) {
+    eraUi.level.textContent = `${old.level_m.toLocaleString('en')} m`;
+    eraUi.area.textContent = `${old.area_km2.toLocaleString('en')} km²`;
+  }
+  document.body.dataset.era = on ? 'ancient' : 'today';
+}
+
+// Fill or drain the ancient lake a little each frame until it reaches the chosen state.
+function flood(dt) {
+  const old = active.ancient;
+  if (!old || old.amount === eraTarget) return;
+  const step = dt / FLOOD_SECONDS;
+  old.set(eraTarget > old.amount ? Math.min(1, old.amount + step) : Math.max(0, old.amount - step));
+  applyLook();
+  if (game) game.refresh();
 }
 
 function drive(dt) {
@@ -175,7 +230,7 @@ function drive(dt) {
   const bobPitch = Math.sin(state.clock * 1.7) * 0.02, bobRoll = Math.sin(state.clock * 1.3) * 0.03;
   state.pitch += (Math.atan2(front - back, halfLength * 2) * land + bobPitch * state.afloat - state.pitch) * ease;
   state.roll += (Math.atan2(left - right, halfWidth * 2) * land + bobRoll * state.afloat - state.roll) * ease;
-  const ground = onWater ? active.heightAt(state.x, state.z) : (front + back + left + right) / 4;
+  const ground = onWater ? active.surfaceAt(state.x, state.z) : (front + back + left + right) / 4;
   rover.object.position.set(state.x, ground + state.afloat * BOAT_LIFT, state.z);
   rover.object.rotation.set(-state.pitch, state.heading, state.roll);
   rover.animate((moved / ROVER_SCALE) * land, turn);
@@ -191,7 +246,7 @@ function follow(dt) {
   const flat = Math.cos(view.pitch) * view.distance;
   target.copy(rover.object.position).y += 5;
   wantedCamera.set(target.x - Math.sin(angle) * flat, target.y + Math.sin(view.pitch) * view.distance, target.z - Math.cos(angle) * flat);
-  wantedCamera.y = Math.max(wantedCamera.y, active.heightAt(wantedCamera.x, wantedCamera.z) + 4);
+  wantedCamera.y = Math.max(wantedCamera.y, active.surfaceAt(wantedCamera.x, wantedCamera.z) + 4);
   if (view.snap) camera.position.copy(wantedCamera); else camera.position.lerp(wantedCamera, Math.min(1, dt * 6));
   view.snap = false;
   camera.lookAt(target);
@@ -208,6 +263,7 @@ function frame(now) {
   const elapsed = now - last;
   last = now;
   const dt = Math.min(elapsed / 1000, 0.05);
+  flood(dt);
   drive(dt);
   if (game) game.update(dt, state);
   follow(dt);
@@ -275,6 +331,7 @@ canvas.addEventListener('wheel', (event) => {
 }, { passive: false });
 
 ui.toggle.addEventListener('click', () => { if (ui.toggle.dataset.target) show(ui.toggle.dataset.target); ui.toggle.blur(); });
+eraUi.button.addEventListener('click', () => { eraTarget = eraTarget ? 0 : 1; showEra(); eraUi.button.blur(); });
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
 ui.speed.addEventListener('input', showSpeed);
 showSpeed();
@@ -288,7 +345,7 @@ window.addEventListener('resize', () => {
 // ---- start -----------------------------------------------------------------
 
 // Add ?debug to the address to reach the renderer from the browser console.
-if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view, terrains };
+if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view, terrains, applyLook, refresh: () => game && game.refresh() };
 
 try {
   const sites = await loadSites(TERRAIN_URL);

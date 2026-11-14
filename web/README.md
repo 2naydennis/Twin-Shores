@@ -200,6 +200,41 @@ What is real and what is not:
 To check before citing: the Jezero start point is meant to be Perseverance's
 landing site (18.4447 N, 77.4508 E). The AI entered it from memory.
 
+### Terraform view (ancient Jezero)
+
+On the Jezero map, the "Terraform" button in the left panel fills the crater
+with a lake, changes the sky and ground, and grows rounded mounds along the
+shore. It is a **simulation of what Jezero might have looked like about 3.5
+billion years ago**, and it says so in three places: a label on the 3D view,
+a heading in the panel, and a list of what is evidence and what is imagined.
+
+From evidence:
+
+- **A lake existed.** Perseverance found lake sediments and a river delta
+  ([NASA](https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-deciphers-ancient-history-of-martian-lake)).
+- **The basin.** The ground is the same NASA MOLA elevation data. The water
+  is filled to -2,430 m, chosen because in this grid water spills through the
+  eastern outlet between -2,426 and -2,424 m. That gives a lake of about
+  1,180 square km. Studies suggest the lake often stood below its outlet, so
+  one fixed level is a simplification.
+- **Carbonates.** `data/analogs.json` records carbonate minerals along the
+  inner margin. The pale band at the waterline stands for them.
+
+Imagined:
+
+- **Life.** No life has been found on Mars. The mounds are invented microbial
+  structures modelled on Lake Salda's microbialites, and drawn far larger
+  than life (each is tens of metres across at this map's scale).
+- **The look.** Sky colour, water colour, ground colours, the olive tint in
+  the shallows, and the exact shoreline.
+
+To check before presenting: the -2,430 m level comes from our own flood test
+on the resampled grid, not from a paper. The AI could not confirm a published
+lake-level figure, so none is quoted.
+
+The settings are in `LOOK.jezero.ancient` in `rover/terrain.js`. The view
+adds two draw calls (the lake sheet and one instanced mesh for all mounds).
+
 ### AI use in this folder
 
 Everything listed under "Rover drive" was written by Claude (Anthropic, Claude
