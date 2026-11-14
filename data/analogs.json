@@ -1,7 +1,11 @@
 {
   "_note": "MOCK DATA. Scores and feature values are placeholders so the web app has something to load. Replace with pipeline output.",
   "generated_at": "2026-11-14T00:00:00Z",
-  "features": ["mean_temp_c", "aridity", "slope_deg"],
+  "features": [
+    "mean_temp_c",
+    "aridity",
+    "slope_deg"
+  ],
   "targets": [
     {
       "id": "jezero",
@@ -9,7 +13,11 @@
       "body": "mars",
       "lat": 18.38,
       "lon": 77.58,
-      "features": { "mean_temp_c": 0, "aridity": 0, "slope_deg": 0 }
+      "features": {
+        "mean_temp_c": 0,
+        "aridity": 0,
+        "slope_deg": 0
+      }
     },
     {
       "id": "shackleton",
@@ -17,7 +25,11 @@
       "body": "moon",
       "lat": -89.9,
       "lon": 0.0,
-      "features": { "mean_temp_c": 0, "aridity": 0, "slope_deg": 0 }
+      "features": {
+        "mean_temp_c": 0,
+        "aridity": 0,
+        "slope_deg": 0
+      }
     }
   ],
   "analogs": [
@@ -28,7 +40,12 @@
       "lat": 37.55,
       "lon": 29.68,
       "score": 0.5,
-      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+      "feature_match": {
+        "mean_temp_c": 0.5,
+        "aridity": 0.5,
+        "slope_deg": 0.5
+      },
+      "known_analog": true
     },
     {
       "target_id": "jezero",
@@ -37,7 +54,12 @@
       "lat": -24.5,
       "lon": -69.25,
       "score": 0.5,
-      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+      "feature_match": {
+        "mean_temp_c": 0.5,
+        "aridity": 0.5,
+        "slope_deg": 0.5
+      },
+      "known_analog": true
     },
     {
       "target_id": "shackleton",
@@ -46,7 +68,12 @@
       "lat": -77.5,
       "lon": 162.0,
       "score": 0.5,
-      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+      "feature_match": {
+        "mean_temp_c": 0.5,
+        "aridity": 0.5,
+        "slope_deg": 0.5
+      },
+      "known_analog": true
     }
   ]
 }

@@ -24,7 +24,8 @@ Written by `pipeline/`, read by `web/`.
       "lat": 37.55,
       "lon": 29.68,
       "score": 0.0,                          // 0 to 1, higher is a closer match
-      "feature_match": { "feature_name": number, ... }   // 0 to 1 per feature
+      "feature_match": { "feature_name": number, ... },  // 0 to 1 per feature
+      "known_analog": true                   // already documented as an analog for this target
     }
   ]
 }
@@ -35,3 +36,5 @@ Rules:
 - `score` and every `feature_match` value are between 0 and 1.
 - `analogs` is sorted by `target_id`, then by `score` descending.
 - Coordinates are decimal degrees; south and west are negative.
+- `known_analog` is a label for display and validation only. The pipeline must
+  not use it when computing `score`.

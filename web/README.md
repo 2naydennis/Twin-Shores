@@ -1,7 +1,24 @@
 # web
 
-Map and site detail pages. Reads `../data/analogs.json` (shape in
-`../data/SCHEMA.md`) and never writes to it.
-
-The file currently holds mock data, so the app can be built before the
+Reads `../data/analogs.json` (shape in `../data/SCHEMA.md`) and never writes
+to it. The file currently holds mock data, so the app can be built before the
 pipeline produces real scores.
+
+## Pages
+
+**Map.** Pick a Moon or Mars target, see its top Earth analogs, click one for
+the per-feature match. Mark `known_analog` results differently from new
+candidates.
+
+**Lake Salda vs Jezero Crater.** The featured case study, side by side:
+
+- comparison table: water history, minerals, rock type, sediments,
+  microbialites
+- terrain profile of each site
+- present-day environment chart: temperature, pressure, radiation
+
+Data for this page lives in `web/` and belongs to this folder. It does not
+come from the pipeline.
+
+State on the page that Salda matches Jezero's ancient lake and carbonate
+setting, not Mars as a whole.
