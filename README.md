@@ -1,7 +1,40 @@
 # Analog Finder
 
-NASA Space Apps Challenge project: find places on Earth that resemble candidate
-Moon base and Mars sites, and show why they match.
+NASA Space Apps Challenge project: find places on Earth that resemble a Mars
+landing site, and show why they match.
+
+## Scope: Mars, not the Moon
+
+The challenge covers both Moon base locations and Mars. This project covers
+Mars only, and one target on it: Jezero Crater, the ancient lake Perseverance
+is exploring.
+
+The reason is the method. Our eight comparison variables describe a lake:
+water chemistry, mineral deposits, sediments, evaporation. They fit Jezero's
+former lake and have no counterpart on the Moon, which never had one. A Moon
+search needs its own variables (permanent shadow, regolith, lava tubes, polar
+cold). The scoring code takes any target and any variable list, so that is an
+extension of the same tool, not a rewrite. We did not build it in the time
+available and do not claim to.
+
+## Results so far
+
+157 places scored against Jezero: 148 natural lakes in Türkiye and 9 known
+analogs. Top of the ranking on 2026-11-14:
+
+| Rank | Place | Score | Variables used | Status |
+|------|-------|-------|----------------|--------|
+| 1 | Lake Salda | 0.695 | 6 of 8 | known analog (NASA) |
+| 2 | Lake Van | 0.688 | 7 of 8 | candidate |
+| 3 | Lake Erçek | 0.679 | 5 of 8 | candidate |
+| 4 | Lake Burdur | 0.646 | 5 of 8 | candidate |
+| 5 | Lake Akşehir | 0.559 | 4 of 8 | candidate |
+| 6 | Lake Tuz | 0.550 | 4 of 8 | candidate |
+
+How to read it, and what it does not show, is in
+[pipeline/README.md](pipeline/README.md). In short: places are scored on
+different numbers of variables, the literature-based matches are proposals
+awaiting the team's check, and no place on Earth matches Mars's air pressure.
 
 ## What we are building
 
@@ -94,6 +127,8 @@ in the project.
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Wrote `pipeline/find_lakes.py` and ran it and the scoring over 157 places. Searching Türkiye's lakes was the team's choice; taking the full Wikidata list was the AI's suggestion |
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Web research on the 15 top-ranked lakes and the judged matches entered in `pipeline/config.json` for six of them, each marked `proposed_by` AI with its source. The rubric for judged variables was written by the AI. The team must check the sources and confirm or change every match |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Web research and proposed matches for eight more lakes (salty and alkaline lakes outside the top 15); the "Scope" and "Results so far" text above; draft answers in `SUBMISSION.md`; the slide deck in `demo/` and the script that builds it. All drafts are for the team to rewrite in their own words |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

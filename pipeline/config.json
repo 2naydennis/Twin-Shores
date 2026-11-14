@@ -98,17 +98,23 @@
         "minerals": {
           "match": 1,
           "note": "Hydromagnesite shoreline, a carbonate similar to those detected at Jezero",
-          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "read directly: NASA Earth Observatory page"
         },
         "sediments": {
           "match": 1,
           "note": "Delta deposits and microbialites",
-          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "read directly: NASA Earth Observatory page"
         },
         "water": {
           "match": 1,
           "note": "A lake basin, like Jezero's former lake",
-          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "read directly: NASA Earth Observatory page"
         }
       }
     },
@@ -184,7 +190,17 @@
       "lon": 33.6661,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q49318665",
-      "wikipedia_articles": 1
+      "wikipedia_articles": 1,
+      "judged": {
+        "water": {
+          "match": 1,
+          "note": "Hypersaline lake in an extinct volcano's crater with no outlet",
+          "source": "https://reference-global.com/article/10.1515/trser-2017-0001",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Ak Göl",
@@ -523,13 +539,15 @@
           "match": 0.5,
           "note": "Described as a soda lake; no pH measurement found. Only source is Wikipedia",
           "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
         },
         "water": {
           "match": 0.5,
           "note": "Excess water drains to the Kura River in the rainy season, so not a strictly closed basin",
           "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -618,7 +636,38 @@
       "lon": 29.8878,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q2666527",
-      "wikipedia_articles": 17
+      "wikipedia_articles": 17,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Alkaline and hypersaline; reported pH 8.67 in one dataset and about 8.1 to 9.97 in another",
+          "source": "https://presentations.copernicus.org/EGU2016/EGU2016-405_presentation.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Aragonite, calcite and dolomite precipitate in the lake water",
+          "source": "https://avesis.itu.edu.tr/yayin/a149f736-5edb-438b-8482-f518c9c2deea/evaluating-abiotic-and-microbial-factors-on-carbonate-precipitation-in-lake-acigol-a-hypersaline-lake-in-southwestern-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Perennial lake in a closed drainage basin",
+          "source": "https://avesis.itu.edu.tr/yayin/25b41b6f-d0b0-4e22-9e0d-cbd86df534b0/archaeal-microbial-diversity-of-hypersaline-lake-acidotlessgol-denizli-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "sediments": {
+          "match": 0.5,
+          "note": "Microbial mats sampled around the lake; a microbial role in carbonate precipitation is suggested",
+          "source": "https://avesis.itu.edu.tr/yayin/25b41b6f-d0b0-4e22-9e0d-cbd86df534b0/archaeal-microbial-diversity-of-hypersaline-lake-acidotlessgol-denizli-turkey",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Ahır",
@@ -656,7 +705,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q424815",
       "wikipedia_articles": 22,
-      "area_km2": 353.0
+      "area_km2": 353.0,
+      "judged": {
+        "water": {
+          "match": 1,
+          "note": "Tectonic lake in the Akarçay closed basin, fresh in the south and saline toward the north; largely dried",
+          "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Amik",
@@ -680,7 +739,8 @@
           "match": 0.5,
           "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
           "source": "https://en.wikipedia.org/wiki/Lake_Arin",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of a Wikipedia page"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -778,7 +838,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q30636395",
       "wikipedia_articles": 8,
-      "area_km2": 11.5
+      "area_km2": 11.5,
+      "judged": {
+        "minerals": {
+          "match": 0.5,
+          "note": "Travertine (carbonate) cones around the lake feed sulfate-rich water; sodium sulfate salts crystallise in winter",
+          "source": "https://journals.tubitak.gov.tr/earth/vol5/iss2/3",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Boraboy",
@@ -797,7 +867,24 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1010475",
       "wikipedia_articles": 26,
-      "area_km2": 250.0
+      "area_km2": 250.0,
+      "judged": {
+        "ph": {
+          "match": 1,
+          "note": "Closed-basin alkaline saline lake, pH about 9.1 (another source gives 8.9 to 9.5); sodium and sulfate dominate",
+          "source": "https://gcris.yyu.edu.tr/items/4c10bea0-d0c8-448f-89e5-80589ca07188",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin; the lake has lost nearly half its surface area",
+          "source": "https://doaj.org/article/64e0cd3c676b46b29965288a1de6f01d",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Büyük",
@@ -883,7 +970,24 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q1278759",
       "wikipedia_articles": 12,
-      "area_km2": 125.0
+      "area_km2": 125.0,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Described as slightly salty and alkaline; no measurement found",
+          "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Lies in the Akarçay closed basin; level has fallen",
+          "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Efteni",
@@ -917,13 +1021,15 @@
           "match": 1,
           "note": "pH 9.7, salinity 15 ppt, reported in a conference abstract (not a full paper)",
           "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)"
         },
         "water": {
           "match": 1,
           "note": "Closed basin east of Lake Van, soda-type water",
           "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -1226,7 +1332,8 @@
           "match": 0.5,
           "note": "Freshwater, but a water-quality study reports alkaline character with high pH; the value itself was not seen",
           "source": "https://dergipark.org.tr/en/pub/jaefr/issue/29943/341061",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -1276,7 +1383,31 @@
       "lon": 34.39,
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q6048583",
-      "wikipedia_articles": 8
+      "wikipedia_articles": 8,
+      "judged": {
+        "ph": {
+          "match": 0.5,
+          "note": "Lake samples in the 2007 Ramsar sheet read pH 9.0 to 9.5; a 2019-2020 study of springs and wells reads 7.15 to 8.65. Conflicting",
+          "source": "https://rsisd10.unepgrid.ch/RISapp/files/RISrep/TR659RIS.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "minerals": {
+          "match": 0.5,
+          "note": "Waters saturated with calcite, dolomite and aragonite; lake-bed soils very calcareous",
+          "source": "https://confit.atlas.jp/guide/event/jpgu2020/subject/AHW30-11/date",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        },
+        "water": {
+          "match": 1,
+          "note": "Closed basin of about 1,487 km2; the lake dried out briefly in 2008",
+          "source": "https://meetingorganizer.copernicus.org/EGU2020/EGU2020-27.html",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Simav",
@@ -1387,7 +1518,17 @@
       "known_analog": false,
       "source": "https://www.wikidata.org/wiki/Q211823",
       "wikipedia_articles": 49,
-      "area_km2": 2075.0
+      "area_km2": 2075.0,
+      "judged": {
+        "minerals": {
+          "match": 1,
+          "note": "Huntite, dolomite and magnesite (magnesium-bearing carbonates) reported in the playa muds of this seasonal salt lake",
+          "source": "https://www.nature.com/articles/2201309b0.pdf",
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
+        }
+      },
+      "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
     },
     {
       "name": "Lake Tuzla",
@@ -1448,25 +1589,29 @@
           "match": 1,
           "note": "Soda lake, pH about 9.7 to 9.8",
           "source": "https://link.springer.com/article/10.1007/s10498-008-9049-9",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         },
         "minerals": {
           "match": 0.5,
           "note": "Carbonate microbialites of aragonite and calcite: calcium carbonates, not the magnesium carbonate found at Salda",
           "source": "https://www.nature.com/articles/349605a0.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         },
         "water": {
           "match": 1,
           "note": "Terminal lake with no outlet; its salinity records past lake-level changes",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5428207",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         },
         "sediments": {
           "match": 1,
           "note": "Tower-like microbialites up to about 40 m high on the lake floor",
           "source": "https://www.nature.com/articles/349605a0.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -1549,7 +1694,8 @@
           "match": 0.5,
           "note": "Freshwater lake formed where a lava flow blocked a valley",
           "source": "https://dergipark.org.tr/en/pub/ase/article/1353730",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -1639,9 +1785,10 @@
     }
   ],
   "_judged_rubric": {
-    "ph": "1 = measured pH of 9 or more (alkaline water of the kind that deposits carbonates). 0.5 = described as a soda or alkaline lake but no measurement found. Left out when unknown. Jezero's ancient lake has no measured pH, so this compares with the conditions inferred from its carbonates, not with a Mars measurement.",
-    "minerals": "1 = magnesium carbonate deposits like those NASA compares with Jezero. 0.5 = other carbonate deposits. Left out when unknown.",
+    "ph": "1 = measured lake pH of 9 or more (alkaline water of the kind that deposits carbonates). 0.5 = described as soda or alkaline without a measurement, or measurements that straddle 9 or conflict. Left out when unknown. Jezero's ancient lake has no measured pH, so this compares with the conditions inferred from its carbonates, not with a Mars measurement.",
+    "minerals": "1 = magnesium-bearing carbonate deposits (hydromagnesite, magnesite, huntite) like those NASA compares with Jezero. 0.5 = other carbonate deposits (calcite, aragonite, dolomite, travertine). Left out when unknown.",
     "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow or through-flow. Left out when unknown.",
-    "sediments": "1 = microbialites, delta or layered lake deposits documented. Left out when unknown."
-  }
+    "sediments": "1 = microbialites, delta or layered lake deposits documented. 0.5 = microbial mats or carbonate muds without documented microbialite structures. Left out when unknown."
+  },
+  "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was read. Anything else still needs a human to open the source."
 }

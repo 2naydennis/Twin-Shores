@@ -106,6 +106,36 @@ What the sources say:
   thin sources. See the notes in `config.json`.
 - **Nine of the fifteen** have nothing entered: no usable source was found.
 
+### Third run: salty and alkaline lakes outside the top 15, 2026-11-14
+
+The top 15 were picked by climate and slope, which favours cold, high lakes.
+To offset that, eight lakes known as salty or alkaline were researched too:
+Burdur, Acıgöl (Denizli), Tuz, Seyfe, Bolluk, Eber, Akşehir, and the Acı Göl
+crater lake at Karapınar.
+
+| Rank | Place | Score | Variables | Main evidence |
+|------|-------|-------|-----------|---------------|
+| 1 | Lake Salda | 0.695 | 6 of 8 | known analog |
+| 2 | Lake Van | 0.688 | 7 of 8 | pH 9.7 to 9.8, closed basin, microbialite towers |
+| 3 | Lake Erçek | 0.679 | 5 of 8 | pH 9.7, closed basin |
+| 4 | Lake Burdur | 0.646 | 5 of 8 | pH about 9.1, closed basin |
+| 5 | Lake Akşehir | 0.559 | 4 of 8 | closed basin |
+| 6 | Lake Tuz | 0.550 | 4 of 8 | magnesium-bearing carbonates in playa muds |
+| 7 | Lake Eber | 0.549 | 5 of 8 | closed basin, described as alkaline |
+| 8 | Lake Seyfe | 0.539 | 6 of 8 | closed basin, conflicting pH, carbonate-saturated water |
+| 9 | Acı Göl (Karapınar) | 0.528 | 4 of 8 | crater lake with no outlet |
+| 10 | Lake Acıgöl (Denizli) | 0.517 | 7 of 8 | closed basin, carbonates precipitating, microbial mats |
+
+Two things stand out. Lake Tuz is the only researched lake besides Salda with
+magnesium-bearing carbonates on record. Lake Acıgöl has the most complete
+evidence after Van (7 of 8 variables) but scores lower, because its matches
+are partial and it is warmer and lower than the eastern lakes.
+
+How each source was checked is recorded per entry in `config.json` under
+`checked`. Only Lake Salda's and Lake Erçek's sources were read directly.
+The rest come from search-result summaries of the cited papers, because the
+publishers' pages did not open. A human still has to open them.
+
 Limits to state wherever these results are shown:
 
 - Lake Van is not on NASA's Planetary Analog Explorer list, but it is not

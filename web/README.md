@@ -1,5 +1,26 @@
 # web
 
+## AI-use note for the website (draft for Kranimo)
+
+Space Apps requires AI-generated code to be acknowledged in text and
+metadata. If website code was written with an AI tool, put a note like this
+in the site's README and a short line in the page footer. Edit it so it is
+true for your code:
+
+> **AI use.** Parts of this website's code (the map page, the 3D terrain
+> view, and the terrain-building script) were generated with Claude
+> (Anthropic) and reviewed by the team. Commits made with AI help carry a
+> `Co-Authored-By` line. No AI-generated images, video or audio are used.
+> All imagery and elevation come from the space-agency sources listed under
+> "Data sources".
+
+Footer line: `Code written with AI assistance (Claude). Data: NASA, ESA
+Copernicus.`
+
+Also list the site's own sources in `SUBMISSION.md` section 8: map imagery
+(for example Sentinel-2 cloudless, which is ESA Copernicus data), NASA Mars
+Trek tiles, Leaflet, three.js, and anything else the pages load.
+
 Reads `../data/analogs.json` (shape in `../data/SCHEMA.md`) and never writes
 to it. The file currently holds mock data, so the app can be built before the
 pipeline produces real scores.
