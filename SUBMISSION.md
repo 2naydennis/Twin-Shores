@@ -281,7 +281,10 @@ Partner agencies worth checking for this project:
 
 | Resource | Type (data / code / image / text) | Source | Licence or permission |
 |----------|-----------------------------------|--------|-----------------------|
-|          |                                   |        |                       |
+| Wikidata | data: list of natural lakes in Türkiye with coordinates | https://www.wikidata.org/ | CC0 |
+| OpenTopoData API | tool: serves ASTER GDEM elevation points | https://www.opentopodata.org/ | Free public API; ASTER GDEM is a NASA and METI product |
+| AWS Terrain Tiles | data: redistributed NASA SRTM tile for Lake Salda | https://registry.opendata.aws/terrain-tiles/ | Open data; SRTM is a NASA product |
+| Python standard library | code: all pipeline scripts | https://www.python.org/ | PSF licence |
 
 ## Before pressing submit
 

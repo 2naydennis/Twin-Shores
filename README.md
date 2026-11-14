@@ -91,6 +91,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Wrote `pipeline/score.py` and the layout of `pipeline/config.json`, and ran the first scoring. The eight comparison variables were chosen by the team (from a list drafted earlier with ChatGPT). The scoring formula, the split into measured and judged variables, and the placeholder weights of 1 came from the AI and need the team's review |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Wrote `pipeline/find_lakes.py` and ran it and the scoring over 157 places. Searching Türkiye's lakes was the team's choice; taking the full Wikidata list was the AI's suggestion |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

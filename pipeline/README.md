@@ -44,6 +44,40 @@ Read the scores with care:
   honest limit to show.
 - **Weights are all 1.** They are placeholders until the team sets them.
 
+## find_lakes.py
+
+Adds every natural lake in Türkiye that Wikidata knows about to the
+candidates in `config.json` (148 lakes on 2026-11-14). It never changes or
+removes existing candidates.
+
+```bash
+python3 pipeline/find_lakes.py
+```
+
+Wikidata's classes are imperfect: the list includes a few entries that are
+not really lakes (the Golden Horn is an estuary) and many lakes share a name
+(several are called Karagöl). Check a candidate on a map before presenting it.
+
+### First full run, 2026-11-14
+
+157 places against Jezero: 148 Türkiye lakes plus 9 known analogs.
+
+- On the three variables measured for every place (temperature, pressure,
+  slope), the top of the list is the cold, high, flat lakes of eastern
+  Anatolia: Çıldır, Erçek, Lavaş, Kuyucuk, Arin, Haçlı, Van.
+- Scores are bunched (most between 0.30 and 0.48), so these three variables
+  separate places only weakly.
+- **The known analogs do not rank high on these three variables.** Haughton
+  Crater is 2nd, but Lake Salda is 45th, Death Valley 100th and the Atacama
+  124th. Measured variables alone do not reproduce what makes those places
+  Mars analogs. Dryness is not compared at all, because Mars has no
+  present-day evaporation value.
+- Lake Salda is 1st overall only because it is the one place with the judged
+  variables (minerals, water, sediments) filled in.
+
+So the judged variables carry the result. The next step is to fill them in,
+with sources, for a shortlist of lakes.
+
 ## fetch_nasa.py
 
 Pulls real NASA data and saves it under `data/nasa/`. Standard library only,
