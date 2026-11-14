@@ -322,6 +322,14 @@ function renderDetail() {
       el('tbody', {}, features.map((name) => matchRow(name, site, t)))),
     el('p', { class: 'caveat', text: 'Measured values: NASA POWER, ASTER GDEM and MOLA. A variable marked "not scored" is left out of the score, not counted as zero.' }),
 
+    (() => {
+      // What would make this score firmer: variables with nothing entered for this site.
+      const missing = features.filter((name) => (site.feature_match || {})[name] === undefined).map((name) => {
+        const v = variable(name);
+        return el('li', {}, el('b', { text: v.label }), v.kind === 'judged' ? ': no published study entered yet' : `: no value at ${t.name} to compare with`);
+      });
+      return missing.length ? [el('h3', { text: 'Not yet checked' }), el('ul', { class: 'gaps' }, missing)] : null;
+    })(),
     el('h3', { text: 'Published evidence' }),
     facts.length
       ? el('div', {}, facts.map(([name, fact]) => el('div', { class: 'fact' },

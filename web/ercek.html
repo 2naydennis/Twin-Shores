@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+  Lake Erçek vs Jezero Crater: the candidate analog side by side.
+  AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14. The
+  numbers come from data/analogs.json, data/site_cards.json and
+  data/twin_ercek.json; the prose is an AI draft for the team to check.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lake Erçek and Jezero Crater · Analog Finder</title>
+<meta name="description" content="Lake Erçek in eastern Türkiye, a closed-basin soda lake not yet listed as a Mars analog, compared with Jezero Crater: imagery, terrain, evidence, field-test plan and open questions.">
+<meta property="og:title" content="Lake Erçek and Jezero Crater · Analog Finder">
+<meta property="og:description" content="A closed-basin soda lake in eastern Türkiye, compared with the ancient lake Perseverance is exploring.">
+<meta property="og:image" content="https://2naydennis.github.io/analog-finder/demo/img/map.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="map/style.css">
+<style>
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 14px; }
+  .pair figure { margin: 0; }
+  .twinmap { height: 380px; border: 1px solid var(--rule); background: #0f1a24; }
+  .pair figcaption { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
+  .pair h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; display: flex; justify-content: space-between; gap: 10px; }
+  #profile svg { width: 100%; height: auto; display: block; }
+  #profile .axis { stroke: var(--rule); } #profile text { font: 11px var(--mono); fill: var(--ink-2); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+  .cards > div { padding: 12px 16px 14px 0; }
+  .cards > div + div { padding-left: 16px; border-left: 1px solid var(--rule-soft); }
+  .cards b { display: block; font: 500 20px/1.2 var(--mono); }
+  .cards span { font-size: 12.5px; color: var(--ink-2); }
+  .tests li { margin-top: 10px; } .tests b { display: block; }
+  .ask { background: var(--paper); border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 15px; }
+  @media (max-width: 820px) { .pair, .cards { grid-template-columns: 1fr; } .cards > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule-soft); } }
+</style>
+<script>
+  // GitHub Pages lets browsers keep files for 10 minutes; load this site's own script fresh. AI-generated (Claude), 2026-11-14.
+  (() => {
+    const stamp = '?v=' + Math.floor(Date.now() / 60000);
+    const imports = {};
+    for (const file of ['map/twin.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
+    const map = document.createElement('script');
+    map.type = 'importmap';
+    map.textContent = JSON.stringify({ imports });
+    document.currentScript.after(map);
+  })();
+</script>
+</head>
+<body class="doc">
+  <header class="top">
+    <div class="brand">
+      <h1>Analog Finder</h1>
+      <span>Earth analogs for Jezero Crater, Mars</span>
+    </div>
+    <nav aria-label="Pages">
+      <a href="index.html">Map</a>
+      <a href="ercek.html" aria-current="page">Lake Erçek</a>
+      <a href="method.html">Method and results</a>
+      <a href="rover.html">3D terrain</a>
+      <a href="../demo/slides.pdf">Slides</a>
+      <a href="https://github.com/2naydennis/analog-finder">Code and data</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="lede">
+      <div class="eyebrow">Candidate analog · not yet listed by NASA</div>
+      <h2>Lake Erçek: a closed-basin soda lake beside Lake Van, compared with Jezero Crater</h2>
+      <p>Our search scored 157 places against Jezero. Lake Erçek, in eastern Türkiye, ranks <b id="rank">3</b>, just behind Lake Salda, the lake NASA already pairs with Jezero, and Lake Van. Its water is alkaline (pH 9.7) and it has no outlet, the setting in which Salda deposits the carbonates that link it to Jezero. Unlike Salda and Van, Erçek is barely studied. That makes it worth a closer look, and it also means most of what would confirm it is still unknown.</p>
+    </div>
+
+    <section>
+      <h3><small>01</small>From orbit</h3>
+      <div class="body">
+        <div class="pair">
+          <figure><h4><span>Lake Erçek, Earth</span><span class="num muted" id="ercek-coord"></span></h4>
+            <div id="map-ercek" class="twinmap" aria-label="Satellite map of Lake Erçek"></div>
+            <figcaption>ESA Copernicus Sentinel-2 cloudless mosaic (EOX). The whole lake and its shore.</figcaption></figure>
+          <figure><h4><span>Jezero Crater, Mars</span><span class="num muted" id="jezero-coord"></span></h4>
+            <div id="map-jezero" class="twinmap" aria-label="Orbital map of Jezero Crater"></div>
+            <figcaption>NASA Mars Reconnaissance Orbiter CTX mosaic over MOLA shaded relief, via NASA Mars Trek. The whole 47 km crater; the dot marks Perseverance's landing site.</figcaption></figure>
+        </div>
+        <p class="muted" style="font-size:13px;margin-top:10px">Both maps can be panned and zoomed. They are not at the same scale: Jezero is about four times wider.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>02</small>Shape of the basin</h3>
+      <div class="body">
+        <figure id="profile"></figure>
+        <figcaption id="profile-note"></figcaption>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>03</small>Evidence, side by side</h3>
+      <div class="body">
+        <table id="evidence"></table>
+        <p class="muted" style="font-size:13px">"Match" is the 0 to 1 value used in the score. Every Erçek entry comes from one conference abstract (Meydan et al., EGU 2017), read directly. A variable with no study is left out of the score, not counted as zero.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>04</small>Field-test plan</h3>
+      <div class="body">
+        <div class="cards" id="access"></div>
+        <ul class="tests" id="tests"></ul>
+        <p class="muted" style="font-size:13px" id="tests-note"></p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>05</small>What we could not check</h3>
+      <div class="body">
+        <ul id="gaps"></ul>
+        <p class="ask">The single most useful next step: sample Erçek's shoreline and test it for carbonate minerals, especially magnesium carbonates like Salda's hydromagnesite. If they are there, Erçek joins Salda as a Jezero analog; if not, it stays a soda lake with the right chemistry and the wrong rocks.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>06</small>Other top sites</h3>
+      <div class="body">
+        <table id="others"></table>
+        <p class="muted" style="font-size:13px">Distances are straight lines from Wikidata coordinates (for Lake Van, from the lake's centre); roads are longer. Field season: months with a mean of 10 °C or more, nights above freezing and below-average precipitation, from NASA POWER.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>NASA Space Apps Challenge 2026 · Team Physics</span>
+    <span>Data: NASA POWER, SRTM, MOLA, MRO CTX via Mars Trek · Copernicus Sentinel-2 · Wikidata</span>
+    <span>Code and text drafted with AI assistance (Claude); see <a href="https://github.com/2naydennis/analog-finder#ai-use">AI use</a></span>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module">import './map/twin.js';</script>
+</body>
+</html>

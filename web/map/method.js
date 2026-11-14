@@ -58,6 +58,32 @@ try {
     Object.entries(sensitivity.leave_one_variable_out.top5).map(([key, names]) =>
       [(analogs.variables[key] || {}).label || key, names.map(short).join(' · ')]));
 
+  // Live re-ranking with the visitor's own weights, same rule as pipeline/score.py:
+  // a weighted average of the matches each place has.
+  const variables = analogs.variables;
+  const weights = Object.fromEntries(Object.keys(variables).map((k) => [k, variables[k].weight ?? 1]));
+  const baseOrder = places.map((p) => p.name);
+  const rerank = () => {
+    const scored = places.map((p) => {
+      let total = 0, sum = 0;
+      for (const [k, m] of Object.entries(p.feature_match)) { total += weights[k]; sum += weights[k] * m; }
+      return { p, score: total ? sum / total : 0 };
+    }).sort((a, b) => b.score - a.score);
+    table('live-table', [['Rank', 'num'], ['Place', ''], ['Score', 'num'], ['Change', 'num']],
+      scored.slice(0, 10).map(({ p, score }, i) => {
+        const moved = baseOrder.indexOf(p.name) - i;
+        return [String(i + 1), p.name, score.toFixed(3),
+          el('span', { class: 'moved', text: moved > 0 ? `▲ ${moved}` : moved < 0 ? `▼ ${-moved}` : '·' })];
+      }));
+  };
+  document.getElementById('sliders').replaceChildren(...Object.entries(variables).map(([k, v]) => {
+    const input = el('input', { type: 'range', min: '0', max: '3', step: '0.5', value: String(weights[k]), 'aria-label': `Weight of ${v.label}` });
+    const out = el('output', { text: String(weights[k]) });
+    input.addEventListener('input', () => { weights[k] = Number(input.value); out.textContent = input.value; rerank(); });
+    return el('label', {}, el('span', { text: v.label }), input, out);
+  }));
+  rerank();
+
   const s = slope.summary;
   const stat = (value, label) => el('div', {}, el('b', { text: value }), el('span', { text: label }));
   document.getElementById('slope-stats').replaceChildren(

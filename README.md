@@ -4,6 +4,7 @@ NASA Space Apps Challenge project: find places on Earth that resemble a Mars
 landing site, and show why they match.
 
 **Live site:** https://2naydennis.github.io/analog-finder/ ·
+**Lake Erçek vs Jezero:** https://2naydennis.github.io/analog-finder/web/ercek.html ·
 **Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
 **Demo slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
 
@@ -159,6 +160,8 @@ in the project.
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Lake Van and Lake Erçek map in the 3D page (terrain built by `web/tools/build_terrain.py` from SRTM), three-way site menu, Graphics High/Low setting, phone layout of the 3D page, per-minute script version stamp on all pages |
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Slides rebuilt with website screenshots, a robustness chart and 3D views. A draft video was made and then removed at the team's request; the slides are the demo |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/site_cards.py` and its outputs (`data/site_cards.json`, `data/twin_ercek.json`); the Lake Erçek page (`web/ercek.html`, `web/map/twin.js`); weight sliders on the method page; the not-yet-checked list, how-to line and share images; slides reworded to lead with Lake Erçek. Test suggestions are fixed rules written by the AI |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

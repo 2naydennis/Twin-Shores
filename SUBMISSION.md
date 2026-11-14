@@ -389,7 +389,8 @@ Partner agencies worth checking for this project:
 | IBM Plex Sans and IBM Plex Mono | fonts on the website, loaded from Google Fonts | https://fonts.google.com/specimen/IBM+Plex+Sans | SIL Open Font Licence |
 | three.js 0.160.0 | code: 3D library for the rover drive | https://threejs.org/ | MIT |
 | Japan's METI, with NASA: ASTER GDEM | data: Earth terrain slope (also listed under NASA data) | https://www.earthdata.nasa.gov/data/instruments/aster | Free |
-| Wikidata | data: list of natural lakes in Türkiye with coordinates | https://www.wikidata.org/ | CC0 |
+| Wikidata | data: list of natural lakes in Türkiye with coordinates; airports and towns used for the field-test cards | https://www.wikidata.org/ | CC0 |
+| NASA Mars Trek: MRO CTX mosaic of Jezero (layer Jezero_CTX_BlockAdj_dd) | image: Jezero map on the Lake Erçek page | https://trek.nasa.gov/mars/ | NASA, public |
 | Published papers and reports on each lake | text: evidence for pH, minerals, water body, sediments. Every link is in `pipeline/config.json` | see config | Cited, not copied |
 | OpenTopoData API | tool: serves ASTER GDEM elevation points | https://www.opentopodata.org/ | Free public API; ASTER GDEM is a NASA and METI product |
 | AWS Terrain Tiles | data: redistributed NASA SRTM tile for Lake Salda | https://registry.opendata.aws/terrain-tiles/ | Open data; SRTM is a NASA product |
