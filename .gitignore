@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Downloaded raw data (keep large files out of git)
+pipeline/raw/
+*.tif
+*.nc
+*.hdf
+
+# Secrets
+.env
+
+# Node
+node_modules/
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

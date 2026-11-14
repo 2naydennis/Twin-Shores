@@ -1,0 +1,52 @@
+{
+  "_note": "MOCK DATA. Scores and feature values are placeholders so the web app has something to load. Replace with pipeline output.",
+  "generated_at": "2026-11-14T00:00:00Z",
+  "features": ["mean_temp_c", "aridity", "slope_deg"],
+  "targets": [
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "body": "mars",
+      "lat": 18.38,
+      "lon": 77.58,
+      "features": { "mean_temp_c": 0, "aridity": 0, "slope_deg": 0 }
+    },
+    {
+      "id": "shackleton",
+      "name": "Shackleton Crater Rim",
+      "body": "moon",
+      "lat": -89.9,
+      "lon": 0.0,
+      "features": { "mean_temp_c": 0, "aridity": 0, "slope_deg": 0 }
+    }
+  ],
+  "analogs": [
+    {
+      "target_id": "jezero",
+      "name": "Lake Salda",
+      "country": "Türkiye",
+      "lat": 37.55,
+      "lon": 29.68,
+      "score": 0.5,
+      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+    },
+    {
+      "target_id": "jezero",
+      "name": "Atacama Desert",
+      "country": "Chile",
+      "lat": -24.5,
+      "lon": -69.25,
+      "score": 0.5,
+      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+    },
+    {
+      "target_id": "shackleton",
+      "name": "McMurdo Dry Valleys",
+      "country": "Antarctica",
+      "lat": -77.5,
+      "lon": 162.0,
+      "score": 0.5,
+      "feature_match": { "mean_temp_c": 0.5, "aridity": 0.5, "slope_deg": 0.5 }
+    }
+  ]
+}
