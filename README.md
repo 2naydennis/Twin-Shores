@@ -152,6 +152,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Redesign of the map page and a new method and results page: `web/index.html`, `web/method.html`, `web/map/app.js`, `web/map/method.js`, `web/map/style.css`, `web/favicon.svg`. The method page text is an AI draft |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Restyle of the 3D terrain page (`web/rover.html`) and toned-down markers and wording in `web/rover/game.js` and `web/rover/main.js` |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

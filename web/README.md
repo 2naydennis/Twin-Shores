@@ -103,7 +103,11 @@ Plex fonts (SIL Open Font Licence) from Google Fonts, and map tiles from EOX
 AI use: all six files were written by Claude (Anthropic, Claude Code) on
 2026-11-14 at the team's direction. The data they show is the pipeline's.
 
-## Rover drive (`rover.html`)
+## 3D terrain (`rover.html`)
+
+Restyled on 2026-11-14 to match the map and method pages: same header and
+navigation, white panels with hairline borders, IBM Plex type, one rust
+accent, game wording replaced.
 
 A 3D page where you drive a model of the Perseverance rover across Lake Salda
 and Jezero Crater, and switch between the two with one button.
@@ -173,8 +177,11 @@ What is real and what is not:
   or it would be invisible. Its proportions follow NASA's published figures;
   part positions were laid out by eye, not from engineering drawings.
 - SRTM records the lake surface, so the lake is flat and has no lake bed.
-- **The boat is made up.** Driving into the lake puts a small boat under the
-  rover so the lake can be crossed. No such hardware exists.
+- **Crossing the lake.** The rover floats slightly above the flat lake surface,
+  because SRTM has no lake bed. The earlier toy boat was removed on 2026-11-14.
+- **Evidence points** replace the earlier "fact hunt": a small post and a thin
+  locator line per published finding, no spinning or glowing. Their positions
+  are illustrative.
 
 To check before citing: the Jezero start point is meant to be Perseverance's
 landing site (18.4447 N, 77.4508 E). The AI entered it from memory.

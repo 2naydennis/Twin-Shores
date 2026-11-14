@@ -10,7 +10,7 @@ const TERRAIN_URL = new URL('./terrain', import.meta.url).href;
 const ROVER_SCALE = 4;              // scene units per rover metre: a 3 m rover is drawn 12 units long
 const SPEED_STEP = 14;              // scene units per second for each step of the speed slider
 const TURN_RATE = 1.5;              // radians per second
-const BOAT_LIFT = 1.9;              // scene units the rover rides above the lake when on its boat
+const BOAT_LIFT = 0.35;             // scene units the rover rides above the lake when on its boat
 
 // Where the rover starts. Jezero: near Perseverance's landing site (Octavia E.
 // Butler Landing). Coordinates entered by the AI from memory; check before citing.
@@ -134,7 +134,7 @@ function drive(dt) {
   const onWater = active.isWater(state.x, state.z);
   state.afloat += ((onWater ? 1 : 0) - state.afloat) * Math.min(1, dt * 7);
   state.clock += dt;
-  boat.visible = state.afloat > 0.02;
+  boat.visible = false;   // the toy boat is retired; the rover simply crosses the flat lake surface
   boat.scale.setScalar(Math.max(0.001, state.afloat));
   shadow.visible = state.afloat < 0.5;
 

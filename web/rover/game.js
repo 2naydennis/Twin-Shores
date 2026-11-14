@@ -18,8 +18,8 @@ const ANALOG_NAME = { salda: 'Lake Salda' };      // which analogs.json entry be
 const TARGET_ID = 'jezero';
 const REACH = 30;                                 // scene units: how close the rover must get
 // Beacon colour per map, picked to stand out against that map's sky and ground.
-const BEACON = { salda: 0xffd21f, jezero: 0x35e6ff };
-const FOUND = 0x8dffb4;
+const BEACON = { salda: 0xf2efe9, jezero: 0xf2efe9 };   // one quiet off-white marker on both worlds
+const FOUND = 0xd97e4c;                                // rust once read, matching the site accent
 
 // Roughly where each kind of fact goes, so water facts need the boat and
 // shoreline facts sit on the shore. Unknown variables go on open land.
@@ -130,9 +130,9 @@ function place(terrain, zone, angle) {
 export function createGame(scene, terrains, facts, ui) {
   // Each beacon is a tall beam, a spinning gem and a ring on the ground. They ignore
   // fog and are drawn in flat, bright colour so they can be seen from across the map.
-  const gem = new THREE.OctahedronGeometry(11, 0);
-  const beam = new THREE.CylinderGeometry(2.6, 2.6, 320, 8, 1, true).translate(0, 160, 0);
-  const ring = new THREE.RingGeometry(15, 21, 28).rotateX(-Math.PI / 2);
+  const gem = new THREE.CylinderGeometry(5, 5, 14, 12);   // a survey post, not a game gem
+  const beam = new THREE.CylinderGeometry(0.9, 0.9, 160, 6, 1, true).translate(0, 80, 0);   // thin locator line
+  const ring = new THREE.RingGeometry(17, 19, 40).rotateX(-Math.PI / 2);
   const look = (color, opacity) => ({
     gem: new THREE.MeshBasicMaterial({ color, fog: false }),
     beam: new THREE.MeshBasicMaterial({ color, transparent: true, opacity, depthWrite: false, fog: false, side: THREE.DoubleSide }),
@@ -144,13 +144,13 @@ export function createGame(scene, terrains, facts, ui) {
     const group = new THREE.Group();
     group.visible = false;
     const list = facts[id] || [];
-    const waiting = look(BEACON[id] || 0xffd21f, 0.8);
+    const waiting = look(BEACON[id] || 0xf2efe9, 0.45);
     const points = list.map((fact, index) => {
       const { x, z } = place(terrain, fact.zone, (index / list.length) * Math.PI * 2 + 0.6);
       const marker = new THREE.Group();
       const gemMesh = new THREE.Mesh(gem, waiting.gem), beamMesh = new THREE.Mesh(beam, waiting.beam);
       const ringMesh = new THREE.Mesh(ring, waiting.beam);
-      gemMesh.position.y = 30;
+      gemMesh.position.y = 7;
       ringMesh.position.y = 1.5;
       marker.add(gemMesh, beamMesh, ringMesh);
       marker.position.set(x, terrain.heightAt(x, z) + 1, z);
@@ -167,7 +167,7 @@ export function createGame(scene, terrains, facts, ui) {
     open = point;
     const { fact } = point;
     const number = site.points.filter((p) => p.found).length;
-    ui.kicker.textContent = `${fact.here} · fact ${number} of ${site.points.length}`;
+    ui.kicker.textContent = `${fact.here} · evidence point ${number} of ${site.points.length}`;
     ui.title.textContent = fact.label;
     ui.text.textContent = fact.text;
     ui.other.hidden = !fact.other;
@@ -189,7 +189,7 @@ export function createGame(scene, terrains, facts, ui) {
     }
     const left = site.points.length - number;
     ui.done.hidden = left > 0;
-    if (!left) ui.done.textContent = `All ${site.points.length} facts found at ${fact.here}. Switch site to compare.`;
+    if (!left) ui.done.textContent = `All ${site.points.length} evidence points at ${fact.here} read. Switch site to compare.`;
     ui.card.hidden = false;
   }
 
@@ -203,7 +203,7 @@ export function createGame(scene, terrains, facts, ui) {
       const d = Math.hypot(point.x - state.x, point.z - state.z);
       if (d < best) { best = d; nearest = point; }
     }
-    if (!nearest) { ui.nearest.textContent = 'all found'; ui.arrow.hidden = true; return; }
+    if (!nearest) { ui.nearest.textContent = 'all read'; ui.arrow.hidden = true; return; }
     const km = (best * site.terrain.metresPerUnit) / 1000;
     ui.nearest.textContent = `${km < 10 ? km.toFixed(1) : Math.round(km)} km`;
     // Angle of the point from the rover's nose; a left turn is anticlockwise on screen.
@@ -237,9 +237,7 @@ export function createGame(scene, terrains, facts, ui) {
       if (!site) return;
       clock += dt;
       for (const point of site.points) {
-        point.gemMesh.rotation.y = clock * 1.2 + point.phase;
-        point.gemMesh.position.y = 30 + Math.sin(clock * 2 + point.phase) * 3;
-        if (!point.found) point.ringMesh.scale.setScalar(1 + Math.sin(clock * 3 + point.phase) * 0.12);
+        point.gemMesh.position.y = 7;   // still: no spinning or bobbing
         // Arriving at a point opens its card; coming back to a found one opens it again.
         const inside = Math.hypot(point.x - state.x, point.z - state.z) < REACH;
         if (inside && !point.inside) {
