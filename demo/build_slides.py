@@ -145,22 +145,22 @@ slides = [
 </div></div>
 <p class="ask">A place's score is the average of the variables it has. We always show how many that is.</p>""",
 
-    f"""<h2>We scored every natural lake in Türkiye</h2>
+    f"""<h2>We scored 70 lakes and sites against Jezero</h2>
 <img class="shot" src="img/map.jpg" alt="The Twin Shores map page with Lake Salda selected">
-<p class="small">{len(lakes)} lakes plus nine known analogs, on ESA Sentinel-2 imagery. Click a lake and you see each variable
+<p class="small">{len(lakes)} lakes in Türkiye, {len([r for r in rows if r["country"] != "Türkiye" and not r["known_analog"]])} lakes from other countries and {len([r for r in known if r["country"] != "Türkiye"])} known analog sites, on ESA Sentinel-2 imagery. Click a lake and you see each variable
 next to Jezero's value, with the source behind it. Try it: 2naydennis.github.io/analog-finder</p>""",
 
     f"""<h2>What we found</h2>
 {bar_chart()}
 <p class="small">Grey: listed by NASA as an analog. Orange: candidates, with how many variables each score uses.
 <b>Lake Salda</b> comes first: pH 9.1 to 9.5, a white carbonate shore, microbial mounds and a closed basin, close to what
-Jezero's carbonates suggest. Lake Van and Lake Erçek, two soda lakes in eastern Türkiye, follow.</p>""",
+Jezero's carbonates suggest. Next: Lake Van (Türkiye), Lake Alchichica (Mexico) and Lake Erçek (Türkiye).</p>""",
 
     f"""<h2>Can we trust the ranking?</h2>
 <div class="cols"><div>
 <h3>Checks</h3>
 <ul><li>Lake Salda, NASA's own Jezero analog, ranks <b>{rank_of("Lake Salda")} of {len(rows)}</b>.</li>
-<li>Use only climate and slope and Salda drops to 45th. The match comes from its chemistry and rocks.</li></ul>
+<li>Use only climate and slope and Salda drops to 31st. The match comes from its chemistry and rocks.</li></ul>
 {robustness_chart()}
 </div><div>
 <h3>Limits</h3>
@@ -185,7 +185,7 @@ _unused = [
 <div class="cols"><div>
 <h3>Open data</h3>
 <ul><li>NASA: POWER, MOLA, ASTER GDEM, SRTM, Planetary Analog Explorer, Mars Fact Sheet</li>
-<li>Copernicus EU-DEM (European Union and ESA): second elevation model, agrees with ASTER on slope (correlation 0.99 over 149 lakes)</li>
+<li>Copernicus EU-DEM (European Union and ESA): second elevation model, agrees with ASTER on slope (correlation 0.99 over 38 lakes)</li>
 <li>Wikidata lake list; published studies for each lake</li></ul>
 </div><div>
 <h3>Next</h3>

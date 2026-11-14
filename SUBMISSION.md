@@ -82,15 +82,15 @@ Answer:
 
 Twin Shores looks for lakes on Earth that resemble Jezero Crater, the dry lake
 bed on Mars where Perseverance is searching for signs of ancient life. We
-scored 157 places, every natural lake in Türkiye plus nine known analog
-sites, on eight variables. Four come from NASA and ESA data (temperature,
-air pressure, evaporation, terrain slope). Four come from published studies
-(water pH, carbonate minerals, lake type, sediments). Lake Salda, the lake
-NASA already pairs with Jezero, ranks first, and it stays first in 82% of
-5,000 random weightings. Lake Van and Lake Erçek, two soda lakes in eastern
-Türkiye, come next. Mission teams rehearse sampling and instruments at
-places like these before they fly, so knowing which ones match, and how
-well, matters.
+scored 70 places on eight variables: 38 lakes in Türkiye, 24 lakes from
+other countries, and known Mars analog sites such as the Atacama Desert.
+Four variables come from NASA and ESA data (temperature, air pressure,
+evaporation, terrain slope) and four from published studies (water pH,
+carbonate minerals, lake type, sediments). Lake Salda, the lake NASA already
+pairs with Jezero, ranks first and stays first in 69% of 5,000 random
+weightings. Lake Van in Türkiye and Lake Alchichica in Mexico come next.
+Mission teams rehearse sampling and instruments at places like these before
+they fly, so knowing which ones match, and how well, matters.
 
 ## 3. Link to project demo
 
@@ -174,40 +174,49 @@ Answer:
 **What it does.** Twin Shores ranks places on Earth by how closely they
 match Jezero Crater and shows why. Pick a lake on the map and you get its
 score, every variable next to Jezero's value, and the study behind each
-finding. A separate page puts Lake Salda beside Jezero: both seen from
-orbit, the shape of both basins, the evidence, and a field-test plan. A 3D
+finding. A Lake Salda page puts it beside Jezero: both seen from orbit, the
+shape of both basins, the evidence side by side, and a field-test plan. A 3D
 view lets you drive a rover over the real terrain of Salda, Van and Erçek,
-and Jezero, and fill Jezero with its ancient lake.
+and Jezero, with a minimap. One button fills Jezero with its ancient lake;
+another lowers Lake Salda to show what a shrinking lake would expose. Both
+are labelled as simulations.
 
-**How it works.** We took all 148 natural lakes in Türkiye from Wikidata and
-added nine known analogs, among them the Atacama Desert, Death Valley and
-Haughton Crater. For each place, Python scripts read temperature, air
-pressure and evaporation from NASA POWER, and terrain slope from the
-NASA/METI ASTER elevation model. Jezero's slope comes from NASA's MOLA data,
-measured on the same 900 m grid. Water pH, minerals, lake type and sediments
-have no global dataset, so we read published studies and entered a match
-from 0 to 1 with its source. A place's score is the weighted average of the
-variables it has, and every score says how many variables it rests on.
+**How it works.** We started from all 148 natural lakes in Türkiye listed on
+Wikidata. We kept the 38 that have published evidence or lie within 150 km
+of Lake Salda, and added 24 lakes from other countries: carbonate and
+microbialite lakes, soda lakes, impact-crater lakes, and five large lakes we
+expected to match poorly, as a check. Known analogs such as the Atacama
+Desert, Death Valley and Haughton Crater are in the list too. For each
+place, Python scripts read temperature, air pressure and evaporation from
+NASA POWER, and terrain slope from the NASA/METI ASTER elevation model.
+Jezero's slope comes from NASA's MOLA data on the same 900 m grid. Water pH,
+minerals, lake type and sediments have no global dataset, so we entered a
+match from 0 to 1 for each, with the study it came from. A place's score is
+the weighted average of the variables it has, and every score says how many
+variables it rests on.
 
-**What we found.** Lake Salda scores 0.738 on seven of eight variables:
+**What we found.** Lake Salda scores 0.741 on seven of eight variables:
 alkaline water (pH 9.1 to 9.5), a white hydromagnesite shore, microbialites
-and a closed lake basin. Lake Van (0.688) is a soda lake with carbonate
-towers up to 40 m tall. Lake Erçek (0.679) is a little-studied soda lake
-with pH 9.7. We tested the ranking three ways. With the weights redrawn at
-random 5,000 times, Salda stays in the top three 99% of the time. Dropping
-any one variable keeps Salda, Van and Erçek in the top five. Slope measured
-again with Copernicus EU-DEM agrees with ASTER at r = 0.99.
+and a closed basin. Lake Van (0.693) is a soda lake with carbonate towers up
+to 40 m tall. Lake Alchichica in Mexico (0.689) is a crater lake whose
+microbialites are also made of hydromagnesite. Lake Erçek (0.687), beside
+Van, is a little-studied soda lake. We tested the ranking three ways. With
+the weights redrawn at random 5,000 times, Salda stays in the top three 94%
+of the time. Dropping any one variable keeps Salda, Van and Erçek in the top
+five. Slope measured again with Copernicus EU-DEM agrees with ASTER at
+r = 0.99.
 
 **Limits.** No place on Earth has Mars's thin air, cold or radiation, so our
 sites match Jezero's ancient lake, not Mars today. Jezero's lake has no
 measured pH. Places are scored on different numbers of variables. On
-climate and slope alone, known analogs like the Atacama rank low; chemistry
-and geology carry the match. We covered Mars only.
+climate and slope alone, Salda falls to 31st of 70 and the Atacama to 61st;
+the match comes from chemistry and rocks. The list of places is a choice,
+and changing it shifts every score a little. We covered Mars only.
 
 **Benefits and aims.** The method is open and repeatable. Anyone can add
 lakes, targets or variables by editing one file and rerunning the scripts.
-We would like a field team to sample Lake Erçek's shore for carbonates, and
-to extend the search beyond Türkiye.
+We would like a field team to sample Lake Erçek's shore for carbonates and
+to compare Salda and Alchichica directly.
 
 **Tools.** Python 3 for the data pipeline. HTML, CSS and JavaScript for the
 website, with Leaflet for maps and three.js for 3D. Data from NASA POWER,
@@ -237,19 +246,21 @@ Answer (check every line before submitting; it must be exactly true):
 Yes. We used Claude (Anthropic, through Claude Code) and ChatGPT (OpenAI).
 
 - Our decisions: the challenge, starting from Lake Salda and Jezero Crater,
-  the eight variables (chosen from a list we drafted with ChatGPT), searching
-  Türkiye's lakes, and featuring Lake Salda. Claude suggested the
+  the eight variables (chosen from a list we drafted with ChatGPT), which
+  lakes to compare (first Türkiye's lakes, then a shorter list with lakes
+  from other countries), and featuring Lake Salda. Claude suggested the
   similarity-scoring approach and the project structure early on, and we
   chose to build on it.
 - ChatGPT: background reading on Lake Salda and Jezero Crater, and the first
   list of variables.
 - Claude: wrote the Python scripts that fetch NASA and ESA data, score the
   places and run the robustness tests; wrote the website code, including
-  the map, the Lake Salda page and the 3D view; searched for published
-  studies on 44 lakes and proposed a match value for each finding (each
-  entry records its source and how the source was checked); proposed the
-  scoring formula and the rubric for literature-based variables; and drafted
-  the documentation, the slides and these form answers.
+  the map, the Lake Salda page, the 3D view, the minimap and both
+  simulations; searched for published studies on more than 60 lakes and
+  proposed a match value for each finding (each entry records its source
+  and how the source was checked); proposed the scoring formula and the
+  rubric for literature-based variables; and drafted the documentation, the
+  slides and these form answers.
 - Every AI-written file says so in its header, the repository README has an
   AI-use table, and AI-assisted commits carry a Co-Authored-By line. The
   slides carry a "Drafted with AI assistance" footer. No AI-generated images,
