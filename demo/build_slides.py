@@ -17,7 +17,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEAM = "[TEAM NAME]"
-MEMBERS = "[Member names]"
+MEMBERS = "Tunay Dennis Diederich, Karan Kaya, Ayşegül Çağlayan; teacher: Adrina Shakeri Bahador"
+COUNTRY = "Türkiye"
 PROJECT = "Analog Finder"
 CHALLENGE = "Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars"
 
@@ -106,7 +107,7 @@ FOOT = "Drafted with AI assistance (Claude). Charts are drawn by code from the p
 slides = [
     f"""<h1>{esc(PROJECT)}</h1>
 <p class="lead">Searching Earth's lakes for twins of Jezero Crater, Mars</p>
-<p class="meta"><b>Team:</b> {esc(TEAM)}<br><b>Members:</b> {esc(MEMBERS)}<br>
+<p class="meta"><b>Team:</b> {esc(TEAM)}<br><b>Members:</b> {esc(MEMBERS)}<br><b>Country:</b> {esc(COUNTRY)}<br>
 <b>Challenge:</b> {esc(CHALLENGE)}<br>NASA Space Apps Challenge 2026, Universal Event</p>""",
 
     """<h2>The problem</h2>

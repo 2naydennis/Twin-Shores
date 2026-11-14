@@ -20,6 +20,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="map/style.css">
+<script>
+  // GitHub Pages lets browsers keep files for 10 minutes, so after an update a
+  // visitor could still run old code. This loads the site's own scripts with a
+  // stamp that changes every minute. AI-generated (Claude), 2026-11-14.
+  (() => {
+    const stamp = '?v=' + Math.floor(Date.now() / 60000);
+    const imports = {};
+    for (const file of ['map/app.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
+    const map = document.createElement('script');
+    map.type = 'importmap';
+    map.textContent = JSON.stringify({ imports });
+    document.currentScript.after(map);
+  })();
+</script>
 </head>
 <body class="app">
   <header class="top">
@@ -59,13 +73,13 @@
   </main>
 
   <footer class="foot">
-    <span>NASA Space Apps Challenge 2026</span>
+    <span>NASA Space Apps Challenge 2026 · Tunay Dennis Diederich, Karan Kaya, Ayşegül Çağlayan; teacher Adrina Shakeri Bahador · Türkiye</span>
     <span>Data: NASA POWER, ASTER GDEM, MOLA · Copernicus EU-DEM and Sentinel-2 · Wikidata</span>
     <span>Code written with AI assistance (Claude); see <a href="https://github.com/2naydennis/analog-finder#ai-use">AI use</a></span>
     <a href="method.html#limits">Limits of this comparison</a>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="map/app.js"></script>
+  <script type="module">import './map/app.js';</script>
 </body>
 </html>

@@ -206,13 +206,13 @@ function paintJezero(out, m, slope, low, high, grainy) {
 }
 
 export async function loadSites(base) {
-  const reply = await fetch(`${base}/sites.json`);
+  const reply = await fetch(`${base}/sites.json`, { cache: 'no-cache' });
   if (!reply.ok) throw new Error(`could not load ${base}/sites.json (${reply.status})`);
   return (await reply.json()).sites;
 }
 
 export async function buildTerrain(site, base) {
-  const reply = await fetch(`${base}/${site.file}`);
+  const reply = await fetch(`${base}/${site.file}`, { cache: 'no-cache' });
   if (!reply.ok) throw new Error(`could not load ${site.file} (${reply.status})`);
   const packed = new Uint16Array(await reply.arrayBuffer());
   const n = site.grid;

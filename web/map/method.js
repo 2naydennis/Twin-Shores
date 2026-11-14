@@ -2,7 +2,7 @@
 // AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14. Review before use.
 
 const load = async (name) => {
-  const reply = await fetch(new URL(`../../data/${name}`, import.meta.url));
+  const reply = await fetch(new URL(`../../data/${name}`, import.meta.url), { cache: 'no-cache' });
   if (!reply.ok) throw new Error(`data/${name} answered ${reply.status}`);
   return reply.json();
 };

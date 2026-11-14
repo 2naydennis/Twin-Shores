@@ -74,7 +74,7 @@ function extraFacts(list, place, zoneStart) {
 }
 
 export async function loadFacts() {
-  const reply = await fetch(DATA_URL);
+  const reply = await fetch(DATA_URL, { cache: 'no-cache' });
   if (!reply.ok) throw new Error(`data/analogs.json answered ${reply.status}`);
   const data = await reply.json();
   const target = (data.targets || []).find((t) => t.id === TARGET_ID);

@@ -368,7 +368,7 @@ $('search').addEventListener('input', (event) => { state.query = event.target.va
 $('researched').addEventListener('change', (event) => { state.researchedOnly = event.target.checked; renderList(); });
 
 try {
-  const reply = await fetch(DATA_URL);
+  const reply = await fetch(DATA_URL, { cache: 'no-cache' });
   if (!reply.ok) throw new Error(`data/analogs.json answered ${reply.status}`);
   state.data = await reply.json();
   if (!state.data.targets?.length || !Array.isArray(state.data.analogs)) throw new Error('data/analogs.json has no targets or analogs');

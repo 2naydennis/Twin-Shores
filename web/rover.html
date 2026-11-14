@@ -91,13 +91,22 @@
   #status { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; background: var(--paper); color: var(--ink); font-size: 15px; z-index: 4; }
   #status[hidden] { display: none; }
 </style>
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-  }
-}
+<script>
+  // GitHub Pages lets browsers keep files for 10 minutes, so after an update a
+  // visitor could still run old code. This loads the site's own scripts with a
+  // stamp that changes every minute. AI-generated (Claude), 2026-11-14.
+  (() => {
+    const stamp = '?v=' + Math.floor(Date.now() / 60000);
+    const imports = {
+      three: 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js',
+      'three/addons/': 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/',
+    };
+    for (const file of ['rover/main.js', 'rover/terrain.js', 'rover/rover-model.js', 'rover/game.js', 'rover/scenery.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
+    const map = document.createElement('script');
+    map.type = 'importmap';
+    map.textContent = JSON.stringify({ imports });
+    document.currentScript.after(map);
+  })();
 </script>
 </head>
 <body>
@@ -192,6 +201,6 @@
   </div>
 
   <div id="status">Loading terrain…</div>
-  <script type="module" src="rover/main.js"></script>
+  <script type="module">import './rover/main.js';</script>
 </body>
 </html>
