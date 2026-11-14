@@ -28,7 +28,7 @@ FFMPEG = os.environ.get("FFMPEG") or shutil.which("ffmpeg")
 W, H, FPS, FADE = 1280, 720, 30, 0.5
 EXTRA = Path(os.environ.get("VIDEO_EXTRA", ROOT / "demo" / "img"))   # where slide5.png and slide6.png are
 
-TEAM = "Tunay Dennis Diederich · Karan Kaya · Ayşegül Çağlayan · teacher Adrina Shakeri Bahador · Türkiye"
+TEAM = "Tunay Dennis Diederich · Karan Kaya · Adrina Shakeri Bahador · teacher Ayşegül Çağlayan · Türkiye"
 
 # (image, seconds, eyebrow, caption). None as image means a plain title card.
 SCENES = [

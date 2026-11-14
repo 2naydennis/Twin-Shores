@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEAM = "[TEAM NAME]"
-MEMBERS = "Tunay Dennis Diederich, Karan Kaya, Ayşegül Çağlayan; teacher: Adrina Shakeri Bahador"
+MEMBERS = "Tunay Dennis Diederich, Karan Kaya, Adrina Shakeri Bahador; teacher: Ayşegül Çağlayan"
 COUNTRY = "Türkiye"
 PROJECT = "Analog Finder"
 CHALLENGE = "Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars"
