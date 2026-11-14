@@ -1,5 +1,6 @@
 {
   "_note": "MOCK DATA. Scores and feature values are placeholders so the web app has something to load. Replace with pipeline output.",
+  "_generated_by": "AI-generated placeholder (Claude, Anthropic). Remove this field once the pipeline writes real data.",
   "generated_at": "2026-11-14T00:00:00Z",
   "features": [
     "mean_temp_c",

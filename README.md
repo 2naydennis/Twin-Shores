@@ -73,6 +73,21 @@ git push
 Stay inside your own folder. If you need to edit a shared file (this README,
 the schema), tell the other person first.
 
+## AI use
+
+Space Apps requires AI-generated code and data to be acknowledged in text and
+metadata. Add a line here every time an AI tool produces something that stays
+in the project.
+
+| Date       | Tool                         | What it produced or did                                   |
+|------------|------------------------------|-----------------------------------------------------------|
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Repo scaffold: this README, `SUBMISSION.md`, `data/SCHEMA.md`, `.gitignore`, folder READMEs |
+| 2026-11-14 | Claude (Anthropic, Claude Code) | `data/analogs.json` mock data (placeholder values, not real scores) |
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Suggested project structure, work split, and a first outline of the approach |
+| 2026-11-14 | ChatGPT (OpenAI)             | Background reading on Lake Salda and Jezero Crater         |
+
+Commits made with AI help carry a `Co-Authored-By` line in the commit message.
+
 ## Data sources
 
 List every dataset here as you add it, with a link. Judges look for this.
