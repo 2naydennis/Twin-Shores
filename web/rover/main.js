@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { WORLD, loadSites, buildTerrain } from './terrain.js';
 import { createRover, createBoat } from './rover-model.js';
 import { loadFacts, createGame } from './game.js';
-import { createSky, createScatter } from './scenery.js';
+import { createSky, createScatter, setScatterDensity } from './scenery.js';
 
 const TERRAIN_URL = new URL('./terrain', import.meta.url).href;
 const ROVER_SCALE = 4;              // scene units per rover metre: a 3 m rover is drawn 12 units long
@@ -40,6 +40,11 @@ let eraTarget = 0;                  // 0 = Mars today, 1 = the "Terraform" view 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 let pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+// Graphics detail. High: sun shadows, all rocks and trees. Low: no shadows, a third of the
+// scenery, one pixel per screen pixel. Touch devices and machines with few cores start on Low.
+const weakDevice = matchMedia('(pointer: coarse)').matches || (navigator.hardwareConcurrency || 8) <= 4;
+const detail = { level: weakDevice ? 'low' : 'high', autoLowered: false };
+const scatters = [];
 renderer.setPixelRatio(pixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
@@ -279,6 +284,11 @@ function frame(now) {
     renderer.setPixelRatio(pixelRatio);
     slowFor = 0;
   }
+  // Still slow at High after a few seconds: drop to Low once, and say so on the button.
+  if (detail.level === 'high' && !detail.autoLowered && frameMs > 40 && state.clock > 4) {
+    detail.autoLowered = true;
+    setDetail('low', 'switched to Low because the page ran slowly');
+  }
 
   sinceReadout += elapsed;
   if (sinceReadout > 150) {
@@ -288,6 +298,20 @@ function frame(now) {
     ui.lon.textContent = `${Math.abs(lon).toFixed(4)}° ${lon >= 0 ? 'E' : 'W'}`;
     ui.elevation.textContent = `${Math.round(active.elevationAt(state.x, state.z)).toLocaleString('en')} m`;
     ui.fps.textContent = `${Math.round(1000 / frameMs)} fps`;
+  }
+}
+
+function setDetail(level, reason) {
+  detail.level = level;
+  const high = level === 'high';
+  sun.castShadow = high;
+  for (const scatter of scatters) setScatterDensity(scatter, high ? 1 : 0.33);
+  if (!high) { pixelRatio = 1; renderer.setPixelRatio(1); }
+  else { pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5); renderer.setPixelRatio(pixelRatio); }
+  const button = $('detail');
+  if (button) {
+    button.textContent = `Graphics: ${high ? 'High' : 'Low'}`;
+    button.title = reason || (high ? 'Shadows and full scenery. Click for Low.' : 'No shadows, less scenery. Click for High.');
   }
 }
 
@@ -330,6 +354,7 @@ canvas.addEventListener('wheel', (event) => {
   event.preventDefault();
 }, { passive: false });
 
+$('detail')?.addEventListener('click', (event) => { setDetail(detail.level === 'high' ? 'low' : 'high'); event.currentTarget.blur(); });
 ui.toggle.addEventListener('click', () => { if (ui.toggle.dataset.target) show(ui.toggle.dataset.target); ui.toggle.blur(); });
 eraUi.button.addEventListener('click', () => { eraTarget = eraTarget ? 0 : 1; showEra(); eraUi.button.blur(); });
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
@@ -352,7 +377,9 @@ try {
   const built = await Promise.all(sites.map((site) => buildTerrain(site, TERRAIN_URL)));
   for (const terrain of built) {
     terrain.group.visible = false;
-    terrain.group.add(createScatter(terrain));
+    const scatter = createScatter(terrain);
+    scatters.push(scatter);
+    terrain.group.add(scatter);
     scene.add(terrain.group);
     terrains[terrain.site.id] = terrain;
     const id = terrain.site.id;
@@ -371,6 +398,7 @@ try {
     console.warn('Fact hunt switched off:', error);
     for (const node of document.querySelectorAll('.game-only')) node.hidden = true;
   }
+  setDetail(detail.level, weakDevice ? 'Low on this device to keep it smooth. Click for High.' : undefined);
   show('salda');
   ui.status.hidden = true;
   requestAnimationFrame(frame);

@@ -159,6 +159,7 @@ export function createScatter(terrain) {
       placed++;
     }
     mesh.count = placed;
+    mesh.userData.full = placed;
     group.add(mesh);
   }
 
@@ -182,7 +183,13 @@ export function createScatter(terrain) {
       placed++;
     }
     pines.count = placed;
+    pines.userData.full = placed;
     group.add(pines);
   }
   return group;
+}
+
+// Show only a share of the rocks and trees (1 = all), for slower machines.
+export function setScatterDensity(group, share) {
+  for (const mesh of group.children) if (mesh.isInstancedMesh) mesh.count = Math.round(mesh.userData.full * share);
 }
