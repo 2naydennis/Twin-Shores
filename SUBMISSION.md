@@ -113,12 +113,20 @@ https://2naydennis.github.io/analog-finder/demo/slides.pdf
 Same file on GitHub:
 https://github.com/2naydennis/analog-finder/blob/main/demo/slides.pdf
 
+A 27-second video exists too, built from the site's own screenshots with
+English captions, no faces and no voices:
+https://2naydennis.github.io/analog-finder/demo/demo.mp4
+(`demo/build_video.py` rebuilds it; captions are an AI draft and carry an
+on-screen "Captions drafted with AI assistance" mark). Choose one format for
+the form, or upload the video to YouTube and link that instead.
+
 A 7-slide AI draft exists: `demo/slides.pdf`, built by
 `demo/build_slides.py` from the scored data. Before using it:
 
-- [ ] Put the team name and member names into `TEAM` and `MEMBERS` at the top
-      of `demo/build_slides.py`, then rebuild (commands in that file)
-- [ ] Add a screenshot of the website to slide 4
+- [x] Member names added (2026-11-14)
+- [ ] Put the team name into `TEAM` at the top of `demo/build_slides.py`,
+      then rebuild (commands in that file)
+- [x] Website screenshot on slide 4, 3D views on slide 7 (2026-11-14)
 - [ ] Rewrite the wording in your own words
 - [ ] Re-export the PDF and check it is still 7 pages
 

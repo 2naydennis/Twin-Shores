@@ -89,6 +89,20 @@ def rank_of(name):
     return next(i for i, a in enumerate(rows, 1) if a["name"] == name)
 
 
+def robustness_chart():
+    """Top-3 and top-5 shares under random weights for the first three places."""
+    path = ROOT / "data" / "sensitivity.json"
+    if not path.exists():
+        return ""
+    test = json.loads(path.read_text(encoding="utf-8"))["random_weights"]
+    rows_html = "".join(
+        f'<tr><td>{esc(p["name"])}</td><td><span class="pbar"><i style="width:{p["top3_pct"]}%"></i></span>{p["top3_pct"]:.0f}%</td>'
+        f'<td><span class="pbar grey"><i style="width:{p["top5_pct"]}%"></i></span>{p["top5_pct"]:.0f}%</td></tr>'
+        for p in test["places"][:4])
+    return (f'<p class="small" style="margin-top:14px">Weights redrawn at random {test["draws"]:,} times: share of draws in the top 3 and top 5</p>'
+            f'<table class="rob"><tr><th></th><th>Top 3</th><th>Top 5</th></tr>{rows_html}</table>')
+
+
 def robustness_line():
     """One bullet from the sensitivity test, or nothing if it has not been run."""
     path = ROOT / "data" / "sensitivity.json"
@@ -131,10 +145,10 @@ slides = [
 </div></div>
 <p class="ask">Score = weighted average of the variables available. Every score shows how many variables it rests on.</p>""",
 
-    f"""<h2>The search: every natural lake in Türkiye</h2>
-{lake_map()}
-<p class="small">{len(lakes)} lakes from Wikidata, each scored against Jezero. Darker and larger means a closer match.
-[Add a screenshot of the website here.]</p>""",
+    f"""<h2>The search: every natural lake in Türkiye, on a live map</h2>
+<img class="shot" src="img/map.jpg" alt="The Analog Finder map page with Lake Erçek selected">
+<p class="small">{len(lakes)} lakes from Wikidata, each scored against Jezero, on ESA Sentinel-2 imagery. Pick a lake to see every
+variable next to Jezero's value and the published evidence with its source. 2naydennis.github.io/analog-finder</p>""",
 
     f"""<h2>What we found</h2>
 {bar_chart()}
@@ -145,8 +159,8 @@ Lake Van and Lake Erçek are closed-basin soda lakes with pH near 9.7; Van has c
 <div class="cols"><div>
 <h3>Check</h3>
 <ul><li>Lake Salda, NASA's own Jezero analog, ranks <b>{rank_of("Lake Salda")} of {len(rows)}</b>.</li>
-{robustness_line()}
-<li>On climate and slope alone, Salda falls to 45th and the Atacama to 124th: chemistry and geology carry the match.</li></ul>
+<li>On climate and slope alone, Salda falls to 45th: chemistry and geology carry the match.</li></ul>
+{robustness_chart()}
 </div><div>
 <h3>Limits</h3>
 <ul><li>Earth has over 100 times Mars's air pressure everywhere.</li>
@@ -155,6 +169,16 @@ Lake Van and Lake Erçek are closed-basin soda lakes with pH near 9.7; Van has c
 <li>Lake Van is already studied in a Mars context. We cover Mars only, not the Moon.</li></ul>
 </div></div>""",
 
+    """<h2>Explore the sites in 3D</h2>
+<div class="strip"><figure><img src="img/3d-boat-crop.jpg" alt="Rover on a survey boat on Lake Salda"><figcaption>Lake Salda, by boat</figcaption></figure>
+<figure><img src="img/3d-ercek-crop.jpg" alt="Rover on the shore of Lake Erçek"><figcaption>Lake Erçek, our candidate</figcaption></figure>
+<figure><img src="img/3d-jezero-crop.jpg" alt="Rover in Jezero Crater"><figcaption>Jezero Crater, Mars</figcaption></figure></div>
+<p class="small">Terrain from NASA SRTM and MOLA elevation data. Drive between published-evidence points and compare each lake with Jezero.
+The boat, rocks and trees are illustrative. Open data: NASA POWER, MOLA, ASTER, SRTM, Planetary Analog Explorer; Copernicus EU-DEM and
+Sentinel-2 (ESA). Next: a field check of Lake Erçek, lakes beyond Türkiye, a Moon version. AI tools wrote much of the code and drafted
+text; every use is listed in the repository.</p>""",
+]
+_unused = [
     """<h2>Data, tools and what comes next</h2>
 <div class="cols"><div>
 <h3>Open data</h3>
@@ -196,6 +220,17 @@ svg { display: block; width: 100%; max-height: 420px; }
 .pin { font-size: 15px; font-weight: 700; fill: #1d2430; paint-order: stroke; stroke: #f6f3ee; stroke-width: 4px; }
 .foot { position: absolute; left: 72px; right: 72px; bottom: 20px; font-size: 13px; color: #8a909a;
         display: flex; justify-content: space-between; }
+.shot { display: block; width: 100%; max-height: 470px; object-fit: cover; object-position: top; border: 1px solid #d9d3c8; }
+.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.strip figure { margin: 0; }
+.strip img { width: 100%; height: 230px; object-fit: cover; border: 1px solid #d9d3c8; display: block; }
+.strip figcaption { font-size: 18px; font-weight: 600; margin-top: 6px; }
+table.rob { border-collapse: collapse; width: 100%; font-size: 19px; margin-top: 6px; }
+table.rob th { text-align: left; font-size: 14px; color: #4a5565; font-weight: 600; padding: 2px 0; }
+table.rob td { padding: 5px 10px 5px 0; border-top: 1px solid #ebe8e2; white-space: nowrap; }
+.pbar { display: inline-block; width: 90px; height: 9px; background: #ebe8e2; margin-right: 8px; vertical-align: middle; }
+.pbar i { display: block; height: 100%; background: #b03a10; }
+.pbar.grey i { background: #5a6472; }
 @media print { body { background: #fff; } .slide { margin: 0; } }
 """
 
