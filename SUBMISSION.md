@@ -9,12 +9,15 @@ https://www.spaceappschallenge.org/resources/project-submission-guide/
 
 ## Deadline and eligibility
 
+- **We are registered for the Universal Event**, not a Local Event.
 - **Submission window:** Saturday 14 November 2026, 9:00 a.m. to Sunday
-  15 November 2026, 11:59 p.m., in the time zone of your Local Event.
-  Anything saved or submitted after that is not judged.
+  15 November 2026, 11:59 p.m. For the Universal Event the clock is the
+  local time where the Team Owner lives. Anything saved or submitted after
+  that is not judged.
 - You can submit early and resubmit as often as you like. Only the last saved
   submission is judged. Submit a first version well before the deadline.
-- All team members must be confirmed participants at the same Local Event.
+- All team members must be confirmed participants at the same event. Both of
+  you need to be registered for the Universal Event and on the same team.
 - Every required field must be filled in, or the form will not submit.
 - **Everything must be in English:** the project page and all linked material,
   including this repo and the slides. A video may be spoken in another
@@ -255,5 +258,5 @@ Partner agencies worth checking for this project:
 - [ ] Every required field filled in
 - [ ] Both boxes ticked: Terms and Conditions, Confirm All Work is Original
 - [ ] "Submit for Judging" clicked and the confirmation banner appeared
-- [ ] Submitted before Sunday 15 November, 11:59 p.m. local time, with time
-      to spare
+- [ ] Submitted before Sunday 15 November, 11:59 p.m. in the Team Owner's
+      local time, with time to spare
