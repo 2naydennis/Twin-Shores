@@ -114,11 +114,11 @@ def ssl_context():
 SSL_CONTEXT = None
 
 
-def http_get(url):
+def http_get(url, headers=None):
     global SSL_CONTEXT
     if SSL_CONTEXT is None:
         SSL_CONTEXT = ssl_context()
-    request = urllib.request.Request(url, headers={"User-Agent": "analog-finder"})
+    request = urllib.request.Request(url, headers={"User-Agent": "analog-finder", **(headers or {})})
     with urllib.request.urlopen(request, timeout=180, context=SSL_CONTEXT) as response:
         return response.read()
 

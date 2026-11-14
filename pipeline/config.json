@@ -1,0 +1,55 @@
+{
+  "_about": "The team's choices live in this file. Edit it, then run: python3 pipeline/score.py",
+  "_generated_by": "File layout written by Claude (Anthropic) on 2026-11-14. The eight variables are the team's choice. Weights are neutral placeholders (all 1) until the team sets them. Coordinates were entered by the AI from memory and are approximate.",
+
+  "variables": {
+    "temperature":  {"label": "Temperature",          "unit": "°C",     "weight": 1, "kind": "measured", "source": "Earth: NASA POWER T2M annual mean. Mars: NSSDCA Mars Fact Sheet."},
+    "pressure":     {"label": "Atmospheric pressure", "unit": "kPa",    "weight": 1, "kind": "measured", "source": "Earth: NASA POWER PS annual mean. Mars: NSSDCA Mars Fact Sheet."},
+    "evaporation":  {"label": "Evaporation",          "unit": "mm/day", "weight": 1, "kind": "measured", "source": "Earth: NASA POWER EVLAND annual mean. Mars: no present-day value."},
+    "slope":        {"label": "Terrain slope",        "unit": "°",      "weight": 1, "kind": "measured", "source": "Earth: ASTER GDEM (NASA/METI) via OpenTopoData. Mars: MOLA MEGDR 128 px/deg. Both sampled on the same 900 m grid."},
+    "ph":           {"label": "Water pH",             "unit": "match",  "weight": 1, "kind": "judged"},
+    "minerals":     {"label": "Mineral deposits",     "unit": "match",  "weight": 1, "kind": "judged"},
+    "water":        {"label": "Water body",           "unit": "match",  "weight": 1, "kind": "judged"},
+    "sediments":    {"label": "Sediment layers",      "unit": "match",  "weight": 1, "kind": "judged"}
+  },
+
+  "_judged_help": "A judged variable has no global dataset. For each candidate, the team reads a source and enters how well it matches the target: 1 = same kind of feature, 0.5 = partly, 0 = absent. Always give a note and a source. Leave a variable out when unknown; it is then skipped, not counted as zero.",
+
+  "targets": [
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "body": "mars",
+      "lat": 18.38,
+      "lon": 77.58,
+      "measured": {
+        "temperature": {"value": -59,   "note": "Mars planet-wide average, not measured at Jezero", "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"},
+        "pressure":    {"value": 0.636, "note": "6.36 mb at mean radius, planet-wide",             "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"},
+        "evaporation": {"value": null,  "note": "No liquid surface water today, so there is nothing to compare"}
+      },
+      "judged_reference": {
+        "ph":        "No measured pH exists for Jezero's ancient lake.",
+        "minerals":  "Carbonate minerals detected from orbit along the inner margin.",
+        "water":     "Ancient lake, dry today.",
+        "sediments": "River delta and lakebed deposits."
+      }
+    }
+  ],
+
+  "candidates": [
+    {"name": "Lake Salda", "country": "Türkiye", "lat": 37.55, "lon": 29.68, "known_analog": true,
+     "judged": {
+       "minerals":  {"match": 1, "note": "Hydromagnesite shoreline, a carbonate similar to those detected at Jezero", "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"},
+       "sediments": {"match": 1, "note": "Delta deposits and microbialites", "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"},
+       "water":     {"match": 1, "note": "A lake basin, like Jezero's former lake", "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"}
+     }},
+    {"name": "Atacama Desert",        "country": "Chile",   "lat": -24.50, "lon": -69.25,  "known_analog": true},
+    {"name": "Death Valley",          "country": "USA",     "lat": 36.46,  "lon": -116.87, "known_analog": true},
+    {"name": "Haughton Crater",       "country": "Canada",  "lat": 75.38,  "lon": -89.67,  "known_analog": true},
+    {"name": "Kilauea",               "country": "USA",     "lat": 19.41,  "lon": -155.28, "known_analog": true},
+    {"name": "Medicine Lake Volcano", "country": "USA",     "lat": 41.61,  "lon": -121.55, "known_analog": true},
+    {"name": "Pilot Valley",          "country": "USA",     "lat": 41.00,  "lon": -114.00, "known_analog": true},
+    {"name": "Verde Valley",          "country": "USA",     "lat": 34.56,  "lon": -111.85, "known_analog": true},
+    {"name": "Askja",                 "country": "Iceland", "lat": 65.03,  "lon": -16.75,  "known_analog": true}
+  ]
+}

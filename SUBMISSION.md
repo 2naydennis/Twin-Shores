@@ -171,6 +171,12 @@ that goes into the form.
 | Lunar Reconnaissance Orbiter LOLA GDR, product LDEM_16, 16 pixels per degree (NASA PDS Geosciences Node) | Elevation at 2 Moon targets. Output: `data/nasa/target_elevation.json` | https://pds-geosciences.wustl.edu/missions/lro/lola.htm |
 | NASA SRTM 1 arc second, tile N37E029 | West-east terrain profile across Lake Salda. Output: `data/nasa/terrain_profiles.json`. Tile downloaded from AWS Terrain Tiles, which redistributes SRTM without a login | https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003 |
 | NASA Planetary Analog Explorer | Source of the starting list of Earth sites and the Moon and Mars places they are paired with | https://science.nasa.gov/solar-system/analog-explorer/ |
+| ASTER Global Digital Elevation Model (NASA and Japan's METI) | Terrain slope at each Earth candidate, read through the OpenTopoData API. Output: `data/analogs.json` | https://www.earthdata.nasa.gov/data/instruments/aster |
+| Mars Global Surveyor MOLA MEGDR, product MEGT44N000HB, 128 pixels per degree | Terrain slope at Jezero Crater on the same 900 m grid. Output: `data/analogs.json` | https://pds-geosciences.wustl.edu/missions/mgs/megdr.html |
+| NSSDCA Mars Fact Sheet (NASA Goddard) | Mars temperature and surface pressure used as the Jezero target values | https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html |
+
+NASA POWER also supplies the temperature, pressure and evaporation that
+`pipeline/score.py` compares (parameters T2M, PS, EVLAND).
 
 All five are used by `pipeline/fetch_nasa.py`, run on 2026-11-14. So far the
 project only fetches and stores this data. Update the "what we used it for"

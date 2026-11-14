@@ -1,12 +1,70 @@
 {
-  "_note": "MOCK DATA. Scores and feature values are placeholders so the web app has something to load. Replace with pipeline output.",
-  "_generated_by": "AI-generated placeholder (Claude, Anthropic). Remove this field once the pipeline writes real data.",
-  "generated_at": "2026-11-14T00:00:00Z",
+  "generated_at": "2026-11-14T09:59:44Z",
+  "produced_by": "pipeline/score.py from pipeline/config.json",
   "features": [
-    "mean_temp_c",
-    "aridity",
-    "slope_deg"
+    "temperature",
+    "pressure",
+    "evaporation",
+    "slope",
+    "ph",
+    "minerals",
+    "water",
+    "sediments"
   ],
+  "variables": {
+    "temperature": {
+      "label": "Temperature",
+      "unit": "°C",
+      "weight": 1,
+      "kind": "measured",
+      "source": "Earth: NASA POWER T2M annual mean. Mars: NSSDCA Mars Fact Sheet."
+    },
+    "pressure": {
+      "label": "Atmospheric pressure",
+      "unit": "kPa",
+      "weight": 1,
+      "kind": "measured",
+      "source": "Earth: NASA POWER PS annual mean. Mars: NSSDCA Mars Fact Sheet."
+    },
+    "evaporation": {
+      "label": "Evaporation",
+      "unit": "mm/day",
+      "weight": 1,
+      "kind": "measured",
+      "source": "Earth: NASA POWER EVLAND annual mean. Mars: no present-day value."
+    },
+    "slope": {
+      "label": "Terrain slope",
+      "unit": "°",
+      "weight": 1,
+      "kind": "measured",
+      "source": "Earth: ASTER GDEM (NASA/METI) via OpenTopoData. Mars: MOLA MEGDR 128 px/deg. Both sampled on the same 900 m grid."
+    },
+    "ph": {
+      "label": "Water pH",
+      "unit": "match",
+      "weight": 1,
+      "kind": "judged"
+    },
+    "minerals": {
+      "label": "Mineral deposits",
+      "unit": "match",
+      "weight": 1,
+      "kind": "judged"
+    },
+    "water": {
+      "label": "Water body",
+      "unit": "match",
+      "weight": 1,
+      "kind": "judged"
+    },
+    "sediments": {
+      "label": "Sediment layers",
+      "unit": "match",
+      "weight": 1,
+      "kind": "judged"
+    }
+  },
   "targets": [
     {
       "id": "jezero",
@@ -15,21 +73,32 @@
       "lat": 18.38,
       "lon": 77.58,
       "features": {
-        "mean_temp_c": 0,
-        "aridity": 0,
-        "slope_deg": 0
-      }
-    },
-    {
-      "id": "shackleton",
-      "name": "Shackleton Crater Rim",
-      "body": "moon",
-      "lat": -89.9,
-      "lon": 0.0,
-      "features": {
-        "mean_temp_c": 0,
-        "aridity": 0,
-        "slope_deg": 0
+        "slope": 0.51,
+        "temperature": -59,
+        "pressure": 0.636,
+        "evaporation": null
+      },
+      "notes": {
+        "temperature": {
+          "value": -59,
+          "note": "Mars planet-wide average, not measured at Jezero",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+        },
+        "pressure": {
+          "value": 0.636,
+          "note": "6.36 mb at mean radius, planet-wide",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+        },
+        "evaporation": {
+          "value": null,
+          "note": "No liquid surface water today, so there is nothing to compare"
+        }
+      },
+      "judged_reference": {
+        "ph": "No measured pH exists for Jezero's ancient lake.",
+        "minerals": "Carbonate minerals detected from orbit along the inner margin.",
+        "water": "Ancient lake, dry today.",
+        "sediments": "River delta and lakebed deposits."
       }
     }
   ],
@@ -40,12 +109,171 @@
       "country": "Türkiye",
       "lat": 37.55,
       "lon": 29.68,
-      "score": 0.5,
+      "score": 0.681,
+      "coverage": "6 of 8 variables",
       "feature_match": {
-        "mean_temp_c": 0.5,
-        "aridity": 0.5,
-        "slope_deg": 0.5
+        "temperature": 0.114,
+        "pressure": 0.111,
+        "slope": 0.861,
+        "minerals": 1,
+        "water": 1,
+        "sediments": 1
       },
+      "values": {
+        "temperature": 12.14,
+        "pressure": 88.17,
+        "evaporation": 1.75,
+        "slope": 1.89
+      },
+      "judged": {
+        "minerals": {
+          "match": 1,
+          "note": "Hydromagnesite shoreline, a carbonate similar to those detected at Jezero",
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+        },
+        "sediments": {
+          "match": 1,
+          "note": "Delta deposits and microbialites",
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+        },
+        "water": {
+          "match": 1,
+          "note": "A lake basin, like Jezero's former lake",
+          "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+        }
+      },
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Haughton Crater",
+      "country": "Canada",
+      "lat": 75.38,
+      "lon": -89.67,
+      "score": 0.454,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.445,
+        "pressure": 0.0,
+        "slope": 0.917
+      },
+      "values": {
+        "temperature": -14.42,
+        "pressure": 99.06,
+        "evaporation": 0.45,
+        "slope": 1.33
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Verde Valley",
+      "country": "USA",
+      "lat": 34.56,
+      "lon": -111.85,
+      "score": 0.348,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.066,
+        "pressure": 0.127,
+        "slope": 0.851
+      },
+      "values": {
+        "temperature": 16.04,
+        "pressure": 86.57,
+        "evaporation": 1.08,
+        "slope": 1.99
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Death Valley",
+      "country": "USA",
+      "lat": 36.46,
+      "lon": -116.87,
+      "score": 0.31,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.027,
+        "pressure": 0.074,
+        "slope": 0.83
+      },
+      "values": {
+        "temperature": 19.1,
+        "pressure": 91.73,
+        "evaporation": 0.34,
+        "slope": 2.2
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Pilot Valley",
+      "country": "USA",
+      "lat": 41.0,
+      "lon": -114.0,
+      "score": 0.299,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.13,
+        "pressure": 0.132,
+        "slope": 0.636
+      },
+      "values": {
+        "temperature": 10.89,
+        "pressure": 86.02,
+        "evaporation": 0.55,
+        "slope": 4.12
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Kilauea",
+      "country": "USA",
+      "lat": 19.41,
+      "lon": -155.28,
+      "score": 0.286,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.0,
+        "pressure": 0.027,
+        "slope": 0.831
+      },
+      "values": {
+        "temperature": 21.3,
+        "pressure": 96.38,
+        "evaporation": 3.48,
+        "slope": 2.19
+      },
+      "judged": {},
+      "known_analog": true
+    },
+    {
+      "target_id": "jezero",
+      "name": "Medicine Lake Volcano",
+      "country": "USA",
+      "lat": 41.61,
+      "lon": -121.55,
+      "score": 0.281,
+      "coverage": "3 of 8 variables",
+      "feature_match": {
+        "temperature": 0.155,
+        "pressure": 0.137,
+        "slope": 0.55
+      },
+      "values": {
+        "temperature": 8.83,
+        "pressure": 85.56,
+        "evaporation": 1.42,
+        "slope": 4.98
+      },
+      "judged": {},
       "known_analog": true
     },
     {
@@ -54,26 +282,42 @@
       "country": "Chile",
       "lat": -24.5,
       "lon": -69.25,
-      "score": 0.5,
+      "score": 0.213,
+      "coverage": "3 of 8 variables",
       "feature_match": {
-        "mean_temp_c": 0.5,
-        "aridity": 0.5,
-        "slope_deg": 0.5
+        "temperature": 0.085,
+        "pressure": 0.225,
+        "slope": 0.33
       },
+      "values": {
+        "temperature": 14.51,
+        "pressure": 76.87,
+        "evaporation": 0.04,
+        "slope": 7.16
+      },
+      "judged": {},
       "known_analog": true
     },
     {
-      "target_id": "shackleton",
-      "name": "McMurdo Dry Valleys",
-      "country": "Antarctica",
-      "lat": -77.5,
-      "lon": 162.0,
-      "score": 0.5,
+      "target_id": "jezero",
+      "name": "Askja",
+      "country": "Iceland",
+      "lat": 65.03,
+      "lon": -16.75,
+      "score": 0.127,
+      "coverage": "3 of 8 variables",
       "feature_match": {
-        "mean_temp_c": 0.5,
-        "aridity": 0.5,
-        "slope_deg": 0.5
+        "temperature": 0.301,
+        "pressure": 0.081,
+        "slope": 0.0
       },
+      "values": {
+        "temperature": -2.84,
+        "pressure": 91.1,
+        "evaporation": 0.76,
+        "slope": 10.44
+      },
+      "judged": {},
       "known_analog": true
     }
   ]

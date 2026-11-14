@@ -31,6 +31,18 @@ Written by `pipeline/`, read by `web/`.
 }
 ```
 
+Fields added by `pipeline/score.py`:
+
+- top level `variables`: label, unit, weight and kind (`measured` or `judged`)
+  for each feature
+- on each target: `notes` and `judged_reference`, the text behind its values
+- on each analog: `coverage` (how many variables the score used), `values`
+  (the candidate's own measured numbers) and `judged` (match, note, source for
+  each judged variable)
+
+A variable missing from `feature_match` was skipped for that pair, not scored
+as zero.
+
 Rules:
 
 - `score` and every `feature_match` value are between 0 and 1.

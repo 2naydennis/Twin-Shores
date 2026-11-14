@@ -6,6 +6,44 @@ and writes `../data/analogs.json` in the shape described in
 
 Put downloaded raw files in `pipeline/raw/`. That folder is ignored by git.
 
+## score.py and config.json
+
+`config.json` holds the team's choices: the eight variables, their weights,
+the targets, and the candidate places. `score.py` measures what can be
+measured, compares each candidate with each target, and writes
+`../data/analogs.json`.
+
+```bash
+python3 pipeline/score.py
+```
+
+| Variable | Kind | Where the number comes from |
+|----------|------|-----------------------------|
+| Temperature | measured | Earth: NASA POWER. Mars: NSSDCA fact sheet (planet-wide) |
+| Atmospheric pressure | measured | Earth: NASA POWER. Mars: NSSDCA fact sheet |
+| Evaporation | measured | Earth: NASA POWER. Mars: no present-day value, so it is skipped |
+| Terrain slope | measured | Earth: ASTER GDEM. Mars: MOLA. Same 900 m grid on both |
+| Water pH | judged | Team reads a source and enters a 0 to 1 match |
+| Mineral deposits | judged | same |
+| Water body | judged | same |
+| Sediment layers | judged | same |
+
+To add a candidate, add one line to `candidates` in `config.json` with a
+name, country, latitude and longitude, then run the script again. To fill a
+judged variable, add a `judged` block like Lake Salda's, always with a note
+and a source.
+
+Read the scores with care:
+
+- **Coverage matters.** A candidate scored on 6 variables cannot be compared
+  fairly with one scored on 3. In the first run Lake Salda leads largely
+  because it is the only place with judged variables filled in. Fill them in
+  for every candidate before drawing conclusions.
+- **Pressure never matches.** Every place on Earth has over 100 times Mars's
+  air pressure. It is in the score because the team chose it, and it is an
+  honest limit to show.
+- **Weights are all 1.** They are placeholders until the team sets them.
+
 ## fetch_nasa.py
 
 Pulls real NASA data and saves it under `data/nasa/`. Standard library only,
