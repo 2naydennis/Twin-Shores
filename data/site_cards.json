@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T11:28:29Z",
+  "generated_at": "2026-11-14T11:50:35Z",
   "produced_by": "pipeline/site_cards.py",
   "sources": {
     "access": "Wikidata (CC0)",
@@ -12,8 +12,8 @@
       "name": "Lake Salda",
       "lat": 37.55,
       "lon": 29.68,
-      "score": 0.695,
-      "coverage": "6 of 8 variables",
+      "score": 0.738,
+      "coverage": "7 of 8 variables",
       "known_analog": true,
       "access": {
         "airport": {
@@ -86,6 +86,12 @@
           "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
         },
         {
+          "evidence": "Alkaline water",
+          "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
+          "based_on": "Measured pH 9.08 to 9.34 at the surface, 10 m and 20 m (2019); 9.26 to 9.52 in a 2023 stromatolite study; Mg-CO3-HCO3 water",
+          "source": "https://link.springer.com/doi/10.1007/s10661-019-7889-y"
+        },
+        {
           "evidence": "Closed-basin lake and shoreline",
           "test": "Practise rover driving and terrain mapping on soft shoreline deposits and old lake terraces, then compare with Jezero's delta and margin.",
           "based_on": "A lake basin, like Jezero's former lake",
@@ -95,10 +101,6 @@
       "tests_note": "Suggested by AI from the site's published evidence using fixed rules; for the team to review.",
       "not_analog_for": "Not analog for: Mars's air pressure (under 1% of Earth's), cold, dryness or radiation. Equipment tests here cover geology, chemistry and handling, not the Martian environment.",
       "gaps": [
-        {
-          "variable": "Water pH",
-          "why": "no published study entered yet"
-        },
         {
           "variable": "Evaporation",
           "why": "no value at Jezero to compare with"

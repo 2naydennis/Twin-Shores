@@ -1,4 +1,4 @@
-// Lake Erçek vs Jezero page: maps, elevation profiles, evidence and field cards.
+// Lake Salda vs Jezero page: maps, elevation profiles, evidence and field cards.
 // AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14. Review before use.
 
 const load = async (name) => {
@@ -24,9 +24,9 @@ const link = (url, text) => el('a', { href: url, target: '_blank', rel: 'noopene
 const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; } };
 const coord = (lat, lon) => `${Math.abs(lat).toFixed(2)}° ${lat >= 0 ? 'N' : 'S'}, ${Math.abs(lon).toFixed(2)}° ${lon >= 0 ? 'E' : 'W'}`;
 
-function maps(ercek, jezero) {
-  const earth = L.map('map-ercek', { zoomControl: true, attributionControl: true });
-  earth.fitBounds([[ercek.lat - 0.11, ercek.lon - 0.14], [ercek.lat + 0.11, ercek.lon + 0.14]]);   // whole lake and its shore
+function maps(site, jezero) {
+  const earth = L.map('map-salda', { zoomControl: true, attributionControl: true });
+  earth.fitBounds([[site.lat - 0.07, site.lon - 0.09], [site.lat + 0.07, site.lon + 0.09]]);   // whole lake and its shore
   L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg', {
     maxNativeZoom: 14, maxZoom: 16,
     attribution: '<a href="https://s2maps.eu">Sentinel-2 cloudless 2020</a> by EOX, contains modified Copernicus Sentinel data (CC BY-NC-SA 4.0)',
@@ -51,7 +51,7 @@ function profile(twin) {
   // Both profiles relative to their own lowest point, on one vertical scale, so the basins compare by shape.
   const W = 960, H = 280, padL = 46, padB = 26, padT = 12;
   const series = [
-    { key: 'ercek', color: '#2f8fb0', label: 'Lake Erçek (SRTM)' },
+    { key: 'salda', color: '#2f8fb0', label: 'Lake Salda (SRTM)' },
     { key: 'jezero', color: '#a3380d', label: 'Jezero Crater (MOLA)' },
   ].map((s) => {
     const points = twin[s.key].points;
@@ -62,33 +62,33 @@ function profile(twin) {
   const maxH = Math.max(...series.flatMap((s) => s.points.map((p) => p.h)));
   const x = (km) => padL + ((km + maxKm) / (2 * maxKm)) * (W - padL - 10);
   const y = (h) => H - padB - (h / maxH) * (H - padB - padT);
-  const svg = [`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="West-east elevation profiles of Lake Erçek and Jezero Crater">`];
+  const svg = [`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="West-east elevation profiles of Lake Salda and Jezero Crater">`];
   for (let h = 0; h <= maxH; h += 200) svg.push(`<line class="axis" x1="${padL}" x2="${W - 10}" y1="${y(h)}" y2="${y(h)}"/><text x="4" y="${y(h) + 4}">${h} m</text>`);
   for (let km = -30; km <= 30; km += 10) if (Math.abs(km) <= maxKm) svg.push(`<text x="${x(km) - 12}" y="${H - 6}">${km} km</text>`);
   for (const s of series) {
     const d = s.points.map((p, i) => `${i ? 'L' : 'M'}${x(p.km).toFixed(1)},${y(p.h).toFixed(1)}`).join('');
     svg.push(`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.2"/>`);
   }
-  svg.push(`<g transform="translate(${padL + 10},${padT + 6})"><rect width="12" height="3" y="4" fill="#2f8fb0"/><text x="18" y="9">Lake Erçek (SRTM)</text>`
+  svg.push(`<g transform="translate(${padL + 10},${padT + 6})"><rect width="12" height="3" y="4" fill="#2f8fb0"/><text x="18" y="9">Lake Salda (SRTM)</text>`
     + `<rect width="12" height="3" y="22" fill="#a3380d"/><text x="18" y="27">Jezero Crater (MOLA)</text></g></svg>`);
   $('profile').innerHTML = svg.join('');   // built only from numbers above
   $('profile-note').textContent = 'West to east through each site centre, heights above each profile\'s lowest point. '
-    + 'Erçek\'s profile stops 8 km east, at the edge of the terrain we built. Jezero is the deeper, wider basin; '
-    + 'Erçek\'s floor shows the flat lake surface, since SRTM measures the water, not the lake bed.';
+    + 'Jezero is the wider basin. Salda\'s floor shows the flat lake surface, since SRTM measures the water, not the lake bed: '
+    + 'the lake itself is about 180 m deep.';
   $('profile').append(el('figcaption', { text: 'Sources: NASA SRTM 1 arc second and MGS MOLA MEGDR, as used in the 3D terrain page.' }));
 }
 
-function evidence(data, ercek, target) {
+function evidence(data, site, target) {
   const rows = Object.entries(data.variables).map(([key, v]) => {
-    const fact = (ercek.judged || {})[key];
-    const value = (ercek.values || {})[key];
+    const fact = (site.judged || {})[key];
+    const value = (site.values || {})[key];
     const here = v.kind === 'judged' ? (fact ? fact.note : 'No study found') : (value ?? 'n/a') + (v.unit && v.unit !== 'match' ? ` ${v.unit}` : '');
     const there = v.kind === 'judged' ? (target.judged_reference || {})[key] || '' : `${target.features[key] ?? 'no value'}${target.features[key] != null ? ` ${v.unit}` : ''}`;
-    const match = ercek.feature_match[key];
+    const match = site.feature_match[key];
     return [v.label, here, there, match === undefined ? 'not scored' : match.toFixed(2), fact && fact.source];
   });
   $('evidence').replaceChildren(
-    el('thead', {}, el('tr', {}, ['Variable', 'Lake Erçek', 'Jezero Crater', 'Match'].map((t, i) => el('th', { class: i === 3 ? 'num' : '', text: t })))),
+    el('thead', {}, el('tr', {}, ['Variable', 'Lake Salda', 'Jezero Crater', 'Match'].map((t, i) => el('th', { class: i === 3 ? 'num' : '', text: t })))),
     el('tbody', {}, rows.map(([label, here, there, match, source]) => el('tr', {},
       el('td', { text: label }),
       el('td', {}, here, source ? [' ', link(source, host(source))] : null),
@@ -123,18 +123,18 @@ function others(cards) {
 }
 
 try {
-  const [data, cards, twin] = await Promise.all([load('analogs.json'), load('site_cards.json'), load('twin_ercek.json')]);
+  const [data, cards, twin] = await Promise.all([load('analogs.json'), load('site_cards.json'), load('twin_salda.json')]);
   const target = data.targets[0];
   const places = data.analogs.filter((a) => a.target_id === target.id);
-  const ercek = places.find((a) => a.name === 'Lake Erçek');
-  $('rank').textContent = places.indexOf(ercek) + 1;
-  $('ercek-coord').textContent = coord(ercek.lat, ercek.lon);
+  const salda = places.find((a) => a.name === 'Lake Salda');
+  $('rank').textContent = places.indexOf(salda) + 1;
+  $('salda-coord').textContent = coord(salda.lat, salda.lon);
   $('jezero-coord').textContent = coord(target.lat, target.lon);
-  maps(ercek, target);
+  maps(salda, target);
   profile(twin);
-  evidence(data, ercek, target);
-  fieldCard(cards.cards.find((c) => c.name === 'Lake Erçek'));
-  others(cards.cards);
+  evidence(data, salda, target);
+  fieldCard(cards.cards.find((c) => c.name === 'Lake Salda'));
+  others(cards.cards.filter((c) => c.name !== 'Lake Salda'));
 } catch (error) {
   console.error(error);
   document.querySelector('main').prepend(el('p', { class: 'ask', text: `Could not load the data: ${error.message}.` }));

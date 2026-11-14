@@ -191,6 +191,17 @@ a weak point of the scores.
 What these tests do not cover: they test the arithmetic, not the evidence.
 If a judged match is wrong, every test above inherits the error.
 
+### Fifth run: Lake Salda's pH, 2026-11-14
+
+Lake Salda had no pH entry. Two studies measured it: 9.08 to 9.34 at the
+surface, 10 m and 20 m (Environmental Monitoring and Assessment, 2019) and
+9.26 to 9.52 (MDPI Water, 2023). Entered as a full match. Salda now scores
+0.738 on 7 of 8 variables and ranks first in 82% of 5,000 random weightings
+(top three in 99%). Van and Erçek follow. A 0.5 entry, from an abstract that
+only calls Salda "highly alkaline", had briefly dropped it to third: the
+score is sensitive to how a single judged value is set, which is a reason to
+confirm each one against its source.
+
 Limits to state wherever these results are shown:
 
 - Lake Van is not on NASA's Planetary Analog Explorer list, but it is not

@@ -13,7 +13,7 @@ Writes:
                            (NASA POWER monthly climate), what could be tested
                            there (derived from the site's published evidence),
                            and which variables are still unchecked
-    data/twin_ercek.json   west-east elevation profiles across Lake Erçek (SRTM)
+    data/twin_salda.json   west-east elevation profiles across Lake Salda (SRTM)
                            and Jezero Crater (MOLA), from the 3D page's terrain
 
 Everything is computed from data, except the test suggestions, which are
@@ -30,7 +30,7 @@ from fetch_nasa import POWER_URL, RAW, ROOT, http_get
 
 ANALOGS = ROOT / "data" / "analogs.json"
 OUT = ROOT / "data" / "site_cards.json"
-TWIN = ROOT / "data" / "twin_ercek.json"
+TWIN = ROOT / "data" / "twin_salda.json"
 TERRAIN = ROOT / "web" / "rover" / "terrain"
 CACHE = RAW / "site_cards_cache.json"
 FOCUS = 6                 # how many of the top places get a card
@@ -178,13 +178,13 @@ def main():
                                "cards": cards}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
 
-    ercek = next(a for a in data["analogs"] if a["name"] == "Lake Erçek")
+    salda = next(a for a in data["analogs"] if a["name"] == "Lake Salda")
     target = data["targets"][0]
     TWIN.write_text(json.dumps({
         "generated_at": stamp, "produced_by": "pipeline/site_cards.py",
-        "note": "West-east elevation profiles, 0 km at the site centre. Erçek: SRTM, one reading every 70 m in the 3D heightmap. "
-                "Jezero: MOLA, one reading every 250 m. Both lakes are about the same width; Jezero is about 600 m deep below its rim.",
-        "ercek": {"name": "Lake Erçek", "lat": ercek["lat"], "lon": ercek["lon"], **profile("van", ercek["lat"], ercek["lon"], 14)},
+        "note": "West-east elevation profiles, 0 km at the site centre. Salda: SRTM, one reading every 39 m in the 3D heightmap. "
+                "Jezero: MOLA, one reading every 250 m.",
+        "salda": {"name": "Lake Salda", "lat": salda["lat"], "lon": salda["lon"], **profile("salda", salda["lat"], salda["lon"], 10)},
         "jezero": {"name": target["name"], "lat": target["lat"], "lon": target["lon"], **profile("jezero", target["lat"], target["lon"], 30)},
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"wrote {TWIN.relative_to(ROOT)}")

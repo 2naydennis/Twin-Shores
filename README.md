@@ -4,7 +4,7 @@ NASA Space Apps Challenge project: find places on Earth that resemble a Mars
 landing site, and show why they match.
 
 **Live site:** https://2naydennis.github.io/analog-finder/ ·
-**Lake Erçek vs Jezero:** https://2naydennis.github.io/analog-finder/web/ercek.html ·
+**Lake Salda vs Jezero:** https://2naydennis.github.io/analog-finder/web/salda.html ·
 **Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
 **Demo slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
 
@@ -29,7 +29,7 @@ analogs. Top of the ranking on 2026-11-14:
 
 | Rank | Place | Score | Variables used | Status |
 |------|-------|-------|----------------|--------|
-| 1 | Lake Salda | 0.695 | 6 of 8 | known analog (NASA) |
+| 1 | Lake Salda | 0.738 | 7 of 8 | known analog (NASA) |
 | 2 | Lake Van | 0.688 | 7 of 8 | candidate |
 | 3 | Lake Erçek | 0.679 | 5 of 8 | candidate |
 | 4 | Lake Burdur | 0.646 | 5 of 8 | candidate |
@@ -161,7 +161,9 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Slides rebuilt with website screenshots, a robustness chart and 3D views. A draft video was made and then removed at the team's request; the slides are the demo |
 
-| 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/site_cards.py` and its outputs (`data/site_cards.json`, `data/twin_ercek.json`); the Lake Erçek page (`web/ercek.html`, `web/map/twin.js`); weight sliders on the method page; the not-yet-checked list, how-to line and share images; slides reworded to lead with Lake Erçek. Test suggestions are fixed rules written by the AI |
+| 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/site_cards.py` and its outputs (`data/site_cards.json`, `data/twin_salda.json`); the featured-site page, first for Lake Erçek and then, at the team's request, for Lake Salda (`web/salda.html`, `web/map/twin.js`); weight sliders on the method page; the not-yet-checked list, how-to line and share images; slides reworded to feature Lake Salda. Test suggestions are fixed rules written by the AI |
+
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Lake Salda pH evidence (measured pH 9.08 to 9.52, two studies) entered and scores re-run; featured page switched from Lake Erçek to Lake Salda at the team's request |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

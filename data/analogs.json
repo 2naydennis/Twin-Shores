@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T10:32:43Z",
+  "generated_at": "2026-11-14T11:50:00Z",
   "produced_by": "pipeline/score.py from pipeline/config.json",
   "features": [
     "temperature",
@@ -109,12 +109,13 @@
       "country": "Türkiye",
       "lat": 37.55,
       "lon": 29.68,
-      "score": 0.695,
-      "coverage": "6 of 8 variables",
+      "score": 0.738,
+      "coverage": "7 of 8 variables",
       "feature_match": {
         "temperature": 0.114,
         "pressure": 0.133,
         "slope": 0.92,
+        "ph": 1,
         "minerals": 1,
         "water": 1,
         "sediments": 1
@@ -146,6 +147,17 @@
           "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
           "checked": "read directly: NASA Earth Observatory page"
+        },
+        "ph": {
+          "match": 1,
+          "note": "Measured pH 9.08 to 9.34 at the surface, 10 m and 20 m (2019); 9.26 to 9.52 in a 2023 stromatolite study; Mg-CO3-HCO3 water",
+          "source": "https://link.springer.com/doi/10.1007/s10661-019-7889-y",
+          "proposed_by": "AI (Claude) from the cited sources on 2026-11-14; team to confirm",
+          "checked": "search-result summary of the source; full text not opened",
+          "also": [
+            "https://mdpi.com/2073-4441/15/4/733",
+            "https://avesis.hacettepe.edu.tr/yayin/f1c79de7-49f8-4085-80cb-95c42c73b8b0/on-the-limnology-of-salda-lake-a-large-and-deep-soda-lake-in-southwestern-turkey-future-management-proposals"
+          ]
         }
       },
       "known_analog": true

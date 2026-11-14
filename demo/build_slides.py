@@ -120,7 +120,7 @@ FOOT = "Drafted with AI assistance (Claude). Charts are drawn by code from the p
 
 slides = [
     f"""<h1>{esc(PROJECT)}</h1>
-<p class="lead">Searching Earth's lakes for twins of Jezero Crater, Mars, and a new candidate: Lake Erçek</p>
+<p class="lead">Lake Salda and the search for Earth twins of Jezero Crater, Mars</p>
 <p class="meta"><b>Team:</b> {esc(TEAM)}<br><b>Members:</b> {esc(MEMBERS)}<br><b>Country:</b> {esc(COUNTRY)}<br>
 <b>Challenge:</b> {esc(CHALLENGE)}<br>NASA Space Apps Challenge 2026, Universal Event</p>""",
 
@@ -153,8 +153,8 @@ variable next to Jezero's value and the published evidence with its source. 2nay
     f"""<h2>What we found</h2>
 {bar_chart()}
 <p class="small">Grey: analog already listed by NASA. Orange: candidates, with the number of variables behind each score.
-<b>Lake Erçek</b>, beside Lake Van, is a closed-basin soda lake with pH 9.7, barely studied and not yet listed as an analog.
-Next step: test its shoreline for carbonates like Salda's. Its field-test plan is on the website.</p>""",
+<b>Lake Salda</b>, NASA's own Jezero analog, ranks first: alkaline water (pH about 9.1 to 9.5), a carbonate shore,
+microbialites and a lake basin. Lake Van and Lake Erçek, closed-basin soda lakes, come next.</p>""",
 
     f"""<h2>Does it work, and where does it stop?</h2>
 <div class="cols"><div>
@@ -172,9 +172,9 @@ Next step: test its shoreline for carbonates like Salda's. Its field-test plan i
 
     """<h2>Explore the sites in 3D</h2>
 <div class="strip"><figure><img src="img/3d-boat-crop.jpg" alt="Rover on a survey boat on Lake Salda"><figcaption>Lake Salda, by boat</figcaption></figure>
-<figure><img src="img/3d-ercek-crop.jpg" alt="Rover on the shore of Lake Erçek"><figcaption>Lake Erçek, our lead candidate</figcaption></figure>
+<figure><img src="img/3d-ercek-crop.jpg" alt="Rover on the shore of Lake Erçek"><figcaption>Lake Erçek, a candidate</figcaption></figure>
 <figure><img src="img/3d-jezero-crop.jpg" alt="Rover in Jezero Crater"><figcaption>Jezero Crater, Mars</figcaption></figure></div>
-<p class="small">Terrain from NASA SRTM and MOLA elevation data. Drive between published-evidence points and compare each lake with Jezero. A dedicated Lake Erçek page shows it next to Jezero from orbit, with a field-test plan: 31 km from Van airport, best in July and August.
+<p class="small">Terrain from NASA SRTM and MOLA elevation data. Drive between published-evidence points and compare each lake with Jezero. A dedicated Lake Salda page shows it next to Jezero from orbit, with a field-test plan: 27 km from Denizli Çardak airport, best from May to September.
 The boat, rocks and trees are illustrative. Open data: NASA POWER, MOLA, ASTER, SRTM, Planetary Analog Explorer; Copernicus EU-DEM and
 Sentinel-2 (ESA). Next: a field check of Lake Erçek, lakes beyond Türkiye, a Moon version. AI tools wrote much of the code and drafted
 text; every use is listed in the repository.</p>""",

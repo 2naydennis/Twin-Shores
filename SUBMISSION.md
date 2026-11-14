@@ -187,7 +187,7 @@ layers. For those we read published studies and entered a 0 to 1 match with
 the source. The score is the weighted average of the variables available for
 that place, and we show how many variables each score rests on.
 
-**What we found.** Lake Salda ranks first (0.695). Lake Van (0.688) is a
+**What we found.** Lake Salda ranks first (0.738). Lake Van (0.688) is a
 closed-basin soda lake with pH near 9.8 and carbonate microbialite towers.
 Lake Erçek (0.679) is a little-studied closed-basin soda lake beside it with
 pH 9.7. Lake Burdur (0.646) is a closed-basin alkaline lake. Lake Tuz has
