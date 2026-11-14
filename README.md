@@ -154,6 +154,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Restyle of the 3D terrain page (`web/rover.html`) and toned-down markers and wording in `web/rover/game.js` and `web/rover/main.js` |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | More detailed 3D scene: survey boat model, rover detail and materials, `web/rover/scenery.js` (sky, ripples, rocks, pines), shadows and reflections; Salda heightmap rebuilt at 513 x 513 from SRTM by `web/tools/build_terrain.py` |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

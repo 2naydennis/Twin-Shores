@@ -5,12 +5,13 @@ import * as THREE from 'three';
 import { WORLD, loadSites, buildTerrain } from './terrain.js';
 import { createRover, createBoat } from './rover-model.js';
 import { loadFacts, createGame } from './game.js';
+import { createSky, createScatter } from './scenery.js';
 
 const TERRAIN_URL = new URL('./terrain', import.meta.url).href;
 const ROVER_SCALE = 4;              // scene units per rover metre: a 3 m rover is drawn 12 units long
 const SPEED_STEP = 14;              // scene units per second for each step of the speed slider
 const TURN_RATE = 1.5;              // radians per second
-const BOAT_LIFT = 0.35;             // scene units the rover rides above the lake when on its boat
+const BOAT_LIFT = 1.9;              // scene units the rover's wheels ride above the lake on the boat deck
 
 // Where the rover starts. Jezero: near Perseverance's landing site (Octavia E.
 // Butler Landing). Coordinates entered by the AI from memory; check before citing.
@@ -38,6 +39,10 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'hi
 let pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
 renderer.setPixelRatio(pixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
 document.body.prepend(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -45,20 +50,30 @@ scene.fog = new THREE.Fog(0xffffff, 700, 2700);
 const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 4500);
 const skyLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
 const sun = new THREE.DirectionalLight(0xffffff, 2);
-sun.position.set(-0.55, 0.75, 0.35);
-scene.add(skyLight, sun);
+const SUN_DIRECTION = new THREE.Vector3(-0.55, 0.75, 0.35).normalize();
+sun.position.copy(SUN_DIRECTION);
+// A shadow box that travels with the rover: sharp shadows nearby, none far away.
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -140, right: 140, top: 140, bottom: -140, near: 10, far: 1600 });
+sun.shadow.bias = -0.0006;
+sun.shadow.normalBias = 0.6;
+scene.add(skyLight, sun, sun.target);
+const skies = {};                   // id -> sky dome
+const pmrem = new THREE.PMREMGenerator(renderer);
+const environments = {};            // id -> reflection map made from that site's sky
 
 const rover = createRover();
 rover.object.scale.setScalar(ROVER_SCALE);
 rover.object.rotation.order = 'YXZ';
 const shadow = new THREE.Mesh(
   new THREE.CircleGeometry(1.9, 20).rotateX(-Math.PI / 2),
-  new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.25, depthWrite: false,
+  new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.14, depthWrite: false,
     polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 }));
 shadow.position.y = 0.03;
 rover.object.add(shadow);
 const boat = createBoat();
-rover.object.add(boat);
+rover.object.add(boat.object);
 scene.add(rover.object);
 
 const terrains = {};                // id -> terrain
@@ -89,6 +104,8 @@ function show(id) {
   view.snap = true;
 
   const { look, site } = active;
+  for (const [key, dome] of Object.entries(skies)) dome.visible = key === id;
+  scene.environment = environments[id] || null;
   scene.background = new THREE.Color(look.sky);
   scene.fog.color.set(look.fog);
   sun.color.set(look.sun); sun.intensity = look.sunStrength;
@@ -134,9 +151,16 @@ function drive(dt) {
   const onWater = active.isWater(state.x, state.z);
   state.afloat += ((onWater ? 1 : 0) - state.afloat) * Math.min(1, dt * 7);
   state.clock += dt;
-  boat.visible = false;   // the toy boat is retired; the rover simply crosses the flat lake surface
-  boat.scale.setScalar(Math.max(0.001, state.afloat));
+  // The boat rises from under the water as the rover rolls onto the lake, and sinks away on the far shore.
+  boat.object.visible = state.afloat > 0.02;
+  boat.object.position.y = (state.afloat - 1) * 1.4;
+  boat.update(state.speed / ROVER_SCALE, dt, state.clock);
   shadow.visible = state.afloat < 0.5;
+  if (active.water) {                                  // ripples drift across the lake
+    const ripples = active.water.material.normalMap;
+    ripples.offset.x = (state.clock * 0.004) % 1;
+    ripples.offset.y = (state.clock * 0.0025) % 1;
+  }
 
   // Sit the rover on the ground and tilt it to match the slope under its wheels.
   const sin = Math.sin(state.heading), cos = Math.cos(state.heading);
@@ -171,6 +195,10 @@ function follow(dt) {
   if (view.snap) camera.position.copy(wantedCamera); else camera.position.lerp(wantedCamera, Math.min(1, dt * 6));
   view.snap = false;
   camera.lookAt(target);
+  // Keep the sky round the camera and the sun's shadow box centred on the rover.
+  for (const dome of Object.values(skies)) dome.position.copy(camera.position);
+  sun.target.position.copy(rover.object.position);
+  sun.position.copy(rover.object.position).addScaledVector(SUN_DIRECTION, 700);
 }
 
 let last = performance.now(), frameMs = 16, sinceReadout = 0, slowFor = 0;
@@ -267,8 +295,17 @@ try {
   const built = await Promise.all(sites.map((site) => buildTerrain(site, TERRAIN_URL)));
   for (const terrain of built) {
     terrain.group.visible = false;
+    terrain.group.add(createScatter(terrain));
     scene.add(terrain.group);
     terrains[terrain.site.id] = terrain;
+    const id = terrain.site.id;
+    skies[id] = createSky(id);
+    skies[id].visible = false;
+    scene.add(skies[id]);
+    // Reflections on the lake, the rover's metal and the boat come from the site's own sky.
+    const skyScene = new THREE.Scene();
+    skyScene.add(createSky(id));
+    environments[id] = pmrem.fromScene(skyScene, 0.02).texture;
   }
   // The fact hunt needs data/analogs.json. Without it the page still works as a plain drive.
   try {

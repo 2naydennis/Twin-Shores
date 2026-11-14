@@ -127,7 +127,8 @@ three.js (version 0.160.0, MIT licence) is loaded from the jsDelivr CDN.
 | `rover.html` | The page and its layout |
 | `rover/main.js` | Driving, camera, site switch, speed slider |
 | `rover/terrain.js` | Builds the ground from a heightmap and paints it |
-| `rover/rover-model.js` | The rover, built from simple shapes |
+| `rover/rover-model.js` | The rover and the survey boat, built from simple shapes |
+| `rover/scenery.js` | Sky, lake ripples, rocks and pines |
 | `rover/game.js` | The fact hunt: info points, fact cards, progress |
 | `rover/terrain/*.bin`, `sites.json` | The two heightmaps and what they cover |
 | `tools/build_terrain.py` | Downloads the NASA data and writes the heightmaps |
@@ -177,8 +178,21 @@ What is real and what is not:
   or it would be invisible. Its proportions follow NASA's published figures;
   part positions were laid out by eye, not from engineering drawings.
 - SRTM records the lake surface, so the lake is flat and has no lake bed.
-- **Crossing the lake.** The rover floats slightly above the flat lake surface,
-  because SRTM has no lake bed. The earlier toy boat was removed on 2026-11-14.
+- **The survey boat is invented.** Driving onto the lake brings up a pontoon
+  workboat (two pontoons, plank deck, rails, bow ramp, outboard motor with a
+  turning propeller, wake). It is not mission hardware; it lets the lake be
+  explored. SRTM records the lake surface, not the lake bed.
+- **Rocks and pines are placed, not mapped.** A fixed random pattern scatters
+  them so the ground reads at rover scale, and they are drawn at the same
+  exaggerated scale as the rover. Pines appear on Salda's slopes between
+  1,175 m and 1,950 m.
+- **Detail added on 2026-11-14:** Salda's heightmap is now 513 x 513 (one
+  reading every 39 m, all SRTM data); Jezero stays 257 x 257 because MOLA has
+  only 139 readings across. Real-time sun shadows, a gradient sky, lake
+  ripples and sky reflections. The rover gained chevron wheel treads, hazard
+  cameras, the sample caching carousel, mast wind sensors, a calibration
+  target, arm joints and turret instruments, and separate paint, metal, gold
+  foil and lens finishes.
 - **Evidence points** replace the earlier "fact hunt": a small post and a thin
   locator line per published finding, no spinning or glowing. Their positions
   are illustrative.

@@ -6,6 +6,7 @@
 // to the lake so the two sites are easy to tell apart.
 
 import * as THREE from 'three';
+import { waterNormals } from './scenery.js';
 
 export const WORLD = 2000;          // scene units across each map, whatever its real width
 const BODY_RADIUS_KM = { earth: 6371.0, mars: 3396.0 };
@@ -169,8 +170,11 @@ export async function buildTerrain(site, base) {
   const land = new Uint8Array(n * n);
   let hasWater = false;
   for (let k = 0; k < n * n; k++) { land[k] = water[k] ? 0 : 1; hasWater = hasWater || water[k] === 1; }
-  const toWater = hasWater ? distanceTo(water, n, 12) : null;   // for land cells
-  const toLand = hasWater ? distanceTo(land, n, 16) : null;     // for water cells
+  // Distances are counted in cells; `scale` keeps the shore and depth bands the same
+  // width in metres whatever the grid size (they were tuned on a 257 grid).
+  const scale = (n - 1) / 256;
+  const toWater = hasWater ? distanceTo(water, n, Math.round(12 * scale)) : null;   // for land cells
+  const toLand = hasWater ? distanceTo(land, n, Math.round(16 * scale)) : null;     // for water cells
 
   const positions = new Float32Array(n * n * 3);
   const colors = new Float32Array(n * n * 3);
@@ -189,9 +193,9 @@ export async function buildTerrain(site, base) {
       const dx = y[j * n + Math.min(n - 1, i + 1)] - y[j * n + Math.max(0, i - 1)];
       const dz = y[Math.min(n - 1, j + 1) * n + i] - y[Math.max(0, j - 1) * n + i];
       const slope = Math.hypot(dx, dz) / (2 * cell);
-      const grainy = noise(i * 0.35, j * 0.35) * 0.6 + noise(i * 0.09, j * 0.09) * 0.4;
+      const grainy = noise(i * 0.35 / scale, j * 0.35 / scale) * 0.6 + noise(i * 0.09 / scale, j * 0.09 / scale) * 0.4;
       if (site.id === 'salda') {
-        paintSalda(color, metres[k], slope, toWater[k], water[k] ? toLand[k] : 0, site.lake_level_m, grainy);
+        paintSalda(color, metres[k], slope, toWater[k] / scale, water[k] ? toLand[k] / scale : 0, site.lake_level_m, grainy);
       } else {
         paintJezero(color, metres[k], slope, low, high, grainy);
       }
@@ -219,10 +223,12 @@ export async function buildTerrain(site, base) {
   geometry.computeVertexNormals();
   const ground = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ vertexColors: true, map: grain() }));
   ground.matrixAutoUpdate = false;
+  ground.receiveShadow = true;
 
   const group = new THREE.Group();
   group.add(ground);
 
+  let lakeMesh = null;
   // A glossy sheet over the lake cells only. It reuses the terrain's vertices,
   // lifted slightly, so it costs one extra draw call.
   if (waterIndex.length) {
@@ -233,10 +239,14 @@ export async function buildTerrain(site, base) {
     sheet.setAttribute('color', new THREE.BufferAttribute(colors, 3));
     sheet.setIndex(waterIndex);
     sheet.computeVertexNormals();
-    const lakeMesh = new THREE.Mesh(sheet, new THREE.MeshStandardMaterial({
-      vertexColors: true, roughness: 0.12, metalness: 0.1, transparent: true, opacity: 0.9,
+    sheet.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+    const ripples = waterNormals();
+    lakeMesh = new THREE.Mesh(sheet, new THREE.MeshStandardMaterial({
+      vertexColors: true, roughness: 0.08, metalness: 0.15, transparent: true, opacity: 0.88,
+      normalMap: ripples, normalScale: new THREE.Vector2(0.35, 0.35),
     }));
     lakeMesh.matrixAutoUpdate = false;
+    lakeMesh.receiveShadow = true;
     group.add(lakeMesh);
   }
 
@@ -254,7 +264,7 @@ export async function buildTerrain(site, base) {
   }
 
   return {
-    site, group, look, metresPerUnit,
+    site, group, look, metresPerUnit, water: lakeMesh,
     heightAt: (x, z) => sample(y, x, z),               // scene units
     elevationAt: (x, z) => sample(metres, x, z),       // real metres
     isWater(x, z) {

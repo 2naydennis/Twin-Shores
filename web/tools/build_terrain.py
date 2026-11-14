@@ -41,7 +41,8 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "rover" / "terrain"
 CACHE = Path(os.environ.get("TERRAIN_CACHE", Path(tempfile.gettempdir()) / "analog-finder-terrain"))
-GRID = 257
+GRID = {"salda": 513, "jezero": 257}   # Salda: SRTM has 649 source cells across, so 513 is real detail.
+                                     # Jezero: MOLA has only 139, so more grid would add nothing.
 
 SALDA = {
     "id": "salda", "name": "Lake Salda", "place": "Burdur, Türkiye", "body": "earth",
@@ -115,24 +116,25 @@ def jezero_patch():
     return rows[:, c0:c1 + 1]
 
 
-def resample(patch):
+def resample(patch, grid):
     image = Image.fromarray(patch, mode="F")
-    grow = patch.shape[0] < GRID
-    return np.asarray(image.resize((GRID, GRID), Image.BICUBIC if grow else Image.BILINEAR), dtype=np.float32)
+    grow = patch.shape[0] < grid
+    return np.asarray(image.resize((grid, grid), Image.BICUBIC if grow else Image.BILINEAR), dtype=np.float32)
 
 
 def save(site, patch):
-    grid = resample(patch)
+    size = GRID[site["id"]]
+    grid = resample(patch, size)
     low, high = float(grid.min()), float(grid.max())
     packed = np.round((grid - low) / (high - low) * 65535).astype("<u2")
     (OUT / f"{site['id']}.bin").write_bytes(packed.tobytes())
     source_m = site["width_km"] * 1000 / (patch.shape[0] - 1)
     entry = {k: site[k] for k in ("id", "name", "place", "body", "lat", "lon", "width_km", "dataset", "url", "datum")}
     entry.update({
-        "file": f"{site['id']}.bin", "grid": GRID,
+        "file": f"{site['id']}.bin", "grid": size,
         "min_m": round(low, 1), "max_m": round(high, 1),
         "source_cells": list(patch.shape), "source_cell_m": round(source_m, 1),
-        "grid_cell_m": round(site["width_km"] * 1000 / (GRID - 1), 1),
+        "grid_cell_m": round(site["width_km"] * 1000 / (size - 1), 1),
     })
     print(f"  {site['name']}: source {patch.shape}, {source_m:.0f} m/cell, {low:.0f} to {high:.0f} m")
     return entry, grid
@@ -142,17 +144,17 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     print("Lake Salda (SRTM)")
     salda, salda_grid = save(SALDA, salda_patch())
-    mid = GRID // 2
+    mid = GRID["salda"] // 2
     lake = float(np.median(salda_grid[mid - 2:mid + 3, mid - 2:mid + 3]))
     salda["lake_level_m"] = round(lake, 1)
     flat = int((np.abs(salda_grid - lake) < 0.75).sum())
-    print(f"  lake surface {lake:.1f} m, {flat} of {GRID * GRID} cells at that level")
+    print(f"  lake surface {lake:.1f} m, {flat} of {GRID['salda'] ** 2} cells at that level")
     print("Jezero Crater (MOLA)")
     jezero, _ = save(JEZERO, jezero_patch())
     (OUT / "sites.json").write_text(json.dumps({
         "produced_by": "web/tools/build_terrain.py",
         "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "note": "Elevation values are NASA data resampled to a 257 x 257 grid. North row first, "
+        "note": "Elevation values are NASA data resampled to a square grid (size per site in `grid`). North row first, "
                 "west column first, uint16 little-endian; metres = min_m + value / 65535 * (max_m - min_m). "
                 "SRTM records the lake surface, not the lake bed.",
         "sites": [salda, jezero],
