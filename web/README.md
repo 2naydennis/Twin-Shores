@@ -105,6 +105,14 @@ AI use: all six files were written by Claude (Anthropic, Claude Code) on
 
 ## 3D terrain (`rover.html`)
 
+Three maps, chosen from the menu at the top right: Lake Salda, Lake Van and
+Lake Erçek (one 36 km map from SRTM tile N38E043, with Van's eastern shore
+and all of Erçek; lake levels 1,645 m and 1,804 m found from the data), and
+Jezero Crater. A Graphics button switches between High (shadows, full
+scenery) and Low (no shadows, a third of the rocks and trees); touch devices
+and machines with four or fewer cores start on Low, and High drops to Low
+once if the page stays slow.
+
 Restyled on 2026-11-14 to match the map and method pages: same header and
 navigation, white panels with hairline borders, IBM Plex type, one rust
 accent, game wording replaced.

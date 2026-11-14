@@ -1,6 +1,6 @@
 {
   "produced_by": "web/tools/build_terrain.py",
-  "fetched_at": "2026-11-14T10:56:01Z",
+  "fetched_at": "2026-11-14T11:11:42Z",
   "note": "Elevation values are NASA data resampled to a square grid (size per site in `grid`). North row first, west column first, uint16 little-endian; metres = min_m + value / 65535 * (max_m - min_m). SRTM records the lake surface, not the lake bed.",
   "sites": [
     {
@@ -25,6 +25,42 @@
       "source_cell_m": 30.9,
       "grid_cell_m": 39.1,
       "lake_level_m": 1140.0
+    },
+    {
+      "id": "van",
+      "name": "Lake Van and Lake Erçek",
+      "place": "Van, Türkiye",
+      "body": "earth",
+      "lat": 38.62,
+      "lon": 43.46,
+      "width_km": 36.0,
+      "dataset": "NASA SRTM 1 arc second, tile N38E043 (served by AWS Terrain Tiles)",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/N38/N38E043.hgt.gz",
+      "datum": "metres above the EGM96 geoid (about sea level)",
+      "file": "van.bin",
+      "grid": 513,
+      "min_m": 1643.9,
+      "max_m": 3152.1,
+      "source_cells": [
+        1167,
+        1493
+      ],
+      "source_cell_m": 30.9,
+      "grid_cell_m": 70.3,
+      "lakes": [
+        {
+          "name": "Lake Van",
+          "level_m": 1645.0,
+          "lat": 38.5087,
+          "lon": 43.2836
+        },
+        {
+          "name": "Lake Erçek",
+          "level_m": 1804.0,
+          "lat": 38.6717,
+          "lon": 43.5783
+        }
+      ]
     },
     {
       "id": "jezero",

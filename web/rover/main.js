@@ -18,6 +18,7 @@ const BOAT_LIFT = 1.9;              // scene units the rover's wheels ride above
 const START = {
   jezero: { lat: 18.4447, lon: 77.4508, heading: 2.2 },
   salda: { shoreWalk: [0, 1], heading: 2.2 },  // walk south from the lake centre to the shore
+  van: { lake: 1, shoreWalk: [-1, 0], heading: Math.PI / 2 },  // walk west from Lake Erçek's centre to its shore, face the lake
 };
 
 const $ = (id) => document.getElementById(id);
@@ -95,7 +96,7 @@ const keys = new Set();
 function startFor(terrain) {
   const start = START[terrain.site.id];
   if (start.lat !== undefined) return { ...terrain.toScene(start.lat, start.lon), heading: start.heading };
-  let x = 0, z = 0;
+  let { x, z } = start.lake !== undefined ? terrain.toScene(terrain.site.lakes[start.lake].lat, terrain.site.lakes[start.lake].lon) : { x: 0, z: 0 };
   const step = WORLD / (terrain.site.grid - 1);
   while (terrain.isWater(x, z) && terrain.inside(x, z)) { x += start.shoreWalk[0] * step; z += start.shoreWalk[1] * step; }
   return { x: x + start.shoreWalk[0] * step * 3, z: z + start.shoreWalk[1] * step * 3, heading: start.heading };
@@ -118,7 +119,12 @@ function show(id) {
   applyLook();
   showEra();
 
-  const other = Object.values(terrains).find((t) => t !== active).site;
+  const CAVEAT = {
+    salda: "Lake Salda matches Jezero's ancient lake and carbonate setting, not Mars as a whole.",
+    van: 'Two closed-basin soda lakes, pH about 9.7: candidates from our search, not analogs NASA lists. Van (west) has carbonate microbialite towers; Erçek (east) is little studied.',
+    jezero: "Jezero once held a lake; today it is dry, cold and under 1% of Earth's air pressure.",
+  };
+  if ($('site-caveat')) $('site-caveat').textContent = CAVEAT[id] || '';
   ui.site.textContent = site.name;
   ui.place.textContent = site.place;
   ui.width.textContent = `${site.width_km} km across`;
@@ -126,8 +132,7 @@ function show(id) {
   ui.cell.textContent = `One elevation reading every ${Math.round(site.source_cell_m)} m`;
   ui.data.textContent = site.dataset;
   ui.data.href = site.url;
-  ui.toggle.textContent = `Switch to ${other.name}`;
-  ui.toggle.dataset.target = other.id;
+  ui.toggle.value = id;
   ui.roverScale.textContent = Math.round((ROVER_SCALE * active.metresPerUnit));
   if (game) {
     game.setSite(id);
@@ -355,7 +360,7 @@ canvas.addEventListener('wheel', (event) => {
 }, { passive: false });
 
 $('detail')?.addEventListener('click', (event) => { setDetail(detail.level === 'high' ? 'low' : 'high'); event.currentTarget.blur(); });
-ui.toggle.addEventListener('click', () => { if (ui.toggle.dataset.target) show(ui.toggle.dataset.target); ui.toggle.blur(); });
+ui.toggle.addEventListener('change', () => { show(ui.toggle.value); ui.toggle.blur(); });
 eraUi.button.addEventListener('click', () => { eraTarget = eraTarget ? 0 : 1; showEra(); eraUi.button.blur(); });
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
 ui.speed.addEventListener('input', showSpeed);
@@ -398,6 +403,7 @@ try {
     console.warn('Fact hunt switched off:', error);
     for (const node of document.querySelectorAll('.game-only')) node.hidden = true;
   }
+  ui.toggle.replaceChildren(...Object.values(terrains).map((t) => new Option(t.site.name, t.site.id)));
   setDetail(detail.level, weakDevice ? 'Low on this device to keep it smooth. Click for High.' : undefined);
   show('salda');
   ui.status.hidden = true;

@@ -41,7 +41,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "rover" / "terrain"
 CACHE = Path(os.environ.get("TERRAIN_CACHE", Path(tempfile.gettempdir()) / "analog-finder-terrain"))
-GRID = {"salda": 513, "jezero": 257}   # Salda: SRTM has 649 source cells across, so 513 is real detail.
+GRID = {"salda": 513, "jezero": 257, "van": 513}   # Salda: SRTM has 649 source cells across, so 513 is real detail.
                                      # Jezero: MOLA has only 139, so more grid would add nothing.
 
 SALDA = {
@@ -50,6 +50,15 @@ SALDA = {
     "dataset": "NASA SRTM 1 arc second, tile N37E029 (served by AWS Terrain Tiles)",
     "url": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/N37/N37E029.hgt.gz",
     "datum": "metres above the EGM96 geoid (about sea level)",
+}
+VAN = {
+    "id": "van", "name": "Lake Van and Lake Erçek", "place": "Van, Türkiye", "body": "earth",
+    "lat": 38.62, "lon": 43.46, "width_km": 36.0, "radius_km": 6371.0,
+    "dataset": "NASA SRTM 1 arc second, tile N38E043 (served by AWS Terrain Tiles)",
+    "url": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/N38/N38E043.hgt.gz",
+    "datum": "metres above the EGM96 geoid (about sea level)",
+    # Points known to be open water, used to find each lake's surface level.
+    "lake_points": [["Lake Van", 38.5087, 43.2836], ["Lake Erçek", 38.6717, 43.5783]],
 }
 JEZERO = {
     "id": "jezero", "name": "Jezero Crater", "place": "Syrtis Major quadrangle, Mars", "body": "mars",
@@ -103,6 +112,37 @@ def salda_patch():
     return patch
 
 
+def srtm_patch(site, tile_lat, tile_lon):
+    size = 3601  # SRTM1 tile: 3601 x 3601, big-endian int16, north row first
+    name = site["url"].rsplit("/", 1)[1]
+    raw = gzip.decompress(cached(name, lambda: get(site["url"])))
+    tile = np.frombuffer(raw, dtype=">i2").reshape(size, size).astype(np.float32)
+    half_lat, half_lon = spans(site)
+    r0 = round((tile_lat + 1 - (site["lat"] + half_lat)) * (size - 1))
+    r1 = round((tile_lat + 1 - (site["lat"] - half_lat)) * (size - 1))
+    c0 = round((site["lon"] - half_lon - tile_lon) * (size - 1))
+    c1 = round((site["lon"] + half_lon - tile_lon) * (size - 1))
+    patch = tile[r0:r1 + 1, c0:c1 + 1]
+    if (patch == -32768).any():
+        sys.exit(f"SRTM patch for {site['name']} has voids; fill them before using it")
+    return patch
+
+
+def lake_levels(site, grid):
+    """Surface level of each named lake, from the median of a small block at a known water point."""
+    n = grid.shape[0]
+    half_lat, half_lon = spans(site)
+    lakes = []
+    for name, lat, lon in site["lake_points"]:
+        j = round((site["lat"] + half_lat - lat) / (2 * half_lat) * (n - 1))
+        i = round((lon - (site["lon"] - half_lon)) / (2 * half_lon) * (n - 1))
+        level = float(np.median(grid[j - 2:j + 3, i - 2:i + 3]))
+        cells = int((np.abs(grid - level) < 0.75).sum())
+        print(f"  {name}: surface {level:.1f} m at grid cell ({i}, {j}); {cells} cells at that level")
+        lakes.append({"name": name, "level_m": round(level, 1), "lat": lat, "lon": lon})
+    return lakes
+
+
 def jezero_patch():
     ppd, cols, top_lat = 128, 11520, 44  # tile covers 44N to 0, 0 to 90E, big-endian int16
     half_lat, half_lon = spans(JEZERO)
@@ -149,6 +189,9 @@ def main():
     salda["lake_level_m"] = round(lake, 1)
     flat = int((np.abs(salda_grid - lake) < 0.75).sum())
     print(f"  lake surface {lake:.1f} m, {flat} of {GRID['salda'] ** 2} cells at that level")
+    print("Lake Van and Lake Erçek (SRTM)")
+    van, van_grid = save(VAN, srtm_patch(VAN, 38, 43))
+    van["lakes"] = lake_levels(VAN, van_grid)
     print("Jezero Crater (MOLA)")
     jezero, _ = save(JEZERO, jezero_patch())
     (OUT / "sites.json").write_text(json.dumps({
@@ -157,7 +200,7 @@ def main():
         "note": "Elevation values are NASA data resampled to a square grid (size per site in `grid`). North row first, "
                 "west column first, uint16 little-endian; metres = min_m + value / 65535 * (max_m - min_m). "
                 "SRTM records the lake surface, not the lake bed.",
-        "sites": [salda, jezero],
+        "sites": [salda, van, jezero],
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("wrote web/rover/terrain/")
 

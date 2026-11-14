@@ -25,6 +25,7 @@ function random(seed) {
 
 const SKY = {
   salda: { top: 0x3f7fc4, horizon: 0xd3e6f3, ground: 0xb7c9d4 },
+  van: { top: 0x4b86c2, horizon: 0xdbe7ef, ground: 0xbfcad0 },
   jezero: { top: 0x9a6a4c, horizon: 0xe2b98e, ground: 0xc79a72 },
 };
 
@@ -122,6 +123,7 @@ function pineGeometry() {
 
 const STYLE = {
   salda: { rocks: 3200, rockColors: [0xb3ab9c, 0x9c958a, 0xc9c2b3, 0x85807a], rockSize: [0.5, 2.8], trees: 5200 },
+  van: { rocks: 4200, rockColors: [0x6e6862, 0x857c72, 0x5b5652, 0x9a8f80], rockSize: [0.5, 3.0], trees: 0 },
   jezero: { rocks: 6500, rockColors: [0x5e3a28, 0x7a4b32, 0x4a2e22, 0x8e5a3a], rockSize: [0.5, 3.6], trees: 0 },
 };
 
@@ -130,7 +132,7 @@ const STYLE = {
 export function createScatter(terrain) {
   const id = terrain.site.id;
   const style = STYLE[id];
-  const rand = random(id === 'salda' ? 1140 : 2021);
+  const rand = random({ salda: 1140, van: 1645 }[id] || 2021);
   const group = new THREE.Group();
   const half = WORLD / 2 - 20;
   const slopeAt = (x, z) => Math.hypot(terrain.heightAt(x + 4, z) - terrain.heightAt(x - 4, z), terrain.heightAt(x, z + 4) - terrain.heightAt(x, z - 4)) / 8;

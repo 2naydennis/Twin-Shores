@@ -14,11 +14,11 @@ import * as THREE from 'three';
 import { WORLD } from './terrain.js';
 
 const DATA_URL = new URL('../../data/analogs.json', import.meta.url);
-const ANALOG_NAME = { salda: 'Lake Salda' };      // which analogs.json entry belongs to which map
+const ANALOG_NAME = { salda: 'Lake Salda', van: ['Lake Van', 'Lake Erçek'] };   // which analogs.json entries belong to which map
 const TARGET_ID = 'jezero';
 const REACH = 30;                                 // scene units: how close the rover must get
 // Beacon colour per map, picked to stand out against that map's sky and ground.
-const BEACON = { salda: 0xf2efe9, jezero: 0xf2efe9 };   // one quiet off-white marker on both worlds
+const BEACON = { salda: 0xf2efe9, van: 0xf2efe9, jezero: 0xf2efe9 };   // one quiet off-white marker on both worlds
 const FOUND = 0xd97e4c;                                // rust once read, matching the site accent
 
 // Roughly where each kind of fact goes, so water facts need the boat and
@@ -94,17 +94,38 @@ export async function loadFacts() {
   }
   salda.push(...extraFacts(analog.facts, analog.name, 0));
   jezero.push(...extraFacts(target.facts, target.name, 2));
-  return { salda, jezero };
+  // Lake Van and Lake Erçek share one map: their researched facts, each compared with Jezero.
+  const van = [];
+  for (const name of ANALOG_NAME.van) {
+    const lake = (data.analogs || []).find((a) => a.target_id === TARGET_ID && a.name === name);
+    if (!lake) continue;
+    for (const key of data.features || []) {
+      if (!(lake.judged || {})[key]) continue;       // only the published evidence, not climate numbers
+      const v = describe(data, key), earth = earthFact(data, lake, key), mars = targetFact(data, target, key);
+      if (earth) van.push({ key: `${name}-${key}`, label: v.label, zone: ZONE[key] || 'land', here: lake.name, ...earth,
+        other: mars && { place: target.name, text: mars.text }, match: (lake.feature_match || {})[key] });
+    }
+  }
+  return { salda, jezero, van };
 }
 
 // ---- where the points stand -------------------------------------------------
 
 // Distance from the map centre to the lake shore along one direction, or null if there is no lake.
+// The lake the points gather round: the map centre, or on a map with several lakes the last one listed.
+function lakeCentre(terrain) {
+  const lakes = terrain.site.lakes;
+  if (!lakes || !lakes.length) return { x: 0, z: 0 };
+  const last = lakes[lakes.length - 1];
+  return terrain.toScene(last.lat, last.lon);
+}
+
 function shoreDistance(terrain, angle) {
-  if (!terrain.isWater(0, 0)) return null;
+  const c = lakeCentre(terrain);
+  if (!terrain.isWater(c.x, c.z)) return null;
   const step = WORLD / (terrain.site.grid - 1);
   for (let r = 0; r < WORLD / 2; r += step) {
-    if (!terrain.isWater(Math.sin(angle) * r, Math.cos(angle) * r)) return r;
+    if (!terrain.isWater(c.x + Math.sin(angle) * r, c.z + Math.cos(angle) * r)) return r;
   }
   return null;
 }
@@ -112,7 +133,7 @@ function shoreDistance(terrain, angle) {
 function place(terrain, zone, angle) {
   const step = WORLD / (terrain.site.grid - 1);
   const shore = shoreDistance(terrain, angle);
-  let centreX = 0, centreZ = 0, r;
+  let { x: centreX, z: centreZ } = lakeCentre(terrain), r;
   if (shore !== null) {
     r = { lake: shore * 0.6, shore: shore + step * 2.5, land: shore + step * 8, hill: shore + step * 17 }[zone];
   } else {

@@ -156,6 +156,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | More detailed 3D scene: survey boat model, rover detail and materials, `web/rover/scenery.js` (sky, ripples, rocks, pines), shadows and reflections; Salda heightmap rebuilt at 513 x 513 from SRTM by `web/tools/build_terrain.py` |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Lake Van and Lake Erçek map in the 3D page (terrain built by `web/tools/build_terrain.py` from SRTM), three-way site menu, Graphics High/Low setting, phone layout of the 3D page, per-minute script version stamp on all pages |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

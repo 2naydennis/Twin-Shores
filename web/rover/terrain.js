@@ -19,6 +19,12 @@ export const LOOK = {
     sky: 0x9cc6e6, fog: 0xb9d6ea,
     sun: 0xfff4e0, sunStrength: 2.6, skyLight: 0xcfe4ff, groundLight: 0x5a5340, ambient: 1.1,
   },
+  // Lake Van and Lake Erçek: high steppe, drier and paler than Salda.
+  van: {
+    exaggeration: 2,
+    sky: 0xa8c6dd, fog: 0xc6d6e0,
+    sun: 0xfff1dc, sunStrength: 2.7, skyLight: 0xd6e4f2, groundLight: 0x5e5646, ambient: 1.1,
+  },
   jezero: {
     exaggeration: 5,
     sky: 0xd6a878, fog: 0xd9b088,
@@ -94,11 +100,9 @@ function distanceTo(inside, n, limit) {
 }
 
 // The lake is the flat patch at lake level that is connected to the map centre.
-function lakeMask(metres, n, level) {
-  const mask = new Uint8Array(n * n);
+function lakeMask(metres, n, level, start = Math.floor(n / 2) * n + Math.floor(n / 2), mask = new Uint8Array(n * n)) {
   if (level === undefined) return mask;
   const flat = (k) => Math.abs(metres[k] - level) < 0.75;
-  const start = Math.floor(n / 2) * n + Math.floor(n / 2);
   if (!flat(start)) return mask;
   const stack = [start];
   mask[start] = 1;
@@ -120,6 +124,11 @@ const PAINT = {
     beach: C(0xf1eee6), grass: C(0xa39a66), scrub: C(0x6f7a48), forest: C(0x3f5a34),
     rock: C(0x8f8a82), shallow: C(0xbfeee4), mid: C(0x35b6c2), deep: C(0x0c5f86),
   },
+  // Steppe grass and bare volcanic slopes; grey-brown shores; Van's soda water is deep blue.
+  van: {
+    beach: C(0xcfc7b4), grass: C(0xb2a676), scrub: C(0x8d8458), forest: C(0x76704e),
+    rock: C(0x7b736a), shallow: C(0xa9dcd6), mid: C(0x2f8fb0), deep: C(0x0f4a78),
+  },
   jezero: {
     floor: C(0x7a4429), plain: C(0xb46a3c), high: C(0xdba678), steep: C(0x5e3421),
   },
@@ -130,14 +139,14 @@ const PAINT = {
   },
 };
 
-function paintSalda(out, m, slope, toWater, toLand, lake, grainy) {
-  const p = PAINT.salda;
+// Earth lakes. `base` is the elevation where the colour bands start.
+function paintSalda(out, m, slope, toWater, toLand, lake, grainy, p = PAINT.salda, base = 1200) {
   if (toLand > 0) {                                   // under the lake
     out.copy(p.shallow).lerp(p.mid, Math.min(1, toLand / 5));
     if (toLand > 5) out.lerp(p.deep, Math.min(1, (toLand - 5) / 9));
     return;
   }
-  const t = THREE.MathUtils.clamp((m - 1200) / 700, 0, 1);
+  const t = THREE.MathUtils.clamp((m - base) / 700, 0, 1);
   out.copy(p.grass).lerp(p.scrub, Math.min(1, t * 2.2));
   if (t > 0.35) out.lerp(p.forest, Math.min(1, (t - 0.35) * 2.4));
   out.lerp(p.rock, THREE.MathUtils.clamp((slope - 0.55) * 1.6, 0, 1));
@@ -229,7 +238,26 @@ export async function buildTerrain(site, base) {
     y[k] = ((metres[k] - site.min_m) * look.exaggeration) / metresPerUnit;
   }
 
-  const water = lakeMask(metres, n, site.lake_level_m);
+  // One lake flooded from the map centre, or several, each from a point known to be water.
+  let water;
+  const lakeLevel = new Float32Array(n * n).fill(site.lake_level_m ?? 0);   // surface level of the nearest lake, for shore colours
+  if (site.lakes) {
+    water = new Uint8Array(n * n);
+    const kmPerDegree = (2 * Math.PI * BODY_RADIUS_KM[site.body]) / 360;
+    for (const lake of site.lakes) {
+      const before = water.slice();
+      const i = Math.round(((lake.lon - site.lon) * kmPerDegree * Math.cos((site.lat * Math.PI) / 180) / site.width_km + 0.5) * (n - 1));
+      const j = Math.round((0.5 - (lake.lat - site.lat) * kmPerDegree / site.width_km) * (n - 1));
+      lakeMask(metres, n, lake.level_m, j * n + i, water);
+      for (let k = 0; k < n * n; k++) if (water[k] && !before[k]) lakeLevel[k] = lake.level_m;
+    }
+    // Land cells take the level of the lake they are closer to in height, so each shore gets its own band.
+    for (let k = 0; k < n * n; k++) if (!water[k]) {
+      lakeLevel[k] = site.lakes.reduce((best, l) => (Math.abs(metres[k] - l.level_m) < Math.abs(metres[k] - best) ? l.level_m : best), site.lakes[0].level_m);
+    }
+  } else {
+    water = lakeMask(metres, n, site.lake_level_m);
+  }
   const land = new Uint8Array(n * n);
   let hasWater = false;
   for (let k = 0; k < n * n; k++) { land[k] = water[k] ? 0 : 1; hasWater = hasWater || water[k] === 1; }
@@ -262,6 +290,9 @@ export async function buildTerrain(site, base) {
       const grainy = noise(i * 0.35 / scale, j * 0.35 / scale) * 0.6 + noise(i * 0.09 / scale, j * 0.09 / scale) * 0.4;
       if (site.id === 'salda') {
         paintSalda(color, metres[k], slope, toWater[k] / scale, water[k] ? toLand[k] / scale : 0, site.lake_level_m, grainy);
+      } else if (site.body === 'earth') {
+        paintSalda(color, metres[k], slope, toWater[k] / scale, water[k] ? toLand[k] / scale : 0,
+          lakeLevel[k], grainy, PAINT[site.id] || PAINT.salda, (site.lakes ? Math.min(...site.lakes.map((l) => l.level_m)) : 1200) + 60);
       } else {
         paintJezero(color, metres[k], slope, low, high, grainy);
       }
