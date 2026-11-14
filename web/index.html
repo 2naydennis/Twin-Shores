@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  Analog Finder map: Earth sites ranked against a Moon or Mars target.
+  AI-generated: this page and the files in web/map/ were written by Claude
+  (Anthropic, Claude Code) on 2026-11-14. Everything shown comes from
+  data/analogs.json, written by the pipeline.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analog Finder: Earth analogs for Moon and Mars sites</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="map/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <strong>Analog Finder</strong>
+      <span>Places on Earth that resemble Moon and Mars sites</span>
+    </div>
+    <nav aria-label="Pages">
+      <a href="index.html" aria-current="page">Map</a>
+      <a href="rover.html">Rover drive</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="list-pane" aria-label="Ranked Earth sites">
+      <section class="target" id="target"></section>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search sites" aria-label="Search sites">
+        <label class="check"><input id="researched" type="checkbox"> Only sites with researched facts</label>
+        <p id="count" class="muted"></p>
+      </div>
+      <ol id="list" class="list"></ol>
+    </aside>
+
+    <section class="map-pane">
+      <div id="map" aria-label="Map of Earth sites"></div>
+    </section>
+
+    <aside class="detail-pane" id="detail" aria-live="polite">
+      <p class="muted">Loading data…</p>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="map/app.js"></script>
+</body>
+</html>

@@ -30,6 +30,63 @@ lives in `web/` and belongs to this folder.
 State on the page that Salda matches Jezero's ancient lake and carbonate
 setting, not Mars as a whole.
 
+## Map (`index.html`)
+
+The main page. It ranks every Earth site in `../data/analogs.json` against the
+target (Jezero Crater today) and shows why each one matches.
+
+Run it from the repo root, then open http://localhost:8000/web/ :
+
+```bash
+python -m http.server 8000
+```
+
+- **Left:** the target and what is known about it, a search box, a filter for
+  sites with researched facts, and the ranked list.
+- **Middle:** the map. Darker markers are closer matches. Documented analogs
+  are larger with a dark ring; new candidates are smaller with a white ring.
+  The base map can be switched to NASA Blue Marble.
+- **Right:** the selected site: score, coverage, a bar for every variable with
+  the site's value next to the target's, and the researched facts (minerals,
+  water, sediments, pH) with their notes and source links.
+
+The page is driven by the data, with nothing written per site:
+
+| If the pipeline adds | The page shows |
+|----------------------|----------------|
+| a candidate | a marker and a row in the list |
+| a variable in `features` | a new bar under "How it matches" |
+| a `judged` entry on a site | a new fact with its note and source |
+| a second target | a menu to choose the target |
+| any other field on a site (for example `minerals`, `facts`, `depth_m`) | an entry under "More about this site" |
+
+That last row means new kinds of data appear without touching the web code,
+but plainly: the field name becomes the heading. Text, numbers, lists, and
+objects with `note`, `value` and `source` all display. Ask for a proper layout
+once a field settles.
+
+Things to know:
+
+- The page repeats the pipeline's warning that sites scored on different
+  numbers of variables cannot be compared fairly.
+- Marker colours are spread between the lowest and highest score for the
+  target, so the darkest marker is the best of this list, not a perfect match.
+- It needs an internet connection: Leaflet 1.9.4 (BSD 2-Clause) comes from
+  unpkg, map tiles from OpenStreetMap, and Blue Marble imagery from NASA GIBS.
+- Only Lake Salda has a "Drive a rover here" button, set in `ROVER_PAGES` in
+  `map/app.js`.
+
+| File | What it is |
+|------|------------|
+| `index.html` | The page |
+| `map/app.js` | Loads the data, draws the map, list and site card |
+| `map/style.css` | Layout and colours, light and dark |
+
+AI use: `index.html`, `map/app.js` and `map/style.css` were written by Claude
+(Anthropic, Claude Code) on 2026-11-14 at the team's direction. The data they
+show is the pipeline's. This also needs a line in the main README's "AI use"
+table, and Leaflet, OpenStreetMap and NASA GIBS in its list of resources.
+
 ## Rover drive (`rover.html`)
 
 A 3D page where you drive a model of the Perseverance rover across Lake Salda

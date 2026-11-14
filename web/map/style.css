@@ -1,0 +1,125 @@
+/* Styles for web/index.html.
+   AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14. */
+
+:root {
+  color-scheme: light;
+  --page: #f3f2ef; --surface: #fcfcfb; --line: #dddbd5;
+  --text: #0b0b0b; --text-2: #52514e; --muted: #6f6e69;
+  --accent: #2a78d6; --accent-ink: #184f95; --track: #e7e5e0; --selected: #e8f0fb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #111110; --surface: #1a1a19; --line: #34342f;
+    --text: #f0efec; --text-2: #c3c2b7; --muted: #9a998f;
+    --accent: #3987e5; --accent-ink: #9ec5f4; --track: #2c2c29; --selected: #1c2c44;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; background: var(--page); color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--accent-ink); }
+.muted { color: var(--muted); }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 16px;
+  background: var(--surface); border-bottom: 1px solid var(--line); }
+.brand strong { font-size: 17px; margin-right: 10px; }
+.brand span { color: var(--text-2); }
+.top nav { display: flex; gap: 6px; }
+.top nav a { padding: 6px 12px; border-radius: 999px; text-decoration: none; color: var(--text-2); font-weight: 600; }
+.top nav a[aria-current] { background: var(--selected); color: var(--accent-ink); }
+.top nav a:hover { color: var(--text); }
+
+main { flex: 1; min-height: 0; display: grid; grid-template-columns: 320px minmax(0, 1fr) 380px; }
+.list-pane, .detail-pane { background: var(--surface); overflow-y: auto; min-height: 0; }
+.list-pane { border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+.detail-pane { border-left: 1px solid var(--line); padding: 16px; overflow-wrap: anywhere; }
+.map-pane { min-height: 0; position: relative; }
+#map { position: absolute; inset: 0; background: #dfe7ec; }
+
+/* Target (the Moon or Mars site everything is compared with) */
+.target { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.target .eyebrow, .detail-pane .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.target h2 { margin: 2px 0 2px; font-size: 18px; }
+.target select { font: inherit; font-weight: 700; font-size: 17px; margin: 2px 0; max-width: 100%;
+  color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 3px 6px; }
+.target details { margin-top: 8px; }
+.target summary { cursor: pointer; color: var(--accent-ink); font-weight: 600; }
+.target dl { margin: 8px 0 0; }
+.target dt { font-weight: 600; margin-top: 6px; }
+.target dd { margin: 0; color: var(--text-2); }
+
+.filters { padding: 12px 16px 8px; border-bottom: 1px solid var(--line); }
+#search { width: 100%; padding: 8px 10px; font: inherit; color: var(--text); background: var(--page);
+  border: 1px solid var(--line); border-radius: 8px; }
+.check { display: flex; align-items: center; gap: 8px; margin-top: 8px; color: var(--text-2); }
+#count { margin: 8px 0 0; font-size: 12.5px; }
+
+.list { list-style: none; margin: 0; padding: 0; flex: 1; }
+.list button { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 2px 8px; align-items: baseline; width: 100%;
+  padding: 9px 16px; border: 0; border-bottom: 1px solid var(--line); background: none; color: inherit; font: inherit;
+  text-align: left; cursor: pointer; }
+.list button:hover { background: var(--page); }
+.list button[aria-pressed="true"] { background: var(--selected); }
+.list .rank { color: var(--muted); font-variant-numeric: tabular-nums; }
+.list .name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.list .score { font-variant-numeric: tabular-nums; font-weight: 600; }
+.list .sub { grid-column: 2 / 4; color: var(--muted); font-size: 12.5px; }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+  border: 1px solid var(--line); color: var(--text-2); white-space: nowrap; }
+.badge.known { border-color: var(--text); color: var(--text); }
+.badge.known::before { content: "◎ "; }
+
+/* Detail card */
+.detail-pane h2 { margin: 2px 0 2px; font-size: 22px; line-height: 1.2; }
+.detail-pane h3 { margin: 22px 0 8px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); }
+.detail-pane .where { color: var(--text-2); margin-bottom: 10px; }
+.hero { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 4px; }
+.hero .number { font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.hero .of { color: var(--muted); }
+.note-box { margin: 10px 0 0; padding: 9px 11px; border-radius: 8px; background: var(--page); color: var(--text-2); font-size: 13px; }
+.action { display: inline-block; margin-top: 12px; padding: 9px 16px; border-radius: 999px; background: var(--accent);
+  color: #fff; font-weight: 600; text-decoration: none; }
+
+.rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.row .head { display: flex; justify-content: space-between; gap: 10px; }
+.row .label { font-weight: 600; flex: none; }
+.row .value { font-variant-numeric: tabular-nums; color: var(--text-2); white-space: nowrap; }
+.bar { height: 8px; margin-top: 5px; background: var(--track); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; min-width: 2px; background: var(--accent); border-radius: 0 4px 4px 0; }
+.row .compare { margin-top: 3px; color: var(--muted); font-size: 12.5px; }
+.row.skipped .label { color: var(--muted); font-weight: 500; }
+.row.skipped .value { white-space: normal; text-align: right; }
+
+.fact { padding: 10px 0; border-top: 1px solid var(--line); }
+.fact:first-child { border-top: 0; padding-top: 0; }
+.fact .label { font-weight: 600; }
+.fact p { margin: 3px 0 0; }
+.fact .ref { color: var(--muted); font-size: 12.5px; }
+.extra dt { font-weight: 600; margin-top: 8px; }
+.extra dd { margin: 2px 0 0; color: var(--text-2); }
+.extra ul { margin: 2px 0 0; padding-left: 18px; }
+
+/* Map legend */
+.legend { background: var(--surface); color: var(--text); padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+  font: 12.5px/1.4 system-ui, sans-serif; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); }
+.legend b { display: block; margin-bottom: 5px; }
+.legend .steps { display: flex; gap: 2px; }
+.legend .steps span { flex: 1; height: 10px; }
+.legend .ends { display: flex; justify-content: space-between; color: var(--muted); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.legend .key { display: flex; align-items: center; gap: 7px; margin-top: 6px; }
+.legend .dot { width: 12px; height: 12px; border-radius: 50%; background: #2a78d6; border: 2px solid #fff; box-shadow: 0 0 0 1px #8a8984; }
+.legend .dot.known { width: 16px; height: 16px; border-color: #0b0b0b; box-shadow: none; }
+.leaflet-container { font: inherit; }
+.leaflet-tooltip { font: 12.5px/1.35 system-ui, sans-serif; }
+
+@media (max-width: 1000px) {
+  body { height: auto; }
+  main { display: flex; flex-direction: column; }
+  .map-pane { order: 1; height: 52vh; }
+  .detail-pane { order: 2; border-left: 0; border-top: 1px solid var(--line); overflow: visible; }
+  .list-pane { order: 3; border-right: 0; border-top: 1px solid var(--line); overflow: visible; }
+  .brand span { display: none; }
+}
