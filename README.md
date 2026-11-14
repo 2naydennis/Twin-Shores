@@ -5,8 +5,7 @@ landing site, and show why they match.
 
 **Live site:** https://2naydennis.github.io/analog-finder/ ·
 **Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
-**Slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf ·
-**Video (27 s):** https://2naydennis.github.io/analog-finder/demo/demo.mp4
+**Demo slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
 
 ## Scope: Mars, not the Moon
 
@@ -159,7 +158,7 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Lake Van and Lake Erçek map in the 3D page (terrain built by `web/tools/build_terrain.py` from SRTM), three-way site menu, Graphics High/Low setting, phone layout of the 3D page, per-minute script version stamp on all pages |
 
-| 2026-11-14 | Claude (Anthropic, Claude Code) | Slides rebuilt with website screenshots, a robustness chart and 3D views; `demo/build_video.py` and the 27-second captioned video `demo/demo.mp4` (screenshots of the project, captions drafted by AI, marked on screen) |
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Slides rebuilt with website screenshots, a robustness chart and 3D views. A draft video was made and then removed at the team's request; the slides are the demo |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

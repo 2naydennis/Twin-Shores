@@ -100,10 +100,10 @@ the 7) or a video of 30 seconds or less. A demo over either limit is not
 eligible for Global Judging. The demo cannot be uploaded to the Space Apps
 site; it must be hosted elsewhere.
 
-- [ ] Format chosen: slides / video
-- [ ] In English (video: English subtitles if spoken in another language)
+- [x] Format chosen: **slides** (7 pages; decided 2026-11-14)
+- [ ] In English
 - [ ] Nobody under 18 appears or is heard in it
-- [ ] Uploaded somewhere public (YouTube, Google Drive, GitHub)
+- [x] Uploaded somewhere public: GitHub Pages, link below
 - [ ] Opened the link in a private browser window: no login, no permission
       request
 
@@ -112,13 +112,6 @@ https://2naydennis.github.io/analog-finder/demo/slides.pdf
 
 Same file on GitHub:
 https://github.com/2naydennis/analog-finder/blob/main/demo/slides.pdf
-
-A 27-second video exists too, built from the site's own screenshots with
-English captions, no faces and no voices:
-https://2naydennis.github.io/analog-finder/demo/demo.mp4
-(`demo/build_video.py` rebuilds it; captions are an AI draft and carry an
-on-screen "Captions drafted with AI assistance" mark). Choose one format for
-the form, or upload the video to YouTube and link that instead.
 
 A 7-slide AI draft exists: `demo/slides.pdf`, built by
 `demo/build_slides.py` from the scored data. Before using it:
