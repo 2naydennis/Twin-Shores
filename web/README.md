@@ -17,8 +17,15 @@ candidates.
 - terrain profile of each site
 - present-day environment chart: temperature, pressure, radiation
 
-Data for this page lives in `web/` and belongs to this folder. It does not
-come from the pipeline.
+NASA data for this page is already in the repo, written by
+`pipeline/fetch_nasa.py`:
+
+- `../data/nasa/terrain_profiles.json`: west-east elevation profiles for both
+  sites
+- `../data/nasa/earth_climate.json`: Lake Salda's climate from NASA POWER
+
+Anything else the page needs (the comparison table, Mars environment values)
+lives in `web/` and belongs to this folder.
 
 State on the page that Salda matches Jezero's ancient lake and carbonate
 setting, not Mars as a whole.

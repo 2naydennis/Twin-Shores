@@ -87,6 +87,8 @@ in the project.
 | 2026-11-14 | ChatGPT (OpenAI)             | Background reading on Lake Salda and Jezero Crater         |
 | 2026-11-14 | Claude (Anthropic, Claude Code) | Found and link-checked the candidate NASA datasets in `SUBMISSION.md`; tested the NASA POWER request in `pipeline/README.md` |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Wrote `pipeline/fetch_nasa.py` and ran it. The files in `data/nasa/` are NASA data fetched by that script, not AI-generated values. Site and target coordinates in the script were entered by the AI from memory and need checking |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources
@@ -103,6 +105,12 @@ Planned (links and details in [SUBMISSION.md](SUBMISSION.md), section 7):
 - NASA Planetary Analog Explorer: known analogs to validate against
 - NASA Earth Observatory and NASA Science articles on Lake Salda and Jezero
 
-In use:
+In use (fetched by `pipeline/fetch_nasa.py`, stored in `data/nasa/`):
 
-- (none yet)
+- NASA POWER climatology API: climate for 8 Earth sites
+- Mars Global Surveyor MOLA MEGDR (NASA PDS Geosciences Node): Mars target
+  elevations, Jezero terrain profile
+- LRO LOLA GDR LDEM_16 (NASA PDS Geosciences Node): Moon target elevations
+- NASA SRTM 1 arc second, tile N37E029, downloaded from AWS Terrain Tiles:
+  Lake Salda terrain profile
+- NASA Planetary Analog Explorer: starting list of sites and targets

@@ -86,12 +86,40 @@ that goes into the form.
 
 | Dataset | What we used it for | Link |
 |---------|---------------------|------|
-|         |                     |      |
+| NASA POWER climatology API (NASA Langley Research Center) | Long-term temperature, precipitation, solar irradiance, wind, humidity and surface pressure for 8 Earth analog sites. Output: `data/nasa/earth_climate.json` | https://power.larc.nasa.gov/docs/services/api/ |
+| Mars Global Surveyor MOLA MEGDR, product MEGT90N000EB, 16 pixels per degree (NASA PDS Geosciences Node) | Elevation at 4 Mars targets and a west-east terrain profile across Jezero Crater. Output: `data/nasa/target_elevation.json`, `data/nasa/terrain_profiles.json` | https://pds-geosciences.wustl.edu/missions/mgs/megdr.html |
+| Lunar Reconnaissance Orbiter LOLA GDR, product LDEM_16, 16 pixels per degree (NASA PDS Geosciences Node) | Elevation at 2 Moon targets. Output: `data/nasa/target_elevation.json` | https://pds-geosciences.wustl.edu/missions/lro/lola.htm |
+| NASA SRTM 1 arc second, tile N37E029 | West-east terrain profile across Lake Salda. Output: `data/nasa/terrain_profiles.json`. Tile downloaded from AWS Terrain Tiles, which redistributes SRTM without a login | https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003 |
+| NASA Planetary Analog Explorer | Source of the starting list of Earth sites and the Moon and Mars places they are paired with | https://science.nasa.gov/solar-system/analog-explorer/ |
+
+All five are used by `pipeline/fetch_nasa.py`, run on 2026-11-14. So far the
+project only fetches and stores this data. Update the "what we used it for"
+column once the scoring and the web pages read it.
 
 ### Candidates
 
 NASA data and resources that fit this project. Every link was opened and
 checked on 2026-11-14. Move a row up to "Used" when you use it.
+
+Download checks done on 2026-11-14:
+
+- NASA POWER: live request worked, no login.
+- MOLA 463 m GeoTIFF: direct link works, no login, but the file is 2.1 GB
+  (`https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif`).
+  The MEGDR grids at the PDS node are much smaller: 2 MB at 4 pixels per
+  degree, 33 MB at 16. The script uses the 16 pixel-per-degree grid.
+- LOLA: `ldem_4.img` (2 MB) and `ldem_16.img` (33 MB) download without login.
+- LOLA south pole sites at Goddard PGDA: direct GeoTIFF links on the page,
+  no login. Not downloaded or processed yet.
+- SRTM: the official NASA Earthdata download needs a free account. The same
+  SRTM tiles are available without login from AWS Terrain Tiles
+  (`https://s3.amazonaws.com/elevation-tiles-prod/skadi/N37/N37E029.hgt.gz`),
+  and single points from the OpenTopoData API
+  (`https://api.opentopodata.org/v1/srtm30m?locations=37.55,29.68`). Both
+  tested. List them under "other references" if you use them.
+- LRO Diviner: the data folders open without login. Not downloaded or
+  processed yet; the files are raw instrument records and need real work.
+- MODIS land surface temperature: needs a free Earthdata account. Not tested.
 
 **Earth**
 
@@ -126,8 +154,18 @@ checked on 2026-11-14. Move a row up to "Used" when you use it.
 | Resource | Gives you | Link |
 |----------|-----------|------|
 | NASA Planetary Analog Explorer | NASA's own gallery of 11 Earth analog pairs (Moon, Mars, Venus, Enceladus), Lake Salda included. Use as the list of known analogs to test the search against | https://science.nasa.gov/solar-system/analog-explorer/ |
-| NASA update on Artemis III Moon landing regions | Named candidate regions near the lunar south pole, for choosing Moon targets. Check NASA for the current mission status | https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/ |
+| NASA update on Artemis III Moon landing regions (28 October 2024) | Nine candidate regions near the lunar south pole: Peak near Cabeus B, Haworth, Malapert Massif, Mons Mouton Plateau, Mons Mouton, Nobile Rim 1, Nobile Rim 2, de Gerlache Rim 2, Slater Plain | https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/ |
+| NASA Artemis IV mission page | Current plan for the first Artemis landing | https://www.nasa.gov/mission/artemis-iv/ |
+| NASA Artemis acceleration update (23 October 2026) | Latest programme status | https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/ |
 | NASA Analog Missions | NASA's analog mission programmes on Earth | https://www.nasa.gov/analog-missions/ |
+
+Artemis status, checked on NASA's pages on 2026-11-14: the nine regions were
+published for Artemis III, but Artemis III is now a 2027 crewed test flight in
+low Earth orbit. The first Artemis landing is Artemis IV, targeted for early
+2028 near the lunar South Pole. NASA's Artemis IV page does not name its own
+landing regions. In the project, describe the nine regions as "NASA's
+candidate south pole landing regions (2024)", not as "the Artemis III landing
+site".
 
 **Lake Salda and Jezero**
 

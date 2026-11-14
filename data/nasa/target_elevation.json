@@ -1,0 +1,65 @@
+{
+  "sources": {
+    "mars": {
+      "dataset": "MGS MOLA MEGDR, MEGT90N000EB (NASA PDS Geosciences Node)",
+      "url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg016/megt90n000eb.img"
+    },
+    "moon": {
+      "dataset": "LRO LOLA GDR, LDEM_16 (NASA PDS Geosciences Node)",
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img"
+    }
+  },
+  "fetched_at": "2026-11-14T09:03:44Z",
+  "produced_by": "pipeline/fetch_nasa.py",
+  "note": "Elevation in metres. Mars: above the MOLA areoid. Moon: above a 1737.4 km sphere. Grid cell is 1/16 degree, about 3.7 km on Mars and 1.9 km on the Moon at the equator.",
+  "targets": [
+    {
+      "id": "jezero",
+      "name": "Jezero Crater",
+      "body": "mars",
+      "lat": 18.38,
+      "lon": 77.58,
+      "elevation_m": -2628.0
+    },
+    {
+      "id": "gale",
+      "name": "Gale Crater, base of Mount Sharp",
+      "body": "mars",
+      "lat": -4.59,
+      "lon": 137.44,
+      "elevation_m": -4509.0
+    },
+    {
+      "id": "utopia",
+      "name": "Utopia Planitia, Viking 2 site",
+      "body": "mars",
+      "lat": 47.64,
+      "lon": 134.29,
+      "elevation_m": -4500.0
+    },
+    {
+      "id": "phoenix",
+      "name": "Northern plains, Phoenix site",
+      "body": "mars",
+      "lat": 68.22,
+      "lon": 234.25,
+      "elevation_m": -4110.0
+    },
+    {
+      "id": "hadley",
+      "name": "Hadley Rille, Apollo 15 site",
+      "body": "moon",
+      "lat": 26.13,
+      "lon": 3.63,
+      "elevation_m": -1930.5
+    },
+    {
+      "id": "shackleton",
+      "name": "Shackleton Crater, lunar south pole",
+      "body": "moon",
+      "lat": -89.67,
+      "lon": 129.78,
+      "elevation_m": -2756.5
+    }
+  ]
+}
