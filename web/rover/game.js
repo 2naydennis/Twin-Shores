@@ -16,7 +16,10 @@ import { WORLD } from './terrain.js';
 const DATA_URL = new URL('../../data/analogs.json', import.meta.url);
 const ANALOG_NAME = { salda: 'Lake Salda' };      // which analogs.json entry belongs to which map
 const TARGET_ID = 'jezero';
-const REACH = 26;                                 // scene units: how close the rover must get
+const REACH = 30;                                 // scene units: how close the rover must get
+// Beacon colour per map, picked to stand out against that map's sky and ground.
+const BEACON = { salda: 0xffd21f, jezero: 0x35e6ff };
+const FOUND = 0x8dffb4;
 
 // Roughly where each kind of fact goes, so water facts need the boat and
 // shoreline facts sit on the shore. Unknown variables go on open land.
@@ -109,45 +112,50 @@ function shoreDistance(terrain, angle) {
 function place(terrain, zone, angle) {
   const step = WORLD / (terrain.site.grid - 1);
   const shore = shoreDistance(terrain, angle);
-  let centreX = 0, r;
+  let centreX = 0, centreZ = 0, r;
   if (shore !== null) {
-    r = { lake: shore * 0.55, shore: shore + step * 2.5, land: shore + step * 13, hill: shore + step * 30 }[zone];
+    r = { lake: shore * 0.6, shore: shore + step * 2.5, land: shore + step * 8, hill: shore + step * 17 }[zone];
   } else {
-    centreX = 110;                                   // Jezero's floor sits a little east of the map centre
-    r = { lake: 120, shore: 250, land: 380, hill: 540 }[zone];
+    centreX = -150; centreZ = -70;                   // around the rover's start on Jezero's western floor
+    r = { lake: 95, shore: 180, land: 270, hill: 370 }[zone];
   }
   const limit = WORLD / 2 - 90;
   const x = THREE.MathUtils.clamp(centreX + Math.sin(angle) * r, -limit, limit);
-  const z = THREE.MathUtils.clamp(Math.cos(angle) * r, -limit, limit);
+  const z = THREE.MathUtils.clamp(centreZ + Math.cos(angle) * r, -limit, limit);
   return { x, z };
 }
 
 // ---- the game ---------------------------------------------------------------
 
 export function createGame(scene, terrains, facts, ui) {
-  const gem = new THREE.OctahedronGeometry(6, 0);
-  const beam = new THREE.CylinderGeometry(1.1, 1.1, 150, 8, 1, true).translate(0, 75, 0);
+  // Each beacon is a tall beam, a spinning gem and a ring on the ground. They ignore
+  // fog and are drawn in flat, bright colour so they can be seen from across the map.
+  const gem = new THREE.OctahedronGeometry(11, 0);
+  const beam = new THREE.CylinderGeometry(2.6, 2.6, 320, 8, 1, true).translate(0, 160, 0);
+  const ring = new THREE.RingGeometry(15, 21, 28).rotateX(-Math.PI / 2);
   const look = (color, opacity) => ({
     gem: new THREE.MeshBasicMaterial({ color, fog: false }),
-    beam: new THREE.MeshBasicMaterial({ color, transparent: true, opacity, depthWrite: false, fog: false,
-      side: THREE.DoubleSide, blending: THREE.AdditiveBlending }),
+    beam: new THREE.MeshBasicMaterial({ color, transparent: true, opacity, depthWrite: false, fog: false, side: THREE.DoubleSide }),
   });
-  const waiting = look(0xffc940, 0.42), found = look(0x7fe0a8, 0.14);
+  const found = look(FOUND, 0.22);
 
   const sites = {};
   for (const [id, terrain] of Object.entries(terrains)) {
     const group = new THREE.Group();
     group.visible = false;
     const list = facts[id] || [];
+    const waiting = look(BEACON[id] || 0xffd21f, 0.8);
     const points = list.map((fact, index) => {
       const { x, z } = place(terrain, fact.zone, (index / list.length) * Math.PI * 2 + 0.6);
       const marker = new THREE.Group();
       const gemMesh = new THREE.Mesh(gem, waiting.gem), beamMesh = new THREE.Mesh(beam, waiting.beam);
-      gemMesh.position.y = 16;
-      marker.add(gemMesh, beamMesh);
+      const ringMesh = new THREE.Mesh(ring, waiting.beam);
+      gemMesh.position.y = 30;
+      ringMesh.position.y = 1.5;
+      marker.add(gemMesh, beamMesh, ringMesh);
       marker.position.set(x, terrain.heightAt(x, z) + 1, z);
       group.add(marker);
-      return { fact, x, z, gemMesh, beamMesh, found: false, inside: false, phase: index * 1.3 };
+      return { fact, x, z, gemMesh, beamMesh, ringMesh, found: false, inside: false, phase: index * 1.3 };
     });
     scene.add(group);
     sites[id] = { group, points, terrain, celebrated: false };
@@ -207,6 +215,15 @@ export function createGame(scene, terrains, facts, ui) {
   ui.close.addEventListener('click', () => { ui.card.hidden = true; open = null; });
 
   return {
+    // Direction (radians, the rover's heading convention) from a position to the nearest point not yet found.
+    headingToNearest(x, z) {
+      let best = Infinity, heading = null;
+      for (const point of sites[current].points) {
+        const d = Math.hypot(point.x - x, point.z - z);
+        if (!point.found && d < best) { best = d; heading = Math.atan2(point.x - x, point.z - z); }
+      }
+      return heading;
+    },
     setSite(id) {
       if (current) sites[current].group.visible = false;
       current = id;
@@ -221,13 +238,15 @@ export function createGame(scene, terrains, facts, ui) {
       clock += dt;
       for (const point of site.points) {
         point.gemMesh.rotation.y = clock * 1.2 + point.phase;
-        point.gemMesh.position.y = 16 + Math.sin(clock * 2 + point.phase) * 2;
+        point.gemMesh.position.y = 30 + Math.sin(clock * 2 + point.phase) * 3;
+        if (!point.found) point.ringMesh.scale.setScalar(1 + Math.sin(clock * 3 + point.phase) * 0.12);
         // Arriving at a point opens its card; coming back to a found one opens it again.
         const inside = Math.hypot(point.x - state.x, point.z - state.z) < REACH;
         if (inside && !point.inside) {
           point.found = true;
           point.gemMesh.material = found.gem;
           point.beamMesh.material = found.beam;
+          point.ringMesh.material = found.beam;
           showCard(point, site);
           sinceHud = 1;
         }

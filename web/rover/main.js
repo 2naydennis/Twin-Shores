@@ -84,6 +84,7 @@ function show(id) {
   }
   active = terrains[id];
   active.group.visible = true;
+  const firstVisit = !saved[id];
   Object.assign(state, saved[id] || startFor(active), { speed: 0 });
   view.snap = true;
 
@@ -104,7 +105,12 @@ function show(id) {
   ui.toggle.textContent = `Switch to ${other.name}`;
   ui.toggle.dataset.target = other.id;
   ui.roverScale.textContent = Math.round((ROVER_SCALE * active.metresPerUnit));
-  if (game) game.setSite(id);
+  if (game) {
+    game.setSite(id);
+    // On a first visit, point the rover at the nearest beacon so the game is obvious.
+    const heading = firstVisit ? game.headingToNearest(state.x, state.z) : null;
+    if (heading !== null) state.heading = heading;
+  }
   document.body.dataset.site = id;
 }
 
