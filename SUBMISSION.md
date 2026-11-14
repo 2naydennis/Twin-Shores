@@ -68,7 +68,7 @@ All answers below marked **AI draft** were written by Claude from the state
 of the repo on 2026-11-14. Rewrite them in your own words and correct
 anything that is no longer true before pasting into the form.
 
-Answer (AI draft): Mars Twin Finder
+Answer (AI draft): Analog Finder
 
 ## 2. High-level project summary
 
@@ -80,7 +80,7 @@ The form asks three things. Answer each in one or two sentences.
 
 Answer (AI draft):
 
-Mars Twin Finder searches Earth for lakes that resemble Jezero Crater, the
+Analog Finder searches Earth for lakes that resemble Jezero Crater, the
 ancient Martian lake that NASA's Perseverance rover is exploring. We compared
 157 places with Jezero on eight variables: temperature, air pressure,
 evaporation and terrain slope measured from NASA data, and water pH, mineral
@@ -382,10 +382,11 @@ Partner agencies worth checking for this project:
 | Resource | Type (data / code / image / text) | Source | Licence or permission |
 |----------|-----------------------------------|--------|-----------------------|
 | **EU-DEM v1.1, Copernicus Land Monitoring Service (European Union and ESA)** | data: second elevation model, used to re-measure terrain slope at all 149 Türkiye lakes and check the NASA/METI values. **Space agency partner data (ESA).** Read through the OpenTopoData API. Output: `data/slope_crosscheck.json` | https://land.copernicus.eu/en/products/products-that-are-no-longer-disseminated-on-the-clms-website | Free and open, attribution to Copernicus |
-| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: Earth map imagery. Not used by the website in `web/` as of 2026-11-14; list it only if it is added | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
+| ESA Copernicus Sentinel-2 (cloudless mosaic by EOX) | image: default satellite background of the website map. **Space agency partner data (ESA)** | https://s2maps.eu/ | CC BY-NC-SA 4.0, attribution required |
 | NASA GIBS Blue Marble | image: optional base map on the website (also NASA data) | https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api | Free |
 | OpenStreetMap | image: default base map tiles on the website | https://www.openstreetmap.org/copyright | ODbL, attribution required |
 | Leaflet 1.9.4 | code: map library | https://leafletjs.com/ | BSD 2-Clause |
+| IBM Plex Sans and IBM Plex Mono | fonts on the website, loaded from Google Fonts | https://fonts.google.com/specimen/IBM+Plex+Sans | SIL Open Font Licence |
 | three.js 0.160.0 | code: 3D library for the rover drive | https://threejs.org/ | MIT |
 | Japan's METI, with NASA: ASTER GDEM | data: Earth terrain slope (also listed under NASA data) | https://www.earthdata.nasa.gov/data/instruments/aster | Free |
 | Wikidata | data: list of natural lakes in Türkiye with coordinates | https://www.wikidata.org/ | CC0 |

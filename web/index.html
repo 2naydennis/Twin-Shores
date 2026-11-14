@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Analog Finder map: Earth sites ranked against a Moon or Mars target.
+  Analog Finder map: Earth sites ranked against a Mars target.
   AI-generated: this page and the files in web/map/ were written by Claude
   (Anthropic, Claude Code) on 2026-11-14. Everything shown comes from
   data/analogs.json, written by the pipeline.
@@ -9,28 +9,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analog Finder: Earth analogs for Moon and Mars sites</title>
+<title>Analog Finder: Earth analogs for Jezero Crater, Mars</title>
+<meta name="description" content="157 places on Earth compared with Jezero Crater on Mars, using NASA and Copernicus data and published studies. Ranked, mapped, and sourced.">
+<meta property="og:title" content="Analog Finder: Earth analogs for Jezero Crater, Mars">
+<meta property="og:description" content="157 places on Earth compared with Jezero Crater on Mars, using NASA and Copernicus data and published studies.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="map/style.css">
 </head>
-<body>
+<body class="app">
   <header class="top">
     <div class="brand">
-      <strong>Analog Finder</strong>
-      <span>Places on Earth that resemble Moon and Mars sites</span>
+      <h1>Analog Finder</h1>
+      <span>Earth analogs for Jezero Crater, Mars</span>
     </div>
     <nav aria-label="Pages">
       <a href="index.html" aria-current="page">Map</a>
-      <a href="rover.html">Rover drive</a>
+      <a href="method.html">Method and results</a>
+      <a href="rover.html">3D terrain</a>
+      <a href="../demo/slides.pdf">Slides</a>
+      <a href="https://github.com/2naydennis/analog-finder">Code and data</a>
     </nav>
   </header>
+
+  <div class="figures" id="figures" aria-label="Key figures"></div>
 
   <main>
     <aside class="list-pane" aria-label="Ranked Earth sites">
       <section class="target" id="target"></section>
       <div class="filters">
         <input id="search" type="search" placeholder="Search sites" aria-label="Search sites">
-        <label class="check"><input id="researched" type="checkbox"> Only sites with researched facts</label>
+        <label class="check"><input id="researched" type="checkbox"> Only sites with published evidence</label>
         <p id="count" class="muted"></p>
       </div>
       <ol id="list" class="list"></ol>
@@ -44,6 +57,13 @@
       <p class="muted">Loading data…</p>
     </aside>
   </main>
+
+  <footer class="foot">
+    <span>NASA Space Apps Challenge 2026</span>
+    <span>Data: NASA POWER, ASTER GDEM, MOLA · Copernicus EU-DEM and Sentinel-2 · Wikidata</span>
+    <span>Code written with AI assistance (Claude); see <a href="https://github.com/2naydennis/analog-finder#ai-use">AI use</a></span>
+    <a href="method.html#limits">Limits of this comparison</a>
+  </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="map/app.js"></script>

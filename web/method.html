@@ -1,0 +1,117 @@
+<!doctype html>
+<!--
+  Analog Finder: method and results.
+  AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14.
+  The tables are filled by method.js from the files in data/. The prose is an
+  AI draft for the team to check and rewrite.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method and results · Analog Finder</title>
+<meta name="description" content="How Analog Finder compares places on Earth with Jezero Crater on Mars: eight variables, the scoring rule, three robustness tests, and the limits.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="map/style.css">
+</head>
+<body class="doc">
+  <header class="top">
+    <div class="brand">
+      <h1>Analog Finder</h1>
+      <span>Earth analogs for Jezero Crater, Mars</span>
+    </div>
+    <nav aria-label="Pages">
+      <a href="index.html">Map</a>
+      <a href="method.html" aria-current="page">Method and results</a>
+      <a href="rover.html">3D terrain</a>
+      <a href="../demo/slides.pdf">Slides</a>
+      <a href="https://github.com/2naydennis/analog-finder">Code and data</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="lede">
+      <div class="eyebrow">Method and results</div>
+      <h2>Which lakes on Earth most resemble the lake that once filled Jezero Crater?</h2>
+      <p>Mission teams rehearse on Earth before they fly. NASA pairs Jezero Crater, where Perseverance is looking for signs of ancient life, with one Earth lake: Lake Salda in Türkiye. We compared <span id="n-places">157</span> places with Jezero on eight variables to see whether open data and published studies point to more.</p>
+    </div>
+
+    <section>
+      <h3><small>01</small>Result</h3>
+      <div class="body">
+        <figure>
+          <table id="top-table"></table>
+          <figcaption>Closest matches to Jezero Crater. "Variables" is how many of the eight the score rests on; scores built on different numbers are not strictly comparable.</figcaption>
+        </figure>
+        <p>Lake Salda, the analog NASA already lists, comes out first. The lakes directly behind it are closed-basin, alkaline lakes that NASA does not list: Lake Van, Lake Erçek and Lake Burdur. Lake Van is already studied in a Mars context by researchers, so we call it a candidate, not a discovery. Lake Erçek, its little-studied neighbour, rests on a single conference abstract and needs field confirmation.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>02</small>What is compared</h3>
+      <div class="body">
+        <figure>
+          <table id="var-table"></table>
+          <figcaption>Four variables are measured from space-agency data for every place. Four have no global dataset and are read from published studies, entered as a match between 0 and 1 with the source.</figcaption>
+        </figure>
+        <p class="formula">similarity = 1 − |place − Jezero| ÷ spread of that variable across all places<br>score = weighted average of the similarities available for that place</p>
+        <p>A variable with no value on either side is left out of that place's score. It is never counted as zero. All weights are currently 1.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>03</small>Does the ranking hold?</h3>
+      <div class="body">
+        <p><b>Random weights.</b> The eight weights were redrawn at random <span id="n-draws">5,000</span> times and the ranking recomputed each time.</p>
+        <figure>
+          <table id="weights-table"></table>
+          <figcaption>Share of draws in which each place finished in the top three and the top five. The first three hold under almost any weighting; below the fourth, the order depends on the weights.</figcaption>
+        </figure>
+        <p><b>Leave one variable out.</b> The ranking was recomputed eight times, each time without one variable.</p>
+        <figure><table id="loo-table"></table></figure>
+        <p><b>Second elevation model.</b> Terrain slope was measured again with the Copernicus EU-DEM and compared with the NASA/METI ASTER values used in the scores.</p>
+        <div class="stats" id="slope-stats"></div>
+        <p><b>Known analogs.</b> On temperature, pressure and slope alone, known Mars analogs such as the Atacama Desert and Death Valley rank low. Climate and slope do not capture what makes a place resemble Jezero; water chemistry, minerals and sediments do.</p>
+        <figure><table id="known-table"></table></figure>
+      </div>
+    </section>
+
+    <section id="limits">
+      <h3><small>04</small>Limits</h3>
+      <div class="body">
+        <ul>
+          <li>No place on Earth comes near Mars's air pressure, cold or radiation. Every site here has more than 100 times Jezero's pressure.</li>
+          <li>Jezero's ancient lake has no measured pH. That variable compares with the conditions inferred from its carbonates.</li>
+          <li>The evidence from published studies was gathered with an AI tool. Each entry on the map shows whether its source was read directly or taken from a summary. Entries not yet confirmed by the team are marked.</li>
+          <li>Only 44 of the 149 lakes were researched. Lakes without entries may match better than their score suggests.</li>
+          <li>The robustness tests check the arithmetic, not the evidence. A wrong entry carries through all of them.</li>
+          <li>The project covers Mars only. The challenge also names Moon base locations; those need different variables and were not attempted.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>05</small>Data and tools</h3>
+      <div class="body">
+        <ul>
+          <li><b>NASA:</b> POWER climatology (temperature, pressure, evaporation); ASTER GDEM with Japan's METI (Earth slope); Mars Global Surveyor MOLA (Jezero slope and elevation); SRTM (terrain view); NSSDCA Mars Fact Sheet; Planetary Analog Explorer (known analogs).</li>
+          <li><b>European Union and ESA, Copernicus:</b> EU-DEM (slope cross-check); Sentinel-2 cloudless imagery by EOX (map background).</li>
+          <li><b>Other:</b> Wikidata (list of Türkiye's natural lakes); OpenStreetMap; published studies linked from each site.</li>
+          <li><b>AI use:</b> the data scripts, this website's code and first drafts of the text were written with Claude (Anthropic). ChatGPT was used for background reading. Every use is listed in the <a href="https://github.com/2naydennis/analog-finder#ai-use">repository</a>. No AI-generated images are used.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>NASA Space Apps Challenge 2026</span>
+    <span>Data: NASA POWER, ASTER GDEM, MOLA · Copernicus EU-DEM and Sentinel-2 · Wikidata</span>
+    <span>Code written with AI assistance (Claude); see <a href="https://github.com/2naydennis/analog-finder#ai-use">AI use</a></span>
+  </footer>
+
+  <script type="module" src="map/method.js"></script>
+</body>
+</html>

@@ -51,62 +51,57 @@ lives in `web/` and belongs to this folder.
 State on the page that Salda matches Jezero's ancient lake and carbonate
 setting, not Mars as a whole.
 
-## Map (`index.html`)
+## Map (`index.html`) and method page (`method.html`)
 
-The main page. It ranks every Earth site in `../data/analogs.json` against the
-target (Jezero Crater today) and shows why each one matches.
+Redesigned on 2026-11-14 for a research-tool look: white and paper surfaces,
+ink text, one rust accent, IBM Plex Sans for text and IBM Plex Mono for every
+number, satellite imagery as the default map.
 
-Run it from the repo root, then open http://localhost:8000/web/ :
+Run from the repo root, then open http://localhost:8000/web/ :
 
 ```bash
-python -m http.server 8000
+python3 -m http.server 8000
 ```
 
-- **Left:** the target and what is known about it, a search box, a filter for
-  sites with researched facts, and the ranked list.
-- **Middle:** the map. Darker markers are closer matches. Documented analogs
-  are larger with a dark ring; new candidates are smaller with a white ring.
-  The base map can be switched to NASA Blue Marble.
-- **Right:** the selected site: score, coverage, a bar for every variable with
-  the site's value next to the target's, and the researched facts (minerals,
-  water, sediments, pH) with their notes and source links.
+**Map page**
 
-The page is driven by the data, with nothing written per site:
+- **Top strip:** four key figures, computed from the data.
+- **Left:** the target, a search box, a filter for sites with published
+  evidence, and the ranked list with a score meter for each site.
+- **Middle:** the map. Darker markers are closer matches; analogs NASA already
+  lists wear a dark ring. The five closest sites carry a name label. Base maps:
+  ESA Sentinel-2 (default), NASA Blue Marble, OpenStreetMap.
+- **Right:** the selected site: score, a table of every variable (here, at the
+  target, match), links to NASA Worldview and OpenStreetMap, and the published
+  evidence with its source. Each piece of evidence shows whether the source
+  was read directly or taken from a summary, and whether the match is still an
+  AI proposal.
+- **Shareable links:** the address changes with the selected site, for example
+  `index.html#lake-ercek-38.67`.
 
-| If the pipeline adds | The page shows |
-|----------------------|----------------|
-| a candidate | a marker and a row in the list |
-| a variable in `features` | a new bar under "How it matches" |
-| a `judged` entry on a site | a new fact with its note and source |
-| a second target | a menu to choose the target |
-| any other field on a site (for example `minerals`, `facts`, `depth_m`) | an entry under "More about this site" |
+**Method page** fills its tables from `data/analogs.json`,
+`data/sensitivity.json` and `data/slope_crosscheck.json`: the result, the
+variables and scoring rule, the three robustness tests, the limits, and the
+data sources. Its prose is an AI draft for the team to check.
 
-That last row means new kinds of data appear without touching the web code,
-but plainly: the field name becomes the heading. Text, numbers, lists, and
-objects with `note`, `value` and `source` all display. Ask for a proper layout
-once a field settles.
+Both pages are driven by the data. A new candidate, variable, judged entry or
+target in `data/analogs.json` appears without touching the web code.
 
-Things to know:
-
-- The page repeats the pipeline's warning that sites scored on different
-  numbers of variables cannot be compared fairly.
-- Marker colours are spread between the lowest and highest score for the
-  target, so the darkest marker is the best of this list, not a perfect match.
-- It needs an internet connection: Leaflet 1.9.4 (BSD 2-Clause) comes from
-  unpkg, map tiles from OpenStreetMap, and Blue Marble imagery from NASA GIBS.
-- Only Lake Salda has a "Drive a rover here" button, set in `ROVER_PAGES` in
-  `map/app.js`.
+It needs an internet connection: Leaflet 1.9.4 (BSD 2-Clause) from unpkg, IBM
+Plex fonts (SIL Open Font Licence) from Google Fonts, and map tiles from EOX
+(Sentinel-2 cloudless, CC BY-NC-SA 4.0), NASA GIBS and OpenStreetMap.
 
 | File | What it is |
 |------|------------|
-| `index.html` | The page |
+| `index.html` | The map page |
+| `method.html` | Method and results page |
 | `map/app.js` | Loads the data, draws the map, list and site card |
-| `map/style.css` | Layout and colours, light and dark |
+| `map/method.js` | Fills the method page's tables |
+| `map/style.css` | Shared layout and colours |
+| `favicon.svg` | Site icon |
 
-AI use: `index.html`, `map/app.js` and `map/style.css` were written by Claude
-(Anthropic, Claude Code) on 2026-11-14 at the team's direction. The data they
-show is the pipeline's. This also needs a line in the main README's "AI use"
-table, and Leaflet, OpenStreetMap and NASA GIBS in its list of resources.
+AI use: all six files were written by Claude (Anthropic, Claude Code) on
+2026-11-14 at the team's direction. The data they show is the pipeline's.
 
 ## Rover drive (`rover.html`)
 

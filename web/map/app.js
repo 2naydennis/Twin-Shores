@@ -12,7 +12,8 @@ const DATA_URL = new URL('../../data/analogs.json', import.meta.url);
 
 // One hue, light to dark: a darker marker is a closer match. Checked with the
 // dataviz palette validator (ordinal ramp, light surface).
-const STEPS = ['#86b6ef', '#5598e7', '#2a78d6', '#1c5cab', '#0d366b'];
+const STEPS = ['#f6dcc6', '#eab08a', '#d97e4c', '#b9501f', '#7a2c0a'];
+const LABELLED = 5;                  // how many top sites carry a permanent name label on the map
 // Fields the page already shows somewhere; anything else on a site is "extra".
 const KNOWN_FIELDS = new Set(['target_id', 'name', 'country', 'lat', 'lon', 'score', 'coverage',
   'feature_match', 'values', 'judged', 'known_analog']);
@@ -57,7 +58,22 @@ function variable(name) {
   const info = (state.data.variables || {})[name] || {};
   return { label: info.label || pretty(name), unit: info.unit && info.unit !== 'match' ? info.unit : '', kind: info.kind, source: info.source };
 }
-const withUnit = (value, unit) => (value === null || value === undefined ? null : `${value}${unit ? ` ${unit}` : ''}`);
+// Degrees sit against the number (1.89°); other units take a thin gap (12.14 °C).
+const withUnit = (value, unit) => (value === null || value === undefined ? null
+  : `${typeof value === 'number' ? Number(value.toFixed(2)) : value}${unit === '°' ? '°' : unit ? ` ${unit}` : ''}`);
+const slug = (site) => `${site.name}-${site.lat.toFixed(2)}`.toLocaleLowerCase('en').normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .replace(/ı/g, 'i').replace(/[^a-z0-9.]+/g, '-').replace(/^-|-$/g, '');
+const coverageShort = (site) => (site.coverage || '').replace(/ of /, '/').replace(/ variables?/, '');
+
+// What kind of look the AI had at the source behind a researched fact.
+function evidenceTags(fact) {
+  const tags = [];
+  const direct = /^read directly/i.test(fact.checked || '');
+  tags.push(el('span', { class: direct ? 'tag ok' : 'tag todo', title: fact.checked || '',
+    text: direct ? 'Source read directly' : 'From a summary, to verify' }));
+  if (/^AI/i.test(fact.proposed_by || '')) tags.push(el('span', { class: 'tag todo', title: fact.proposed_by, text: 'Match proposed by AI' }));
+  return tags;
+}
 
 const target = () => state.data.targets.find((t) => t.id === state.targetId);
 const sitesForTarget = () => state.data.analogs.filter((a) => a.target_id === state.targetId);
@@ -70,6 +86,21 @@ function colorFor(score) {
   const { low, high } = scoreRange();
   if (high === low) return STEPS[STEPS.length - 1];
   return STEPS[Math.min(STEPS.length - 1, Math.floor(((score - low) / (high - low)) * STEPS.length))];
+}
+
+// ---- key figures ------------------------------------------------------------
+
+function renderFigures() {
+  const sites = sitesForTarget();
+  const candidates = sites.filter((s) => !s.known_analog);
+  const withEvidence = sites.filter(hasFacts).length;
+  const best = candidates[0];
+  const figure = (value, label) => el('div', {}, el('b', { text: value }), el('span', { text: label }));
+  $('figures').replaceChildren(
+    figure(String(sites.length), 'places compared with ' + target().name),
+    figure(String((state.data.features || []).length), 'variables: climate, terrain, water chemistry, geology'),
+    figure(String(withEvidence), 'places with published evidence entered'),
+    figure(best ? `${best.name} ${fmtScore(best.score)}` : 'n/a', 'closest candidate not yet a listed analog'));
 }
 
 // ---- target panel -----------------------------------------------------------
@@ -125,8 +156,10 @@ function renderList() {
       el('span', { class: 'rank', text: rank.get(site) }),
       el('span', { class: 'name', text: site.name }),
       el('span', { class: 'score', text: fmtScore(site.score) }),
-      el('span', { class: 'sub' }, site.country, site.coverage ? ` · scored on ${site.coverage}` : '',
-        site.known_analog ? [' ', el('span', { class: 'badge known', text: 'Documented analog' })] : null));
+      el('span', { class: 'sub' },
+        el('span', { class: 'meter' }, el('i', { style: `width:${Math.max(0, Math.min(1, site.score)) * 100}%` })),
+        el('span', { text: `${site.country} · ${coverageShort(site)} variables` }),
+        site.known_analog ? el('span', { class: 'tag known', text: 'Listed analog' }) : null));
     button.addEventListener('click', () => select(site, true));
     return el('li', {}, button);
   }));
@@ -142,10 +175,10 @@ function renderList() {
 function markerStyle(site) {
   const chosen = site === state.selected;
   return {
-    radius: (site.known_analog ? 9 : 6) + (chosen ? 3 : 0),
+    radius: (site.known_analog ? 6.5 : 4.5) + (chosen ? 3 : 0),
     fillColor: colorFor(site.score), fillOpacity: 1,
-    color: site.known_analog || chosen ? '#0b0b0b' : '#ffffff',     // documented analogs wear a dark ring
-    weight: chosen ? 3.5 : 2,
+    color: site.known_analog || chosen ? '#16202b' : '#ffffff',     // listed analogs wear a dark ring
+    weight: chosen ? 2.5 : 1.2,
   };
 }
 
@@ -156,8 +189,12 @@ function buildMap() {
   const blueMarble = L.tileLayer(
     'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg',
     { maxNativeZoom: 8, maxZoom: 12, attribution: 'Imagery: NASA Blue Marble, served by <a href="https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api">NASA GIBS</a>' });
-  streets.addTo(map);
-  L.control.layers({ 'Street map': streets, 'NASA Blue Marble': blueMarble }, null, { collapsed: false }).addTo(map);
+  // Sentinel-2 imagery shows the lakes themselves down to about 10 m per pixel.
+  const sentinel = L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg', {
+    maxNativeZoom: 14, maxZoom: 16, attribution: '<a href="https://s2maps.eu">Sentinel-2 cloudless 2020</a> by EOX, contains modified Copernicus Sentinel data (CC BY-NC-SA 4.0)' });
+  sentinel.addTo(map);
+  L.control.layers({ 'Satellite (ESA Sentinel-2)': sentinel, 'Satellite (NASA Blue Marble)': blueMarble, 'Map (OpenStreetMap)': streets },
+    null, { collapsed: window.innerWidth < 820 }).addTo(map);   // folded away on phones to leave room for the map
   markerLayer = L.layerGroup().addTo(map);
   L.control.scale({ imperial: false }).addTo(map);
 }
@@ -169,7 +206,13 @@ function renderMarkers(fit) {
   // Draw weaker matches first so the closest ones end up on top.
   for (const site of [...sites].reverse()) {
     const marker = L.circleMarker([site.lat, site.lon], markerStyle(site));
-    marker.bindTooltip(`${site.name} · ${fmtScore(site.score)}${site.known_analog ? ' · documented analog' : ''}`, { direction: 'top' });
+    const rank = sites.indexOf(site);
+    if (rank < LABELLED) {
+      // Alternate sides so labels of neighbouring lakes do not sit on top of each other.
+      marker.bindTooltip(`${rank + 1}  ${site.name}`, { permanent: true, className: 'pin', direction: rank % 2 ? 'left' : 'right', offset: [rank % 2 ? -8 : 8, 0] });
+    } else {
+      marker.bindTooltip(`${site.name} · ${fmtScore(site.score)}${site.known_analog ? ' · listed analog' : ''}`, { direction: 'top' });
+    }
     marker.on('click', () => select(site, false));
     markers.set(site, marker);
     markerLayer.addLayer(marker);
@@ -190,8 +233,8 @@ function renderMarkers(fit) {
       el('b', { text: 'Match score' }),
       el('div', { class: 'steps' }, STEPS.map((hex) => el('span', { style: `background:${hex}` }))),
       el('div', { class: 'ends' }, el('span', { text: `${fmtScore(low)} weaker` }), el('span', { text: `closer ${fmtScore(high)}` })),
-      el('div', { class: 'key' }, el('span', { class: 'dot known' }), 'Documented analog'),
-      el('div', { class: 'key' }, el('span', { class: 'dot' }), 'New candidate'));
+      el('div', { class: 'key' }, el('span', { class: 'dot known' }), 'Analog already listed by NASA'),
+      el('div', { class: 'key' }, el('span', { class: 'dot' }), 'Candidate'));
     L.DomEvent.disableClickPropagation(box);
     return box;
   };
@@ -206,20 +249,23 @@ function matchRow(name, site, t) {
   const own = withUnit((site.values || {})[name], v.unit);
   const theirs = withUnit((t.features || {})[name], v.unit);
   const judged = (site.judged || {})[name];
-  if (match === undefined) {
-    let why = 'Not scored for this site';
-    if (v.kind === 'judged' && !judged) why = 'Not researched yet';
-    else if (own && !theirs) why = `${own} here; no value for ${t.name}`;
-    return el('div', { class: 'row skipped' },
-      el('div', { class: 'head' }, el('span', { class: 'label', text: v.label }), el('span', { class: 'value', text: why })));
+  const measured = v.kind !== 'judged';
+  const here = measured ? (own || 'n/a') : (judged ? 'see evidence' : 'not researched');
+  const there = measured ? (theirs || 'no value') : 'see evidence';
+  const cell = match === undefined
+    ? el('td', { class: 'num skip', text: 'not scored' })
+    : el('td', { class: 'num', title: `${v.label}: match ${fmtScore(match)} out of 1` },
+      el('span', { class: 'cellbar' }, el('i', { style: `width:${Math.max(0, Math.min(1, match)) * 100}%` })), fmtScore(match));
+  if (!measured) {
+    // No number exists on either side: the match comes from a study, listed under "Published evidence".
+    return el('tr', {}, el('td', { text: v.label }),
+      el('td', { class: 'skip', colspan: '2', text: judged ? 'from a published study, below' : 'no study entered yet' }), cell);
   }
-  const compare = v.kind === 'judged'
-    ? (judged && judged.note) || null
-    : [own && `${own} here`, theirs && `${theirs} at ${t.name}`].filter(Boolean).join(' · ');
-  return el('div', { class: 'row', title: `${v.label}: match ${fmtScore(match)} out of 1` },
-    el('div', { class: 'head' }, el('span', { class: 'label', text: v.label }), el('span', { class: 'value', text: fmtScore(match) })),
-    el('div', { class: 'bar' }, el('i', { style: `width:${Math.max(0, Math.min(1, match)) * 100}%` })),
-    compare ? el('div', { class: 'compare', text: compare }) : null);
+  return el('tr', {},
+    el('td', { text: v.label }),
+    el('td', { class: 'num', text: here }),
+    el('td', { class: 'num', text: there }),
+    cell);
 }
 
 // Shows a field the page has no special layout for, whatever shape it has.
@@ -254,26 +300,38 @@ function renderDetail() {
 
   // replaceChildren does not skip empty entries or unpack lists, so tidy them first.
   pane.replaceChildren(...[
-    el('div', { class: 'eyebrow', text: `Rank ${all.indexOf(site) + 1} of ${all.length} for ${t.name}` }),
+    el('div', { class: 'eyebrow', text: `Rank ${all.indexOf(site) + 1} of ${all.length} · compared with ${t.name}` }),
     el('h2', { text: site.name }),
-    el('div', { class: 'where', text: `${site.country} · ${fmtCoord(site.lat, site.lon)}` }),
-    el('span', { class: site.known_analog ? 'badge known' : 'badge', text: site.known_analog ? 'Documented analog' : 'New candidate' }),
-    el('div', { class: 'hero' }, el('span', { class: 'number', text: fmtScore(site.score) }), el('span', { class: 'of', text: 'match score, out of 1' })),
-    site.coverage ? el('p', { class: 'note-box', text:
-      `Scored on ${site.coverage}. Sites scored on different numbers of variables cannot be compared fairly.` }) : null,
-    ROVER_PAGES[site.name] ? el('a', { class: 'action', href: ROVER_PAGES[site.name], text: 'Drive a rover here in 3D' }) : null,
+    el('div', { class: 'where' },
+      el('span', { text: site.country }), el('span', { class: 'num', text: fmtCoord(site.lat, site.lon) }),
+      el('span', { class: site.known_analog ? 'tag known' : 'tag', text: site.known_analog ? 'Analog listed by NASA' : 'Candidate' })),
+    el('div', { class: 'scoreline' },
+      el('span', { class: 'number', text: fmtScore(site.score) }),
+      el('span', { class: 'of' }, 'Match score out of 1, from ', el('b', { text: site.coverage || 'the variables available' }),
+        '. Scores built on different numbers of variables are not strictly comparable.')),
+    el('div', { class: 'links' },
+      el('a', { href: `https://worldview.earthdata.nasa.gov/?v=${(site.lon - 1.2).toFixed(2)},${(site.lat - 0.7).toFixed(2)},${(site.lon + 1.2).toFixed(2)},${(site.lat + 0.7).toFixed(2)}`,
+        target: '_blank', rel: 'noopener', text: 'Open in NASA Worldview' }),
+      el('a', { href: `https://www.openstreetmap.org/?mlat=${site.lat}&mlon=${site.lon}#map=11/${site.lat}/${site.lon}`, target: '_blank', rel: 'noopener', text: 'OpenStreetMap' }),
+      ROVER_PAGES[site.name] ? el('a', { href: ROVER_PAGES[site.name], text: '3D terrain' }) : null),
 
-    el('h3', { text: 'How it matches' }),
-    el('div', { class: 'rows' }, features.map((name) => matchRow(name, site, t))),
+    el('h3', { text: 'Variable by variable' }),
+    el('table', {},
+      el('thead', {}, el('tr', {}, el('th', { text: 'Variable' }), el('th', { class: 'num', text: 'Here' }),
+        el('th', { class: 'num', text: t.name.split(' ')[0] }), el('th', { class: 'num', text: 'Match' }))),
+      el('tbody', {}, features.map((name) => matchRow(name, site, t)))),
+    el('p', { class: 'caveat', text: 'Measured values: NASA POWER, ASTER GDEM and MOLA. A variable marked "not scored" is left out of the score, not counted as zero.' }),
 
-    el('h3', { text: 'Minerals, water and other researched facts' }),
+    el('h3', { text: 'Published evidence' }),
     facts.length
       ? el('div', {}, facts.map(([name, fact]) => el('div', { class: 'fact' },
-        el('div', { class: 'label', text: variable(name).label }),
+        el('div', { class: 'head' }, el('span', { class: 'label', text: variable(name).label }),
+          el('span', { class: 'num', text: `match ${fmtScore(fact.match)}` })),
         el('p', {}, fact.note || 'No note recorded.'),
         (t.judged_reference || {})[name] ? el('p', { class: 'ref', text: `At ${t.name}: ${t.judged_reference[name]}` }) : null,
-        fact.source ? el('p', { class: 'ref' }, 'Source: ', sourceLink(fact.source)) : null)))
-      : el('p', { class: 'muted', text: 'Nobody has researched this site yet, so its score uses the measured variables only.' }),
+        fact.source ? el('p', { class: 'ref' }, 'Source: ', sourceLink(fact.source)) : null,
+        el('div', { class: 'tags' }, evidenceTags(fact)))))
+      : el('p', { class: 'muted', text: 'No published evidence has been entered for this site, so its score rests on the measured variables only.' }),
 
     extras.length ? [
       el('h3', { text: 'More about this site' }),
@@ -293,9 +351,11 @@ function select(site, fly) {
   }
   renderList();
   renderDetail();
+  history.replaceState(null, '', `#${slug(site)}`);   // the address now points at this site, so it can be shared
 }
 
 function renderAll(fit) {
+  renderFigures();
   renderTarget();
   renderMarkers(fit);
   renderList();
@@ -315,8 +375,10 @@ try {
   state.targetId = state.data.targets[0].id;
   buildMap();
   renderAll(true);
-  const first = sitesForTarget()[0];
-  if (first) select(first, false);
+  const wanted = decodeURIComponent(location.hash.slice(1));
+  const linked = wanted && sitesForTarget().find((site) => slug(site) === wanted);
+  const first = linked || sitesForTarget()[0];
+  if (first) select(first, Boolean(linked));
 } catch (error) {
   console.error(error);
   $('detail').replaceChildren(el('p', { text:

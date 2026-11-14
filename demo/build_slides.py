@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TEAM = "[TEAM NAME]"
 MEMBERS = "[Member names]"
-PROJECT = "Mars Twin Finder"
+PROJECT = "Analog Finder"
 CHALLENGE = "Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars"
 
 data = json.loads((ROOT / "data" / "analogs.json").read_text(encoding="utf-8"))

@@ -150,6 +150,8 @@ in the project.
 
 | 2026-11-14 | Claude (Anthropic, Claude Code) | `pipeline/sensitivity.py` and `pipeline/crosscheck_slope.py` and their output files; web research and proposed matches for a third round of 20 lakes (evidence found for 8) |
 
+| 2026-11-14 | Claude (Anthropic, Claude Code) | Redesign of the map page and a new method and results page: `web/index.html`, `web/method.html`, `web/map/app.js`, `web/map/method.js`, `web/map/style.css`, `web/favicon.svg`. The method page text is an AI draft |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources
@@ -183,5 +185,6 @@ In use by the website (`web/`):
 
 - NASA SRTM tile N37E029 and MGS MOLA MEGDR MEGT44N000HB: rover-drive terrain
 - NASA GIBS Blue Marble: optional base map
-- OpenStreetMap: default base map tiles
+- ESA Copernicus Sentinel-2 cloudless (EOX): default satellite base map
+- OpenStreetMap: alternative base map tiles
 - Leaflet 1.9.4 and three.js 0.160.0: map and 3D libraries
