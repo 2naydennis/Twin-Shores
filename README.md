@@ -175,11 +175,13 @@ in the project.
 
 | 2026-11-15 | Claude (Anthropic, Claude Code), in Kranimo's session | Source check: the AI opened the sources behind the judged entries that had only been seen as search summaries, and recorded the result in each entry's `checked` field in `pipeline/config.json` (40 of 73 now read and supported, 12 opened but not confirmed, 21 still unread). Three entries were corrected from their sources; no match value, score or rank changed. The study page's sources were re-marked the same way |
 
+| 2026-11-15 | Claude (Anthropic, Claude Code) | Sources and credits page (`web/sources.html`, `web/map/sources.js`), asked for by the team: NASA, ESA and other data, libraries, images and AI use, with the study list built from `data/analogs.json` and `data/salda_report.json`. "Start here" bar on the map page and a Sources link in every page menu. Page text is an AI draft for the team to check |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources
 
-Full list with links and licences: [SUBMISSION.md](SUBMISSION.md), sections 7 and 8.
+Full list with links and licences: [SUBMISSION.md](SUBMISSION.md), sections 7 and 8. On the website: [Sources and credits](https://2naydennis.github.io/Twin-Shores/web/sources.html).
 
 In use (fetched by `pipeline/fetch_nasa.py`, stored in `data/nasa/`):
 

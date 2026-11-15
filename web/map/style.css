@@ -40,7 +40,7 @@ h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
 .figures span { font-size: 12px; color: var(--ink-2); }
 
 /* ---- map page layout ---- */
-body.app { display: grid; grid-template-rows: auto auto 1fr auto; height: 100vh; overflow: hidden; }
+body.app { display: grid; grid-template-rows: auto auto auto 1fr auto; height: 100vh; overflow: hidden; }
 .app main { display: grid; grid-template-columns: 340px minmax(0, 1fr) 400px; min-height: 0; }
 .list-pane, .detail-pane { background: var(--surface); overflow-y: auto; min-height: 0; }
 .list-pane { border-right: 1px solid var(--rule); display: flex; flex-direction: column; }
@@ -196,3 +196,21 @@ body.doc { background: var(--surface); }
   .doc main { overflow-x: hidden; }
   .doc img, .doc canvas, .doc svg { max-width: 100%; }
 }
+
+/* Sources page and the start-here line on the map (2026-11-15). */
+.doc .lede .stats { margin-top: 26px; }
+.doc table.src td { line-height: 1.45; }
+.doc table.src td a { overflow-wrap: anywhere; }
+.doc code { font: 12.5px var(--mono); background: var(--paper); padding: 1px 4px; }
+.tag { display: inline-block; font: 500 10.5px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 0 6px; border: 1px solid var(--rule); color: var(--ink-2); border-radius: 2px; white-space: nowrap; }
+.tag.read { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.tag.opened { border-color: var(--ink); color: var(--ink); }
+.doc .body ul.legend { list-style: none; padding-left: 0; font-size: 13.5px; }
+.legend .tag { width: 72px; text-align: center; margin-right: 8px; }
+.start { font-size: 13px; padding: 8px 24px; background: var(--accent-soft); border-bottom: 1px solid var(--rule); }
+.start b { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-right: 6px; }
+.start ol { display: inline; list-style: none; padding: 0; counter-reset: s; }
+.start li { display: inline; counter-increment: s; }
+.start li::before { content: counter(s) " "; font: 500 11px var(--mono); color: var(--ink-2); }
+.start li + li::before { content: " → " counter(s) " "; }
+@media (max-width: 820px) { .start { padding: 8px 16px; } }

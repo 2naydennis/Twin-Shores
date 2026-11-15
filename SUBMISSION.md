@@ -381,6 +381,8 @@ next to any image you reuse, and do not use the NASA logo.
 
 ## 8. Space agency partner data and other references
 
+The website shows this list to judges at https://2naydennis.github.io/Twin-Shores/web/sources.html (keep both in step).
+
 List everything: data, code libraries, map tiles, text, images. Open source
 and free material still has to be listed. Use only images you have permission
 to use; news-site photos of Salda are copyrighted.
