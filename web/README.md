@@ -82,6 +82,16 @@ surface, so depth grows evenly from the shore to the published maximum of
 
 ## Salda study: things to know
 
+- "Observations only" (section 00) adds `observed` to `<body>`. CSS then hides
+  every element whose `data-ev` is `model` or `unknown` and prints "Hidden:"
+  plus its `data-ev-label`. Table cells get `data-ev` from the statement's
+  class in `salda_report.json`; the two maps, the one-scale figure, the inlet
+  table and the lake-level curves are marked `model` by hand in `study.html`.
+  The climate and slope charts and the assessment are not hidden.
+- The one-scale figure draws Salda's SRTM lake outline inside the modelled
+  Jezero lake. Salda is centred on the Jezero lake for comparison only; it
+  says nothing about position.
+
 - Wikipedia gives Salda's surface elevation as 1,316 m; SRTM measures 1,140 m,
   the figure used here.
 - Catchments stop at the map edge; Jezero's real river catchments are larger.

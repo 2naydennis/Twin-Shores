@@ -63,6 +63,19 @@
   .support-partial { border-left-color: var(--ink-2); color: var(--ink-2); }
   .support-proposal { border-left: 3px dashed var(--accent); color: var(--accent); }
   .ask { background: var(--paper); border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 15px; }
+  /* Observations-only switch (added 2026-11-15 by Claude, AI) */
+  .switch { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 10px 14px; border: 1px solid var(--ink); background: var(--surface);
+    font-weight: 500; cursor: pointer; max-width: 40em; }
+  .switch input { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+  #observed-tally { font: 500 12px/1.5 var(--mono); color: var(--ink-2); margin-top: 8px; }
+  body.observed [data-ev="model"] > *, body.observed [data-ev="unknown"] > * { display: none; }
+  body.observed [data-ev="model"]::after, body.observed [data-ev="unknown"]::after { content: 'Hidden: ' attr(data-ev-label);
+    display: block; font: 500 11px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2);
+    border: 1px dashed var(--rule); padding: 6px 8px; }
+  .solo { margin: 22px 0 0; max-width: 520px; }
+  .solo h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .solo canvas { display: block; width: 100%; height: auto; border: 1px solid var(--ink); background: var(--paper); }
+  .solo figcaption { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
   #status { padding: 24px; font-size: 15px; }
   #status[hidden] { display: none; }
   @media (max-width: 900px) {
@@ -107,6 +120,8 @@
       <h3><small>00</small>How each statement is known</h3>
       <div class="body">
         <ul id="legend"></ul>
+        <label class="switch"><input type="checkbox" id="observed-only" disabled> Observations only: hide every model and hypothesis</label>
+        <p id="observed-tally" aria-live="polite"></p>
         <p class="muted" style="font-size:13px">A measurement on a lake shore and a detection from orbit are not equally certain, and Salda is a lake today while Jezero's lake is reconstructed from rock about 3.5 billion years old. Each row below says which kind of comparison it is. "Source read" means the text of the source was opened; "source not opened" means only a search summary of it was seen, and a person should still check it.</p>
       </div>
     </section>
@@ -131,9 +146,9 @@
       <div class="body">
         <p>Both maps were made the same way from NASA elevation data: find the lake, find the land that drains into it, find where the largest streams enter, and find where the water would leave if it rose. The letters pair a zone at Salda with its counterpart at Jezero.</p>
         <div class="pair">
-          <figure><h4>Lake Salda, Earth</h4>
+          <figure data-ev="model" data-ev-label="map built on our basin model"><h4>Lake Salda, Earth</h4>
             <canvas id="map-salda" width="900" height="900" role="img" aria-label="Map of Lake Salda with its catchment, stream inlets and overflow point"></canvas></figure>
-          <figure><h4>Jezero Crater, Mars</h4>
+          <figure data-ev="model" data-ev-label="map built on our basin model"><h4>Jezero Crater, Mars</h4>
             <canvas id="map-jezero" width="900" height="900" role="img" aria-label="Map of Jezero Crater with its modelled lake, catchment, stream inlets and overflow point"></canvas></figure>
         </div>
         <ul class="key">
@@ -145,13 +160,18 @@
           <li><span class="letter letter-e">E</span>Overflow point</li>
         </ul>
         <p class="muted" style="font-size:13px" id="map-note"></p>
+        <figure class="solo" data-ev="model" data-ev-label="the Jezero lake is a model">
+          <h4>Lake Salda inside Jezero's lake, at one scale</h4>
+          <canvas id="map-scale" width="900" height="900" role="img" aria-label="Lake Salda's outline drawn inside the modelled Jezero lake at the same scale"></canvas>
+          <figcaption id="scale-note"></figcaption>
+        </figure>
         <div class="wide"><table id="zones"></table></div>
-        <div class="block">
+        <div class="block" data-ev="model" data-ev-label="inlets computed by our basin model">
           <h4>Computed stream inlets</h4>
           <div class="wide"><table id="inlets"></table></div>
           <p class="muted" style="font-size:13px">Positions and areas are computed from the elevation grids, not surveyed. They count only land inside each map, so Jezero's figures are far smaller than its real river catchments.</p>
         </div>
-        <div class="block">
+        <div class="block" data-ev="model" data-ev-label="lake-level curves from our basin model">
           <h4>How each lake grows as its level rises</h4>
           <div class="charts">
             <figure class="chart"><h4>Lake Salda, from today's level to overflow</h4><div id="curve-salda"></div>
@@ -210,6 +230,6 @@
     <span>Code and text drafted with AI assistance (Claude)</span>
   </footer>
 
-  <script type="module" src="map/study.js?v=1115b"></script>
+  <script type="module" src="map/study.js?v=1115d"></script>
 </body>
 </html>

@@ -60,7 +60,7 @@ function sources(ids) {
   }));
 }
 function statement(side, context) {
-  return el('td', {}, chip(side.class), el('p', { text: fill(side.text, context) }), sources(side.sources));
+  return el('td', { 'data-ev': side.class }, chip(side.class), el('p', { text: fill(side.text, context) }), sources(side.sources));
 }
 
 // ---- section 1: the report ------------------------------------------------------
@@ -95,9 +95,8 @@ function maskOf(basin) {
 
 const MARS_RADIUS_KM = 3396, LANDING = { lat: 18.4447, lon: 77.4508 };   // Perseverance's landing site, as used on the 3D page
 
-function drawMap(canvas, basin, packed, zones) {
-  const n = basin.grid, size = canvas.width, ctx = canvas.getContext('2d');
-  const mask = maskOf(basin);
+function baseImage(basin, packed, mask) {
+  const n = basin.grid;
   const image = new ImageData(n, n);
   let low = 65535, high = 0;
   for (const v of packed) { if (v < low) low = v; if (v > high) high = v; }
@@ -120,6 +119,12 @@ function drawMap(canvas, basin, packed, zones) {
   const base = document.createElement('canvas');
   base.width = base.height = n;
   base.getContext('2d').putImageData(image, 0, 0);
+  return base;
+}
+
+function drawMap(canvas, basin, packed, zones) {
+  const n = basin.grid, size = canvas.width, ctx = canvas.getContext('2d');
+  const mask = maskOf(basin), base = baseImage(basin, packed, mask);
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(base, 0, 0, size, size);
 
@@ -179,14 +184,86 @@ function drawMap(canvas, basin, packed, zones) {
   ctx.strokeText('N ↑', size * 0.9, size * 0.06); ctx.fillText('N ↑', size * 0.9, size * 0.06);
 }
 
+// Lake Salda's outline placed inside the modelled Jezero lake, both at one scale.
+// Added 2026-11-15 by Claude (AI). Salda's outline is the SRTM lake surface; the Jezero lake is our model.
+function drawScale(canvas, S, J, jezeroPacked) {
+  const size = canvas.width, ctx = canvas.getContext('2d'), ink = '#16202b';
+  const jm = maskOf(J), sm = maskOf(S), jn = J.grid, sn = S.grid;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(baseImage(J, jezeroPacked, jm), 0, 0, size, size);
+
+  const centre = (mask, n) => {
+    let x = 0, y = 0, cells = 0, top = n, bottom = 0;
+    for (let k = 0; k < n * n; k++) if (mask[k] === 2) { const j = Math.floor(k / n); x += k % n; y += j; cells++; if (j < top) top = j; if (j > bottom) bottom = j; }
+    return { x: x / cells / (n - 1), y: y / cells / (n - 1), top: top / (n - 1), bottom: bottom / (n - 1) };
+  };
+  const jc = centre(jm, jn), sc = centre(sm, sn);
+  const side = (S.width_km / J.width_km) * size;             // Salda's whole map, in pixels of this one
+  const x0 = jc.x * size - sc.x * side, y0 = jc.y * size - sc.y * side;
+
+  const shape = (r, g, b) => {
+    const image = new ImageData(sn, sn);
+    for (let k = 0; k < sn * sn; k++) if (sm[k] === 2) image.data.set([r, g, b, 255], k * 4);
+    const c = document.createElement('canvas');
+    c.width = c.height = sn;
+    c.getContext('2d').putImageData(image, 0, 0);
+    return c;
+  };
+  const dark = shape(22, 32, 43), light = shape(255, 255, 255), edge = size * 0.004;
+  for (let a = 0; a < 8; a++) ctx.drawImage(dark, x0 + Math.cos(a * Math.PI / 4) * edge, y0 + Math.sin(a * Math.PI / 4) * edge, side, side);
+  ctx.drawImage(light, x0, y0, side, side);
+
+  const write = (lines, x, y, px) => {
+    ctx.font = `500 ${px}px "IBM Plex Mono", ui-monospace, monospace`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+    lines.forEach((line, i) => {
+      ctx.lineWidth = px * 0.3; ctx.strokeStyle = '#fff'; ctx.strokeText(line, x, y + i * px * 1.25);
+      ctx.fillStyle = ink; ctx.fillText(line, x, y + i * px * 1.25);
+    });
+  };
+  const px = size * 0.03;
+  write(['Lake Salda today', `${fmt(S.lake.area_km2, 1)} km²`], jc.x * size, y0 + sc.bottom * side + px * 1.4, px);
+  write(['Jezero lake (model)', `${fmt(J.lake.area_km2, 0)} km²`], jc.x * size, y0 + sc.top * side - px * 2.6, px);
+
+  const km = 10, bar = (km / J.width_km) * size;
+  ctx.font = `500 ${size * 0.028}px "IBM Plex Mono", ui-monospace, monospace`;
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.lineWidth = size * 0.008; ctx.strokeStyle = '#fff';
+  ctx.strokeText(`${km} km`, size * 0.03, size * 0.95); ctx.fillStyle = ink; ctx.fillText(`${km} km`, size * 0.03, size * 0.95);
+  ctx.fillStyle = '#fff'; ctx.fillRect(size * 0.03 - 1, size * 0.962 - 1, bar + 2, size * 0.012 + 2);
+  ctx.fillStyle = ink; ctx.fillRect(size * 0.03, size * 0.962, bar, size * 0.012);
+  ctx.strokeText('N ↑', size * 0.9, size * 0.06); ctx.fillText('N ↑', size * 0.9, size * 0.06);
+}
+
+// ---- the observations-only switch -------------------------------------------------
+// Hides every statement labelled model or hypothesis, and the figures built on our basin model.
+// The hiding itself is CSS on body.observed; this counts what is left and says so.
+function setUpSwitch() {
+  const box = $('observed-only'), tally = $('observed-tally');
+  const cells = [...document.querySelectorAll('td[data-ev]')];
+  const count = (name) => cells.filter((c) => c.dataset.ev === name).length;
+  for (const cell of cells) cell.dataset.evLabel = report.classes[cell.dataset.ev].label.toLowerCase();
+  const kept = count('measured') + count('remote');
+  const say = () => {
+    document.body.classList.toggle('observed', box.checked);
+    tally.textContent = box.checked
+      ? `Showing ${kept} of ${cells.length} labelled statements: ${count('measured')} measured and ${count('remote')} from remote sensing. `
+        + `Hidden: ${count('model')} models, ${count('unknown')} hypotheses or unknowns, and the maps and curves built on our basin model.`
+      : `${cells.length} labelled statements: ${count('measured')} measured, ${count('remote')} from remote sensing, ${count('model')} models, ${count('unknown')} hypotheses or unknowns.`;
+  };
+  box.addEventListener('change', say);
+  box.disabled = false;
+  say();
+}
+
 function renderZones(context) {
   $('zones').replaceChildren(
     el('thead', {}, el('tr', {}, el('th', { text: '' }), el('th', { text: 'Zone' }), el('th', { text: 'Lake Salda' }), el('th', { text: 'Jezero Crater' }), el('th', { text: 'Why the pair matters' }))),
     el('tbody', {}, report.zones.map((zone) => el('tr', {},
       el('td', {}, el('span', { class: zone.letter === 'E' ? 'letter letter-e' : 'letter', text: zone.letter === 'C' ? '1…' : zone.letter })),
       el('td', {}, el('b', { text: zone.title })),
-      el('td', {}, chip(zone.salda_class), el('p', { text: fill(zone.salda, context) })),
-      el('td', {}, chip(zone.jezero_class), el('p', { text: fill(zone.jezero, context) })),
+      el('td', { 'data-ev': zone.salda_class }, chip(zone.salda_class), el('p', { text: fill(zone.salda, context) })),
+      el('td', { 'data-ev': zone.jezero_class }, chip(zone.jezero_class), el('p', { text: fill(zone.jezero, context) })),
       el('td', { text: fill(zone.why, context) })))));
 }
 
@@ -303,6 +380,11 @@ try {
   const [saldaHeights, jezeroHeights] = await Promise.all([heights(S.site), heights(J.site)]);
   drawMap($('map-salda'), S, saldaHeights, report.zones);
   drawMap($('map-jezero'), J, jezeroHeights, report.zones);
+  drawScale($('map-scale'), S, J, jezeroHeights);
+  $('scale-note').textContent = `Lake Salda's outline today (${fmt(S.lake.area_km2, 1)} km², from ${S.dataset.split(',')[0]}) placed inside the lake our model gives Jezero `
+    + `when filled to ${fmt(J.lake.level_m, 0)} m (${fmt(J.lake.area_km2, 0)} km²), both drawn at one scale. The Jezero lake is about ${context.ratio.area} times larger. `
+    + `Salda's outline is observed; the Jezero lake is a model, not a measured shoreline.`;
+  setUpSwitch();
   $('map-note').textContent = `Elevation: ${S.dataset} (one reading every ${Math.round(S.cell_m)} m) and ${J.dataset} (every ${Math.round(J.cell_m)} m). `
     + `The maps are not at the same scale: Salda's is ${S.width_km} km across, Jezero's ${J.width_km} km.`;
   $('generated').textContent = `Basin analysis run ${study.generated_at.slice(0, 10)} by ${study.produced_by}. ${report.produced_by}`;
