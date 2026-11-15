@@ -27,7 +27,7 @@
     "landsat": { "label": "Landsat study of Lake Salda, 2004 to 2024", "url": "https://dergipark.org.tr/en/pub/ejar/article/1731381", "checked": "summary" },
     "mars_fact": { "label": "NASA NSSDCA Mars Fact Sheet", "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html", "checked": "team data" },
     "power": { "label": "NASA POWER climatology, in data/nasa/earth_climate.json", "url": "https://power.larc.nasa.gov/", "checked": "team data" },
-    "ours": { "label": "Our basin analysis, pipeline/salda_study.py, on NASA SRTM and MOLA", "url": "https://github.com/2naydennis/-Twin-Shores/blob/main/pipeline/salda_study.py", "checked": "ours" }
+    "ours": { "label": "Our basin analysis, pipeline/salda_study.py, on NASA SRTM and MOLA", "url": "https://github.com/2naydennis/Twin-Shores/blob/main/pipeline/salda_study.py", "checked": "ours" }
   },
   "sections": [
     {
