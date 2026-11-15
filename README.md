@@ -177,6 +177,8 @@ in the project.
 
 | 2026-11-15 | Claude (Anthropic, Claude Code) | Sources and credits page (`web/sources.html`, `web/map/sources.js`), asked for by the team: NASA, ESA and other data, libraries, images and AI use, with the study list built from `data/analogs.json` and `data/salda_report.json`. "Start here" bar on the map page and a Sources link in every page menu. Page text is an AI draft for the team to check |
 
+| 2026-11-15 | Claude (Anthropic, Claude Code) | Fix on the 3D page: in the ancient-Jezero view the evidence cards now describe the ancient lake instead of Mars today (`web/rover/game.js`, `web/rover/main.js`). The five ancient-era texts were written by the AI from NASA pages it opened (Perseverance lake history, MAVEN) and need the team's check |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

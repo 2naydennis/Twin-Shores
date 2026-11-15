@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { WORLD, loadSites, buildTerrain } from './terrain.js';
 import { createRover, createBoat } from './rover-model.js';
-import { loadFacts, createGame } from './game.js';
+import { loadFacts, createGame } from './game.js?v=1115d';
 import { createSky, createScatter, setScatterDensity } from './scenery.js';
 import { createMinimap } from './minimap.js';
 
@@ -207,6 +207,7 @@ function showEra() {
     eraUi.area.textContent = `${old.area_km2.toLocaleString('en')} km²`;
   }
   document.body.dataset.era = on ? 'ancient' : 'today';
+  if (game) game.setEra(on);
 }
 
 // Fill or drain the ancient lake a little each frame until it reaches the chosen state.
@@ -454,7 +455,7 @@ window.addEventListener('resize', () => {
 // ---- start -----------------------------------------------------------------
 
 // Add ?debug to the address to reach the renderer from the browser console.
-if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view, terrains, applyLook, refresh: () => game && game.refresh() };
+if (new URLSearchParams(location.search).has('debug')) window.roverDebug = { renderer, scene, camera, state, view, terrains, applyLook, refresh: () => game && game.refresh(), game: () => game };
 
 try {
   const sites = await loadSites(TERRAIN_URL);

@@ -28,6 +28,26 @@ const ZONE = {
   minerals: 'shore', sediments: 'shore',
   temperature: 'land', pressure: 'land', slope: 'hill',
 };
+// What a Jezero card says while the ancient-lake view is on. analogs.json holds
+// Mars today; these lines describe the crater when it held water. Written by
+// Claude (Anthropic) on 2026-11-15 from the linked pages; team to check.
+// `match: false` hides the match bar, because that score compares with Mars today.
+// A variable not listed keeps its normal card (pH, minerals and sediments
+// already describe the ancient lake).
+const NASA_LAKE = 'https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-deciphers-ancient-history-of-martian-lake';
+const ANCIENT = {
+  temperature: { match: false, source: NASA_LAKE,
+    text: 'Not measured for this time. Water stood in the crater, so it was warm enough, at least at times, for the lake not to freeze solid. How warm early Mars was is still debated. Today: about -59 °C, planet-wide average.' },
+  pressure: { match: false, source: 'https://science.nasa.gov/mission/maven/',
+    text: "Not measured for this time, but higher than today's 0.636 kPa: Mars has since lost much of its once-dense atmosphere to space, which NASA's MAVEN orbiter studies." },
+  evaporation: { match: false, source: NASA_LAKE,
+    text: 'Salt-rich mudstones found by Perseverance show a shallow lake losing water to evaporation at times.' },
+  water: { source: NASA_LAKE,
+    text: "A lake filled the crater, fed by a river that built the delta. Perseverance's team estimates it grew as wide as 35 km and as deep as 30 m. The water drawn here is our simulation, filled to the lowest gap in the rim, not that estimate." },
+  slope: { match: false,
+    text: "Measured on today's crater floor from MOLA elevation data. The ancient lake bed lies under that floor, so this is today's terrain, not the terrain of 3.5 billion years ago." },
+};
+
 const pretty = (key) => String(key).replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
 const isLink = (text) => typeof text === 'string' && /^https?:\/\//.test(text);
 
@@ -90,7 +110,7 @@ export async function loadFacts() {
     if (earth) salda.push({ key: name, label: v.label, zone, here: analog.name, ...earth,
       other: mars && { place: target.name, text: mars.text }, match });
     if (mars) jezero.push({ key: name, label: v.label, zone, here: target.name, ...mars,
-      other: earth && { place: analog.name, text: earth.text }, match });
+      other: earth && { place: analog.name, text: earth.text }, match, ancient: ANCIENT[name] });
   }
   salda.push(...extraFacts(analog.facts, analog.name, 0));
   jezero.push(...extraFacts(target.facts, target.name, 2));
@@ -182,31 +202,35 @@ export function createGame(scene, terrains, facts, ui) {
     sites[id] = { group, points, terrain, celebrated: false };
   }
 
-  let current = null, open = null, clock = 0, sinceHud = 1;
+  let current = null, open = null, clock = 0, sinceHud = 1, ancientView = false;
 
   function showCard(point, site) {
     open = point;
     const { fact } = point;
+    const then = ancientView && current === 'jezero';            // the card describes the ancient lake
+    const alt = then ? fact.ancient || {} : {};
+    const text = alt.text || fact.text, source = alt.text ? alt.source || fact.source : fact.source;
+    const showMatch = fact.match !== undefined && alt.match !== false;
     const number = site.points.filter((p) => p.found).length;
-    ui.kicker.textContent = `${fact.here} · evidence point ${number} of ${site.points.length}`;
+    ui.kicker.textContent = `${fact.here}${then ? ', 3.5 billion years ago' : ''} · evidence point ${number} of ${site.points.length}`;
     ui.title.textContent = fact.label;
-    ui.text.textContent = fact.text;
+    ui.text.textContent = text;
     ui.other.hidden = !fact.other;
-    if (fact.other) ui.other.textContent = `At ${fact.other.place}: ${fact.other.text}`;
-    ui.match.hidden = fact.match === undefined;
-    if (fact.match !== undefined) {
+    if (fact.other) ui.other.textContent = `At ${fact.other.place}${then ? ' today' : ''}: ${fact.other.text}`;
+    ui.match.hidden = !showMatch;
+    if (showMatch) {
       ui.matchValue.textContent = `${Number(fact.match).toFixed(2)} out of 1`;
       ui.matchBar.style.width = `${THREE.MathUtils.clamp(fact.match, 0, 1) * 100}%`;
     }
-    ui.source.hidden = !fact.source;
-    if (fact.source) {
+    ui.source.hidden = !source;
+    if (source) {
       ui.source.replaceChildren('Source: ');
-      if (isLink(fact.source)) {
+      if (isLink(source)) {
         const link = document.createElement('a');
-        link.href = fact.source; link.target = '_blank'; link.rel = 'noopener';
-        link.textContent = new URL(fact.source).hostname.replace(/^www\./, '');
+        link.href = source; link.target = '_blank'; link.rel = 'noopener';
+        link.textContent = new URL(source).hostname.replace(/^www\./, '');
         ui.source.append(link);
-      } else ui.source.append(String(fact.source));
+      } else ui.source.append(String(source));
     }
     const left = site.points.length - number;
     ui.done.hidden = left > 0;
@@ -255,6 +279,12 @@ export function createGame(scene, terrains, facts, ui) {
       const site = sites[current];
       if (!site) return;
       for (const point of site.points) point.marker.position.y = site.terrain.surfaceAt(point.x, point.z) + 1;
+    },
+    // The ancient-lake view on Jezero: cards switch to the lake's past, and an open card redraws.
+    setEra(ancient) {
+      if (ancientView === ancient) return;
+      ancientView = ancient;
+      if (open && !ui.card.hidden) showCard(open, sites[current]);
     },
     setSite(id) {
       if (current) sites[current].group.visible = false;
