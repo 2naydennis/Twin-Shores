@@ -64,6 +64,8 @@
   .detail-btn { margin-left: 12px; font: 500 11px var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--ink); border-radius: 2px; background: #fff; color: var(--ink); cursor: pointer; }
   .detail-btn:hover { background: var(--ink); color: #fff; }
   #speed { width: 100%; accent-color: var(--accent); margin: 0; }
+  #help summary { cursor: pointer; margin-top: 8px; font-size: 12.5px; color: var(--muted); }
+  #help summary:hover { color: var(--ink); }
   #controls .hint { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; }
   #controls .note { margin: 6px 0 0; padding-top: 6px; border-top: 1px solid var(--rule-soft); color: var(--muted); font-size: 11.5px; }
   #pad { position: fixed; right: 16px; bottom: 170px; display: none; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(2, 52px); gap: 4px; }
@@ -269,9 +271,12 @@
   <section id="controls" class="panel">
     <label for="speed"><span>Driving speed</span><span><span id="speed-value">4×</span> <button id="detail" type="button" class="detail-btn">Graphics: High</button></span></label>
     <input id="speed" type="range" min="1" max="10" step="1" value="4">
+    <details id="help">
+      <summary>How to drive, and what is real</summary>
     <p class="hint"><span class="keys-only">W A S D or arrow keys to drive · R returns to the start · </span>drag to look around · scroll to zoom · drive into the lake to board the survey boat</p>
     <p class="hint game-only">Evidence points: each marker holds one published finding about the site and how it compares with the other world. Drive to a marker to read it; the arrow in the readout points to the nearest one.</p>
     <p class="note">Heights are NASA data; ground colours are painted for readability. The rover model is drawn about <span id="rover-scale">–</span>× larger than life so it stays visible. The survey boat is invented, not mission hardware. Rocks and trees are placed for texture and drawn at rover scale; they are not mapped. Code written with AI assistance (Claude).</p>
+    </details>
   </section>
 
   <section id="minimap" class="panel" aria-label="Minimap">
