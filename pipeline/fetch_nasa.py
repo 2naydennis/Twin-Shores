@@ -9,7 +9,7 @@ Standard library only, no installs needed. Run from the repo root:
 What it produces:
 
     data/nasa/earth_climate.json     NASA POWER climate for each Earth site
-    data/nasa/target_elevation.json  MOLA (Mars) and LOLA (Moon) elevation at each target
+    data/nasa/target_elevation.json  MOLA elevation at each Mars target
     data/nasa/terrain_profiles.json  West-east terrain profile: Lake Salda and Jezero Crater
 
 Large downloads are cached in pipeline/raw/, which git ignores.
@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "pipeline" / "raw"
 OUT = ROOT / "data" / "nasa"
 
-# Earth sites from NASA's Planetary Analog Explorer (Moon and Mars pairs only).
+# Earth sites from NASA's Planetary Analog Explorer (Mars pairs and Lake Salda).
 # https://science.nasa.gov/solar-system/analog-explorer/
 EARTH_SITES = [
     {"name": "Lake Salda", "country": "Türkiye", "lat": 37.55, "lon": 29.68},
@@ -46,20 +46,18 @@ EARTH_SITES = [
     {"name": "Askja", "country": "Iceland", "lat": 65.03, "lon": -16.75},
 ]
 
-# Moon and Mars places those Earth sites are paired with. Longitudes are east, 0 to 360.
+# Mars places those Earth sites are paired with. Longitudes are east, 0 to 360.
 TARGETS = [
     {"id": "jezero", "name": "Jezero Crater", "body": "mars", "lat": 18.38, "lon": 77.58},
     {"id": "gale", "name": "Gale Crater, base of Mount Sharp", "body": "mars", "lat": -4.59, "lon": 137.44},
     {"id": "utopia", "name": "Utopia Planitia, Viking 2 site", "body": "mars", "lat": 47.64, "lon": 134.29},
     {"id": "phoenix", "name": "Northern plains, Phoenix site", "body": "mars", "lat": 68.22, "lon": 234.25},
-    {"id": "hadley", "name": "Hadley Rille, Apollo 15 site", "body": "moon", "lat": 26.13, "lon": 3.63},
-    {"id": "shackleton", "name": "Shackleton Crater, lunar south pole", "body": "moon", "lat": -89.67, "lon": 129.78},
 ]
 
 POWER_URL = "https://power.larc.nasa.gov/api/temporal/climatology/point"
 POWER_PARAMS = ["T2M", "T2M_MAX", "T2M_MIN", "PRECTOTCORR", "ALLSKY_SFC_SW_DWN", "WS2M", "RH2M", "PS"]
 
-# Global elevation grids, 16 pixels per degree, 5760 x 2880, 16-bit integers.
+# Global elevation grid, 16 pixels per degree, 5760 x 2880, 16-bit integers.
 GRIDS = {
     "mars": {
         "dataset": "MGS MOLA MEGDR, MEGT90N000EB (NASA PDS Geosciences Node)",
@@ -68,14 +66,6 @@ GRIDS = {
         "big_endian": True,
         "scale": 1.0,  # metres per count, relative to the Mars areoid
         "radius_km": 3396.0,
-    },
-    "moon": {
-        "dataset": "LRO LOLA GDR, LDEM_16 (NASA PDS Geosciences Node)",
-        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
-        "file": "ldem_16.img",
-        "big_endian": False,
-        "scale": 0.5,  # metres per count, relative to a 1737.4 km sphere
-        "radius_km": 1737.4,
     },
 }
 GRID_PPD, GRID_COLS, GRID_ROWS = 16, 5760, 2880
@@ -232,14 +222,13 @@ def main():
         "sites": sites,
     })
 
-    print("Mars and Moon elevation")
+    print("Mars elevation")
     grids = {body: load_grid(body) for body in GRIDS}
     write("target_elevation.json", {
         "sources": {body: {"dataset": g["dataset"], "url": g["url"]} for body, g in GRIDS.items()},
         "fetched_at": fetched,
         "produced_by": script,
-        "note": "Elevation in metres. Mars: above the MOLA areoid. Moon: above a 1737.4 km sphere. "
-                "Grid cell is 1/16 degree, about 3.7 km on Mars and 1.9 km on the Moon at the equator.",
+        "note": "Elevation in metres above the MOLA areoid. Grid cell is 1/16 degree, about 3.7 km at the equator.",
         "targets": [{**t, "elevation_m": grid_value(grids[t["body"]], t["body"], t["lat"], t["lon"])}
                     for t in TARGETS],
     })

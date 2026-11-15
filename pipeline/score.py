@@ -1,4 +1,4 @@
-"""Score Earth candidates against Moon and Mars targets and write data/analogs.json.
+"""Score Earth candidates against Mars targets and write data/analogs.json.
 
 AI-generated: written by Claude (Anthropic) on 2026-11-14. Review before use.
 The variables, weights, targets and candidates are the team's choices and live

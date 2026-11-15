@@ -89,7 +89,7 @@ async function main() {
       el('td', {}, s.checked === 'team data' ? el('b', { class: 'tag read', text: 'our data' }) : tag(level(s.checked)))))));
 
   document.getElementById('source-stats').replaceChildren(
-    stat(9, 'NASA datasets and services'),
+    stat(8, 'NASA datasets and services'),
     stat(2, 'ESA Copernicus datasets'),
     stat(rows.length + reportRows.length, 'study and source links'),
     stat(count('read'), 'study sources opened, read and supporting'));

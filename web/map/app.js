@@ -1,4 +1,4 @@
-// Map page: ranks Earth sites against a Moon or Mars target and shows why each matches.
+// Map page: ranks Earth sites against a Mars target and shows why each matches.
 // AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-14. Review before use.
 //
 // Everything on the page is read from data/analogs.json (shape in data/SCHEMA.md).

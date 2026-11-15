@@ -10,7 +10,7 @@ Written by `pipeline/`, read by `web/`.
     {
       "id": "jezero",                        // short, lowercase, no spaces
       "name": "Jezero Crater",
-      "body": "mars",                        // "mars" or "moon"
+      "body": "mars",                        // the planet the target is on
       "lat": 18.38,
       "lon": 77.58,
       "features": { "feature_name": number, ... }

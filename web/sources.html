@@ -3,7 +3,8 @@
   Twin Shores: sources and credits.
   AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-15 at the
   team's request. The study list is filled by map/sources.js from data/analogs.json
-  and data/salda_report.json; the other tables mirror SUBMISSION.md sections 7 and 8.
+  and data/salda_report.json; the other tables list what the pipeline and the
+  website load.
 -->
 <html lang="en">
 <head>
@@ -40,7 +41,7 @@
     <div class="lede">
       <div class="eyebrow">Sources and credits</div>
       <h2>Every dataset, library, study and image this project uses</h2>
-      <p>Nine NASA datasets and services supply the measured numbers and the terrain. ESA's Copernicus programme supplies a second elevation model and the satellite map. Published studies supply the water, mineral and sediment evidence, each linked below with how closely it was read.</p>
+      <p>Eight NASA datasets and services supply the measured numbers and the terrain. ESA's Copernicus programme supplies a second elevation model and the satellite map. Published studies supply the water, mineral and sediment evidence, each linked below with how closely it was read.</p>
       <div class="stats" id="source-stats"></div>
     </div>
 
@@ -54,7 +55,6 @@
             <tr><td><b>ASTER Global Digital Elevation Model</b>, NASA and Japan's METI</td><td>Terrain slope at each Earth place, read through the OpenTopoData API</td><td><a href="https://www.earthdata.nasa.gov/data/instruments/aster">earthdata.nasa.gov</a></td></tr>
             <tr><td><b>Mars Global Surveyor MOLA MEGDR</b>, products MEGT90N000EB and MEGT44N000HB, NASA PDS Geosciences Node</td><td>Jezero Crater elevation, slope and terrain profile; the Jezero terrain in the 3D view</td><td><a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">pds-geosciences.wustl.edu</a></td></tr>
             <tr><td><b>SRTM 1 arc second</b>, tiles N37E029 and N38E043</td><td>Terrain of Lake Salda and Lake Van in the 3D view and the Salda study; tiles taken from AWS Terrain Tiles, which redistributes SRTM</td><td><a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003">earthdata.nasa.gov</a></td></tr>
-            <tr><td><b>LRO LOLA GDR</b>, product LDEM_16, NASA PDS Geosciences Node</td><td>Elevation at two Moon targets, fetched early on; the final project covers Mars only</td><td><a href="https://pds-geosciences.wustl.edu/missions/lro/lola.htm">pds-geosciences.wustl.edu</a></td></tr>
             <tr><td><b>NSSDCA Mars Fact Sheet</b>, NASA Goddard</td><td>Mars temperature and surface pressure used as the Jezero values</td><td><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">nssdc.gsfc.nasa.gov</a></td></tr>
             <tr><td><b>NASA Planetary Analog Explorer</b></td><td>The known Earth analogs used to test the ranking, Lake Salda among them</td><td><a href="https://science.nasa.gov/solar-system/analog-explorer/">science.nasa.gov</a></td></tr>
             <tr><td><b>NASA Mars Trek</b> map tiles: MGS MOLA colour shaded relief, MRO CTX mosaic of Jezero</td><td>The Jezero map on the Lake Salda page</td><td><a href="https://trek.nasa.gov/mars/">trek.nasa.gov</a></td></tr>
@@ -146,7 +146,7 @@
         <ul>
           <li>Every map and terrain image on this site is drawn live from the data above: NASA, ESA Copernicus and OpenStreetMap tiles, and NASA SRTM and MOLA elevation.</li>
           <li>The pictures in the <a href="../demo/slides.pdf">slides</a> are screenshots of this website.</li>
-          <li>No AI-generated images, video or audio are used anywhere in the project.</li>
+          <li>No AI-generated pictures, video or audio. The one exception is the site icon, two plain circles that Claude wrote as SVG code; it is labelled as AI-generated in its file.</li>
           <li>No photos of people, and no NASA logos or mission insignia.</li>
         </ul>
       </div>
@@ -171,6 +171,6 @@
     <span>Code written with AI assistance (Claude); see <a href="https://github.com/2naydennis/Twin-Shores#ai-use">AI use</a></span>
   </footer>
 
-  <script type="module" src="map/sources.js?v=1115c"></script>
+  <script type="module" src="map/sources.js?v=1115d"></script>
 </body>
 </html>
