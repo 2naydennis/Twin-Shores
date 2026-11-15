@@ -1,11 +1,12 @@
 # Twin Shores
 
-NASA Space Apps Challenge project: find places on Earth that resemble a Mars
-landing site, and show why they match.
+Where on Earth does Mars's Jezero Crater have a twin? A NASA Space Apps
+Challenge 2026 project that scores lakes against Jezero with NASA and ESA data
+and published studies, and shows why each one matches.
 
 **Live site:** https://2naydennis.github.io/Twin-Shores/ ·
 **Lake Salda vs Jezero:** https://2naydennis.github.io/Twin-Shores/web/salda.html ·
-**Rover drive:** https://2naydennis.github.io/Twin-Shores/web/rover.html ·
+**3D terrain:** https://2naydennis.github.io/Twin-Shores/web/rover.html ·
 **Demo slides:** https://2naydennis.github.io/Twin-Shores/demo/slides.pdf
 
 ## Run it yourself
@@ -91,75 +92,35 @@ How to read it, and what it does not show, is in
 different numbers of variables, the literature-based matches are proposals
 awaiting the team's check, and no place on Earth matches Mars's air pressure.
 
-## What we are building
+## What is in the project
 
-**1. Global analog search (the core).**
-Each target site on the Moon or Mars is described by a set of features:
-temperature, aridity, terrain, rock type, and so on. The pipeline computes the
-same features for Earth locations and scores how closely each one matches each
-target. The web app shows the best matches on a map with a per-feature
-breakdown.
+| Part | What it does | Where |
+|------|--------------|-------|
+| Map | 70 places ranked against Jezero, with every variable and its source | [web/](https://2naydennis.github.io/Twin-Shores/web/) |
+| Lake Salda page | Salda beside Jezero: orbit views, basin shape, evidence, field-test plan | [web/salda.html](https://2naydennis.github.io/Twin-Shores/web/salda.html) |
+| Method and results | Scoring rule, live weight sliders, robustness tests, limits | [web/method.html](https://2naydennis.github.io/Twin-Shores/web/method.html) |
+| 3D terrain | Drive Salda, Van and Erçek, and Jezero on NASA elevation data; two labelled simulations | [web/rover.html](https://2naydennis.github.io/Twin-Shores/web/rover.html) |
+| Pipeline | Python scripts that fetch NASA and ESA data, score places and test the ranking | `pipeline/` |
+| Data | Scores, robustness results, field cards | `data/` |
+| Slides | The 7-slide demo | `demo/slides.pdf` |
 
-**2. Lake Salda vs Jezero Crater (the featured case study).**
-One analog examined in depth: Lake Salda in Burdur, Türkiye, against Jezero
-Crater on Mars. A side-by-side page with:
+![The Twin Shores map with Lake Salda selected](demo/img/map.jpg)
 
-- a comparison table (water history, minerals, rock type, sediments,
-  microbialites)
-- terrain profiles of both sites
-- a present-day environment chart (temperature, pressure, radiation) that
-  also shows where the analogy stops
-
-**3. Validation.**
-The search should rank known analogs highly without being told about them:
-Lake Salda for Jezero, the Atacama and the Antarctic Dry Valleys for Mars in
-general. Sites already documented as analogs are flagged `known_analog` in the
-data so the app can show which results are rediscoveries and which are new
-candidates.
-
-## What we are not building
-
-Cut to fit the time available. Explain these with a diagram and citations
-instead of simulating them:
-
-- mineral precipitation chemistry
-- sediment transport and delta formation
-- microbialite growth
-
-## Two caveats to keep in every slide
+## Two caveats that apply everywhere
 
 - Salda is an analog for the ancient lake and carbonate setting at Jezero, not
   for Mars as a whole.
 - Salda today and Jezero 3.5 billion years ago are different time frames. No
-  place on Earth reproduces Mars or Moon gravity, pressure, or radiation.
+  place on Earth reproduces Mars's gravity, pressure or radiation.
 
-## Layout
+## Team
 
-| Folder      | Owner        | Contents                                              |
-|-------------|--------------|-------------------------------------------------------|
-| `pipeline/` | `2naydennis` | Python code that fetches data and scores sites        |
-| `web/`      | `Kranimo`    | Map, site detail cards, Salda vs Jezero page          |
-| `data/`     | `2naydennis` | `analogs.json`, written by the pipeline, read by the web app |
+Team Physics, Türkiye, NASA Space Apps Challenge 2026 (Universal Event):
+Tunay Dennis Diederich, Karan Kaya, Adrina Shakeri Bahador; teacher Ayşegül
+Çağlayan.
 
-`data/analogs.json` is the only file both sides depend on. Its shape is
-described in [data/SCHEMA.md](data/SCHEMA.md). Agree any change to that shape
-in chat before making it.
-
-Swap the owners if you prefer; just keep one owner per folder.
-
-## Working together
-
-Pull before you start and before you push:
-
-```bash
-git pull --rebase
-git add .
-git commit -m "short description of the change"
-git push
-```
-
-Stay inside your own folder. If you need to edit a shared file (this README,
-the schema), tell the other person first.
+`data/analogs.json` is the one file the pipeline writes and the website reads.
+Its shape is described in [data/SCHEMA.md](data/SCHEMA.md).
 
 ## AI use
 
@@ -213,17 +174,7 @@ Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources
 
-List every dataset here as you add it, with a link. Judges look for this.
-Open each source and confirm it says what you claim before citing it.
-
-Planned (links and details in [SUBMISSION.md](SUBMISSION.md), section 7):
-
-- NASA POWER: Earth temperature, solar radiation, precipitation
-- NASA SRTM or Copernicus DEM: Earth terrain, Salda profile
-- MOLA: Mars terrain, Jezero profile
-- LRO (LOLA, Diviner): Moon terrain and surface temperature
-- NASA Planetary Analog Explorer: known analogs to validate against
-- NASA Earth Observatory and NASA Science articles on Lake Salda and Jezero
+Full list with links and licences: [SUBMISSION.md](SUBMISSION.md), sections 7 and 8.
 
 In use (fetched by `pipeline/fetch_nasa.py`, stored in `data/nasa/`):
 

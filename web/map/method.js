@@ -37,8 +37,8 @@ try {
   document.getElementById('n-draws').textContent = sensitivity.random_weights.draws.toLocaleString('en');
 
   table('top-table',
-    [['Rank', 'num'], ['Place', ''], ['Score', 'num'], ['Variables', 'num'], ['Status', '']],
-    places.slice(0, 10).map((p, i) => [String(i + 1), p.name, p.score.toFixed(3), p.coverage.replace(' variables', ''),
+    [['Rank', 'num'], ['Place', ''], ['Country', ''], ['Score', 'num'], ['Variables', 'num'], ['Status', '']],
+    places.slice(0, 10).map((p, i) => [String(i + 1), p.name, p.country, p.score.toFixed(3), p.coverage.replace(' variables', ''),
       p.known_analog ? el('span', { class: 'tag known', text: 'Listed by NASA' }) : el('span', { class: 'tag', text: 'Candidate' })]));
 
   table('var-table',
