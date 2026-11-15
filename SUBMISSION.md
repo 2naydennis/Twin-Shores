@@ -107,10 +107,10 @@ site; it must be hosted elsewhere.
       request
 
 Link (public since 2026-11-14, opened without login and returned the PDF):
-https://2naydennis.github.io/analog-finder/demo/slides.pdf
+https://2naydennis.github.io/Twin-Shores/demo/slides.pdf
 
 Same file on GitHub:
-https://github.com/2naydennis/analog-finder/blob/main/demo/slides.pdf
+https://github.com/2naydennis/Twin-Shores/blob/main/demo/slides.pdf
 
 The 7-slide deck is `demo/slides.pdf`, built by
 `demo/build_slides.py` from the scored data. Before using it:
@@ -150,9 +150,9 @@ could become (0:20 to 0:30).
 
 Links (public since 2026-11-14, each opened without login on that day):
 
-- Live website: https://2naydennis.github.io/analog-finder/
-- Rover drive: https://2naydennis.github.io/analog-finder/web/rover.html
-- Code and data: https://github.com/2naydennis/analog-finder
+- Live website: https://2naydennis.github.io/Twin-Shores/
+- Rover drive: https://2naydennis.github.io/Twin-Shores/web/rover.html
+- Code and data: https://github.com/2naydennis/Twin-Shores
 
 The website is served by GitHub Pages from the `main` branch, so every push
 updates it within a minute or two. Use the live website as the "Link to Final

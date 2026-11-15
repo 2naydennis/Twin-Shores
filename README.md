@@ -3,10 +3,10 @@
 NASA Space Apps Challenge project: find places on Earth that resemble a Mars
 landing site, and show why they match.
 
-**Live site:** https://2naydennis.github.io/analog-finder/ ·
-**Lake Salda vs Jezero:** https://2naydennis.github.io/analog-finder/web/salda.html ·
-**Rover drive:** https://2naydennis.github.io/analog-finder/web/rover.html ·
-**Demo slides:** https://2naydennis.github.io/analog-finder/demo/slides.pdf
+**Live site:** https://2naydennis.github.io/Twin-Shores/ ·
+**Lake Salda vs Jezero:** https://2naydennis.github.io/Twin-Shores/web/salda.html ·
+**Rover drive:** https://2naydennis.github.io/Twin-Shores/web/rover.html ·
+**Demo slides:** https://2naydennis.github.io/Twin-Shores/demo/slides.pdf
 
 ## Run it yourself
 

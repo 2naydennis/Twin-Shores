@@ -40,7 +40,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "rover" / "terrain"
-CACHE = Path(os.environ.get("TERRAIN_CACHE", Path(tempfile.gettempdir()) / "analog-finder-terrain"))
+CACHE = Path(os.environ.get("TERRAIN_CACHE", Path(tempfile.gettempdir()) / "twin-shores-terrain"))
 GRID = {"salda": 513, "jezero": 257, "van": 513}   # Salda: SRTM has 649 source cells across, so 513 is real detail.
                                      # Jezero: MOLA has only 139, so more grid would add nothing.
 
@@ -70,7 +70,7 @@ JEZERO = {
 
 
 def get(url, byte_range=None):
-    headers = {"User-Agent": "analog-finder"}
+    headers = {"User-Agent": "twin-shores"}
     if byte_range:
         headers["Range"] = f"bytes={byte_range[0]}-{byte_range[1]}"
     request = urllib.request.Request(url, headers=headers)

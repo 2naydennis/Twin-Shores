@@ -148,7 +148,7 @@ slides = [
     f"""<h2>We scored 70 lakes and sites against Jezero</h2>
 <img class="shot" src="img/map.jpg" alt="The Twin Shores map page with Lake Salda selected">
 <p class="small">{len(lakes)} lakes in Türkiye, {len([r for r in rows if r["country"] != "Türkiye" and not r["known_analog"]])} lakes from other countries and {len([r for r in known if r["country"] != "Türkiye"])} known analog sites, on ESA Sentinel-2 imagery. Click a lake and you see each variable
-next to Jezero's value, with the source behind it. Try it: 2naydennis.github.io/analog-finder</p>""",
+next to Jezero's value, with the source behind it. Try it: 2naydennis.github.io/Twin-Shores</p>""",
 
     f"""<h2>What we found</h2>
 {bar_chart()}
@@ -193,7 +193,7 @@ _unused = [
 <li>Lakes beyond Türkiye</li>
 <li>A Moon version with its own variables</li></ul>
 </div></div>
-<p class="small">Code and data: github.com/2naydennis/analog-finder. AI tools wrote much of the code and drafted text;
+<p class="small">Code and data: github.com/2naydennis/Twin-Shores. AI tools wrote much of the code and drafted text;
 every use is listed in the repository.</p>""",
 ]
 
