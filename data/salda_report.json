@@ -1,0 +1,180 @@
+{
+  "produced_by": "Text drafted by AI (Claude, Anthropic) on 2026-11-15 from the sources listed here, for the team to check and rewrite. Numbers in double braces are filled in by the web page from data/salda_study.json, data/nasa/earth_climate.json and data/analogs.json, so they always match the data.",
+  "question": "How can what is observed at Lake Salda today help scientists read the ancient lake at Jezero Crater, and where does the comparison stop?",
+  "classes": {
+    "measured": { "label": "Measured", "mark": "●", "what": "Measured on site or on samples: field studies at Salda, rover instruments at Jezero, weather records." },
+    "remote": { "label": "Remote sensing", "mark": "◐", "what": "Seen from orbit or from an elevation model, not touched: SRTM, MOLA, orbital spectra and images." },
+    "model": { "label": "Model", "mark": "◇", "what": "Calculated by us from data, or reconstructed from evidence. It depends on assumptions." },
+    "unknown": { "label": "Hypothesis or unknown", "mark": "○", "what": "Proposed, inferred, or not known. Not established." }
+  },
+  "frames": {
+    "ancient": "Salda today compared with Jezero's ancient lake",
+    "today": "Salda today compared with Mars today",
+    "process": "A process seen at Salda compared with one reconstructed at Jezero"
+  },
+  "sources": {
+    "nasa_eo": { "label": "NASA Earth Observatory, Lake Salda and Jezero", "url": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/", "checked": "read" },
+    "braithwaite": { "label": "Braithwaite and Zedef, Hydromagnesite stromatolites and sediments in an alkaline lake, Salda Gölü (abstract)", "url": "https://acikerisim.selcuk.edu.tr/items/4b14a735-8307-4420-923a-da9ed5f446db/full", "checked": "read" },
+    "balci": { "label": "Balci and others 2020, Geomicrobiology Journal (abstract)", "url": "https://research.itu.edu.tr/en/publications/biotic-and-abiotic-imprints-on-mg-rich-stromatolites-lessons-from/", "checked": "read" },
+    "iugs": { "label": "IUGS Geoheritage, Mars analog of Lake Salda", "url": "https://iugs-geoheritage.org/?p=10689", "checked": "read" },
+    "mastcam": { "label": "Mastcam-Z team 2022, geology of Jezero's crater floor, Science Advances", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9683734", "checked": "read" },
+    "jpl": { "label": "NASA JPL, Perseverance fords an ancient river (June 2024)", "url": "https://www.jpl.nasa.gov/news/nasas-perseverance-fords-an-ancient-river-to-reach-science-target", "checked": "read" },
+    "nasa_lake": { "label": "NASA, Perseverance deciphers ancient history of Martian lake (2023)", "url": "https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-deciphers-ancient-history-of-martian-lake", "checked": "read" },
+    "ph_2019": { "label": "Environmental Monitoring and Assessment 2019, Lake Salda water", "url": "https://link.springer.com/doi/10.1007/s10661-019-7889-y", "checked": "summary" },
+    "ph_2023": { "label": "MDPI Water 2023, Lake Salda stromatolites", "url": "https://mdpi.com/2073-4441/15/4/733", "checked": "summary" },
+    "depth": { "label": "Wikipedia, Lake Salda (area and depth figures)", "url": "https://en.wikipedia.org/wiki/Lake_Salda", "checked": "summary" },
+    "garczynski": { "label": "Garczynski, NASA Astrobiology project report on Lake Salda", "url": "https://astrobiology.nasa.gov/uploads/filer_public/29/d1/29d15953-db5c-4e96-aff3-e190686acfa3/report_lc_garczynski_project.pdf", "checked": "summary" },
+    "landsat": { "label": "Landsat study of Lake Salda, 2004 to 2024", "url": "https://dergipark.org.tr/en/pub/ejar/article/1731381", "checked": "summary" },
+    "mars_fact": { "label": "NASA NSSDCA Mars Fact Sheet", "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html", "checked": "team data" },
+    "power": { "label": "NASA POWER climatology, in data/nasa/earth_climate.json", "url": "https://power.larc.nasa.gov/", "checked": "team data" },
+    "ours": { "label": "Our basin analysis, pipeline/salda_study.py, on NASA SRTM and MOLA", "url": "https://github.com/2naydennis/-Twin-Shores/blob/main/pipeline/salda_study.py", "checked": "ours" }
+  },
+  "sections": [
+    {
+      "id": "geology", "title": "Geology",
+      "rows": [
+        { "topic": "Kind of basin", "frame": "ancient",
+          "salda": { "text": "A closed basin: no river leaves it. In the SRTM elevation data the lake would have to rise {{S.spill.above_lake_m}} m before it overflowed.", "class": "model", "sources": ["ours"] },
+          "jezero": { "text": "An impact crater formed almost 4 billion years ago, which later held a lake fed by a river. In the MOLA data the lowest gap in its rim is at {{J.spill.level_m}} m.", "class": "remote", "sources": ["nasa_lake", "ours"] } },
+        { "topic": "Rocks around the lake", "frame": "ancient",
+          "salda": { "text": "Rimmed on three sides by serpentinite and on the fourth by dolomite. Serpentinite is altered, magnesium-rich ultramafic rock.", "class": "measured", "sources": ["braithwaite", "iugs"] },
+          "jezero": { "text": "The crater floor is igneous: Séítah is an olivine-rich rock that settled in a body of magma, and Máaz has textures of lava flows. Olivine is also magnesium-rich.", "class": "measured", "sources": ["mastcam"] } },
+        { "topic": "How sediment reaches the lake", "frame": "process",
+          "salda": { "text": "Most water arrives through gravelly alluvial fan deltas made mainly of serpentinite pebbles. Our analysis places the largest stream inlets on the south-west, north-west and south-east shores.", "class": "measured", "sources": ["braithwaite", "nasa_eo", "ours"] },
+          "jezero": { "text": "A river delta on the western side, fed by the Neretva Vallis channel; later, fast water carried boulders onto it. Our analysis places the largest inlets on the north-west side.", "class": "remote", "sources": ["nasa_lake", "jpl", "ours"] } }
+      ]
+    },
+    {
+      "id": "physics", "title": "Physics: shape and size",
+      "rows": [
+        { "topic": "Lake surface and area", "frame": "ancient",
+          "salda": { "text": "Surface at {{S.lake.level_m}} m. The flat lake surface in SRTM covers {{S.lake.area_km2}} km². Published figures give about 43 to 44 km² and a greatest depth of 196 m; SRTM cannot see the bed.", "class": "remote", "sources": ["ours", "depth"] },
+          "jezero": { "text": "No lake today. Filled to {{J.lake.level_m}} m, just under the lowest gap in the rim, the basin would hold a lake of {{J.lake.area_km2}} km², about {{ratio.area}} times Salda's.", "class": "model", "sources": ["ours"] } },
+        { "topic": "Room to rise", "frame": "process",
+          "salda": { "text": "Between today's level and overflow the lake could grow to {{S.spill.lake_area_at_spill_km2}} km² and hold {{S.curve_end.volume_km3}} km³ more water.", "class": "model", "sources": ["ours"] },
+          "jezero": { "text": "From its floor to overflow the basin holds about {{J.curve_end.volume_km3}} km³. Studies suggest the lake often stood below its outlet.", "class": "model", "sources": ["ours"] } },
+        { "topic": "Slope of the land", "frame": "today",
+          "salda": { "text": "Half the land around the lake is steeper than {{S.slope.median_deg}}°, measured over about half a kilometre.", "class": "remote", "sources": ["ours"] },
+          "jezero": { "text": "Half the map is steeper than {{J.slope.median_deg}}°, measured the same way. Jezero is much flatter.", "class": "remote", "sources": ["ours"] } },
+        { "topic": "Catchment inside the map", "frame": "today",
+          "salda": { "text": "{{S.catchment.area_km2}} km² drains to the lake, {{S.catchment.times_lake_area}} times the lake's own area.", "class": "model", "sources": ["ours"] },
+          "jezero": { "text": "{{J.catchment.area_km2}} km² inside our 64 km map. The real catchment is far larger: its rivers start well outside the map.", "class": "model", "sources": ["ours"] } }
+      ]
+    },
+    {
+      "id": "chemistry", "title": "Chemistry",
+      "rows": [
+        { "topic": "Water pH", "frame": "ancient",
+          "salda": { "text": "Alkaline: measured between 9.08 and 9.52 in two studies.", "class": "measured", "sources": ["ph_2019", "ph_2023"] },
+          "jezero": { "text": "Not known. No pH has been measured for the ancient lake; alkaline water is inferred from its carbonates.", "class": "unknown", "sources": [] } },
+        { "topic": "Carbonate minerals", "frame": "ancient",
+          "salda": { "text": "The white shore is sand and gravel dominated by hydromagnesite, a hydrated magnesium carbonate.", "class": "measured", "sources": ["nasa_eo", "iugs"] },
+          "jezero": { "text": "Hydrated magnesium carbonates were identified from orbit in what may be old lake deposits. On the ground, the rover found olivine partly altered to carbonate, and a carbonate and olivine-rich Margin Unit inside the rim.", "class": "remote", "sources": ["balci", "mastcam", "jpl"] } },
+        { "topic": "Where the magnesium comes from", "frame": "process",
+          "salda": { "text": "From the serpentinite around the lake, washed in through the fan deltas.", "class": "measured", "sources": ["braithwaite"] },
+          "jezero": { "text": "Probably from olivine-rich rock. Whether Jezero's carbonates settled out of lake water or formed by altering olivine in place is still open.", "class": "unknown", "sources": ["mastcam"] } }
+      ]
+    },
+    {
+      "id": "biology", "title": "Biology",
+      "rows": [
+        { "topic": "Microbial structures", "frame": "ancient",
+          "salda": { "text": "Stromatolites are growing now along the shallow shore. Cyanobacteria that photosynthesise and bacteria that respire work closely together on the hydromagnesite, and the slime the mat produces helps the mineral form.", "class": "measured", "sources": ["balci"] },
+          "jezero": { "text": "No life, past or present, has been found on Mars. Finding structures like Salda's preserved in Jezero's rock is a hope of the mission, not a result.", "class": "unknown", "sources": ["nasa_eo"] } },
+        { "topic": "Where shore sediment comes from", "frame": "process",
+          "salda": { "text": "The hydromagnesite sediment on the shore is thought to have eroded from microbial mounds.", "class": "unknown", "sources": ["nasa_eo"] },
+          "jezero": { "text": "Unknown. This is what samples returned from the Margin Unit could test.", "class": "unknown", "sources": ["jpl"] } }
+      ]
+    },
+    {
+      "id": "climate", "title": "Climate today",
+      "note": "These rows compare the two places as they are now. They show where the comparison stops: Salda matches Jezero's ancient lake, not today's Mars.",
+      "rows": [
+        { "topic": "Temperature", "frame": "today",
+          "salda": { "text": "Yearly mean {{C.T2M}} °C, with extremes of {{C.T2M_MIN}} and {{C.T2M_MAX}} °C in the record.", "class": "measured", "sources": ["power"] },
+          "jezero": { "text": "About {{M.temperature}} °C. This is the average for the whole planet, not a measurement at Jezero.", "class": "measured", "sources": ["mars_fact"] } },
+        { "topic": "Air pressure", "frame": "today",
+          "salda": { "text": "{{C.PS}} kPa.", "class": "measured", "sources": ["power"] },
+          "jezero": { "text": "{{M.pressure}} kPa, planet-wide: under 1% of Salda's.", "class": "measured", "sources": ["mars_fact"] } },
+        { "topic": "Water", "frame": "today",
+          "salda": { "text": "Rain and snow of {{C.PRECTOTCORR}} mm a day on average, about {{C.rain_year}} mm a year. Satellite images show the lake shrinking since 2004.", "class": "measured", "sources": ["power", "landsat"] },
+          "jezero": { "text": "No liquid water at the surface.", "class": "measured", "sources": ["mars_fact"] } },
+        { "topic": "Sunlight", "frame": "today",
+          "salda": { "text": "{{C.ALLSKY_SFC_SW_DWN}} MJ per square metre a day reaches the ground.", "class": "measured", "sources": ["power"] },
+          "jezero": { "text": "Not in our data.", "class": "unknown", "sources": [] } }
+      ]
+    }
+  ],
+  "zones": [
+    { "letter": "A", "title": "The lake basin",
+      "salda": "The lake itself, {{S.lake.area_km2}} km² in SRTM.", "salda_class": "remote",
+      "jezero": "The basin filled to {{J.lake.level_m}} m: {{J.lake.area_km2}} km².", "jezero_class": "model",
+      "why": "Both are bowls that held standing water. Jezero's is about {{ratio.area}} times larger." },
+    { "letter": "B", "title": "Carbonate shore",
+      "salda": "The white hydromagnesite shore that rings the lake, with living stromatolites in the shallows.", "salda_class": "measured",
+      "jezero": "The Margin Unit: carbonate and olivine-rich rock along the inside of the rim. Its position on our map is approximate.", "jezero_class": "remote",
+      "why": "The closest match, and the reason NASA pairs the two. Sources: NASA Earth Observatory; NASA JPL." },
+    { "letter": "C", "title": "Stream inlets and their deltas",
+      "salda": "{{S.inlets.length}} inlets computed from SRTM. The largest drains {{S.inlets.0.upstream_km2}} km².", "salda_class": "model",
+      "jezero": "{{J.inlets.length}} inlets computed from MOLA. One lies a few kilometres north-west of Perseverance's landing site, the side where the western delta is.", "jezero_class": "model",
+      "why": "Deltas sort sediment and bury fine material, which is where traces of life keep best. The computed inlets are ours; the deltas themselves are reported by field and rover studies." },
+    { "letter": "D", "title": "Catchment",
+      "salda": "{{S.catchment.area_km2}} km² of mostly serpentinite hills draining to the lake.", "salda_class": "model",
+      "jezero": "{{J.catchment.area_km2}} km² inside the map; the full catchment lies far beyond it.", "jezero_class": "model",
+      "why": "The catchment supplies the magnesium. The outline is computed; the rock types come from published studies." },
+    { "letter": "E", "title": "Overflow point",
+      "salda": "Never reached: the lowest gap is {{S.spill.above_lake_m}} m above the lake, on the south-east side.", "salda_class": "model",
+      "jezero": "The lowest gap in the rim, at {{J.spill.level_m}} m on the south-east side in this grid. We did not confirm that it is the mapped outlet valley, Pliva Vallis.", "jezero_class": "model",
+      "why": "A real difference. Salda has stayed closed, so its water concentrates. Jezero overflowed at times, which flushes a lake." }
+  ],
+  "assessment": [
+    { "feature": "Hydromagnesite shore", "support": "strong",
+      "helps": "Shows how magnesium carbonate forms in an alkaline lake, and what it looks like to the instruments Perseverance carries.",
+      "why": "Measured at Salda; carbonates are seen at Jezero from orbit and by the rover.",
+      "limit": "Jezero's carbonate may have formed by altering olivine in place, not by settling out of lake water. Salda can only stand for the second.",
+      "sources": ["nasa_eo", "mastcam", "balci"] },
+    { "feature": "Living stromatolites", "support": "partial",
+      "helps": "Shows what a trace of life looks like inside magnesium carbonate: layering, clotted textures, remains of the microbial slime.",
+      "why": "Measured in detail at Salda. Nothing comparable has been found at Jezero.",
+      "limit": "Salda's are young. They cannot show what billions of years of burial and alteration do to such traces.",
+      "sources": ["balci", "garczynski"] },
+    { "feature": "Fan deltas from magnesium-rich hills", "support": "partial",
+      "helps": "A place to study where a small delta drops coarse and fine sediment, and to rehearse choosing sampling spots on one.",
+      "why": "Documented at Salda; Jezero's delta is confirmed by the rover. Our inlet analysis finds both from elevation data alone.",
+      "limit": "Scale. Jezero's lake was about {{ratio.area}} times larger and its rivers drained a region, not a ring of hills.",
+      "sources": ["braithwaite", "nasa_lake", "ours"] },
+    { "feature": "A basin that has stayed closed", "support": "partial",
+      "helps": "Shows how water chemistry builds up when nothing flows out, the condition Jezero is thought to have had for much of its life.",
+      "why": "Our analysis: Salda is {{S.spill.above_lake_m}} m short of overflowing. Jezero's rim has a gap that was reached.",
+      "limit": "Jezero did overflow at times. Those episodes have no counterpart at Salda.",
+      "sources": ["ours"] },
+    { "feature": "Serpentinite catchment", "support": "partial",
+      "helps": "Links the rock around a lake to the carbonate that forms in it, which is how Jezero's olivine-rich floor and its carbonates are being read.",
+      "why": "Measured at Salda. At Jezero the rock is identified by the rover; the link to the carbonate is still argued.",
+      "limit": "Serpentinite is olivine rock already altered by water. Jezero's Séítah is largely unaltered, so the chemistry starts from a different place.",
+      "sources": ["braithwaite", "iugs", "mastcam"] },
+    { "feature": "A falling lake level", "support": "proposal",
+      "helps": "As Salda's shore draws back, stromatolites are left dry. Following what happens to them over years would show how such structures weather once a lake goes, which is the state Jezero has been in for billions of years.",
+      "why": "Our suggestion. The falling level is reported; nobody, as far as we found, is using it this way.",
+      "limit": "A few years of drying under Earth's air and rain is not Mars. It would show the first step only.",
+      "sources": ["landsat"] }
+  ],
+  "support": {
+    "strong": "Strong: measured at Salda and observed at Jezero",
+    "partial": "Partial: measured at Salda, inferred or disputed at Jezero",
+    "proposal": "Proposal: our own suggestion, not yet tested"
+  },
+  "cannot": [
+    "Air pressure: every place on Earth has more than 100 times Jezero's.",
+    "Cold, dryness and radiation at the surface of Mars today.",
+    "Time: Salda's deposits are young, Jezero's are about 3.5 billion years old and have been buried, altered and eroded.",
+    "Size: Jezero's lake and catchment were far larger.",
+    "Whether there was life. Salda shows what to look for, not what will be found."
+  ],
+  "recommendations": [
+    "Sample one fan delta at Salda from its top to the lake, and record where the finest sediment lies. That is the question Perseverance faced on Jezero's delta.",
+    "Photograph and re-survey a marked set of stranded stromatolites each year while the lake level falls.",
+    "Research the unresearched lakes near Salda before any fieldwork. Several within 50 km have no published evidence in our data.",
+    "Measure pH and magnesium at each computed inlet, to test whether the largest catchments deliver the most magnesium."
+  ]
+}

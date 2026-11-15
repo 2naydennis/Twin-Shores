@@ -36,7 +36,7 @@ export const LOOK = {
     sun: 0xffe2c0, sunStrength: 2.1, skyLight: 0xf0c8a0, groundLight: 0x5a3a26, ambient: 1.0,
     // "Terraform" view: a guess at Jezero about 3.5 billion years ago, when it held a lake.
     // Only the terrain and the water level come from data. level_m is just under the point
-    // where water would spill through the eastern outlet in this MOLA grid (about -2425 m).
+    // where water would spill over the lowest gap in the rim in this MOLA grid (about -2425 m, south-east side).
     // The sky, the colours and the life forms are imagined.
     ancient: {
       level_m: -2430, rise_m: 260,

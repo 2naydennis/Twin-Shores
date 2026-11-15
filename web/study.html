@@ -1,0 +1,226 @@
+<!doctype html>
+<!--
+  Lake Salda study: a scientific report, a comparative map and an assessment.
+  AI-generated: written by Claude (Anthropic, Claude Code) on 2026-11-15, in
+  answer to the team teacher's request for these three outputs. The text is in
+  data/salda_report.json and the analysis in data/salda_study.json; both are AI
+  drafts for the team to check.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lake Salda study · Twin Shores</title>
+<meta name="description" content="Lake Salda as a research site for Mars: a sourced scientific report, a comparative map of Salda and Jezero Crater, and an assessment of what Salda can and cannot contribute.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="map/style.css">
+<style>
+  .chip { display: inline-block; padding: 1px 7px; border: 1px solid var(--ink); border-radius: 2px; font: 500 10.5px/1.5 var(--mono);
+    letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; background: var(--surface); color: var(--ink); }
+  .chip-measured { background: var(--ink); color: #fff; }
+  .chip-model { border-style: dashed; }
+  .chip-unknown { border-color: var(--rule); color: var(--ink-2); }
+  #legend { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 13px; color: var(--ink-2); max-width: none; }
+  #legend li { margin: 0; }
+  .block { margin-top: 26px; }
+  .block h4 { font-size: 16px; font-weight: 600; margin: 0 0 6px; }
+  table.report th:first-child, table.report td:first-child { width: 17%; }
+  table.report th:nth-child(2), table.report td:nth-child(2) { width: 41.5%; }
+  td p { margin: 5px 0 0; max-width: 40em; }
+  .frame { display: block; margin-top: 3px; font-size: 11.5px; color: var(--ink-2); }
+  .src { display: block; margin-top: 4px; font-size: 11.5px; color: var(--ink-2); }
+  .src a { color: var(--ink-2); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .pair figure { margin: 0; }
+  .pair h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .pair canvas { display: block; width: 100%; height: auto; border: 1px solid var(--ink); background: var(--paper); }
+  .pair figcaption, .chart figcaption { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
+  .key { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 12.5px; color: var(--ink-2); max-width: none !important; }
+  .key li { margin: 0 !important; display: flex; align-items: center; gap: 7px; }
+  .swatch { width: 14px; height: 14px; border: 1px solid var(--ink); display: inline-block; }
+  .letter { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid var(--ink); border-radius: 50%; font: 600 11px var(--mono); background: #fff; }
+  .letter-e { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .sq { display: inline-grid; place-items: center; width: 16px; height: 16px; background: var(--ink); color: #fff; font: 600 10px var(--mono); }
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; }
+  .chart { margin: 0; }
+  .chart h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .chart text { font: 11px var(--mono); fill: var(--ink-2); }
+  .chart .axis-title { font-size: 10.5px; }
+  .chart .grid { stroke: var(--rule-soft); }
+  .chart .line { fill: none; stroke: var(--accent); stroke-width: 2; }
+  .chart .hit { fill: transparent; }
+  .chart .hit:hover { fill: var(--accent); fill-opacity: .25; }
+  .chart .mark { stroke: var(--ink); stroke-dasharray: 3 3; }
+  .chart .mark-label { fill: var(--ink); }
+  .chart .bar { fill: var(--ink); }
+  .chart .bar:hover { fill: var(--accent); }
+  .chart .value { fill: var(--ink); }
+  .support { display: inline-block; font: 500 11px/1.4 var(--mono); padding: 1px 0 1px 8px; border-left: 3px solid var(--ink); }
+  .support-partial { border-left-color: var(--ink-2); color: var(--ink-2); }
+  .support-proposal { border-left: 3px dashed var(--accent); color: var(--accent); }
+  .ask { background: var(--paper); border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 15px; }
+  #status { padding: 24px; font-size: 15px; }
+  #status[hidden] { display: none; }
+  @media (max-width: 900px) {
+    .pair, .charts, #legend { grid-template-columns: 1fr; }
+    table.report, table.report tbody, table.report tr, table.report td { display: block; width: auto !important; }
+    table.report thead { display: none; }
+    table.report td { border-bottom: 0; padding-right: 0; }
+    table.report tr { border-bottom: 1px solid var(--rule); padding: 8px 0; }
+    .wide { overflow-x: auto; }
+  }
+  @media print { .top nav, .foot { display: none; } .block, tr, figure { break-inside: avoid; } }
+</style>
+<script>
+  // GitHub Pages lets browsers keep files for 10 minutes; load this site's own script fresh. AI-generated (Claude), 2026-11-15.
+  (() => {
+    const stamp = '?v=' + Math.floor(Date.now() / 60000);
+    const imports = {};
+    for (const file of ['map/study.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
+    const map = document.createElement('script');
+    map.type = 'importmap';
+    map.textContent = JSON.stringify({ imports });
+    document.currentScript.after(map);
+  })();
+</script>
+</head>
+<body class="doc">
+  <header class="top">
+    <div class="brand">
+      <h1>Twin Shores</h1>
+      <span>Earth analogs for Jezero Crater, Mars</span>
+    </div>
+    <nav aria-label="Pages">
+      <a href="index.html">Map</a>
+      <a href="salda.html">Lake Salda</a>
+      <a href="study.html" aria-current="page">Salda study</a>
+      <a href="method.html">Method and results</a>
+      <a href="rover.html">3D terrain</a>
+      <a href="../demo/slides.pdf">Slides</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="lede">
+      <div class="eyebrow">Lake Salda as a research site · report, map and assessment</div>
+      <h2>What Lake Salda can teach us about Jezero Crater, and what it cannot</h2>
+      <p id="question"></p>
+      <p style="font-size:14px">Three parts: a scientific report by discipline, a comparative map of the two basins made with one method on both worlds, and our own assessment of which features of Salda are worth studying for Mars. Every statement carries a label saying how it is known.</p>
+    </div>
+
+    <div id="status">Loading the study…</div>
+
+    <section>
+      <h3><small>00</small>How each statement is known</h3>
+      <div class="body">
+        <ul id="legend"></ul>
+        <p class="muted" style="font-size:13px">A measurement on a lake shore and a detection from orbit are not equally certain, and Salda is a lake today while Jezero's lake is reconstructed from rock about 3.5 billion years old. Each row below says which kind of comparison it is. "Source read" means the text of the source was opened; "source not opened" means only a search summary of it was seen, and a person should still check it.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>01</small>Scientific report</h3>
+      <div class="body wide">
+        <div id="report"></div>
+        <div class="block">
+          <h4>Climate at Lake Salda through the year</h4>
+          <div class="charts">
+            <figure class="chart"><h4>Mean temperature by month</h4><div id="climate-temp"></div></figure>
+            <figure class="chart"><h4>Precipitation by month</h4><div id="climate-rain"></div></figure>
+          </div>
+          <p class="muted" style="font-size:13px">NASA POWER long-term averages for the grid cell that contains the lake. The cell is tens of kilometres wide, so the lake shore itself can differ.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>02</small>Comparative map</h3>
+      <div class="body">
+        <p>Both maps were made the same way from NASA elevation data: find the lake, find the land that drains into it, find where the largest streams enter, and find where the water would leave if it rose. The letters pair a zone at Salda with its counterpart at Jezero.</p>
+        <div class="pair">
+          <figure><h4>Lake Salda, Earth</h4>
+            <canvas id="map-salda" width="900" height="900" role="img" aria-label="Map of Lake Salda with its catchment, stream inlets and overflow point"></canvas></figure>
+          <figure><h4>Jezero Crater, Mars</h4>
+            <canvas id="map-jezero" width="900" height="900" role="img" aria-label="Map of Jezero Crater with its modelled lake, catchment, stream inlets and overflow point"></canvas></figure>
+        </div>
+        <ul class="key">
+          <li><span class="swatch" style="background:#3e7ec4"></span>Lake (Salda: today; Jezero: modelled)</li>
+          <li><span class="swatch" style="background:#a9a698"></span>Land that drains to the lake</li>
+          <li><span class="swatch" style="background:#d3d2cd"></span>Land that drains elsewhere</li>
+          <li><span class="sq">1</span>Stream inlets, largest first</li>
+          <li><span class="letter">A</span>Zones in the table</li>
+          <li><span class="letter letter-e">E</span>Overflow point</li>
+        </ul>
+        <p class="muted" style="font-size:13px" id="map-note"></p>
+        <div class="wide"><table id="zones"></table></div>
+        <div class="block">
+          <h4>Computed stream inlets</h4>
+          <div class="wide"><table id="inlets"></table></div>
+          <p class="muted" style="font-size:13px">Positions and areas are computed from the elevation grids, not surveyed. They count only land inside each map, so Jezero's figures are far smaller than its real river catchments.</p>
+        </div>
+        <div class="block">
+          <h4>How each lake grows as its level rises</h4>
+          <div class="charts">
+            <figure class="chart"><h4>Lake Salda, from today's level to overflow</h4><div id="curve-salda"></div>
+              <figcaption>SRTM records no lake bed, so the curve starts at today's surface.</figcaption></figure>
+            <figure class="chart"><h4>Jezero Crater, from its floor to overflow</h4><div id="curve-jezero"></div>
+              <figcaption>A model on MOLA. The floor includes a small later crater, which is why the curve starts low.</figcaption></figure>
+          </div>
+        </div>
+        <div class="block">
+          <h4>How steep the land is</h4>
+          <div class="charts">
+            <figure class="chart"><h4>Lake Salda: share of land in each slope class</h4><div id="slope-salda"></div></figure>
+            <figure class="chart"><h4>Jezero Crater: share of land in each slope class</h4><div id="slope-jezero"></div></figure>
+          </div>
+          <p class="muted" style="font-size:13px">Slope measured between points about half a kilometre apart on both worlds, so the two are comparable. Salda's lake surface is left out.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>03</small>Assessment: what Salda can contribute to Mars research</h3>
+      <div class="body">
+        <p>This part is our own judgement, built on the report and the map. For each feature of Salda it says what the feature could help scientists understand at Jezero, how well that is supported, and where the comparison stops.</p>
+        <div class="wide"><table id="assessment"></table></div>
+        <div class="block">
+          <h4>What Lake Salda cannot tell us</h4>
+          <ul id="cannot"></ul>
+        </div>
+        <div class="block">
+          <h4>What we would do next</h4>
+          <ul id="recommendations"></ul>
+          <p class="ask">These are suggestions from a desk study. None of us has done fieldwork at Lake Salda, and the lake is a protected area: any sampling needs permission.</p>
+        </div>
+        <div class="block">
+          <h4>The lakes around Salda</h4>
+          <p id="near-count"></p>
+          <div class="wide"><table id="nearby"></table></div>
+          <p class="muted" style="font-size:13px">From our ranking of places against Jezero (see <a href="method.html">Method and results</a>). A lake with no evidence entered is scored on climate and slope only, so its rank says little yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3><small>04</small>How this page was made</h3>
+      <div class="body">
+        <p>The basin analysis is a calculation on elevation grids, repeatable with one command. It is a model: the two grids differ in resolution, catchments are cut off at the map edge, and nothing was checked on the ground. The report text was drafted by an AI tool from the sources listed beside each statement, and needs the team's review.</p>
+        <p class="muted" style="font-size:13px" id="generated"></p>
+        <p class="muted" style="font-size:13px">To keep a copy, print this page to PDF from the browser.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>NASA Space Apps Challenge 2026 · Team Physics</span>
+    <span>Data: NASA SRTM, MOLA, POWER · published studies linked beside each statement</span>
+    <span>Code and text drafted with AI assistance (Claude)</span>
+  </footer>
+
+  <script type="module">import './map/study.js';</script>
+</body>
+</html>

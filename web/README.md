@@ -221,8 +221,9 @@ From evidence:
 - **A lake existed.** Perseverance found lake sediments and a river delta
   ([NASA](https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-deciphers-ancient-history-of-martian-lake)).
 - **The basin.** The ground is the same NASA MOLA elevation data. The water
-  is filled to -2,430 m, chosen because in this grid water spills through the
-  eastern outlet between -2,426 and -2,424 m. That gives a lake of about
+  is filled to -2,430 m, chosen because in this grid water spills over the
+  lowest gap in the rim, on the south-east side, at about -2,425 m. We did
+  not confirm that this gap is the mapped outlet valley, Pliva Vallis. That gives a lake of about
   1,180 square km. Studies suggest the lake often stood below its outlet, so
   one fixed level is a simplification.
 - **Carbonates.** `data/analogs.json` records carbonate minerals along the
@@ -285,6 +286,61 @@ Assumed or invented:
 To check before presenting: the sources were found through search summaries
 and their full texts were not opened. The settings are in `LOOK.salda.future`
 in `rover/terrain.js`.
+
+## Salda study (`study.html`)
+
+Made in answer to the team teacher's request for three outputs centred on
+Lake Salda. One page, three parts:
+
+1. **Scientific report.** Geology, physics, chemistry, biology and climate,
+   Lake Salda beside Jezero Crater. Every statement carries a label saying how
+   it is known (measured, remote sensing, model, hypothesis or unknown), the
+   kind of comparison it is (Salda today with ancient Jezero, today with
+   today, or a process), and its sources.
+2. **Comparative map.** Both basins drawn from NASA elevation data with one
+   method: the lake, the land that drains into it, the largest stream inlets
+   and the point where water would overflow. Lettered zones pair a part of
+   Salda with its counterpart at Jezero. Below it: how each lake's area grows
+   as its level rises, and how steep the land is.
+3. **Assessment.** Our own judgement of which features of Salda can help Mars
+   research, how well each is supported, where it stops, what Salda cannot
+   tell us, what we would do next, and the lakes around Salda in our ranking.
+
+Where it comes from:
+
+| File | What it is |
+|------|------------|
+| `study.html`, `map/study.js` | The page; draws everything from the files below |
+| `../data/salda_report.json` | The report text, with an evidence class and sources per statement. AI draft |
+| `../data/salda_study.json` | The basin analysis, written by `../pipeline/salda_study.py` |
+
+Numbers in the report text are written as `{{S.lake.area_km2}}` and filled in
+from the analysis, so the text cannot drift from the data.
+
+Main results of the analysis (models on elevation grids, not surveys):
+
+- Lake Salda's surface covers 40.6 square km in SRTM; 160 square km of land
+  inside the map drains to it; four stream inlets, the largest on the
+  south-west shore; the lake would have to rise 36 m to overflow, on the
+  south-east side.
+- Jezero filled to -2,430 m would hold a lake of 1,184 square km, about 29
+  times Salda's. The lowest gap in its rim in this grid is at -2,425 m on the
+  south-east side. We did not confirm that this is the mapped outlet valley.
+- Half the land around Salda is steeper than 6.6 degrees; at Jezero, 2.0.
+
+To check before presenting:
+
+- Eight sources were opened and read by the AI on 2026-11-15 and are marked
+  "source read". The rest are marked "source not opened" (pH, lake depth and
+  area, the Garczynski report, the Landsat study) and still need a person.
+- The report cites "Braithwaite and Zedef" from a repository record that
+  lists one author by name; confirm the authors before citing.
+- Catchments stop at the map edge. Jezero's real river catchments are far
+  larger than the figure shown.
+- Zone B at Jezero (the Margin Unit) is placed by eye on the western shore of
+  the modelled lake. Its true extent was not mapped here.
+- The assessment's "support" levels are our judgement, not a measurement.
+- Lake Salda is a protected area; the suggested fieldwork needs permission.
 
 ### AI use in this folder
 
