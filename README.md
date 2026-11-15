@@ -95,8 +95,10 @@ Three checks on this ranking (details in
 
 How to read it, and what it does not show, is in
 [pipeline/README.md](pipeline/README.md). In short: places are scored on
-different numbers of variables, the literature-based matches are proposals
-awaiting the team's check, and no place on Earth matches Mars's air pressure.
+different numbers of variables, the literature-based matches are AI proposals
+(the team has checked the 18 entries behind the top six places against their
+sources; the rest await a check), and no place on Earth matches Mars's air
+pressure.
 
 ## What is in the project
 
@@ -163,6 +165,7 @@ in the project.
 | 2026-11-15 | Claude (Anthropic, Claude Code) | Fix on the 3D page: in the ancient-Jezero view the evidence cards now describe the ancient lake instead of Mars today (`web/rover/game.js`, `web/rover/main.js`). The five ancient-era texts were written by the AI from NASA pages it opened (Perseverance lake history, MAVEN) and need the team's check |
 | 2026-11-15 | Claude (Anthropic, Claude Code) | Repository cleanup for judging, at the team's request: `SUBMISSION.md` (working notes and draft form answers) and six unused screenshots moved out of the public repo; the unused Moon targets and LOLA download removed from `pipeline/fetch_nasa.py` and `data/nasa/target_elevation.json`; `web/README.md` and `pipeline/README.md` rewritten; this README tidied; the AI-drawn site icon disclosed on the Sources and method pages |
 | 2026-11-15 | Claude (Anthropic, Claude Code), in Kranimo's session | Two additions to the Salda study page (`web/study.html`, `web/map/study.js`), suggested by the AI and accepted by the team: a figure placing Lake Salda's SRTM outline inside the modelled Jezero lake at one scale, and an "Observations only" switch that hides every statement labelled model or hypothesis and the figures built on the basin model. No data or text of the report changed |
+| 2026-11-15 | Claude (Anthropic, Claude Code) | Team review sheet (kept outside the repo) listing 26 AI-written items; Tunay Dennis Diederich opened the sources and confirmed 24. Recorded as `team_checked` on 18 judged entries in `pipeline/config.json` and `data/analogs.json`, shown as "Checked by the team" on the map and Sources page; the 3D ancient-card texts and the Jezero landing point marked checked. Not confirmed, so still labelled: Lake Van sediments, the method page's result paragraph, and every entry outside the top six |
 
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 

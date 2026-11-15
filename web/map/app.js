@@ -72,6 +72,13 @@ function evidenceTags(fact) {
   const unconfirmed = /entry not confirmed/i.test(fact.checked || '');   // the source was opened and does not support all of it
   tags.push(el('span', { class: direct ? 'tag ok' : 'tag todo', title: fact.checked || '',
     text: direct ? 'Source read directly' : unconfirmed ? 'Source opened: not confirmed' : 'From a summary, to verify' }));
+  // A team member opened the source and confirmed the entry (team review sheet, 2026-11-15).
+  if (fact.team_checked) {
+    tags.length = 0;
+    tags.push(el('span', { class: 'tag ok', title: fact.team_checked, text: 'Checked by the team' }));
+    if (/^AI/i.test(fact.proposed_by || '')) tags.push(el('span', { class: 'tag', title: fact.proposed_by, text: 'Match proposed by AI' }));
+    return tags;
+  }
   if (/^AI/i.test(fact.proposed_by || '')) tags.push(el('span', { class: 'tag todo', title: fact.proposed_by, text: 'Match proposed by AI' }));
   return tags;
 }

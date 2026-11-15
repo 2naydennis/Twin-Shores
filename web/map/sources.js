@@ -53,10 +53,11 @@ async function main() {
   const byUrl = new Map();
   for (const site of analogs.analogs) {
     for (const [variable, entry] of Object.entries(site.judged || {})) {
-      const lvl = level(entry.checked);
+      const lvl = entry.team_checked ? 'read' : level(entry.checked);
       const urls = [entry.source, ...(entry.also || []).map((a) => (typeof a === 'string' ? a : a?.source))].filter(Boolean);
       for (const url of urls) {
-        const row = byUrl.get(url) || { url, places: new Set(), variables: new Set(), level: 'summary' };
+        const row = byUrl.get(url) || { url, places: new Set(), variables: new Set(), level: 'summary', team: false };
+        if (entry.team_checked) row.team = true;
         row.places.add(site.name);
         row.variables.add(labels[variable] || variable);
         if (RANK[lvl] > RANK[row.level]) row.level = lvl;
@@ -75,10 +76,11 @@ async function main() {
       el('td', {}, el('a', { href: r.url, target: '_blank', rel: 'noopener', title: r.url, text: linkText(r.url) })),
       el('td', { text: [...r.places].join(', ') }),
       el('td', { text: [...r.variables].join(', ') }),
-      el('td', {}, tag(r.level))))));
+      el('td', {}, tag(r.level), r.team ? [' ', el('b', { class: 'tag read', text: 'team' })] : null)))));
   document.getElementById('study-caption').textContent =
     `${rows.length} sources behind the judged variables of ${places.size} places: ${count('read')} read, ` +
-    `${count('opened')} opened but not confirmed, ${count('summary')} seen only as a summary. ` +
+    `${count('opened')} opened but not confirmed, ${count('summary')} seen only as a summary; ` +
+    `${rows.filter((r) => r.team).length} checked by a team member. ` +
     `Built from data/analogs.json, generated ${analogs.generated_at.slice(0, 10)}.`;
 
   const reportRows = Object.values(report.sources);

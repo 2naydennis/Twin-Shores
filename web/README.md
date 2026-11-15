@@ -58,7 +58,8 @@ from the analysis, so the text cannot drift from the data.
   post stands is illustrative, because the data has no coordinates for
   individual facts. Every card says so.
 - The Jezero start point is meant to be Perseverance's landing site
-  (18.4447 N, 77.4508 E). The AI entered it from memory; it still needs a check.
+  (18.4447 N, 77.4508 E). The AI entered it from memory; checked by the team
+  (Tunay Dennis Diederich, 2026-11-15).
 
 ### Ancient Jezero (simulation)
 

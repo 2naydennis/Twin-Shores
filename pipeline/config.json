@@ -99,33 +99,37 @@
           "match": 1,
           "note": "Hydromagnesite shoreline, a carbonate similar to those detected at Jezero",
           "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly: NASA Earth Observatory page"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly: NASA Earth Observatory page",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "sediments": {
           "match": 1,
           "note": "Delta deposits and microbialites",
           "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly: NASA Earth Observatory page"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly: NASA Earth Observatory page",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "water": {
           "match": 1,
           "note": "A lake basin, like Jezero's former lake",
           "source": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly: NASA Earth Observatory page"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly: NASA Earth Observatory page",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "ph": {
           "match": 1,
           "note": "Measured pH 9.08 to 9.34 at the surface, 10 m and 20 m (2019); 9.26 to 9.52 in a 2023 stromatolite study; Mg-CO3-HCO3 water",
           "source": "https://link.springer.com/doi/10.1007/s10661-019-7889-y",
-          "proposed_by": "AI (Claude) from the cited sources on 2026-11-14; team to confirm",
+          "proposed_by": "AI (Claude) from the cited sources on 2026-11-14; checked by the team",
           "checked": "read directly on 2026-11-15 by AI (Claude): both papers opened: pH 9.08 and up in the 2019 abstract, 9.26 to 9.52 in the 2023 paper",
           "also": [
             "https://mdpi.com/2073-4441/15/4/733",
             "https://avesis.hacettepe.edu.tr/yayin/f1c79de7-49f8-4085-80cb-95c42c73b8b0/on-the-limnology-of-salda-lake-a-large-and-deep-soda-lake-in-southwestern-turkey-future-management-proposals"
-          ]
+          ],
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         }
       }
     },
@@ -472,15 +476,17 @@
           "match": 1,
           "note": "Closed-basin alkaline saline lake, pH about 9.1 (another source gives 8.9 to 9.5); sodium and sulfate dominate",
           "source": "https://gcris.yyu.edu.tr/items/4c10bea0-d0c8-448f-89e5-80589ca07188",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15: pH 9.1 on the source page; kept 1 because it is a direct measurement; the other source's 8.9 to 9.5 is noted"
         },
         "water": {
           "match": 1,
           "note": "Closed basin; the lake has lost nearly half its surface area",
           "source": "https://doaj.org/article/64e0cd3c676b46b29965288a1de6f01d",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -526,15 +532,17 @@
           "match": 1,
           "note": "pH 9.7, salinity 15 ppt, reported in a conference abstract (not a full paper)",
           "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "water": {
           "match": 1,
           "note": "Closed basin east of Lake Van, soda-type water",
           "source": "https://meetingorganizer.copernicus.org/EGU2017/EGU2017-15412.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly: text of the EGU2017-15412 abstract (Meydan et al.)",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -788,22 +796,25 @@
           "match": 1,
           "note": "Soda lake, pH about 9.7 to 9.8",
           "source": "https://link.springer.com/article/10.1007/s10498-008-9049-9",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: pH 9.73 and above"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: pH 9.73 and above",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "minerals": {
           "match": 0.5,
           "note": "Carbonate microbialites of aragonite and calcite: calcium carbonates, not the magnesium carbonate found at Salda",
           "source": "https://www.nature.com/articles/349605a0.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "water": {
           "match": 1,
           "note": "Terminal lake with no outlet; its salinity records past lake-level changes",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5428207",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the largest closed-basin lakes, endorheic for about 500,000 years"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the largest closed-basin lakes, endorheic for about 500,000 years",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "sediments": {
           "match": 1,
@@ -918,22 +929,25 @@
           "match": 1,
           "note": "Water of about pH 10",
           "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "minerals": {
           "match": 0.5,
           "note": "Tufa towers of calcium carbonate, not magnesium carbonate",
           "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "water": {
           "match": 1,
           "note": "Closed basin: water leaves only by evaporation or to groundwater, so salts build up",
           "source": "https://www.conservation.ca.gov/cgs/documents/publications/special-reports/sr_230-geogems-notes-lr/CGS_SR230_MonoLakeTufa_SNR_lr.pdf",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "search-result summary of the source; full text not opened",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
@@ -1040,29 +1054,33 @@
           "match": 0.5,
           "note": "Measured average pH 8.87, just under 9",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: the authors' average pH is 8.87"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: the authors' average pH is 8.87",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "minerals": {
           "match": 1,
           "note": "Microbialites made mainly of hydromagnesite, the magnesium carbonate found at Salda; water is magnesium-rich (Mg/Ca about 40)",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: microbialites of hydromagnesite with some huntite and calcite"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: microbialites of hydromagnesite with some huntite and calcite",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "water": {
           "match": 1,
           "note": "Deep alkaline crater lake, one of a group of salty endorheic (closed-basin) lakes",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the salty endorheic crater lakes of the Trans-Mexican Volcanic Belt"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the salty endorheic crater lakes of the Trans-Mexican Volcanic Belt",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         },
         "sediments": {
           "match": 1,
           "note": "Living microbialites from just below the surface down to 14 m depth",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237500",
-          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "read directly on 2026-11-15 by AI (Claude): article: living microbialites down to at least 14 m; dry ones emerge on the shore as the lake level falls"
+          "proposed_by": "AI (Claude) from the cited source on 2026-11-14; checked by the team",
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: living microbialites down to at least 14 m; dry ones emerge on the shore as the lake level falls",
+          "team_checked": "Tunay Dennis Diederich, 2026-11-15"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"

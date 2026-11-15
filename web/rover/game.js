@@ -30,7 +30,8 @@ const ZONE = {
 };
 // What a Jezero card says while the ancient-lake view is on. analogs.json holds
 // Mars today; these lines describe the crater when it held water. Written by
-// Claude (Anthropic) on 2026-11-15 from the linked pages; team to check.
+// Claude (Anthropic) on 2026-11-15 from the linked pages; checked by the team
+// (Tunay Dennis Diederich, 2026-11-15) against those pages.
 // `match: false` hides the match bar, because that score compares with Mars today.
 // A variable not listed keeps its normal card (pH, minerals and sediments
 // already describe the ancient lake).
