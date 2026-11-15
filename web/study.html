@@ -75,18 +75,6 @@
   }
   @media print { .top nav, .foot { display: none; } .block, tr, figure { break-inside: avoid; } }
 </style>
-<script>
-  // GitHub Pages lets browsers keep files for 10 minutes; load this site's own script fresh. AI-generated (Claude), 2026-11-15.
-  (() => {
-    const stamp = '?v=' + Math.floor(Date.now() / 60000);
-    const imports = {};
-    for (const file of ['map/study.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
-    const map = document.createElement('script');
-    map.type = 'importmap';
-    map.textContent = JSON.stringify({ imports });
-    document.currentScript.after(map);
-  })();
-</script>
 </head>
 <body class="doc">
   <header class="top">
@@ -221,6 +209,6 @@
     <span>Code and text drafted with AI assistance (Claude)</span>
   </footer>
 
-  <script type="module">import './map/study.js';</script>
+  <script type="module" src="map/study.js"></script>
 </body>
 </html>

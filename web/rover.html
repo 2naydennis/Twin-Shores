@@ -152,23 +152,36 @@
   @media (max-width: 820px), (max-height: 620px) { #minimap { display: none; } }
   #status { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; background: var(--paper); color: var(--ink); font-size: 15px; z-index: 4; }
   #status[hidden] { display: none; }
+  /* Phones (2026-11-15): a compact title card, small action buttons, and the view kept clear. */
+  @media (max-width: 820px) {
+    .top { padding: 8px 12px; gap: 4px 14px; }
+    .top .brand h1 { font-size: 15px; }
+    .top nav { font-size: 12.5px; gap: 14px; }
+    #info { top: 78px !important; left: 8px; width: min(210px, 58vw); padding: 8px 10px; }
+    #info .eyebrow, #site-place, #sim details { display: none; }
+    #info h2 { font-size: 15px !important; margin: 0 !important; }
+    #era { margin-top: 6px; padding-top: 6px; }
+    #terraform { padding: 7px 9px; font-size: 12.5px; animation: none; }
+    #terraform .t-sub, #terraform .t-tag { display: none; }
+    #terraform .t-arrow { font-size: 15px; }
+    #info button:not(#terraform) { padding: 6px 9px !important; font-size: 12px !important; }
+    #info button:not(#terraform) span:nth-child(2) { display: none; }
+    #switch { top: 78px !important; bottom: auto !important; right: 8px; font-size: 12px; padding: 6px 26px 6px 9px; max-width: 38vw; }
+    #readout { display: none; }
+    #controls { left: 8px; right: 8px; transform: none; width: auto; bottom: 8px; padding: 8px 10px; }
+    #help { display: none; }
+    #pad { right: 10px; bottom: 84px !important; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(2, 56px); }
+    #pad button { background: rgba(255, 255, 255, .88); }
+    #sim-badge { top: auto; bottom: 62px; font-size: 9.5px; padding: 4px 8px; }
+  }
 </style>
-<script>
-  // GitHub Pages lets browsers keep files for 10 minutes, so after an update a
-  // visitor could still run old code. This loads the site's own scripts with a
-  // stamp that changes every minute. AI-generated (Claude), 2026-11-14.
-  (() => {
-    const stamp = '?v=' + Math.floor(Date.now() / 60000);
-    const imports = {
-      three: 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js',
-      'three/addons/': 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/',
-    };
-    for (const file of ['rover/main.js', 'rover/terrain.js', 'rover/rover-model.js', 'rover/game.js', 'rover/scenery.js', 'rover/minimap.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
-    const map = document.createElement('script');
-    map.type = 'importmap';
-    map.textContent = JSON.stringify({ imports });
-    document.currentScript.after(map);
-  })();
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
 </script>
 </head>
 <body>
@@ -306,6 +319,15 @@
   </div>
 
   <div id="status">Loading terrain…</div>
-  <script type="module">import './rover/main.js';</script>
+  <script type="module" src="rover/main.js"></script>
+  <script>
+    // If the 3D code has not started after 15 seconds, say why instead of a blank screen. AI-generated (Claude), 2026-11-15.
+    setTimeout(function () {
+      var status = document.getElementById('status');
+      if (status && !status.hidden && /Loading/.test(status.textContent)) {
+        status.innerHTML = 'The 3D view could not start on this device or browser.<br>Try a recent Chrome, Safari or Firefox, or open the <a href="index.html">map</a> and the <a href="salda.html">Lake Salda page</a> instead.';
+      }
+    }, 15000);
+  </script>
 </body>
 </html>

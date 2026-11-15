@@ -37,18 +37,6 @@
   .ask { background: var(--paper); border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 15px; }
   @media (max-width: 820px) { .pair, .cards { grid-template-columns: 1fr; } .cards > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule-soft); } }
 </style>
-<script>
-  // GitHub Pages lets browsers keep files for 10 minutes; load this site's own script fresh. AI-generated (Claude), 2026-11-14.
-  (() => {
-    const stamp = '?v=' + Math.floor(Date.now() / 60000);
-    const imports = {};
-    for (const file of ['map/twin.js']) { const url = new URL(file, location.href).href; imports[url] = url + stamp; }
-    const map = document.createElement('script');
-    map.type = 'importmap';
-    map.textContent = JSON.stringify({ imports });
-    document.currentScript.after(map);
-  })();
-</script>
 </head>
 <body class="doc">
   <header class="top">
@@ -138,6 +126,6 @@
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module">import './map/twin.js';</script>
+  <script type="module" src="map/twin.js"></script>
 </body>
 </html>
