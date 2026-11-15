@@ -187,3 +187,12 @@ body.doc { background: var(--surface); }
   .sliders label { grid-template-columns: 120px 1fr 30px; }
   .twinmap { height: 300px !important; }
 }
+
+/* Phones: stop wide tables and maps from stretching the page past the screen. */
+@media (max-width: 820px) {
+  .doc section { grid-template-columns: minmax(0, 1fr) !important; }
+  .doc .body, .doc figure, .doc .lede { min-width: 0; max-width: 100%; }
+  .pair, .cards, .stats { grid-template-columns: minmax(0, 1fr) !important; }
+  .doc main { overflow-x: hidden; }
+  .doc img, .doc canvas, .doc svg { max-width: 100%; }
+}
