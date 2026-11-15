@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T12:14:05Z",
+  "generated_at": "2026-11-15T10:50:36Z",
   "produced_by": "pipeline/site_cards.py",
   "sources": {
     "access": "Wikidata (CC0)",
@@ -284,13 +284,13 @@
         {
           "evidence": "Alkaline water",
           "test": "Calibrate instruments that look for traces of life in alkaline, carbonate-rich settings, where Jezero's carbonates may have formed.",
-          "based_on": "Peer-reviewed measurements of about pH 8.8 to 8.9, just under 9",
-          "source": "https://www.nature.com/articles/ismej201381"
+          "based_on": "Measured average pH 8.87, just under 9",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8"
         },
         {
           "evidence": "Closed-basin lake and shoreline",
           "test": "Practise rover driving and terrain mapping on soft shoreline deposits and old lake terraces, then compare with Jezero's delta and margin.",
-          "based_on": "Deep alkaline crater lake in an endorheic (closed) basin with an arid climate",
+          "based_on": "Deep alkaline crater lake, one of a group of salty endorheic (closed-basin) lakes",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8"
         }
       ],

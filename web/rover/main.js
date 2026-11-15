@@ -431,6 +431,16 @@ if (futureUi.button) {
   futureUi.button.addEventListener('click', () => { futureTarget = futureTarget ? 0 : 1; showFuture(); futureUi.button.blur(); });
   futureUi.drop.addEventListener('input', showFuture);
 }
+// Phones: one button clears the panels off the view and brings them back.
+const uiToggle = $('ui-toggle');
+if (uiToggle) {
+  uiToggle.addEventListener('click', () => {
+    const bare = document.body.classList.toggle('bare');
+    uiToggle.setAttribute('aria-pressed', String(bare));
+    uiToggle.textContent = bare ? 'Show panels' : 'Hide panels';
+    uiToggle.blur();
+  });
+}
 const showSpeed = () => { ui.speedValue.textContent = `${ui.speed.value}×`; };
 ui.speed.addEventListener('input', showSpeed);
 showSpeed();

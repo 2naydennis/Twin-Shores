@@ -261,6 +261,41 @@ anything is known about its water or minerals.
 `site_cards.py` now looks up the nearest airport and large town around a site
 when it is outside Türkiye. Before, it searched Turkish airports only.
 
+### Source check, 2026-11-15
+
+Every judged entry whose source had not been read was looked at again. Of the
+73 entries, the source text of 40 has now been opened and supports the entry;
+they are marked `read directly`. No match value changed, so no score or rank
+moved.
+
+Corrected from the source: Lake Bacalar's pH is 7.7 to 8.2 and its
+microbialites are about 97% calcite; Lake Alchichica's pH entry now cites the
+paper that gives the average of 8.87; Great Salt Lake's mineral and sediment
+entries cite the open copy of the same paper.
+
+Twelve entries are marked `source opened ... entry not confirmed`, because the
+source does not say all of what the entry says. The team should decide these:
+
+| Place | Variable | What the source did and did not show |
+|-------|----------|--------------------------------------|
+| Lake Eber | pH | Nothing about alkaline or salty water on the page |
+| Lake Eber | Water body | Closed basin confirmed; the fall in level is not there |
+| Lake Köyceğiz | Water body | Meromictic and thermal confirmed; brackish tidal inflow is not there |
+| Great Salt Lake | pH | The cited paper does not give the lake's pH |
+| Lake Titicaca | Water body | The cited page lists it as an endorheic lake and does not mention an outflow |
+| Lake Uluabat | Water body | Shallow lake with an inflow confirmed; the outflow is not there |
+| Lake Çıldır | Water body | Freshwater confirmed; the lava dam is not there |
+| Lake Seyfe | Water body | Closed basin, area and 2008 drying are not in the abstract |
+| Lake Seyfe | pH | The link is dead |
+| Acı Göl | Water body | The page showed no text about the lake |
+| Lake Nazik | pH | pH was measured; no value or alkaline character in the abstract |
+| Lake Eğirdir | pH | pH was monitored; no value in the abstract |
+
+Twenty-one entries are still unread: their sources are PDFs, or the publisher's
+site refused the request (Mono Lake, Lake Tuz, Lake Burdur, Lake Hazar, Lake
+Acıgöl, Lake Bosumtwi, Pingualuit, and the mineral and sediment entries for
+Lake Van and Lake İznik). They keep the `search-result summary` mark.
+
 Limits to state wherever these results are shown:
 
 - Lake Van is not on NASA's Planetary Analog Explorer list, but it is not

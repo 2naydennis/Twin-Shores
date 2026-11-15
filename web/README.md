@@ -283,9 +283,12 @@ Assumed or invented:
   are drawn far larger than life.
 - Not shown: changes to water chemistry, land, rainfall or temperature.
 
-To check before presenting: the sources were found through search summaries
-and their full texts were not opened. The settings are in `LOOK.salda.future`
-in `rover/terrain.js`.
+Source check, 2026-11-15: the Landsat study, the shoreline study (Dereli and
+Tercan 2020, which reports a largest shoreline movement of 556 m between 1975
+and 2019), the three news reports and the Balci abstract were opened and say
+what the panel says. The METU thesis is a PDF and was not opened, so the "above
+90% of its largest extent" figure still rests on a search summary. The
+settings are in `LOOK.salda.future` in `rover/terrain.js`.
 
 ## Salda study (`study.html`)
 
@@ -330,17 +333,39 @@ Main results of the analysis (models on elevation grids, not surveys):
 
 To check before presenting:
 
-- Eight sources were opened and read by the AI on 2026-11-15 and are marked
-  "source read". The rest are marked "source not opened" (pH, lake depth and
-  area, the Garczynski report, the Landsat study) and still need a person.
-- The report cites "Braithwaite and Zedef" from a repository record that
-  lists one author by name; confirm the authors before citing.
+- Twelve sources were opened and read by the AI on 2026-11-15 and are
+  marked "source read", including the two pH studies, the depth and area
+  figures and the Landsat study. Only the Garczynski report (a PDF) is still
+  marked "source not opened".
+- Wikipedia, the source for the lake's area and depth, gives its surface
+  elevation as 1,316 m. SRTM puts the lake surface at 1,140 m, which is the
+  figure used here. One of the two is wrong; SRTM is the measurement.
 - Catchments stop at the map edge. Jezero's real river catchments are far
   larger than the figure shown.
 - Zone B at Jezero (the Margin Unit) is placed by eye on the western shore of
   the modelled lake. Its true extent was not mapped here.
 - The assessment's "support" levels are our judgement, not a measurement.
 - Lake Salda is a protected area; the suggested fieldwork needs permission.
+
+### Phone layout of the 3D page, second pass (2026-11-15)
+
+On a phone the falling-lake scenario made the site panel 534 px tall on an
+812 px screen, evidence cards covered most of the view, and the simulation
+label sat on the speed control. Now, on screens up to 820 px wide or 520 px
+tall:
+
+- the site panel is capped at 40% of the screen height and scrolls;
+- the scenario shows only its slider and three figures (the explanation and
+  sources stay on larger screens and in this README);
+- an evidence card opens as a strip under the header, at most 38% of the
+  screen height;
+- the "simulation" and "scenario" labels sit beside the drive buttons, above
+  the speed control, so they stay visible without covering anything;
+- a "Hide panels" button clears the site panel and any card, and brings them
+  back. The labels stay on screen when the panels are hidden.
+
+Checked in a 375 x 812 and an 812 x 375 window in a desktop browser, not on a
+real phone.
 
 ### AI use in this folder
 

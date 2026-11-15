@@ -121,7 +121,7 @@
           "note": "Measured pH 9.08 to 9.34 at the surface, 10 m and 20 m (2019); 9.26 to 9.52 in a 2023 stromatolite study; Mg-CO3-HCO3 water",
           "source": "https://link.springer.com/doi/10.1007/s10661-019-7889-y",
           "proposed_by": "AI (Claude) from the cited sources on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened",
+          "checked": "read directly on 2026-11-15 by AI (Claude): both papers opened: pH 9.08 and up in the 2019 abstract, 9.26 to 9.52 in the 2023 paper",
           "also": [
             "https://mdpi.com/2073-4441/15/4/733",
             "https://avesis.hacettepe.edu.tr/yayin/f1c79de7-49f8-4085-80cb-95c42c73b8b0/on-the-limnology-of-salda-lake-a-large-and-deep-soda-lake-in-southwestern-turkey-future-management-proposals"
@@ -199,7 +199,7 @@
           "note": "Hypersaline lake in an extinct volcano's crater with no outlet",
           "source": "https://reference-global.com/article/10.1515/trser-2017-0001",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the page was opened but showed no text about the lake"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -256,14 +256,14 @@
           "note": "Described as a soda lake; no pH measurement found. Only source is Wikipedia",
           "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Wikipedia calls it a soda lake; no measurement"
         },
         "water": {
           "match": 0.5,
           "note": "Excess water drains to the Kura River in the rainy season, so not a strictly closed basin",
           "source": "https://en.wikipedia.org/wiki/Kartsakhi_Lake",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Wikipedia: in the rainy season excess water discharges into the Kura River"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -332,7 +332,7 @@
           "note": "Freshwater crater lake fed by snowmelt; excess water drains to a creek",
           "source": "https://en.wikipedia.org/wiki/Lake_Akdo%C4%9Fan",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Wikipedia: crater lakes fed by snow, excess water pours into İskender creek"
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
@@ -352,7 +352,7 @@
           "note": "Tectonic lake in the Akarçay closed basin, fresh in the south and saline toward the north; largely dried",
           "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Key Biodiversity Areas factsheet: tectonic lake in the Akarçay closed basin, fresh in the west and south, saline to the north"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -371,7 +371,7 @@
           "note": "Described as a soda lake (Sodalı Göl); no pH measurement found. Only source is Wikipedia",
           "source": "https://en.wikipedia.org/wiki/Lake_Arin",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of a Wikipedia page"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Wikipedia calls it a soda lake (Sodalı Göl); no measurement"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -407,14 +407,14 @@
           "note": "A former sea gulf cut off by river sediment; a closed lake system for about 800 years, brackish today",
           "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: a closed lake system since about 0.8 thousand years ago, after a lagoon stage"
         },
         "sediments": {
           "match": 1,
           "note": "Sediment record of the change from sea to lagoon to lake",
           "source": "https://research.itu.edu.tr/en/publications/water-column-chemistry-of-late-holocene-lake-bafa-eastern-coast-o/",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: sediments record marine, lagoon and lake stages"
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
@@ -434,7 +434,7 @@
           "note": "Travertine (carbonate) cones around the lake feed sulfate-rich water; sodium sulfate salts crystallise in winter",
           "source": "https://journals.tubitak.gov.tr/earth/vol5/iss2/3",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: 63 travertine cones, sulfate-bearing water, mirabilite crystallising"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -500,14 +500,14 @@
           "note": "Described as slightly salty and alkaline; no measurement found",
           "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: nothing about alkaline or salty water was found on this page; the entry is unsupported by its source"
         },
         "water": {
           "match": 1,
           "note": "Lies in the Akarçay closed basin; level has fallen",
           "source": "https://www.keybiodiversityareas.org/site/factsheet/747",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the Akarçay closed basin is confirmed; the fall in level was not found on this page"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -554,7 +554,7 @@
           "note": "Freshwater; average pH about 8.78 in 2013-2014 (7.58 to 8.54 in a 2009 survey)",
           "source": "https://avesis.sdu.edu.tr/yayin/9e397e99-49ea-428c-9487-a8804d060c4b/evaluation-of-water-quality-from-the-perspective-of-eutrophication-in-lake-egirdir-turkey",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the abstract says pH was monitored but gives no value"
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
@@ -669,7 +669,7 @@
           "note": "Layered (meromictic) lake fed by thermal springs, with brackish water entering on the tide: linked to the sea",
           "source": "https://avesis.inonu.edu.tr/yayin/3f78ca91-f4b3-4aaf-8e96-dacbf29b5483/determination-of-the-origin-of-the-waters-of-koycegiz-lake-turkey",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: a meromictic lake fed by thermal water is confirmed; brackish water entering on the tide was not found on this page"
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
@@ -688,7 +688,7 @@
           "note": "Freshwater, but a water-quality study reports alkaline character with high pH; the value itself was not seen",
           "source": "https://dergipark.org.tr/en/pub/jaefr/issue/29943/341061",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the abstract says pH was measured and the water is first-class quality; no alkaline character or value was found in it"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -707,7 +707,7 @@
           "note": "Lake samples in the 2007 Ramsar sheet read pH 9.0 to 9.5; a 2019-2020 study of springs and wells reads 7.15 to 8.65. Conflicting",
           "source": "https://rsisd10.unepgrid.ch/RISapp/files/RISrep/TR659RIS.pdf",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the link is dead (the page answered 404)"
         },
         "minerals": {
           "match": 0.5,
@@ -721,7 +721,7 @@
           "note": "Closed basin of about 1,487 km2; the lake dried out briefly in 2008",
           "source": "https://meetingorganizer.copernicus.org/EGU2020/EGU2020-27.html",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the abstract was opened; neither a closed basin nor its area nor the 2008 drying was found in it"
         }
       },
       "shortlist": "salty and alkaline lakes outside the top 15, 2026-11-14"
@@ -769,7 +769,7 @@
           "note": "Shallow lake with river inflow and outflow through the Uluabat River",
           "source": "https://acikerisim.btu.edu.tr/items/010a65cd-803a-403e-a963-cdeff0ddab7e/full",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: a shallow lake with an inflowing brook is confirmed; the outflow was not found on this page"
         }
       },
       "shortlist": "well-documented lakes, third research round, 2026-11-14"
@@ -789,7 +789,7 @@
           "note": "Soda lake, pH about 9.7 to 9.8",
           "source": "https://link.springer.com/article/10.1007/s10498-008-9049-9",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: pH 9.73 and above"
         },
         "minerals": {
           "match": 0.5,
@@ -803,7 +803,7 @@
           "note": "Terminal lake with no outlet; its salinity records past lake-level changes",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5428207",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the largest closed-basin lakes, endorheic for about 500,000 years"
         },
         "sediments": {
           "match": 1,
@@ -839,7 +839,7 @@
           "note": "Freshwater lake formed where a lava flow blocked a valley",
           "source": "https://dergipark.org.tr/en/pub/ase/article/1353730",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: a freshwater lake is confirmed; the lava dam was not found on this page"
         }
       },
       "shortlist": "top 15 on measured variables, 2026-11-14"
@@ -859,7 +859,7 @@
           "note": "Average pH about 9.2; bicarbonate, carbonate and sodium are the main dissolved components",
           "source": "https://mdpi.com/2073-4441/14/24/4097",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: average pH around 9.2; bicarbonate, carbonate and sodium are major components"
         },
         "minerals": {
           "match": 0.5,
@@ -889,17 +889,17 @@
       "judged": {
         "minerals": {
           "match": 0.5,
-          "note": "Freshwater calcite microbialites, not magnesium carbonate",
+          "note": "Freshwater carbonate microbialites, not reported as magnesium carbonate",
           "source": "https://gsa.confex.com/gsa/2007AM/webprogram/Paper131473.html",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: freshwater microbialites studied as lacustrine carbonates; the word calcite is not on this page"
         },
         "sediments": {
           "match": 1,
-          "note": "Microbialite structures line the lake at 5 to 30 m depth; studied by NASA as an analog",
+          "note": "Freshwater microbialites whose form varies with depth, including mounds deeper than 30 m; studied by NASA as an analog",
           "source": "https://ntrs.nasa.gov/citations/20040112714",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): NASA abstract: freshwater microbialites whose form varies with depth, with mounds deeper than 30 m"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
@@ -953,21 +953,21 @@
           "note": "Lake water of about pH 8.3, below the 8.5 threshold",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985759",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the cited paper was opened and does not give the lake's pH; the 8.3 figure came from a search summary of another source"
         },
         "minerals": {
           "match": 0.5,
           "note": "Microbialites mainly of aragonite, a calcium carbonate, partly replaced by dolomite",
-          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985759",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: aragonite forms first and is partly replaced by dolomite"
         },
         "sediments": {
           "match": 1,
           "note": "Microbialites with clotted (thrombolite) fabric and lamination in their lower parts",
-          "source": "https://archimer.ifremer.fr/doc/00347/45852",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985759",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: clotted thrombolite fabric, laminated lower part"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
@@ -994,24 +994,24 @@
       "judged": {
         "ph": {
           "match": 0,
-          "note": "Measured pH 7.6 to 8.3, below the 8.5 threshold",
+          "note": "Measured pH 7.7 to 8.2, below the 8.5 threshold",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: pH 7.7 to 8.2"
         },
         "minerals": {
           "match": 0.5,
-          "note": "Carbonate-rich freshwater lagoon with carbonate stromatolites; mineral not confirmed as magnesium carbonate",
+          "note": "Microbialites made mainly of calcite (about 97%), a calcium carbonate, not magnesium carbonate",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: microbialites are about 97% calcite"
         },
         "sediments": {
           "match": 1,
           "note": "Large freshwater stromatolites and microbialites along the shore",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7094828",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: the largest freshwater microbialite occurrences in the world"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
@@ -1038,31 +1038,31 @@
       "judged": {
         "ph": {
           "match": 0.5,
-          "note": "Peer-reviewed measurements of about pH 8.8 to 8.9, just under 9",
-          "source": "https://www.nature.com/articles/ismej201381",
+          "note": "Measured average pH 8.87, just under 9",
+          "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: the authors' average pH is 8.87"
         },
         "minerals": {
           "match": 1,
           "note": "Microbialites made mainly of hydromagnesite, the magnesium carbonate found at Salda; water is magnesium-rich (Mg/Ca about 40)",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: microbialites of hydromagnesite with some huntite and calcite"
         },
         "water": {
           "match": 1,
-          "note": "Deep alkaline crater lake in an endorheic (closed) basin with an arid climate",
+          "note": "Deep alkaline crater lake, one of a group of salty endorheic (closed-basin) lakes",
           "source": "https://link.springer.com/article/10.1007/s10347-010-0255-8",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: one of the salty endorheic crater lakes of the Trans-Mexican Volcanic Belt"
         },
         "sediments": {
           "match": 1,
           "note": "Living microbialites from just below the surface down to 14 m depth",
           "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3237500",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: living microbialites down to at least 14 m; dry ones emerge on the shore as the lake level falls"
         }
       },
       "shortlist": "world lakes added 2026-11-14: carbonate and microbialite lakes"
@@ -1081,7 +1081,7 @@
           "note": "Soda lake in a basalt impact crater; measured pH 9.5 to 10.0",
           "source": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2015.01553/full",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): article: measured pH 9.5 to 10.0; a hyperalkaline soda lake in a basalt impact crater"
         }
       },
       "shortlist": "world lakes added 2026-11-14: impact-crater lakes"
@@ -1187,14 +1187,14 @@
           "note": "Soda-lake brines reaching about pH 12",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: Magadi and Natron contain brines with a pH of 12"
         },
         "water": {
           "match": 1,
-          "note": "Endorheic basin with no outlet",
+          "note": "Rift-valley lake basins have few outlets and evaporation exceeds inflow, which concentrates the water",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: a general statement about the rift lakes, not about this lake alone"
         }
       },
       "shortlist": "world lakes added 2026-11-14: soda lakes"
@@ -1214,14 +1214,14 @@
           "note": "Soda-lake brines reaching about pH 12",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: Magadi and Natron contain brines with a pH of 12"
         },
         "water": {
           "match": 1,
-          "note": "No water outlet",
+          "note": "Rift-valley lake basins have few outlets and evaporation exceeds inflow, which concentrates the water",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: a general statement about the rift lakes, not about this lake alone"
         }
       },
       "shortlist": "world lakes added 2026-11-14: soda lakes"
@@ -1241,7 +1241,7 @@
           "note": "Average pH of about 10",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: Bogoria, Nakuru and neighbours are markedly alkaline, average pH of 10"
         }
       },
       "shortlist": "world lakes added 2026-11-14: soda lakes"
@@ -1260,14 +1260,14 @@
           "note": "Described as an alkaline terminal salt lake; no measured pH found",
           "source": "https://mdsoar.org/handle/11603/4187",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: a terminal alkaline salt lake; no measurement"
         },
         "water": {
           "match": 1,
           "note": "Endorheic (closed-basin) terminal lake",
           "source": "https://mdsoar.org/handle/11603/4187",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): abstract: a terminal alkaline salt lake"
         }
       },
       "shortlist": "world lakes added 2026-11-14: soda lakes"
@@ -1287,7 +1287,7 @@
           "note": "Average pH of about 10",
           "source": "https://rd.springer.com/chapter/10.1007/978-3-319-73785-0_15",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): chapter: Bogoria, Nakuru and neighbours are markedly alkaline, average pH of 10"
         }
       },
       "shortlist": "world lakes added 2026-11-14: soda lakes"
@@ -1307,7 +1307,7 @@
           "note": "Open lake: its only outflow is the Angara River",
           "source": "https://www.britannica.com/place/Lake-Baikal",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): Britannica: the Angara River is its only outlet"
         }
       },
       "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
@@ -1327,7 +1327,7 @@
           "note": "Semi-open lake with a limited outflow through the Desaguadero River",
           "source": "https://www.worldatlas.com/lakes/the-world-s-largest-endorheic-lakes-explained.html",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "source opened on 2026-11-15 by AI (Claude), entry not confirmed: the cited page lists Titicaca among the largest endorheic (closed) lakes and does not mention the Desaguadero outflow; sources conflict, so the half match stands until checked"
         }
       },
       "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
@@ -1356,10 +1356,10 @@
       "judged": {
         "water": {
           "match": 0.5,
-          "note": "Open lake: drains through the Victoria Nile",
+          "note": "Open lake: the chief reservoir of the River Nile",
           "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): WorldAtlas: the chief reservoir of the River Nile"
         }
       },
       "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
@@ -1379,7 +1379,7 @@
           "note": "Open lake: drains through the St. Marys River to Lake Huron",
           "source": "https://www.worldatlas.com/lakes/the-largest-freshwater-lakes-in-the-world.html",
           "proposed_by": "AI (Claude) from the cited source on 2026-11-14; team to confirm",
-          "checked": "search-result summary of the source; full text not opened"
+          "checked": "read directly on 2026-11-15 by AI (Claude): WorldAtlas: the lake empties into Lake Huron through the St. Mary's River"
         }
       },
       "shortlist": "world lakes added 2026-11-14: well-known large lakes, expected to be poor analogs"
@@ -1391,6 +1391,6 @@
     "water": "1 = closed-basin lake that concentrates by evaporation. 0.5 = lake with an outflow, through-flow or a link to the sea. Left out when unknown.",
     "sediments": "1 = microbialites, delta or layered lake deposits documented. 0.5 = microbial mats or carbonate muds without documented microbialite structures. Left out when unknown."
   },
-  "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was read. Anything else still needs a human to open the source.",
+  "_source_check": "Each judged entry has 'checked': how the AI saw the source. 'read directly' means the source text itself was opened and supports the entry. 'source opened ... entry not confirmed' means the source was opened and does not support all of the entry. Anything else still needs a person to open the source.",
   "_candidate_changes": "2026-11-14: at the team's request, 111 lakes in Türkiye with no published evidence entered and more than 150 km from Lake Salda were removed, and 24 lakes from other countries were added (carbonate and microbialite lakes, impact-crater lakes, soda lakes, and well-known large lakes as expected poor analogs). Removing and adding places changes the spread of each measured variable, so every score shifts a little."
 }

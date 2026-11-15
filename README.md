@@ -173,6 +173,8 @@ in the project.
 
 | 2026-11-15 | Claude (Anthropic, Claude Code), in Kranimo's session | The Salda study page asked for by the team's teacher (`web/study.html`, `web/map/study.js`): a scientific report, a comparative map and an assessment. `pipeline/salda_study.py` and its output `data/salda_study.json` (catchment, stream inlets, overflow point, lake-level curves and slope classes for Salda and Jezero, computed from the SRTM and MOLA heightmaps). The report text and the assessment in `data/salda_report.json` were drafted by the AI from sources it opened and read, each statement labelled by how it is known; the "support" levels and the suggested fieldwork are the AI's proposals for the team to judge |
 
+| 2026-11-15 | Claude (Anthropic, Claude Code), in Kranimo's session | Source check: the AI opened the sources behind the judged entries that had only been seen as search summaries, and recorded the result in each entry's `checked` field in `pipeline/config.json` (40 of 73 now read and supported, 12 opened but not confirmed, 21 still unread). Three entries were corrected from their sources; no match value, score or rank changed. The study page's sources were re-marked the same way |
+
 Commits made with AI help carry a `Co-Authored-By` line in the commit message.
 
 ## Data sources

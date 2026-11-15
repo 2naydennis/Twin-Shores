@@ -69,8 +69,9 @@ const coverageShort = (site) => (site.coverage || '').replace(/ of /, '/').repla
 function evidenceTags(fact) {
   const tags = [];
   const direct = /^read directly/i.test(fact.checked || '');
+  const unconfirmed = /entry not confirmed/i.test(fact.checked || '');   // the source was opened and does not support all of it
   tags.push(el('span', { class: direct ? 'tag ok' : 'tag todo', title: fact.checked || '',
-    text: direct ? 'Source read directly' : 'From a summary, to verify' }));
+    text: direct ? 'Source read directly' : unconfirmed ? 'Source opened: not confirmed' : 'From a summary, to verify' }));
   if (/^AI/i.test(fact.proposed_by || '')) tags.push(el('span', { class: 'tag todo', title: fact.proposed_by, text: 'Match proposed by AI' }));
   return tags;
 }
